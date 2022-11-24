@@ -7,34 +7,34 @@
         <main-btn
           icon="cci-compendium"
           :to="'/compendium'"
-          help="Equipment Database"
+          help="База данных снаряжения"
           @hover="ccLog('compendium')"
         >
-          Compendium
+          Компендиум
         </main-btn>
         <main-btn
           icon="cci-pilot"
           :to="'/pilot_management'"
-          help="Manage Pilots"
+          help="Управление пилотами"
           @hover="ccLog('pilot')"
         >
-          Pilot Roster
+          Список пилотов
         </main-btn>
         <main-btn
           icon="cci-encounter"
           :to="'/gm'"
-          help="Manage NPCs/Encounters/Missions"
+          help="Управление НИПами/Встречами/Миссиями"
           @hover="ccLog('gm')"
         >
-          Encounter Toolkit
+          Инструментарий
         </main-btn>
         <main-btn
           icon="cci-content-manager"
-          help="Import Content Packs"
+          help="Импорт пакетов материалов"
           @hover="ccLog('content')"
           @clicked="$refs.contentModal.show()"
         >
-          Content Manager
+          Материалы
           <cc-tooltip
             v-if="missingContent"
             inline

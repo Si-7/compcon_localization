@@ -29,7 +29,7 @@
             md="6"
             sm="12"
             icon="cci-manufacturer"
-            name="Manufacturers"
+            name="Производители"
             @clicked="$router.push('compendium/manufacturers')"
           />
           <compendium-page-button
@@ -38,7 +38,7 @@
             sm="12"
             color="primary"
             icon="cci-license"
-            name="Licenses"
+            name="Лицензии"
             @clicked="$router.push('compendium/licenses')"
           />
           <compendium-page-button
@@ -46,7 +46,7 @@
             md="6"
             sm="12"
             icon="cci-corebonus"
-            name="CORE Bonuses"
+            name="Бонусы ЯДРА"
             @clicked="$router.push('compendium/corebonuses')"
           />
           <compendium-page-button
@@ -55,7 +55,7 @@
             sm="12"
             color="frame"
             icon="cci-frame"
-            name="Frames"
+            name="Рамы"
             @clicked="$router.push('compendium/frames')"
           />
           <compendium-page-button
@@ -64,7 +64,7 @@
             sm="12"
             color="weapon"
             icon="cci-melee"
-            name="Mech Weapons"
+            name="Оружие мехов"
             @clicked="$router.push('compendium/weapons')"
           />
           <compendium-page-button
@@ -73,7 +73,7 @@
             sm="12"
             color="system"
             icon="mdi-chip"
-            name="Mech Systems"
+            name="Системы мехов"
             @clicked="$router.push('compendium/systems')"
           />
           <compendium-page-button
@@ -82,7 +82,7 @@
             sm="12"
             color="secondary"
             icon="cci-pilot"
-            name="Pilot Gear"
+            name="Снаряжение пилотов"
             @clicked="$router.push('compendium/pilot_gear')"
           />
           <compendium-page-button
@@ -91,7 +91,7 @@
             sm="12"
             color="secondary"
             icon="public"
-            name="Backgrounds"
+            name="Предыстории"
             @clicked="$router.push('compendium/backgrounds')"
           />
           <compendium-page-button
@@ -100,7 +100,7 @@
             sm="12"
             color="secondary"
             icon="cci-accuracy"
-            name="Skill Triggers"
+            name="Триггеры"
             @clicked="$router.push('compendium/skills')"
           />
           <compendium-page-button
@@ -109,7 +109,7 @@
             sm="12"
             color="secondary"
             icon="cci-rank-3"
-            name="Talents"
+            name="Таланты"
             @clicked="$router.push('compendium/talents')"
           />
           <compendium-page-button
@@ -128,7 +128,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-class"
-            name="NPC Classes"
+            name="Классы НИПов"
             @clicked="$router.push('compendium/npc_classes')"
           />
           <compendium-page-button
@@ -137,7 +137,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-feature"
-            name="NPC Features"
+            name="Функции НИПов"
             @clicked="$router.push('compendium/npc_features')"
           />
           <compendium-page-button
@@ -146,7 +146,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-template"
-            name="NPC Templates"
+            name="Шаблоны НИПов"
             @clicked="$router.push('compendium/npc_templates')"
           />
           <compendium-page-button
@@ -154,7 +154,7 @@
             md="6"
             sm="12"
             icon="cci-status-exposed"
-            name="Statuses &amp; Conditions"
+            name="Статусы &amp; Условия"
             @clicked="$router.push('compendium/statuses')"
           />
           <compendium-page-button
@@ -162,7 +162,7 @@
             md="6"
             sm="12"
             icon="cci-reserve-mech"
-            name="Reserves"
+            name="Резервы"
             @clicked="$router.push('compendium/reserves')"
           />
           <compendium-page-button
@@ -170,7 +170,7 @@
             md="6"
             sm="12"
             icon="cci-activate"
-            name="Action Economy"
+            name="Экономика действий"
             @clicked="$router.push('compendium/actions')"
           />
           <compendium-page-button
@@ -178,7 +178,7 @@
             md="6"
             sm="12"
             icon="mdi-tag"
-            name="Equipment Tags"
+            name="Метки оборудования"
             @clicked="$router.push('compendium/tags')"
           />
           <compendium-page-button
@@ -186,7 +186,7 @@
             md="6"
             sm="12"
             icon="cci-accuracy"
-            name="Reference"
+            name="Справка"
             @clicked="$router.push('compendium/reference')"
           />
           <compendium-page-button
@@ -194,7 +194,7 @@
             md="6"
             sm="12"
             icon="cci-compendium"
-            name="Glossary"
+            name="Словарь"
             @clicked="$router.push('compendium/glossary')"
           />
         </v-row>
