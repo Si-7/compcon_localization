@@ -59,7 +59,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { reserves } from 'lancer-data'
+import { reserves } from 'lancer-data-rus'
 
 export default Vue.extend({
   name: 'reserve-selector',

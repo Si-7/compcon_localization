@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { actions } from 'lancer-data'
+import { actions } from 'lancer-data-rus'
 
 export default Vue.extend({
   name: 'action-button',

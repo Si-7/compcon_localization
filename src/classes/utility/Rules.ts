@@ -1,4 +1,4 @@
-import { rules } from 'lancer-data'
+import { rules } from 'lancer-data-rus'
 
 export class Rules {
   public static get BaseStructure(): number {
