@@ -23,12 +23,12 @@ class TalentRank extends CompendiumItem {
 class Talent extends CompendiumItem {
   public readonly Terse: string
   private _ranks: TalentRank[]
-  private _icon_url: string
+  private _icon: string
 
   public constructor(data: any, packTags?: ITagCompendiumData[], packName?: string) {
     super(data, packTags, packName)
     this.Terse = data.terse || ''
-    this._icon_url = data.icon_url || ''
+    this._icon = data.icon || ''
     this._ranks = data.ranks.map(x => new TalentRank(x))
   }
 
@@ -37,7 +37,7 @@ class Talent extends CompendiumItem {
   }
 
   public get Image(): string {
-    if (this._icon_url) return this._icon_url
+    if (this._icon) return `/static/img/talent/${this._icon.toUpperCase()}.svg`
     return `/static/img/talent/${this.Name.toUpperCase()}.svg`
   }
 
