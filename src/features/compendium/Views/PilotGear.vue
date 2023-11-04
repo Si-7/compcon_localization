@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <h1 class="heading">PILOT GEAR</h1>
+    <h1 class="heading">СНАРЯЖЕНИЕ ПИЛОТОВ</h1>
     <v-tabs
       :vertical="$vuetify.breakpoint.mdAndUp"
       background-color="primary"
@@ -8,9 +8,9 @@
       slider-color="active"
       style="min-height: 80vh"
     >
-      <v-tab ripple>ARMOR</v-tab>
-      <v-tab ripple>WEAPONS</v-tab>
-      <v-tab ripple>GEAR</v-tab>
+      <v-tab ripple>БРОНЯ</v-tab>
+      <v-tab ripple>ОРУЖИЕ</v-tab>
+      <v-tab ripple>СНАРЯЖЕНИЕ</v-tab>
       <v-tab-item :class="$vuetify.breakpoint.mdAndUp ? 'ml-4' : ''">
         <compendium-browser no-filter :headers="armor_headers" :items="armor" />
       </v-tab-item>
@@ -38,21 +38,21 @@ import { PilotWeapon } from '@/class'
 })
 export default class PilotGearBrowser extends Vue {
   public armor_headers = [
-    { text: 'Item', align: 'left', value: 'Name' },
-    { text: 'Armor', align: 'center', value: 'Armor' },
-    { text: 'HP Bonus', align: 'center', value: 'HPBonus' },
-    { text: 'E-Defense', align: 'center', value: 'EDefense' },
-    { text: 'Evasion', align: 'center', value: 'Evasion' },
-    { text: 'Speed', align: 'center', value: 'Speed' },
+    { text: 'Предмет', align: 'left', value: 'Name' },
+    { text: 'Броня', align: 'center', value: 'Armor' },
+    { text: 'Бонус ПЗ', align: 'center', value: 'HPBonus' },
+    { text: 'Э-Защита', align: 'center', value: 'EDefense' },
+    { text: 'Уклонение', align: 'center', value: 'Evasion' },
+    { text: 'Скорость', align: 'center', value: 'Speed' },
   ]
   public weapon_headers = [
-    { text: 'Item', align: 'left', value: 'Name' },
-    { text: 'Range', align: 'left', value: 'Range[0].Max' },
-    { text: 'Damage', align: 'left', value: 'Damage[0].Max' },
+    { text: 'Предмет', align: 'left', value: 'Name' },
+    { text: 'Дистанция', align: 'left', value: 'Range[0].Max' },
+    { text: 'Урон', align: 'left', value: 'Damage[0].Max' },
   ]
   public gear_headers = [
-    { text: 'Item', align: 'left', value: 'Name' },
-    { text: 'Uses', align: 'center', value: 'MaxUses' },
+    { text: 'Предмет', align: 'left', value: 'Name' },
+    { text: 'Использований', align: 'center', value: 'MaxUses' },
   ]
 
   // typing on these is wrong... look into fixing it

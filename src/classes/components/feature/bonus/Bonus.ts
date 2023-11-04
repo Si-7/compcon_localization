@@ -45,7 +45,7 @@ class Bonus {
   private parseDetail(detail): string {
     let str = detail.slice()
     str = str.replace(/{VAL}/g, this.Value)
-    str = str.replace(/{INC_DEC}/g, this.Value > -1 ? 'Increases' : 'Decreases')
+    str = str.replace(/{INC_DEC}/g, Number(this.Value) > -1 ? 'Increases' : 'Decreases')
     str = str.replace(
       /{RANGE_TYPES}/g,
       ` ${this.RangeTypes.length ? this.RangeTypes.join('/').toUpperCase() : ''}`

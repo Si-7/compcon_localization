@@ -2,7 +2,7 @@
   <equipment-card-base :item="item" :notes="notes">
     {{ item.OnAttack }}
     <v-col v-if="item.Profiles && item.Profiles.length > 1" cols="12" class="mt-n4 mb-4">
-      <div class="overline mb-1">WEAPON PROFILES</div>
+      <div class="overline mb-1">ПРОФИЛИ ОРУЖИЯ</div>
       <v-tabs v-model="tab" grow height="30px">
         <v-tab v-for="p in item.Profiles" :key="p.ID">
           <span class="accent--text font-weight-bold">{{ p.Name }}</span>
@@ -12,17 +12,17 @@
     <div v-else slot="other_effects">
       <div v-if="item.ProfileOnAttack" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
-        <span class="overline stark--text">ON ATTACK</span>
+        <span class="overline stark--text">ПРИ АТАКЕ</span>
         <p v-html-safe="item.ProfileOnAttack" class="text--text body-text mb-1 mx-3" />
       </div>
       <div v-if="item.ProfileOnHit" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
-        <span class="overline stark--text">ON HIT</span>
+        <span class="overline stark--text">ПРИ ПОПАДАНИИ</span>
         <p v-html-safe="item.ProfileOnHit" class="text--text body-text mb-1 mx-3" />
       </div>
       <div v-if="item.ProfileOnCrit" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
-        <span class="overline stark--text">ON CRITICAL HIT</span>
+        <span class="overline stark--text">ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ</span>
         <p v-html-safe="item.ProfileOnCrit" class="text--text body-text mb-1 mx-3" />
       </div>
     </div>
@@ -40,7 +40,7 @@
       </div>
       <span class="overline">
         <b>{{ item.SP }}</b>
-        SYSTEM POINT{{ item.SP > 1 ? 'S' : '' }}
+        СП
       </span>
     </v-col>
     <v-col cols="auto" class="ml-auto text-right">
@@ -52,7 +52,7 @@
       <div v-if="item.ProfileEffect" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
         <span class="overline">
-          <span class="stark--text">EQUIPMENT EFFECT</span>
+          <span class="stark--text">ЭФФЕКТ СНАРЯЖЕНИЯ</span>
           ::{{ item.SelectedProfile.Name }}
         </span>
         <p v-html-safe="item.ProfileEffect" class="text--text body-text mb-1 mx-3" />
@@ -60,7 +60,7 @@
       <div v-if="item.ProfileOnAttack" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
         <span class="overline">
-          <span class="stark--text">ON ATTACK</span>
+          <span class="stark--text">ПРИ АТАКЕ</span>
           ::{{ item.SelectedProfile.Name }}
         </span>
         <p v-html-safe="item.ProfileOnAttack" class="text--text body-text mb-1 mx-3" />
@@ -68,7 +68,7 @@
       <div v-if="item.ProfileOnHit" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
         <span class="overline">
-          <span class="stark--text">ON HIT</span>
+          <span class="stark--text">ПРИ ПОПАДАНИИ</span>
           ::{{ item.SelectedProfile.Name }}
         </span>
         <p v-html-safe="item.ProfileOnHit" class="text--text body-text mb-1 mx-3" />
@@ -76,7 +76,7 @@
       <div v-if="item.ProfileOnCrit" class="panel clipped pa-2">
         <v-icon>cci-weapon</v-icon>
         <span class="overline">
-          <span class="stark--text">ON CRITICAL HIT</span>
+          <span class="stark--text">ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ</span>
           ::{{ item.SelectedProfile.Name }}
         </span>
         <p v-html-safe="item.ProfileOnCrit" class="text--text body-text mb-1 mx-3" />
@@ -85,7 +85,7 @@
 
     <div slot="profile">
       <div v-if="item.Profiles.length > 1 && item.ProfileActions.length">
-        <div class="overline ml-n2 subtle--text">PROFILE ACTIONS</div>
+        <div class="overline ml-n2 subtle--text">ДЕЙСТВИЯ ПРОФИЛЯ</div>
         <v-row no-gutters justify="center">
           <v-col
             v-for="(a, i) in item.ProfileActions"
@@ -98,7 +98,7 @@
       </div>
 
       <div v-if="item.Profiles.length > 1 && item.ProfileDeployables.length">
-        <div class="overline ml-n2 subtle--text">PROFILE DEPLOYABLES</div>
+        <div class="overline ml-n2 subtle--text">РАЗВЕРТЫВАЕМЫЕ ОБЪЕКТЫ ПРОФИЛЯ</div>
         <v-row no-gutters justify="center">
           <v-col
             v-for="(d, i) in item.ProfileDeployables"
@@ -115,7 +115,7 @@
         </v-row>
       </div>
       <div v-if="item.Profiles.length > 1 && item.ProfileTags && item.ProfileTags.length">
-        <div class="overline ml-n2 mb-n1 subtle--text">PROFILE TAGS</div>
+        <div class="overline ml-n2 mb-n1 subtle--text">МЕТКИ ПРОФИЛЯ</div>
         <cc-tags :tags="item.ProfileTags" extended />
       </div>
     </div>

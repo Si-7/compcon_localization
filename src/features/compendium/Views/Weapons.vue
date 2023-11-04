@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <compendium-browser :headers="headers" :items="weapons">Mech Weapons</compendium-browser>
+    <compendium-browser :headers="headers" :items="weapons">ОРУЖИЕ МЕХОВ</compendium-browser>
   </v-container>
 </template>
 
@@ -18,13 +18,13 @@ import { MechWeapon } from '../../../classes/mech/components/equipment/MechWeapo
 })
 export default class Weapons extends Vue {
   public headers = [
-    { text: 'Source', align: 'left', value: 'Source' },
-    { text: 'Weapon', align: 'left', value: 'Name' },
-    { text: 'License', align: 'left', value: 'LicenseString' },
-    { text: 'Size', align: 'left', value: 'SizeInt' },
-    { text: 'Type', align: 'left', value: 'WeaponType' },
-    { text: 'Range', align: 'left', value: 'Range[0].Max' },
-    { text: 'Damage', align: 'left', value: 'Damage[0].Max' },
+    { text: 'Источник', align: 'left', value: 'Source' },
+    { text: 'Оружие', align: 'left', value: 'Name' },
+    { text: 'Лицензия', align: 'left', value: 'LicenseString' },
+    { text: 'Размер', align: 'left', value: 'SizeInt' },
+    { text: 'Тип', align: 'left', value: 'WeaponType' },
+    { text: 'Дистанция', align: 'left', value: 'Range[0].Max' },
+    { text: 'Урон', align: 'left', value: 'Damage[0].Max' },
   ]
 
   private compendium = getModule(CompendiumStore, this.$store)

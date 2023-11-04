@@ -170,7 +170,7 @@ class Action {
     this.IsTechAttack = data.tech_attack
     this.IsMechAction = data.mech || !data.pilot
     this.IsActiveHidden = data.hide_active
-    this.IsDowntimeAction = data.activation && data.activation.toString() === 'Downtime'
+    this.IsDowntimeAction = data.activation && data.activation.toString() === 'Отдыха'
     this._used = false
     this._ignore_used = data.ignore_used
     this._free_used = false
@@ -231,7 +231,9 @@ class Action {
   public get Color(): string {
     if (this.ID === 'act_overcharge') return 'action--overcharge'
     if (this.ID === 'act_self_destruct') return 'error'
-    return `action--${this.Activation.toLowerCase()}`
+    if (this.Activation === ActivationType.FullTech) return `action--full tech`
+    if (this.Activation === ActivationType.QuickTech) return `action--quick tech`
+    return `action--${Object.keys(ActivationType).find(key => ActivationType[key] === this.Activation).toLowerCase()}`
   }
 
   public get Icon(): string {
@@ -245,7 +247,9 @@ class Action {
       case ActivationType.Move:
         return 'mdi-arrow-right-bold-hexagon-outline'
       default:
-        return `cci-${this.Activation.toLowerCase().replace(' ', '-')}`
+        if (this.Activation === ActivationType.FullTech) return `cci-full-tech`
+        if (this.Activation === ActivationType.QuickTech) return `cci-quick-tech`
+        return `cci-${Object.keys(ActivationType).find(key => ActivationType[key] === this.Activation).toLowerCase().replace(' ', '-')}`
     }
   }
 

@@ -17,7 +17,7 @@
     </v-list-item>
     <v-row dense align="center">
       <v-col cols="auto">
-        <div class="heading h1 mt-3 mb-2">PILOT TALENTS</div>
+        <div class="heading h1 mt-3 mb-2">ТАЛАНТЫ ПИЛОТА</div>
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn-toggle v-model="ctype" mandatory>

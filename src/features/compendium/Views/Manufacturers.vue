@@ -1,6 +1,6 @@
 <template>
   <v-container px-5>
-    <div class="heading h1">MANUFACTURERS</div>
+    <div class="heading h1">ПРОИЗВОДИТЕЛИ</div>
     <v-tabs
       v-model="tabModel"
       :vertical="$vuetify.breakpoint.lgAndUp"

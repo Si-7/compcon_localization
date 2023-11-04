@@ -94,20 +94,20 @@ class Damage {
   }
 
   public get Icon(): string {
-    return `cci-${this.Type.toLowerCase()}`
+    return `cci-${Object.keys(DamageType).find(key => DamageType[key] === this.Type).toLowerCase()}`
   }
 
   public get DiscordEmoji(): string {
-    return `:cc_damage_${this.Type.toLowerCase()}:`
+    return `:cc_damage_${Object.keys(DamageType).find(key => DamageType[key] === this.Type).toLowerCase()}:`
   }
 
   public get Color(): string {
-    return `damage--${this.Type.toLowerCase()}`
+    return `damage--${Object.keys(DamageType).find(key => DamageType[key] === this.Type).toLowerCase()}`
   }
 
   public get Text(): string {
     if (this.Override) return this.Value
-    return `${this.Value} ${this.Type} Damage`
+    return `${this.Value} ${Object.keys(DamageType).find(key => DamageType[key] === this.Type)} Damage`
   }
 
   public static Serialize(damage: Damage): IDamageData {

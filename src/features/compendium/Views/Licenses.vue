@@ -1,6 +1,6 @@
 <template>
   <v-container px-5>
-    <h1 class="heading">LICENSES</h1>
+    <h1 class="heading">ЛИЦЕНЗИИ</h1>
     <v-row v-for="m in Object.keys(licenses)" :key="m">
       <v-col v-if="manufacturer(m)" class="text-center pa-3">
         <div>

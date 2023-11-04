@@ -37,7 +37,7 @@
         <div>
           <div class="overline">
             <v-icon>cci-system</v-icon>
-            EQUIPMENT EFFECT
+            МЕТКИ СНАРЯЖЕНИЯ
           </div>
           <p v-html-safe="mod.Effect" class="text--text body-text mb-1 mr-3 ml-7" />
         </div>

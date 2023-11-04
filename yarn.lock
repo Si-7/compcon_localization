@@ -8338,10 +8338,12 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
 
-lancer-data-rus@^1.0.9:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/lancer-data-rus/-/lancer-data-rus-1.0.8.tgz#09bdac0ceefb6b6bb02c5c7a60fa8624f94c82fb"
-  integrity sha512-K07ApH2nHGva+mvTauAhBuMYI6NLAPBD0Bzqs83Jeu4Y0XXTwRIk0xmRF2jPCdUtkDeiBxKJDCusDuc3dtxmDQ==
+lancer-data-rus@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/lancer-data-rus/-/lancer-data-rus-1.1.9.tgz#df693936bfdae96d2b6bb49ae442a1c61a4d8bb6"
+  integrity sha512-qf2yxjo8wfYP8QeHs+k43lWtFAVx94L8+CRypNjkDEJOSZmyRIqU3NUKKvUy6bWdugVspBzmqlqcpi321AR0gg==
+  dependencies:
+    yarn "^1.22.19"
 
 launch-editor-middleware@^2.2.1:
   version "2.3.0"
@@ -12604,6 +12606,11 @@ yargs@^16.0.0:
     string-width "^4.2.0"
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
+
+yarn@^1.22.19:
+  version "1.22.19"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.19.tgz#4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
 yorkie@^2.0.0:
   version "2.0.0"

@@ -9,7 +9,7 @@
             : 'letter-spacing: 2vw!important; font-size: 4vw!important;'
         "
       >
-        COMPENDIUM
+        КОМПЕНДИУМ
       </div>
       <v-row dense justify="center">
         <v-col lg="8" xs="12">
@@ -154,7 +154,7 @@
             md="6"
             sm="12"
             icon="cci-status-exposed"
-            name="Статусы &amp; Условия"
+            name="Статусы &amp; Состояния"
             @clicked="$router.push('compendium/statuses')"
           />
           <compendium-page-button
@@ -178,7 +178,7 @@
             md="6"
             sm="12"
             icon="mdi-tag"
-            name="Метки оборудования"
+            name="Метки снаряжения"
             @clicked="$router.push('compendium/tags')"
           />
           <compendium-page-button

@@ -1,6 +1,6 @@
 <template>
   <sidebar-array-view
-    title="GLOSSARY"
+    title="СЛОВАРЬ"
     :array="glossary"
     name-key="name"
     description-key="description"

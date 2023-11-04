@@ -5,13 +5,13 @@
         <v-row dense align="start">
           <v-col>
             <span class="heading h2 text--text">
-              {{ item.Source }} {{ item.MechTypeString }} Frame
+              {{ item.Source }} {{ item.MechTypeString }} РАМА
             </span>
           </v-col>
           <v-col cols="auto" class="ml-auto">
             <cc-tooltip
-              :title="`Size ${item.Size === 0.5 ? '½' : item.Size}`"
-              :content="glossary('size')"
+              :title="`Размер ${item.Size === 0.5 ? '½' : item.Size}`"
+              :content="glossary('Размер')"
             >
               <v-icon size="60" color="accent" class="mt-n2" style="line-height: 40px">
                 {{ item.SizeIcon }}
@@ -21,30 +21,30 @@
         </v-row>
         <div v-if="item.InLcp" class="heading h4 text--text">{{ item.LcpName }}</div>
         <div v-if="item.Description">
-          <div class="overline ml-n2 my-1 text--text">COMPENDIUM ENTRY</div>
+          <div class="overline ml-n2 my-1 text--text">СТАТЬЯ КОМПЕНДИУМА</div>
           <p v-html-safe="item.Description" class="flavor-text" />
         </div>
         <div>
-          <span class="overline ml-n2 text--text">COMBAT PROFILE</span>
+          <span class="overline ml-n2 text--text">БОЕВОЙ ПРОФИЛЬ</span>
           <p class="heading h3 subtle--text light-panel text-center py-10">
             <v-icon large color="grey">mdi-lock</v-icon>
             <br />
-            FEATURE IN DEVELOPMENT
+            ФУНКЦИОНАЛ В РАЗРАБОТКЕ
           </p>
         </div>
       </v-col>
       <v-col v-if="$vuetify.breakpoint.lgAndUp" cols="5">
         <v-img :src="item.DefaultImage" max-width="35vw" />
-        <cc-tooltip simple content="Feature In Development">
+        <cc-tooltip simple content="Функционал в разработке">
           <frame-gallery-modal :frame="item" />
         </cc-tooltip>
       </v-col>
     </v-row>
 
-    <span class="overline ml-n2 mb-n2 text--text">BASE FRAME ATTRIBUTES</span>
+    <span class="overline ml-n2 mb-n2 text--text">БАЗОВЫЕ АТТРИБУТЫ РАМЫ</span>
     <frame-statblock :frame="item" />
 
-    <span class="overline ml-n2 text--text">FRAME TRAITS</span>
+    <span class="overline ml-n2 text--text">ЧЕРТЫ РАМЫ</span>
     <cc-trait-item
       v-for="(t, i) in item.Traits"
       :key="`trait_${i}`"
@@ -52,18 +52,18 @@
       :color="item.Manufacturer.GetColor($vuetify.theme.dark)"
     />
 
-    <span class="overline ml-n2 text--text">AVAILABLE WEAPON MOUNTS</span>
+    <span class="overline ml-n2 text--text">ДОСТУПНЫЕ СЛОТЫ</span>
     <v-row justify="space-around" class="mb-3">
       <v-col v-for="(m, i) in item.Mounts" :key="m + i" cols="auto">
         <v-card color="primary" dark class="clipped">
           <cc-tooltip simple inline :content="get_mount_tooltip(m)">
-            <v-card-text class="heading h3 px-8">{{ m }} Mount</v-card-text>
+            <v-card-text class="heading h3 px-8">{{ m }} Слот</v-card-text>
           </cc-tooltip>
         </v-card>
       </v-col>
     </v-row>
 
-    <span class="overline ml-n2 text--text">ONBOARD CORE SYSTEM</span>
+    <span class="overline ml-n2 text--text">СИСТЕМА ЯДРА</span>
     <frame-core-system-panel :cs="item.CoreSystem" />
   </v-card-text>
 </template>
@@ -89,12 +89,12 @@ export default Vue.extend({
 
     get_mount_tooltip(mount_type: string) {
       const mount_tooltips = {
-        "Heavy": "Holds one <b>HEAVY</b>, <b>MAIN</b>, or <b>AUXILIARY</b> weapon",
-        "Main": "Holds one <b>MAIN</b> or <b>AUXILIARY</b> weapon",
-        "Aux/Aux": "Holds up to two <b>AUXILIARY</b> weapons",
-        "Aux": "Holds one <b>AUXILIARY</b> weapon",
-        "Main/Aux": "Holds one <b>MAIN</b> weapon and one <b>AUXILIARY</b> weapon, or two <b>AUXILIARY</b> weapons",
-        "Flex": "Holds either one <b>MAIN</b> weapon or up to two <b>AUXILIARY</b> weapons",
+        "Тяжёлый": "Вмещает одно <b>Тяжёлое</b>, <b>Основное</b> либо <b>Вторичное</b> оружие",
+        "Основной": "Вмещает одно <b>Основное</b> либо <b>Вторичное</b> оружие",
+        "Втор./Вспом.": "Вмещает до 2 <b>Вторичных</b> оружий",
+        "Втор.": "Вмещает одно <b>Вторичное</b> оружие",
+        "Осн./Втор.": "Вмещает одно <b>Основное</b> и одно <b>Вторичное</b>, либо два <b>Вторичных</b> оружия",
+        "Гибкий": "Вмещает одно <b>Основное</b> либо два <b>Вторичных</b> оружия",
       }
       if (mount_type in mount_tooltips) {
         return mount_tooltips[mount_type]

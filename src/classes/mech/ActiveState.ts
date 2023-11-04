@@ -1163,7 +1163,7 @@ class ActiveState {
     if (this.Stage === 'Narrative')
       return store.getters
         .getItemCollection('Actions')
-        .filter(x => x && x.Activation === 'Downtime')
+        .filter(x => x && x.Activation === 'Отдыха')
         .map(x => x.ID)
 
     if (!this.IsMounted) {
@@ -1201,7 +1201,7 @@ class ActiveState {
   }
 
   public get DowntimeActions(): Action[] {
-    return store.getters.getItemCollection('Actions').filter(x => x && x.Activation === 'Downtime')
+    return store.getters.getItemCollection('Actions').filter(x => x && x.Activation === 'Отдыха')
   }
 
   // -- Log ---------------------------------------------------------------------------------------

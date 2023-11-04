@@ -13,13 +13,13 @@
     <slot name="statblock" />
 
     <div v-if="item.Effect">
-      <div class="overline ml-n2 mt-2 subtle--text">EQUIPMENT EFFECT</div>
+      <div class="overline ml-n2 mt-2 subtle--text">МЕТКИ СНАРЯЖЕНИЯ</div>
       <p v-html-safe="item.Effect" class="text--text body-text mb-1" />
     </div>
     <slot name="other_effects" />
 
     <div v-if="item.Actions && item.Actions.length">
-      <div class="overline ml-n2 subtle--text">EQUIPMENT ACTIONS</div>
+      <div class="overline ml-n2 subtle--text">ДЕЙСТВИЯ СНАРЯЖЕНИЯ</div>
       <v-row no-gutters justify="center">
         <v-col v-for="(a, i) in item.Actions" :key="`${item.Name}_action_${i}`" cols="auto">
           <cc-action :action="a" :panel="$vuetify.breakpoint.lgAndUp" class="ma-2" />
@@ -65,15 +65,15 @@
     <slot name="profile" />
 
     <div v-if="item.Tags && item.Tags.length" class="mt-2">
-      <div class="overline ml-n2 mb-n1 subtle--text">EQUIPMENT TAGS</div>
+      <div class="overline ml-n2 mb-n1 subtle--text">МЕТКИ СНАРЯЖЕНИЯ</div>
       <cc-tags :tags="item.Tags" extended />
     </div>
     <!-- <div v-else-if="item.ProfileTags && item.ProfileTags.length">
-      <div class="overline ml-n2 mb-n1 subtle--text">EQUIPMENT TAGS</div>
+      <div class="overline ml-n2 mb-n1 subtle--text">МЕТКИ СНАРЯЖЕНИЯ</div>
       <cc-tags :tags="item.ProfileTags" extended />
     </div> -->
     <div v-if="item.Description" class="mt-2">
-      <div class="overline ml-n2">COMPENDIUM ENTRY</div>
+      <div class="overline ml-n2">СТАТЬЯ КОМПЕНДИУМА</div>
       <p v-html-safe="item.Description" class="flavor-text mb-1" />
     </div>
 

@@ -1,6 +1,6 @@
 <template>
   <sidebar-array-view
-    title="PILOT BACKGROUNDS"
+    title="ПРЕДЫСТОРИИ ПИЛОТА"
     :array="backgrounds"
     icon="cci-orbit"
     name-key="Name"

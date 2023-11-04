@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1 class="heading ml-5">ACTION ECONOMY</h1>
+    <h1 class="heading ml-5">ЭКОНОМИКА ДЕЙСТВИЙ</h1>
     <v-container>
-      <h2 class="heading mech">Per Turn</h2>
+      <h2 class="heading mech">В ход</h2>
       <v-card color="panel" elevation-10>
         <v-card-text>
           <v-row justify="center" dense>
             <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 4" class="effect-text text-center">
-              Full Action
-              <i class="subtle--text text--darken-1">or</i>
-              2 Quick Actions
+              Полное Действие
+              <i class="subtle--text text--darken-1">или</i>
+              2 Быстрых Действия
               <br />
               <v-card tile color="action--full" width="100%" class="text-center pt-4 pb-4">
                 <v-icon size="100" dark>$vuetify.icons.full</v-icon>
@@ -25,7 +25,7 @@
               lg="2"
               class="effect-text text-center text-capitalize"
             >
-              {{ a.action }}
+              {{ a.name }}
               <br />
               <v-card tile :color="`action--${a.action}`" class="pt-4 pb-4">
                 <v-icon size="100" dark>{{ a.icon }}</v-icon>
@@ -76,10 +76,10 @@ export default Vue.extend({
   components: { ActionCard },
   data: () => ({
     actionTypes: [
-      { action: 'move', icon: '$vuetify.icons.move' },
-      { action: 'overcharge', icon: 'cci-overcharge' },
-      { action: 'reaction', icon: 'cci-reaction' },
-      { action: 'free', icon: 'cci-free' },
+      { name: 'Перемещение', action: 'move', icon: '$vuetify.icons.move' },
+      { name: 'Перегрузка', action: 'overcharge', icon: 'cci-overcharge' },
+      { name: 'Реакция', action: 'reaction', icon: 'cci-reaction' },
+      { name: 'Свободное действие', action: 'free', icon: 'cci-free' },
     ],
     actions: [],
     pilotActions: [],

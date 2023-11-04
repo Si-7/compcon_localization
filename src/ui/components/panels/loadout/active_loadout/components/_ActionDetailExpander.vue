@@ -22,7 +22,7 @@
     >
       <div class="panel clipped py-1 px-2">
         <div class="caption accent--text mt-1">
-          COMPENDIUM ENTRY
+          СТАТЬЯ КОМПЕНДИУМА
           <cc-slashes />
           <b>{{ action.Name }}</b>
         </div>

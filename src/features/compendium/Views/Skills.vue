@@ -1,6 +1,6 @@
 <template>
   <sidebar-array-view
-    title="PILOT SKILL TRIGGERS"
+    title="ТРИГГЕРЫ ПИЛОТОВ"
     :array="skills"
     icon="cci-accuracy"
     name-key="Trigger"

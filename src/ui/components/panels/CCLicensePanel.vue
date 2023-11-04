@@ -12,7 +12,7 @@
       <div class="text-center">
         <p class="pt-1 mb-1">
           <span class="stat-text subtle--text text--darken-1">
-            RANK {{ 'I'.repeat(n) }}
+            РАНГ {{ 'I'.repeat(n) }}
             <v-icon v-if="ranked && rank < n" right>mdi-lock-outline</v-icon>
             <v-icon v-else-if="ranked && rank >= n" right>mdi-lock-open-outline</v-icon>
           </span>

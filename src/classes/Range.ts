@@ -12,12 +12,14 @@ interface IRangeData {
 
 class Range {
   private _range_type: RangeType
+  private _range_type_icon: string
   private _value: number
   private _override: boolean
   private _bonus: number
 
   public constructor(range: IRangeData) {
     this._range_type = range.type as RangeType
+    this._range_type_icon = `cci-${Object.keys(RangeType).find(key => RangeType[key] === this._range_type).toLowerCase()}` 
     this._value = range.val
     this._override = range.override || false
     this._bonus = range.bonus || 0
@@ -41,7 +43,7 @@ class Range {
   }
 
   public get Icon(): string {
-    return `cci-${this._range_type.toLowerCase()}`
+    return `${this._range_type_icon}`
   }
 
   public get DiscordEmoji(): string {

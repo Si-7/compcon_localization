@@ -1,24 +1,24 @@
 <template>
   <v-container>
-    <h1 class="heading mb-3 ml-5">REFERENCE</h1>
+    <h1 class="heading mb-3 ml-5">СПРАВКА</h1>
     <v-container fluid class="effect-text">
-      <span class="heading mech">Structure Damage & Overheating</span>
+      <span class="heading mech">Структурный урон & Перегрев</span>
       <v-row dense justify="center">
         <v-col>
           <v-toolbar color="red darken-3" dark>
-            <v-toolbar-title>STRUCTURE DAMAGE</v-toolbar-title>
+            <v-toolbar-title>СТРУКТУРНЫЙ УРОН</v-toolbar-title>
           </v-toolbar>
           <v-card>
             <v-card-text>
               <v-row>
                 <v-col>
-                  <span class="heading h3">Roll</span>
+                  <span class="heading h3">Бросок</span>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Result</span>
+                  <span class="heading h3">Результат</span>
                 </v-col>
                 <v-col cols="7">
-                  <span class="heading h3">Effect</span>
+                  <span class="heading h3">Эффект</span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
@@ -29,13 +29,13 @@
                   <v-icon large>mdi-dice-6</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Glancing Blow</span>
+                  <span class="heading h3">Скользящий Урон</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Emergency systems kick in and stabilize your mech. However, your mech is
-                    <b>impaired</b>
-                    until the end of your next turn.
+                    Аварийные системы срабатывают и стабилизируют вашего меха, но он будет 
+                    <b>Ослаблен</b>
+                    до конца вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
@@ -47,16 +47,16 @@
                   <v-icon large>mdi-dice-4</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">System Trauma</span>
+                  <span class="heading h3">Системная Травма</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Parts of your mech are torn off by the damage. Roll a d6. On a 1-3, all the
-                    weapons on one mount are destroyed. On a 4-6, a system is destroyed. You choose
-                    what’s destroyed, but systems or weapons with the limited tag and no charges
-                    left are not valid. If there’s nothing left of one result, it becomes the other.
-                    If there’s absolutely nothing left to destroy, this result becomes DIRECT HIT
-                    instead.
+                    Части вашего меха оторваны в результате урона. Бросьте 1d6. При выпадении 1–3
+                    уничтожается все оружие в одном слоте по вашему выбору; при 4-6 уничтожается
+                    система по вашему выбору. <b>Ограниченные</b> системы и оружие, у которых
+                    закончились заряды, не являются доступными вариантами. Если не осталось ни
+                    одного доступного варианта, результат меняется. Если не осталось действующих
+                    систем или оружия, этот результат становится <b>Прямым Попаданием</b>.
                   </span>
                 </v-col>
               </v-row>
@@ -66,27 +66,24 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Direct Hit</span>
+                  <span class="heading h3">Прямое Попадание</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    This result has different outcomes depending on how much structure your mech has
-                    remaining.
+                    Результат зависит от оставшейся Структуры вашего меха.
                     <br />
-                    3+ - Your mech is
-                    <b>stunned</b>
-                    until the end of your next turn.
+                    3+ - Ваш мех 
+                    <b>Ошеломлен</b> 
+                    до конца вашего следующего хода.
                     <br />
-                    2 - Your mech must pass a
-                    <b>hull</b>
-                    check or be
-                    <b>destroyed.</b>
-                    Even on a successful check, your mech is
-                    <b>stunned</b>
-                    until the end of your next turn.
+                    2 - Сделайте проверку
+                    <b>Корпуса</b>.
+                    При успехе ваш мех
+                    <b>Ошеломлен</b> 
+                    до конца вашего следующего хода.
+                    В случае неудачи ваш мех уничтожается.
                     <br />
-                    1 or lower - Your mech is
-                    <b>destroyed.</b>
+                    1 или меньше - Ваш мех уничтожен.
                   </span>
                 </v-col>
               </v-row>
@@ -97,13 +94,12 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Crushing Hit</span>
+                  <span class="heading h3">Сокрушительный Удар</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your mech is damaged beyond repair and is
-                    <b>destroyed.</b>
-                    You can still exit it as normal.
+                    Ваш мех поврежден и не подлежит ремонту — он уничтожен. Вы по-прежнему
+можете выйти из него как обычно.
                   </span>
                 </v-col>
               </v-row>
@@ -114,19 +110,19 @@
       <v-row justify="center" class="mt-4">
         <v-col>
           <v-toolbar color="orange darken-4" dark>
-            <v-toolbar-title>OVERHEATING</v-toolbar-title>
+            <v-toolbar-title>ПЕРЕГРЕВ</v-toolbar-title>
           </v-toolbar>
           <v-card>
             <v-card-text>
               <v-row>
                 <v-col>
-                  <span class="heading h3">Roll</span>
+                  <span class="heading h3">Бросок</span>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Result</span>
+                  <span class="heading h3">Результат</span>
                 </v-col>
                 <v-col cols="7">
-                  <span class="heading h3">Effect</span>
+                  <span class="heading h3">Эффект</span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
@@ -137,14 +133,14 @@
                   <v-icon large>mdi-dice-6</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Emergency Shunt</span>
+                  <span class="heading h3">Аварийный шунт</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Cooling systems recover and manage to contain the peaking heat levels. However,
-                    your mech is
-                    <b>impaired</b>
-                    until the end of your next turn.
+                    Системам охлаждения вашего меха удается сдерживать растущий нагрев;
+однако ваш мех становится
+                    <b>Ослабленным</b>
+                    до конца вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
@@ -156,14 +152,14 @@
                   <v-icon large>mdi-dice-4</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Power Plant Destabilize</span>
+                  <span class="heading h3">Разрушение Энерго-Установок</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your mech’s power plant becomes unstable, ejecting jets of plasma. Your mech
-                    suffers from the
-                    <b>exposed</b>
-                    status (taking double damage) until it takes action to remove it.
+                    Энерго-установки становятся нестабильными и начинают выбрасывать струи плазмы.
+Ваш мех становится
+                    <b>Уязвимым</b>
+                    , получая двойной Кинетический, Взрывной и Энергетический урон, пока статус не будет снят.
                   </span>
                 </v-col>
               </v-row>
@@ -173,21 +169,20 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Meltdown</span>
+                  <span class="heading h3">Плавление</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    This result has different outcomes depending on how much reactor stress your
-                    mech has remaining.
+                    Результат зависит от оставшейся Нагрузки у вашего меха:
                     <br />
-                    3+ - Your mech becomes EXPOSED
+                    3+ - Ваш мех становится <b>Уязвимым</b>.
                     <br />
-                    2 - Roll an ENGINEERING check. On a success, your mech is EXPOSED; on a failure,
-                    it suffers a reactor meltdown after 1d6 of your turns (rolled by the GM). A
-                    reactor meltdown can be prevented by retrying the ENGINEERING check as a full
-                    action.
+                    2 - Проведите проверку <b>Инженерии</b>. В случае успеха, ваш мех
+                    становится <b>Уязвимым</b>; в случае неудачи, он получает расплавление реактора
+                    через 1d6 ваших ходов (определяется ГМ). Плавление реактора можно
+                    предотвратить, повторив проверку <b>Инженерии</b> в качестве полного действия.
                     <br />
-                    1 or lower - Your mech suffers a reactor meltdown at the end of your next turn.
+                    1 или меньше - У вашего меха расплавится реактор в конце вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
@@ -198,24 +193,28 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col v-if="$vuetify.breakpoint.smAndUp" cols="3">
-                  <span class="heading h3">Irreversible Meltdown</span>
+                  <span class="heading h3">Необратимое Плавление</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your reactor goes critical. Your mech will suffer a reactor meltdown at the end
-                    of your next turn.
+                    Реактор выходит из строя — реактор вашего меха будет расплавлен в конце
+                    вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
               <p class="ma-3 flavor-text">
-                Certain overheating results can cause a reactor meltdown. This can be immediate, or
-                involve a countdown (in which case update the countdown at the start of your turn.
-                The meltdown triggers when specified). When a mech suffers a reactor meltdown, any
-                pilot inside immediately dies, the mech is immediately vaporized in a catastrophic
-                eruption, annihilating the wreck, and any characters inside a burst 2 area centered
-                on the mech must pass an agility save or take 4d6 explosive damage, and half on a
-                successful save.
+                Перегрев иногда приводит к плавлению реактора. Это
+                может произойти сразу или после обратного отсчета, и
+                в этом случае обратный отсчет обновляется в начале
+                вашего хода, а плавление срабатывает, когда указано.
+                Когда реактор расплавляется, любой пилот внутри
+                немедленно погибает, а мех исчезает в результате
+                катастрофического извержения с областью Взрыва 2.
+                Обломки уничтожаются, и все персонажи, находящиеся
+                в зоне поражения, должны преуспеть в спасброске
+                Маневренности или получить 4d6 Взрывного урона. В случае
+                успеха они получают половину урона.
               </p>
             </v-card-text>
           </v-card>
@@ -224,16 +223,16 @@
       <v-row justify="center" class="mt-4">
         <v-col>
           <v-toolbar color="yellow darken-4" dark>
-            <v-toolbar-title>DOWN AND OUT</v-toolbar-title>
+            <v-toolbar-title>НОКАУТ</v-toolbar-title>
           </v-toolbar>
           <v-card>
             <v-card-text>
               <v-row>
                 <v-col>
-                  <span class="heading h3">Roll</span>
+                  <span class="heading h3">Бросок</span>
                 </v-col>
                 <v-col cols="10">
-                  <span class="heading h3">Effect</span>
+                  <span class="heading h3">Эффект</span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
@@ -243,8 +242,7 @@
                 </v-col>
                 <v-col cols="10">
                   <span class="body-text text--text">
-                    On 6, your pilot barely shrugs off the hit (or it’s a close call) – they return
-                    to 1 HP.
+                    При 6 ваш пилот едва справляется с ударом — он возвращается к 1 ПЗ.
                   </span>
                 </v-col>
               </v-row>
@@ -257,13 +255,16 @@
                 </v-col>
                 <v-col cols="10">
                   <span class="body-text text--text">
-                    On 2–5, your pilot gains the DOWN AND OUT status (and the STUNNED condition) and
-                    remains at 0 HP. They are unconscious, pinned, bleeding out, or otherwise unable
-                    to act. If you’re in mech combat, they are Stunned and their EVASION drops to 5.
-                    If they take any more damage – from being shot in the head, for instance – they
-                    die.
+                    При 2-5 ваш пилот получает статус <b>Нокаут</b> 
+                    (и состояние <b>Ошеломление</b>) и остается с 0
+                    ПЗ. Он находится без сознания, прижат, истекает
+                    кровью или не может действовать по иным
+                    причинам. Если вы ведете бой с мехом, он оглушен,
+                    и его Уклонение падает до 5. Если он получит еще
+                    какой-либо урон — например, выстрел в голову —
+                    он умрет.
                     <br />
-                    You can choose for your pilot to die instead of becoming DOWN AND OUT.
+                    Вы можете выбрать, чтобы ваш пилот погиб, а не получил статус <b>Нокаут</b>.
                   </span>
                 </v-col>
               </v-row>
@@ -274,12 +275,12 @@
                 </v-col>
                 <v-col cols="10">
                   <span class="body-text text--text">
-                    On 1, your pilot’s luck has run out – they die immediately.
+                    При 1 пункте удача вашего пилота закончилась — он немедленно погибает.
                   </span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
-              <p class="ma-3 flavor-text">If your pilot is ever reduced to 0 HP, roll 1d6</p>
+              <p class="ma-3 flavor-text">Если ПЗ вашего пилота когда-либо снижаются до 0 ПЗ, бросьте 1d6.</p>
             </v-card-text>
           </v-card>
         </v-col>

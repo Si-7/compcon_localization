@@ -44,7 +44,7 @@
         <div class="py-1">
           <div class="overline mb-n2">
             <v-icon>cci-system</v-icon>
-            EQUIPMENT EFFECT
+            МЕТКИ СНАРЯЖЕНИЯ
           </div>
           <p class="text--text body-text mb-1 mr-3 ml-7" v-html="mod.Effect" />
         </div>

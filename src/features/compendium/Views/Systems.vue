@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <compendium-browser :headers="headers" :items="systems">Mech Systems</compendium-browser>
+    <compendium-browser :headers="headers" :items="systems">СИСТЕМЫ МЕХОВ</compendium-browser>
   </v-container>
 </template>
 
@@ -18,11 +18,11 @@ import { MechEquipment } from '@/class'
 })
 export default class Systems extends Vue {
   public headers = [
-    { text: 'Source', align: 'left', value: 'Source' },
-    { text: 'System', align: 'left', value: 'Name' },
-    { text: 'License', align: 'left', value: 'LicenseString' },
-    { text: 'License Level', align: 'left', value: 'LicenseLevel' },
-    { text: 'SP Cost', align: 'left', value: 'SP' },
+    { text: 'Источник', align: 'left', value: 'Source' },
+    { text: 'Система', align: 'left', value: 'Name' },
+    { text: 'Лицензия', align: 'left', value: 'LicenseString' },
+    { text: 'Уровень лицензии', align: 'left', value: 'LicenseLevel' },
+    { text: 'СП', align: 'left', value: 'SP' },
   ]
 
   private compendium = getModule(CompendiumStore, this.$store)

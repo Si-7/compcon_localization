@@ -10,18 +10,19 @@ enum Duration {
 }
 
 enum ActivationType {
-  None = 'None',
-  Free = 'Free',
-  Passive = 'Passive',
-  Protocol = 'Protocol',
-  Move = 'Move',
-  Quick = 'Quick',
-  Full = 'Full',
-  Invade = 'Invade',
-  FullTech = 'Full Tech',
-  QuickTech = 'Quick Tech',
-  Reaction = 'Reaction',
-  Other = 'Other',
+  None = 'Нет',
+  Free = 'Свободное',
+  Passive = 'Пассивное',
+  Protocol = 'Протокол',
+  Move = 'Перемещение',
+  Quick = 'Быстрое',
+  Full = 'Полное',
+  Invade = 'Вторжение',
+  FullTech = 'Полная Технология',
+  QuickTech = 'Быстрая технология',
+  Reaction = 'Реакция',
+  Other = 'Прочее',
+  Downtime = 'Отдыха',
 }
 
 enum MountType {
@@ -79,16 +80,16 @@ enum ItemType {
 }
 
 enum SystemType {
-  System = 'System',
-  AI = 'AI',
-  Shield = 'Shield',
-  Deployable = 'Deployable',
-  Drone = 'Drone',
-  Tech = 'Tech',
-  Armor = 'Armor',
-  FlightSystem = 'Flight System',
-  Integrated = 'Integrated',
-  Mod = 'Mod',
+  System = 'Система',
+  AI = 'ИИ',
+  Shield = 'Щит',
+  Deployable = 'Развертываемый объект',
+  Drone = 'Дрон',
+  Tech = 'Технология',
+  Armor = 'Броня',
+  FlightSystem = 'Система Полета',
+  Integrated = 'Интегрированная',
+  Mod = 'Мод',
 }
 
 enum SkillFamily {
@@ -99,31 +100,31 @@ enum SkillFamily {
 }
 
 enum RangeType {
-  Range = 'Range',
-  Threat = 'Threat',
-  Thrown = 'Thrown',
-  Line = 'Line',
-  Cone = 'Cone',
-  Blast = 'Blast',
-  Burst = 'Burst',
+  Range = 'Дальность',
+  Threat = 'Угроза',
+  Thrown = 'Метательное',
+  Line = 'Линия',
+  Cone = 'Конус',
+  Blast = 'Взрыв',
+  Burst = 'Разрыв',
 }
 
 enum DamageType {
-  Kinetic = 'Kinetic',
-  Energy = 'Energy',
-  Explosive = 'Explosive',
-  Heat = 'Heat',
-  Burn = 'Burn',
-  Variable = 'Variable',
+  Kinetic = 'Кинетический',
+  Energy = 'Энергетический',
+  Explosive = 'Взрывной',
+  Heat = 'Нагрев',
+  Burn = 'Горение',
+  Variable = 'Различный',
 }
 
 enum MechType {
-  Balanced = 'Balanced',
-  Artillery = 'Artillery',
-  Striker = 'Striker',
-  Controller = 'Controller',
-  Support = 'Support',
-  Defender = 'Defender',
+  Balanced = 'Сбалансированная',
+  Artillery = 'Артиллерист',
+  Striker = 'Нападающая',
+  Controller = 'Оператор',
+  Support = 'Поддерживающая',
+  Defender = 'Защищающая',
 }
 
 enum HASE {
@@ -134,11 +135,12 @@ enum HASE {
 }
 
 enum ReserveType {
-  Resources = 'Resources',
-  Tactical = 'Tactical',
-  Mech = 'Mech',
-  Project = 'Project',
-  Organization = 'Organization',
+  Resources = 'Ресурс',
+  Tactical = 'Тактический',
+  Mech = 'Мех',
+  Project = 'Проект',
+  Organization = 'Организация',
+  Bonus = 'Бонус',
 }
 
 enum OrgType {

@@ -116,8 +116,8 @@ export class CompendiumStore extends VuexModule {
   MechSystems: MechSystem[]
   @Brewable(() =>
     lancerData.pilot_gear.map(function (x: any) {
-      if (x.type.toLowerCase() === 'weapon') return new PilotWeapon(x as IPilotWeaponData)
-      else if (x.type.toLowerCase() === 'armor') return new PilotArmor(x as IPilotArmorData)
+      if (x.type.toLowerCase() === 'оружие') return new PilotWeapon(x as IPilotWeaponData)
+      else if (x.type.toLowerCase() === 'броня') return new PilotArmor(x as IPilotArmorData)
       return new PilotGear(x as IPilotEquipmentData)
     })
   )

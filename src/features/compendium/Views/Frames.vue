@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <compendium-browser :headers="headers" :items="frames">Frames</compendium-browser>
+    <compendium-browser :headers="headers" :items="frames">Рамы</compendium-browser>
   </v-container>
 </template>
 
@@ -18,20 +18,20 @@ import { MechType, Frame } from '@/class'
 })
 export default class Frames extends Vue {
   public headers = [
-    { text: 'Source', align: 'left', value: 'Source' },
-    { text: 'Frame', align: 'left', value: 'Name' },
-    { text: 'Size', align: 'left', value: 'Size' },
-    { text: 'Armor', align: 'left', value: 'Armor' },
-    { text: 'HP', align: 'left', value: 'HP' },
-    { text: 'Evasion', align: 'left', value: 'Evasion' },
-    { text: 'EDef', align: 'left', value: 'EDefense' },
-    { text: 'HeatCap', align: 'left', value: 'HeatCap' },
-    { text: 'RepCap', align: 'left', value: 'RepCap' },
-    { text: 'Sensors', align: 'left', value: 'SensorRange' },
-    { text: 'TechAtk', align: 'left', value: 'TechAttack' },
-    { text: 'Save', align: 'left', value: 'SaveTarget' },
-    { text: 'Speed', align: 'left', value: 'Speed' },
-    { text: 'SP', align: 'left', value: 'SP' },
+    { text: 'Источник', align: 'left', value: 'Source' },
+    { text: 'Рама', align: 'left', value: 'Name' },
+    { text: 'Размер', align: 'left', value: 'Size' },
+    { text: 'Броня', align: 'left', value: 'Armor' },
+    { text: 'ПЗ', align: 'left', value: 'HP' },
+    { text: 'Уклонение', align: 'left', value: 'Evasion' },
+    { text: 'Э-Защита', align: 'left', value: 'EDefense' },
+    { text: 'ТепМаксимум', align: 'left', value: 'HeatCap' },
+    { text: 'Лимит Ремонта', align: 'left', value: 'RepCap' },
+    { text: 'Сенсоры', align: 'left', value: 'SensorRange' },
+    { text: 'ТехАтака', align: 'left', value: 'TechAttack' },
+    { text: 'Спасбросок', align: 'left', value: 'SaveTarget' },
+    { text: 'Скорость', align: 'left', value: 'Speed' },
+    { text: 'СП', align: 'left', value: 'SP' },
   ]
 
   private compendium = getModule(CompendiumStore, this.$store)

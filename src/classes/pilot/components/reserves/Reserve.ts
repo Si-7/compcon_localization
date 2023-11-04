@@ -58,7 +58,7 @@ class Reserve {
     this.ID = data.id
     this.ResourceLabel = data.label || ''
     this.Consumable = data.consumable
-    this.Type = (data.type as ReserveType) || ReserveType.Resources
+    this.Type = (data.type as ReserveType) || ReserveType.Resources 
     this._name = data.name || ''
     this._resource_name = data.resource_name || ''
     this._resource_note = data.resource_note || ''
@@ -124,7 +124,7 @@ class Reserve {
   }
 
   public get Color(): string {
-    return this._used ? 'grey darken-1' : `reserve--${this.Type.toLowerCase()}`
+    return this._used ? 'grey darken-1' : `reserve--${Object.keys(ReserveType).find(key => ReserveType[key] === this.Type).toLowerCase()}`
   }
 
   public get Name(): string {

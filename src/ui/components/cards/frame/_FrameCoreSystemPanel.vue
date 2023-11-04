@@ -5,7 +5,7 @@
     <p v-html-safe="cs.Description" class="flavor-text px-3" />
 
     <div v-if="cs.PassiveName">
-      <span class="heading sub">PASSIVE {{ cs.PassiveName ? ` - ${cs.PassiveName}` : '' }}</span>
+      <span class="heading sub">ПАССИВНАЯ {{ cs.PassiveName ? ` - ${cs.PassiveName}` : '' }}</span>
       <div class="light-panel pa-2 clipped mb-2 mx-3">
         <p v-if="cs.PassiveEffect" v-html-safe="cs.PassiveEffect" class="body-text mb-1 px-3" />
         <v-row no-gutters justify="center">
@@ -23,7 +23,7 @@
 
     <v-row no-gutters>
       <v-col cols="auto">
-        <span class="heading sub">ACTIVE {{ cs.ActiveName ? ` - ${cs.ActiveName}` : '' }}</span>
+        <span class="heading sub">АКТИВИРУЕМАЯ {{ cs.ActiveName ? ` - ${cs.ActiveName}` : '' }}</span>
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <!-- <v-chip
@@ -53,7 +53,7 @@
     </div>
 
     <span v-if="cs.IntegratedEquipment.length || cs.Deployables.length" class="heading sub">
-      CORE INTEGRATED EQUIPMENT
+      ИНТЕГРИРОВАННОЕ СНАРЯЖЕНИЕ ЯДРА
     </span>
     <v-row v-if="cs.IntegratedEquipment.length" no-gutters justify="center">
       <v-col

@@ -7,7 +7,7 @@
     solo
     hide-details
     single-line
-    placeholder="Search the Compendium"
+    placeholder="Поиск по Компендиуму"
     @keyup.enter="search"
   />
 </template>

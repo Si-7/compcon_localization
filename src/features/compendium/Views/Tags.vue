@@ -1,5 +1,5 @@
 <template>
-  <sidebar-array-view title="EQUIPMENT TAGS" :array="tags" icon="mdi-tag" />
+  <sidebar-array-view title="МЕТКИ СНАРЯЖЕНИЯ" :array="tags" icon="mdi-tag" />
 </template>
 
 <script lang="ts">
