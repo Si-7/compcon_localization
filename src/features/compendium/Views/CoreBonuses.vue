@@ -31,7 +31,7 @@
 
     <v-row no-gutters class="mt-3" align="center">
       <v-col cols="auto">
-        <div class="heading h2">CORE BONUSES</div>
+        <div class="heading h2">БОНУСЫ ЯДРА</div>
       </v-col>
       <v-col
         v-if="$vuetify.breakpoint.smAndDown"

@@ -5,7 +5,7 @@
       <div v-if="item.InLcp" class="flavor-text subtle--text">{{ item.LcpName }}</div>
     </v-col>
     <div slot="statblock">
-      <span class="overline ml-n2">TRIGGER</span>
+      <span class="overline ml-n2">ТРИГГЕР</span>
       <p
         v-html-safe="`<b>Trigger:&nbsp;</b>${item.Trigger}`"
         class="text--text"

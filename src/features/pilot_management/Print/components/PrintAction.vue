@@ -11,11 +11,11 @@
       <div class="ml-3">
         <div v-if="a.Init" v-html-safe="a.Init" class="caption" />
         <div v-if="a.Trigger">
-          <div class=" overline my-n2">Trigger</div>
+          <div class=" overline my-n2">Триггер</div>
           <div v-html-safe="a.Trigger" class="caption " />
         </div>
         <div v-if="a.Detail">
-          <div class="overline my-n2">Effect</div>
+          <div class="overline my-n2">Эффект</div>
           <div v-html-safe="a.Detail" class="caption " />
         </div>
       </div>

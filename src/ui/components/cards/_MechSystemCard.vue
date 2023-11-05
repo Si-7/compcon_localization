@@ -6,7 +6,7 @@
       </div>
       <span class="overline">
         <b>{{ item.SP }}</b>
-        SYSTEM POINT{{ item.SP > 1 ? 'S' : '' }}
+        СП
       </span>
     </v-col>
     <v-col v-if="item.LicenseString" cols="auto" class="ml-auto text-right">
