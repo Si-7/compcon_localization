@@ -45,19 +45,19 @@ enum FittingSize {
 }
 
 enum WeaponSize {
-  Aux = 'Auxiliary',
-  Main = 'Main',
-  Heavy = 'Heavy',
-  Superheavy = 'Superheavy',
+  Aux = 'Вспомогательное',
+  Main = 'Основное',
+  Heavy = 'Тяжелое',
+  Superheavy = 'Сверхтяжелое',
 }
 
 enum WeaponType {
-  Rifle = 'Rifle',
-  Cannon = 'Cannon',
-  Launcher = 'Launcher',
-  CQB = 'CQB',
-  Nexus = 'Nexus',
-  Melee = 'Melee',
+  Rifle = 'Винтовка',
+  Cannon = 'Пушка',
+  Launcher = 'ПУ',
+  CQB = 'ОБД',
+  Nexus = 'Звено',
+  Melee = 'ОББ',
   All = '???',
 }
 

@@ -3,10 +3,10 @@
     <v-col cols="auto" class="text-center">
       <v-icon size="56px" color="stark" class="mt-n3 mb-n2">cci-weapon-mod</v-icon>
       <div class="overline mb-n1">
-        WEAPON
+        ОРУЖЕЙНЫЙ
       </div>
       <div class="overline">
-        MODIFICATION
+        МОД
       </div>
     </v-col>
     <v-divider vertical class="mx-4" />
@@ -24,7 +24,7 @@
       </div>
       <span class="overline">
         <b>{{ item.SP }}</b>
-        SYSTEM POINT{{ item.SP > 1 ? 'S' : '' }}
+        СП
       </span>
     </v-col>
     <v-col cols="auto" class="ml-auto text-right">
@@ -32,12 +32,12 @@
       <div v-if="item.InLcp" class="flavor-text subtle--text">{{ item.LcpName }}</div>
       <div v-if="item.Restricted">
         <span class="stat-text error--text">
-          RESTRICTED: {{ item.Restricted.join('/').toUpperCase() }} MOUNTS
+          ОГРАНИЧЕНО: {{ item.Restricted.join('/').toUpperCase() }} MOUNTS
         </span>
       </div>
     </v-col>
     <div slot="statblock">
-      <div class="overline mb-n3">CAN BE APPLIED TO</div>
+      <div class="overline mb-n3">ПРИМЕНИМО К</div>
       <v-chip-group>
         <v-chip
           v-for="a in item.PossibleTypes"
@@ -60,7 +60,7 @@
         </v-chip>
       </v-chip-group>
       <div v-if="item.RestrictedTypes.length || item.RestrictedSizes.length">
-        <div class="overline mb-n3">RESTRICTED</div>
+        <div class="overline mb-n3">ОГРАНИЧЕНО</div>
         <v-chip-group>
           <v-chip
             v-for="a in item.RestrictedTypes"

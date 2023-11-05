@@ -67,19 +67,19 @@
         <mobile-btn
           icon="mdi-book"
           title="Compendium"
-          text="Equipment Database"
+          text="База данных снаряжения"
           :to="'/compendium'"
         />
         <mobile-btn
           icon="cci-pilot"
           title="Roster"
-          text="Manage Pilots"
+          text="Управление пилотами"
           :to="'/pilot_management'"
         />
         <mobile-btn
           icon="mdi-flask-empty-plus-outline"
           title="Content"
-          text="Manage LCP Data"
+          text="Импорт пакетов материалов"
           @clicked="$refs.contentModal.show()"
         />
         <mobile-btn
