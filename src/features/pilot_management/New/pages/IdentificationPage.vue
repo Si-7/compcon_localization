@@ -5,32 +5,30 @@
     exit="pilot_management"
     @complete="$emit('next')"
   >
-    <cc-title large>New Pilot Registration&emsp;</cc-title>
+    <cc-title large>Регистрация Нового Пилота&emsp;</cc-title>
     <div v-show="$vuetify.breakpoint.mdAndUp">
       <h2 class="heading">
-        UAD IDENT Service
+        Служба IDENT АДС
         <cc-slashes />
-        &nbsp;RM-4 Personnel::Pilot (C)
+        &nbsp;Персонал РМ-4::Пилот (C)
       </h2>
       <v-container class="flavor-text" style="font-size: 14px">
         <div class="mt-n2">
-          Welcome to the Union Administrative Department's IDENT registration service. IDENT is the
-          omninet-based certification system that guides the user through the UAD's pilot
-          registration process. IDENT helps ensure pilots meet regulatory and policy requirements
-          through the use of NHP-directed data validation protocols. Union Regulars that have
-          already been issued an RM-4 IDENT fingerprint should not complete this form unless
-          instructed to by their commanding officer.
+          Добро пожаловать в службу регистрации IDENT Административного отдела Союза. IDENT — это система сертификации 
+          на базе омнинета, которая помогает пользователю пройти процедуру пилотной регистрации АДС. IDENT помогает 
+          гарантировать соответствие пилотных проектов нормативным и политическим требованиям посредством использования 
+          протоколов проверки данных, разработанных НЧЛ. Регулярные сотрудники Союза, которым уже был выдан отпечаток пальца 
+          РМ-4 IDENT, не должны заполнять эту форму без указания своего командира.
         </div>
         <v-alert type="warning" color="accent" outlined class="mt-2" dense prominent>
           <b>
-            All fields marked with the
+            Все поля, отмеченные символом
             <v-icon color="error">mdi-alert</v-icon>
-            glyph must be populated.
+            , должны быть заполнены.
           </b>
           <div class="overline" style="line-height: 13px">
-            By submitting this form you attest that your responses are truthful and accurate to the
-            best of your knowledge. Knowingly providing false or or incomplete information is
-            punishable under DoJ/HR AR 303-J.
+            Отправляя эту форму, вы подтверждаете, что ваши ответы являются правдивыми и точными, насколько вам известно. 
+            Заведомое предоставление ложной или неполной информации наказывается в соответствии с DOJ/HR AR 303-J.
           </div>
         </v-alert>
       </v-container>
@@ -38,18 +36,18 @@
     <v-row :class="$vuetify.breakpoint.mdAndUp ? 'mx-6' : ''">
       <v-col cols="12" md="5" class="mr-auto">
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-01 // FULL NAME OR PRIMARY ALIAS
+          РМ-4-01 // ПОЛНОЕ ИМЯ ИЛИ ОСНОВНОЙ Псевдоним
         </span>
         <v-text-field
           v-model="pilot.Name"
           outlined
-          label="Name"
+          label="Имя"
           hide-details
           class="my-1"
           @change="$emit('set', { attr: 'Name', val: $event })"
         >
           <template v-slot:prepend>
-            <cc-tooltip simple content="Generate Random Name">
+            <cc-tooltip simple content="Сгенерировать случайное имя">
               <v-icon color="secondary" @click="randomName()">mdi-dice-multiple</v-icon>
             </cc-tooltip>
           </template>
@@ -60,11 +58,11 @@
         </v-text-field>
 
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-02 // APPROVED CALLSIGN (OR CADET DESIGNATION, IF APPLICABLE)
+          РМ-4-02 // УТВЕРЖДЕННЫЙ ПОЗЫВНОЙ (ИЛИ ОБОЗНАЧЕНИЕ КАДЕТА, ЕСЛИ ПРИМЕНИМО)
         </span>
-        <v-text-field v-model="pilot.Callsign" outlined label="Callsign" hide-details class="my-1">
+        <v-text-field v-model="pilot.Callsign" outlined label="Позывной" hide-details class="my-1">
           <template v-slot:prepend>
-            <cc-tooltip simple content="Generate Random Callsign">
+            <cc-tooltip simple content="Сгенерировать случайный позывной">
               <v-icon color="secondary" @click="randomCallsign()">mdi-dice-multiple</v-icon>
             </cc-tooltip>
           </template>
@@ -75,17 +73,17 @@
         </v-text-field>
 
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-03 // PRIOR OCCUPATION OR POSITION (ANSWER 17b ON RM-2-C)
+          РМ-4-03 // ПРЕДЫДУЩАЯ ПРОФЕССИЯ ИЛИ ДОЛЖНОСТЬ (ОТВЕТ 17b НА РМ-2-C)
         </span>
         <v-text-field
           v-model="pilot.Background"
           outlined
-          label="Background"
+          label="Предыстория"
           hide-details
           class="my-1"
         >
           <template v-slot:prepend>
-            <cc-tooltip simple content="Select Predefined Background">
+            <cc-tooltip simple content="Выбрать готовую предысторию">
               <cc-background-selector @select="$emit('set', { attr: 'Background', val: $event })" />
             </cc-tooltip>
           </template>
@@ -96,20 +94,20 @@
         </v-text-field>
 
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-04 // ATTACHED BIOGRAPHICAL DOSSIER RM-4b SUPPLEMENTAL
+          РМ-4-04 // ПРИЛОЖЕННОЕ БИОГРАФИЧЕСКОЕ ДОСЬЕ РМ-4b ДОПОЛНИТЕЛЬНОЕ
         </span>
         <text-entry-popup
-          label="Pilot Biography"
+          label="Биография Пилота"
           :prepopulate="pilot.History"
           @save="$emit('set', { attr: 'History', val: $event })"
         >
           <span v-if="!pilot.History">
             <v-icon left>mdi-plus</v-icon>
-            Add Pilot Biography
+            Добавить Биографию Пилота
           </span>
           <span v-else>
             <v-icon left>mdi-circle-edit-outline</v-icon>
-            Edit Pilot Biography
+            Редактировать Биографию Пилота
           </span>
           <div style="position: absolute; right: -53px">
             <v-icon v-if="!pilot.History" color="grey">mdi-circle-outline</v-icon>
@@ -118,10 +116,10 @@
         </text-entry-popup>
 
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-05 // ATTACHED OHM HEALTH EXAMINATION RESULTS
+          РМ-4-05 // ПРИЛОЖЕННЫЕ РЕЗУЛЬТАТЫ ОБСЛЕДОВАНИЯ ЗДОРОВЬЯ OHM
         </span>
         <text-entry-popup
-          label="Pilot Description"
+          label="Описание Пилота"
           :prepopulate="pilot.TextAppearance"
           @save="$emit('set', { attr: 'TextAppearance', val: $event })"
         >
@@ -144,7 +142,7 @@
       </v-col>
       <v-col cols="12" md="5" class="ml-auto">
         <span v-if="$vuetify.breakpoint.mdAndUp" class="overline">
-          RM-4-06 // ATTACHED OHM IMAGING SCAN (MUST INCLUDE RETINAL DATA)
+          РМ-4-06 // ПРИЛОЖЕННОЕ СКАНИРОВАНИЕ OHM (ДОЛЖНО ВКЛЮЧАТЬ ДАННЫЕ СЕТЧАТКИ)
         </span>
         <div class="border mr-8 ml-auto mr-auto" style="width: 300px; height: 300px">
           <v-img
@@ -158,11 +156,11 @@
           <v-btn outlined large block color="secondary" @click="$refs.imageSelector.open()">
             <span v-if="!pilot.Portrait">
               <v-icon left>mdi-plus</v-icon>
-              Add Pilot Image
+              Добавить Изображение Пилота
             </span>
             <span v-else>
               <v-icon left>mdi-circle-edit-outline</v-icon>
-              Edit Pilot Image
+              Редактировать Изображение Пилота
             </span>
             <div style="position: absolute; right: -53px">
               <v-icon v-if="!pilot.Portrait" color="grey">mdi-circle-outline</v-icon>
@@ -175,9 +173,9 @@
     </v-row>
     <div slot="other" class="text-center">
       <v-btn color="accent" class="mx-2" large @click="$emit('templates')">
-        Select Character Template
+        Выбрать Шаблон Персонажа
       </v-btn>
-      <div class="overline stark--text">Recommended for New Players</div>
+      <div class="overline stark--text">Рекомендовано Для Новых Игроков</div>
     </div>
   </cc-stepper-content>
 </template>

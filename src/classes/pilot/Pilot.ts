@@ -243,7 +243,7 @@ class Pilot
     this._callsign = ''
     this._name = ''
     this._player_name = ''
-    this._status = 'Active'
+    this._status = 'АКТИВЕН'
     this._text_appearance = ''
     this._notes = ''
     this._history = ''
@@ -575,7 +575,7 @@ class Pilot
   }
 
   public Kill(): void {
-    this._status = 'KIA'
+    this._status = 'ПОГИБ'
     this.IsDead = true
     this.CurrentHP = 0
   }
@@ -583,13 +583,13 @@ class Pilot
   public Restore(): void {
     this.CurrentHP = 1
     this._dead = false
-    this._status = 'Active'
+    this._status = 'АКТИВЕН'
   }
 
   public Heal(): void {
     this._dead = false
     this.CurrentHP = this.MaxHP
-    this.Status = 'Active'
+    this.Status = 'АКТИВЕН'
   }
 
   public FullRestore(): void {
@@ -696,7 +696,7 @@ class Pilot
     this._name = data.name
     this._dead = data.dead || false
     this._player_name = data.player_name
-    this._status = data.status || 'ACTIVE'
+    this._status = data.status || 'АКТИВЕН'
     this._text_appearance = data.text_appearance
     this._notes = data.notes
     this._history = data.history

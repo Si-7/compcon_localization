@@ -27,23 +27,23 @@
             class="mt-1"
             @click="$emit('select')"
           >
-            <span v-if="!isSelected">SELECT {{ template.name }} TEMPLATE</span>
-            <span v-else>{{ template.name }} TEMPLATE SELECTED</span>
+            <span v-if="!isSelected">ВЫБРАТЬ ШАБЛОН {{ template.name }}</span>
+            <span v-else>ШАБЛОН {{ template.name }} ВЫБРАН</span>
           </v-btn>
         </v-col>
       </v-row>
       <div v-html-safe="template.description" class="mt-1 py-1 pl-2" />
       <div class="sidebar-box ml-2" :style="`max-height:${expanded ? '100%' : '80px;'}`">
         <div class="panel clipped py-1 px-2">
-          <div class="caption accent--text mt-1"><b>TACTICS</b></div>
+          <div class="caption accent--text mt-1"><b>ТАКТИКИ</b></div>
           <p v-html-safe="template.tactics" class="pb-1 mb-0" />
         </div>
         <div class="panel clipped py-1 px-2 my-2">
           <v-row dense>
             <v-col cols="12" md="6">
               <div class="caption accent--text mt-1">
-                PILOT//
-                <b>SKILLS</b>
+                ПИЛОТ//
+                <b>НАВЫКИ</b>
               </div>
               <v-row dense justify="center" class="px-2">
                 <v-col
@@ -64,8 +64,8 @@
             </v-col>
             <v-col cols="6">
               <div class="caption accent--text mt-1">
-                PILOT//
-                <b>TALENTS</b>
+                ПИЛОТ//
+                <b>ТАЛАНТЫ</b>
               </div>
               <v-row dense justify="center" class="px-2">
                 <v-col
@@ -92,12 +92,12 @@
         </div>
         <div class="panel clipped py-1 px-2 my-2">
           <div class="caption accent--text mt-1">
-            GMS EVEREST//
-            <b>LOADOUT</b>
+            ДМС ЭВЕРЕСТ//
+            <b>ЭКИПИРОВКА</b>
           </div>
           <v-row dense justify="space-around">
             <v-col v-for="m in template.build.mech.mounts" :key="template.name + m.mount_type">
-              <div class="flavor-text stark--text text-center">{{ m.mount_type }} Mount</div>
+              <div class="flavor-text stark--text text-center">{{ m.mount_type }} Слот</div>
               <v-row dense>
                 <v-col v-for="(w, i) in m.slots" :key="template.name + w + i" class="text-center">
                   <cc-item-modal class="mx-1" :item="item('MechWeapons', w)" />
@@ -105,7 +105,7 @@
               </v-row>
             </v-col>
           </v-row>
-          <div class="flavor-text stark--text text-center mt-1">Systems</div>
+          <div class="flavor-text stark--text text-center mt-1">Системы</div>
           <v-row dense justify="center">
             <v-col
               v-for="s in template.build.mech.systems"

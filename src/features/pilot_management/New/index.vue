@@ -14,7 +14,7 @@
           edit-icon="mdi-check"
           step="1"
         >
-          <span>Identification</span>
+          <span>Идентификация</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -24,7 +24,7 @@
           edit-icon="mdi-check"
           step="2"
         >
-          <span>Skills</span>
+          <span>Навыки</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -34,7 +34,7 @@
           edit-icon="mdi-check"
           step="3"
         >
-          <span>Talents</span>
+          <span>Таланты</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -44,10 +44,10 @@
           edit-icon="mdi-check"
           step="4"
         >
-          <span>Mech Skills</span>
+          <span>Навыки Меха</span>
         </v-stepper-step>
         <v-divider />
-        <v-stepper-step editable step="5">Confirm</v-stepper-step>
+        <v-stepper-step editable step="5">Подтверждение</v-stepper-step>
       </v-stepper-header>
       <v-stepper-items>
         <v-stepper-content :class="$vuetify.breakpoint.smAndDown ? 'px-0' : ''" step="1">

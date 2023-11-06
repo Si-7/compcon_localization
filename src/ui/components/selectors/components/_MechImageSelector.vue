@@ -1,7 +1,7 @@
 <template>
   <div class="ml-4 my-2">
     <div class="flavor-text">
-      COMP/CON OMNINET ARCHIVE ::
+      COMP/CON АРХИВ ОМНИНЕТА ::
       <b class="stark--text">{{ mech.Frame.Name }}</b>
     </div>
     <v-row align="center">
@@ -24,8 +24,8 @@
     </v-row>
     <v-divider class="my-2" />
     <div class="flavor-text">
-      COMP/CON OMNINET ARCHIVE ::
-      <b class="stark--text">OTHER FRAMES</b>
+      COMP/CON АРХИВ ОМНИНЕТА ::
+      <b class="stark--text">ПРОЧИЕ РАМЫ</b>
     </div>
     <v-row>
       <v-col v-for="a in genericArt" :key="a.img" cols="2">

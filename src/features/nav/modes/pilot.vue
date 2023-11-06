@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/pilot_management">
-      <v-btn text color="white" tile>Pilot Roster</v-btn>
+      <v-btn text color="white" tile>Список Пилотов</v-btn>
     </router-link>
     <v-divider v-if="pilot" vertical dark class="ml-2 mr-2" />
     <v-menu v-if="pilot" nudge-bottom="35px" open-on-hover>

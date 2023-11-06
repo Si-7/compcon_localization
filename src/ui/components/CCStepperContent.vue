@@ -5,7 +5,7 @@
     <v-row dense class="mx-3">
       <v-col cols="auto">
         <router-link to="exit">
-          <v-btn large text>EXIT</v-btn>
+          <v-btn large text>ВЫХОД</v-btn>
         </router-link>
       </v-col>
       <v-col cols="auto" class="ml-auto">
@@ -17,7 +17,7 @@
           class="ml-auto mr-2"
           @click="$emit('back')"
         >
-          BACK
+          НАЗАД
         </v-btn>
       </v-col>
       <v-col cols="auto">
@@ -33,7 +33,7 @@
           :tile="complete || mandatory"
           @click="$emit('complete')"
         >
-          {{ complete || mandatory ? 'CONTINUE' : 'SKIP STEP' }}
+          {{ complete || mandatory ? 'ПРОДОЛЖИТЬ' : 'ПРОПУСТИТЬ ШАГ' }}
         </v-btn>
       </v-col>
     </v-row>

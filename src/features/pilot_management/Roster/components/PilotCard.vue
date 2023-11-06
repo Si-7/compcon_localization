@@ -29,7 +29,7 @@
           </div>
           <div v-show="!(small && mobile)" :class="small ? 'small-triangle' : 'triangle'" />
           <div v-show="!(small && mobile)" class="ll white--text" style="line-height: 25px">
-            <div v-if="!small" class="overline mb-n1 text-right">LL</div>
+            <div v-if="!small" class="overline mb-n1 text-right">УЛ</div>
             <div :class="`heading ${small ? 'h3' : 'h2'} mt-n2`">
               {{ pilot.Level.toString().padStart(2, '0') }}
             </div>
@@ -53,9 +53,9 @@
                   <cc-slashes />
                   <b>{{ pilot.Status }}</b>
                   <v-divider />
-                  HULL {{ pilot.MechSkillsController.MechSkills.Hull }} - AGI
-                  {{ pilot.MechSkillsController.MechSkills.Agi }} - SYS
-                  {{ pilot.MechSkillsController.MechSkills.Sys }} - ENG
+                  КРП {{ pilot.MechSkillsController.MechSkills.Hull }} - ЛВК
+                  {{ pilot.MechSkillsController.MechSkills.Agi }} - СИС
+                  {{ pilot.MechSkillsController.MechSkills.Sys }} - ИНЖ
                   {{ pilot.MechSkillsController.MechSkills.Eng }}
                   <v-divider />
                   <div>

@@ -30,8 +30,8 @@
           <cc-tooltip
             inline
             v-if="pilot.CloudController.IsRemoteResource"
-            title="Remote Resource"
-            :content="`The instance of this item is linked to data in another user's account. Local changes will not persist, and when synced this item will be updated to the latest version of the data published to the author's cloud account. Remote data cannot be saved to your own cloud account.`"
+            title="Удаленный Ресурс"
+            :content="`Экземпляр этого элемента связан с данными в учетной записи другого пользователя. Локальные изменения не сохранятся, а при синхронизации этот элемент будет обновлен до последней версии данных, опубликованных в облачной учетной записи автора. Удаленные данные не могут быть сохранены в вашей собственной облачной учетной записи.`"
           >
             <v-icon dark right>mdi-cloud-braces</v-icon>
           </cc-tooltip>
@@ -48,20 +48,20 @@
               <span class="subtle--text">>[</span>
               <b class="stark--text">{{ pilot.Name }}</b>
               <span class="subtle--text">]</span>
-              <span class="subtle--text">STATUS [</span>
+              <span class="subtle--text">СТАТУС [</span>
               <span :class="`${statusColor(pilot.Status)}--text`">{{ pilot.Status }}</span>
               <span class="subtle--text">] -</span>
               <span class="text--text">
                 {{ pilot.Background.Name }}
               </span>
             </span>
-            <b class="success--text">LL: {{ pilot.Level }}</b>
+            <b class="success--text">УЛ: {{ pilot.Level }}</b>
             <cc-slashes v-show="$vuetify.breakpoint.mdAndUp" />
             <span class="text--text">
-              [ H:{{ pilot.MechSkillsController.MechSkills.Hull }} A:{{
+              [ КРП:{{ pilot.MechSkillsController.MechSkills.Hull }} ЛВК:{{
                 pilot.MechSkillsController.MechSkills.Agi
               }}
-              S:{{ pilot.MechSkillsController.MechSkills.Sys }} E:{{
+              СИС:{{ pilot.MechSkillsController.MechSkills.Sys }} ИНЖ:{{
                 pilot.MechSkillsController.MechSkills.Eng
               }}
               ]
@@ -120,11 +120,11 @@ export default Vue.extend({
     },
     statusColor(status: string): string {
       switch (status.toLowerCase()) {
-        case 'active':
+        case 'активен':
           return 'success'
           break
-        case 'mia':
-        case 'kia':
+        case 'пропал':
+        case 'погиб':
           return 'error'
         default:
           return 'text'

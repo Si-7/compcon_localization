@@ -2,8 +2,8 @@
   <div class="ml-4 my-2">
     <v-row>
       <div class="flavor-text">
-        COMP/CON OMNINET ARCHIVE ::
-        <b class="stark--text">LANCERS</b>
+        COMP/CON АРХИВ ОМНИНЕТА ::
+        <b class="stark--text">УЛАНЫ</b>
       </div>
       <v-row align="center">
         <v-col v-for="a in pilotArt" :key="a.img" cols="2">
@@ -31,7 +31,7 @@
             style="text-decoration: none"
           >
             <v-icon color="primary">mdi-web</v-icon>
-            <span>Website</span>
+            <span>Сайт</span>
           </a>
           <span v-if="artist.website && artist.twitter" class="ml-4 mr-2">|</span>
           <a

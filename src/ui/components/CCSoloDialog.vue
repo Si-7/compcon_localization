@@ -23,12 +23,12 @@
 
         <v-card-actions v-if="noConfirm">
           <v-spacer />
-          <v-btn text @click="hide">dismiss</v-btn>
+          <v-btn text @click="hide">Закрыть</v-btn>
         </v-card-actions>
         <v-card-actions v-else>
-          <v-btn text @click="hide">cancel</v-btn>
+          <v-btn text @click="hide">отменить</v-btn>
           <v-spacer />
-          <cc-btn @click="confirm">confirm</cc-btn>
+          <cc-btn @click="confirm">подтвердить</cc-btn>
         </v-card-actions>
       </div>
     </v-card>

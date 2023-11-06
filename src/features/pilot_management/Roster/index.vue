@@ -2,7 +2,7 @@
   <v-container fluid class="px-3" style="margin-top: 20px">
     <v-row dense align="end" class="mt-2">
       <v-col cols="12" md="auto">
-        <div class="heading h1 mb-n3">Pilot Roster</div>
+        <div class="heading h1 mb-n3">Список Пилотов</div>
       </v-col>
       <v-col cols="auto">
         <v-btn-toggle :value="getRosterView" mandatory dense class="mt-n4">
@@ -21,11 +21,11 @@
         <v-btn-toggle class="mr-2">
           <v-btn text small @click="showAll">
             <v-icon>mdi-chevron-down</v-icon>
-            <span v-if="$vuetify.breakpoint.mdAndUp">Expand All</span>
+            <span v-if="$vuetify.breakpoint.mdAndUp">Раскрыть Все</span>
           </v-btn>
           <v-btn text small @click="hideAll">
             <v-icon>mdi-chevron-up</v-icon>
-            <span v-if="$vuetify.breakpoint.mdAndUp">Collapse All</span>
+            <span v-if="$vuetify.breakpoint.mdAndUp">Скрыть Все</span>
           </v-btn>
         </v-btn-toggle>
       </v-col>
@@ -60,7 +60,7 @@
                 <v-btn small dark icon class="mt-n1" @click="toggleHidden(g)">
                   <v-icon v-html="!g.hidden ? 'mdi-chevron-down' : 'mdi-chevron-up'" />
                 </v-btn>
-                {{ g.name ? g.name : 'Ungrouped' }}
+                {{ g.name ? g.name : 'Без группы' }}
                 <span class="overline">({{ g.pilotIDs.length }})</span>
               </v-col>
               <v-col v-if="g.name" cols="auto" class="ml-auto mr-8">
@@ -77,7 +77,7 @@
                         autofocus
                         outlined
                         hide-details
-                        label="Group Name"
+                        label="Название Группы"
                         @change="setGroupName(g, $event)"
                       />
                     </v-card-text>
@@ -119,7 +119,7 @@
     </v-slide-x-transition>
     <v-row dense justify="end">
       <v-col cols="auto">
-        <v-btn x-small color="primary" @click="$refs.delete.show()">Delete Multiple</v-btn>
+        <v-btn x-small color="primary" @click="$refs.delete.show()">Удалить Несколько</v-btn>
         <cc-solo-dialog ref="delete" icon="mdi-delete" no-confirm large title="Delete Multiple">
           <mass-delete :pilots="pilots" />
         </cc-solo-dialog>
@@ -130,13 +130,13 @@
       <v-col cols="auto" class="mx-4">
         <v-btn x-large tile color="accent" @click="$router.push('new')">
           <v-icon left large>cci-accuracy</v-icon>
-          Create New Pilot
+          Создать Нового Пилота
         </v-btn>
       </v-col>
       <v-col cols="auto" class="mx-4">
         <v-btn x-large tile color="accent" @click="$refs.import.show()">
           <v-icon large left class="pr-2">mdi-import</v-icon>
-          Import Pilot
+          Импортировать Пилота
         </v-btn>
       </v-col>
     </v-row>
@@ -146,7 +146,7 @@
           <template v-slot:activator="{ on }">
             <v-btn outlined color="accent" class="mt-1" v-on="on">
               <v-icon left>mdi-folder</v-icon>
-              Add Group
+              Добавить Группу
             </v-btn>
           </template>
           <v-card tile flat>
@@ -168,7 +168,7 @@
                 </v-col>
               </v-row>
               <v-btn small outlined block :disabled="!newGroupName" @click="addNewGroup">
-                Add New Group
+                Добавить Новую Группу
               </v-btn>
             </v-card-text>
           </v-card>

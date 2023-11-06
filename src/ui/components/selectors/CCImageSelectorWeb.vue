@@ -4,12 +4,12 @@
     ref="dialog"
     fullscreen
     no-confirm
-    title="Select Image"
+    title="Выберите Изображение"
   >
     <v-container fluid>
       <v-row>
         <v-col cols="12" md="6">
-          <div class="heading h3 ml-n2">AVAILABLE IMAGES</div>
+          <div class="heading h3 ml-n2">ДОСТУПНЫЕ ИЗОБРАЖЕНИЯ</div>
           <mech-image-selector
             v-if="type === 'mech'"
             :mech="item"
@@ -21,20 +21,20 @@
             @set-img="selectedImage = $event"
           />
           <v-divider class="mx-3" />
-          <div class="heading h3 ml-n2">UPLOAD IMAGE</div>
+          <div class="heading h3 ml-n2">ЗАГРУЗИТЬ ИЗОБРАЖЕНИЕ</div>
           <v-file-input
             ref="fileInput"
             class="px-6 mt-2"
             accept="image/*"
             dense
             outlined
-            placeholder="Select Image"
+            placeholder="Выбрать Изображение"
             prepend-icon="mdi-file-upload-outline"
             :disabled="loading"
             @change="onChange"
           />
           <div>
-            <i>10MB maximum file size. PNG files over 5MB will be converted to JPEGs.</i>
+            <i>Максимальный размер файла - 10MB. PNG файлы свыше 5MB будут конвертированы в JPEG.</i>
           </div>
         </v-col>
         <v-col>
@@ -52,7 +52,7 @@
               :disabled="!selectedImage && (!imageData || loading)"
               @click="saveImage()"
             >
-              <template v-if="!loading">Set Image</template>
+              <template v-if="!loading">Установить Изображение</template>
               <template v-else>
                 <v-progress-circular size="25" width="3" indeterminate />
               </template>

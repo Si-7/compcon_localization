@@ -7,31 +7,32 @@
     @back="$emit('back')"
     @complete="setTemplate()"
   >
-    <cc-title large>New Pilot Registration&emsp;</cc-title>
+    <cc-title large>Регистрация Нового Пилота&emsp;</cc-title>
     <h2 v-show="$vuetify.breakpoint.mdAndUp" class="heading">
-      UAD IDENT Service
+      Служба IDENT АДС
       <cc-slashes />
-      &nbsp;PRM-ALT QUICK ACCESS SELECTION
+      &nbsp;PRM-ALT ВЫБОР БЫСТРОГО ДОСТУПА
     </h2>
     <v-row dense justify="start" align="center">
       <v-col v-show="$vuetify.breakpoint.mdAndUp">
         <div class="flavor-text mt-n2" style="font-size: 14px">
-          Per the 5017 PRM-ALT Act, the Union Administrative Department's IDENT registration service
-          provides a Quick Access Selection module, created and curated by UAD Armored Cavalary
-          Support. The UAD-ACS NHP staff have generated a selection of Combat Doctrine Templates
-          based on the results of your OHM Health Examination//CR-2 Brain Activity Scan. Each of
-          these templates will populate the remainder of your IDENT Combat Registration with a
-          tailored set of combat-role-optimal responses.
+          В соответствии с Законом 5017 PRM-ALT служба регистрации IDENT Административного департамента 
+          Союза предоставляет модуль выбора быстрого доступа, созданный и курируемый Поддержкой Бронированной Кавалерии 
+          АДС. Сотрудники НЧЛ АДС-ПБК подготовили подборку Шаблонов Боевой Доктрины на 
+          основе результатов вашего медицинского обследования OHM//сканирования мозговой активности CR-2. 
+          Каждый из этих шаблонов заполнит оставшуюся часть вашей боевой регистрации IDENT специальным 
+          набором оптимальных для боевой роли ответов.
         </div>
         <br />
         <v-alert dense outlined color="accent" class="mt-n1">
           <div class="text-center stark--text">
-            Selecting a template will complete the New Pilot interface and start your Pilot with a
-            curated set of skills and talents and an outfitted GMS EVEREST mech, tailored to the
-            combat role selected below. All of these selections may be edited at any time through
-            the Pilot and Mech Sheet loadout sections, as well as section headings with the
+            Выбор шаблона завершит интерфейс Нового Пилота и создаст вашего пилота с 
+            тщательно подобранным набором навыков и талантов, а также оснащенным мехом 
+            ДМС ЭВЕРЕСТ, адаптированным к боевой роли, выбранной ниже. Все эти параметры 
+            можно редактировать в любое время через разделы Пилота и Меха, 
+            а также через заголовки разделов со значком
             <v-icon color="accent">mdi-circle-edit-outline</v-icon>
-            icon
+            .
           </div>
         </v-alert>
       </v-col>
