@@ -1,6 +1,6 @@
 <template>
   <selector
-    title="Pilot Skill Triggers"
+    title="Триггеры Пилота"
     height="60vh"
     :success="!pilot.SkillsController.IsMissingSkills && enoughSelections"
   >
@@ -36,7 +36,7 @@
             class="stat-text"
             :value="!pilot.SkillsController.IsMissingSkills && enoughSelections"
           >
-            Skill Selection Complete
+            Выбор Триггеров Закончен
           </v-alert>
           <v-alert
             outlined
@@ -50,8 +50,7 @@
               pilot.SkillsController.MaxSkillPoints > pilot.SkillsController.CurrentSkillPoints
             "
           >
-            {{ pilot.SkillsController.MaxSkillPoints - pilot.SkillsController.CurrentSkillPoints }}
-            Skill Points remaining
+            Очков Триггеров осталось: {{ pilot.SkillsController.MaxSkillPoints - pilot.SkillsController.CurrentSkillPoints }}
           </v-alert>
           <v-alert
             outlined
@@ -63,7 +62,7 @@
             class="stat-text"
             :value="!enoughSelections"
           >
-            Must select a minimum of {{ selectedMin }} skills
+            Необходимо выбрать {{ selectedMin }} триггера
           </v-alert>
           <v-btn
             block
@@ -72,7 +71,7 @@
             :disabled="!pilot.SkillsController.Skills.length"
             @click="pilot.SkillsController.ClearSkills()"
           >
-            Reset
+            Сбросить
           </v-btn>
         </v-col>
       </v-row>
@@ -81,7 +80,7 @@
     <template v-slot:right-column>
       <div v-for="h in headers" :key="`h_${h.attr}`" class="mb-4">
         <v-divider v-if="$vuetify.breakpoint.smAndDown" class="my-2" />
-        <span v-if="h.attr !== 'Custom'" class="overline">Your Ability To</span>
+        <span v-if="h.attr !== 'Custom'" class="overline">Ваша способность</span>
         <cc-title v-if="$vuetify.breakpoint.mdAndUp" small>{{ h.description }}</cc-title>
         <div v-else class="heading h3 accent--text mb-1">
           {{ h.description }}

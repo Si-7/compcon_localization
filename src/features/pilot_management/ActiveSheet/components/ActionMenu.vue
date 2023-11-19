@@ -129,7 +129,7 @@
             <v-divider class="my-4" />
             <v-row dense>
               <v-col cols="auto">
-                <span class="overline">PILOT SKILL TRIGGERS</span>
+                <span class="overline">ТРИГГЕРЫ ПИЛОТА</span>
               </v-col>
             </v-row>
             <v-row dense justify="center">
