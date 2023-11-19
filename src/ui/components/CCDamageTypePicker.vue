@@ -2,13 +2,13 @@
   <v-dialog v-model="dialog" width="35vw">
     <v-card tile class="text-center">
       <v-card-text>
-        <span class="heading h2">Select Damage Type</span>
+        <span class="heading h2">Выберите тип урона</span>
         <v-row>
-          <v-col v-for="t in availableTypes" :key="`${t} Damage`">
+          <v-col v-for="t in availableTypes" :key="`${t} урон`">
             <div class="clip-icon">
               <cc-tooltip simple inline :content="t">
-                <v-btn x-large icon :color="`damage--${t.toLowerCase()}`" @click="select(t)">
-                  <v-icon size="60px">cci-{{ t.toLowerCase() }}</v-icon>
+                <v-btn x-large icon :color="`damage--${damageTypeValueToKey(t).toLowerCase()}`" @click="select(t)">
+                  <v-icon size="60px">cci-{{ damageTypeValueToKey(t).toLowerCase() }}</v-icon>
                 </v-btn>
               </cc-tooltip>
             </div>
@@ -44,6 +44,10 @@ export default class CCStringEdit extends Vue {
     return Object.keys(DamageType)
       .map(k => DamageType[k as any])
       .sort() as string[]
+  }
+
+  damageTypeValueToKey(t: string): string {
+    return Object.keys(DamageType).find(key => DamageType[key] === <DamageType>t)
   }
 
   show(): void {

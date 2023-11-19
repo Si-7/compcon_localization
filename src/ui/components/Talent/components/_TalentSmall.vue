@@ -89,11 +89,11 @@
                   @click="$emit('add')"
                 >
                   <v-icon left>mdi-lock-open</v-icon>
-                  Unlock {{ talent.Rank(n).Name }}
+                  Получить {{ talent.Rank(n).Name }}
                 </v-btn>
                 <v-btn v-else-if="n > parseInt(rank)" small disabled>
                   <v-icon left>mdi-lock</v-icon>
-                  TALENT RANK LOCKED
+                  Ранг Таланта Недоступен
                 </v-btn>
                 <v-btn
                   v-else-if="selectable && parseInt(rank) === n"
@@ -103,11 +103,11 @@
                   @click="$emit('remove')"
                 >
                   <v-icon left>mdi-close</v-icon>
-                  Remove
+                  Убрать
                 </v-btn>
                 <div v-else class="text-center">
                   <v-icon left>cci-rank-{{ n }}</v-icon>
-                  UNLOCKED
+                  ПОЛУЧЕН
                 </div>
               </v-card-actions>
             </v-card>

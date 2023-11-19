@@ -11,7 +11,7 @@
           {{ pilot.MechSkillsController.CurrentHASEPoints }}/{{
             pilot.MechSkillsController.MaxHASEPoints
           }}
-          Mech Skills selected
+          Навыков Мехов выбрано
         </v-alert>
         <div class="text-center mt-n2">
           <v-btn
@@ -21,7 +21,7 @@
             outlined
             @click="pilot.MechSkillsController.Reset()"
           >
-            Reset Mech Skills
+            Сбросить Навыки Мехов
           </v-btn>
         </div>
       </v-col>
@@ -29,10 +29,11 @@
 
     <v-row dense>
       <v-col cols="12" lg="6">
-        <cc-title :small="$vuetify.breakpoint.smAndDown">HULL</cc-title>
+        <cc-title :small="$vuetify.breakpoint.smAndDown">Корпус</cc-title>
         <span class="flavor-text">
-          Your HULL skill describes your ability to build and pilot durable, heavy mechs that can
-          take punches and keep going
+          КОРПУС описывает вашу способность создавать и
+          пилотировать прочные, надежные мехи, способные
+          выдерживать удары и продолжать движение
         </span>
         <v-row dense>
           <v-col cols="auto" class="ml-auto mr-auto text-center">
@@ -69,14 +70,14 @@
         <v-row dense class="mt-n3 mb-6">
           <v-col cols="auto" class="ml-auto mr-auto text-center">
             <span class="heading h3">
-              MECH HP
+              ПЗ МЕХА
               <span class="accent--text">
                 +{{ pilot.MechSkillsController.MechSkills.Hull * 2 }}
               </span>
             </span>
             <cc-slashes class="ml-1 mr-1" />
             <span class="heading h3">
-              REPAIR CAPACITY
+              ЛИМИТ РЕМОНТА
               <span class="accent--text">
                 +{{ Math.floor(pilot.MechSkillsController.MechSkills.Hull / 2) }}
               </span>
@@ -86,9 +87,11 @@
       </v-col>
 
       <v-col cols="12" lg="6">
-        <cc-title :small="$vuetify.breakpoint.smAndDown">AGILITY</cc-title>
+        <cc-title :small="$vuetify.breakpoint.smAndDown">МАНЕВРЕННОСТЬ</cc-title>
         <span class="flavor-text">
-          Your AGILITY skill describes your ability to build and pilot fast, evasive mechs
+          МАНЕВРЕННОСТЬ описывает вашу способность
+          создавать и пилотировать быстрые мехи с высоким
+          параметром уклонения
         </span>
         <v-row dense>
           <v-col cols="auto" class="ml-auto mr-auto text-center">
@@ -125,12 +128,12 @@
 
         <v-row dense class="mt-n3 mb-6">
           <v-col cols="auto" class="ml-auto mr-auto text-center">
-            <span class="heading h3">EVASION</span>
+            <span class="heading h3">УКЛОНЕНИЕ</span>
             <span class="heading h3 accent--text">
               +{{ pilot.MechSkillsController.MechSkills.Agi }}
             </span>
             <cc-slashes class="ml-1 mr-1" />
-            <span class="heading h3">SPEED</span>
+            <span class="heading h3">СКОРОСТЬ</span>
             <span class="heading h3 accent--text">
               +{{ Math.floor(pilot.MechSkillsController.MechSkills.Agi / 2) }}
             </span>
@@ -139,10 +142,10 @@
       </v-col>
 
       <v-col cols="12" lg="6">
-        <cc-title :small="$vuetify.breakpoint.smAndDown">SYSTEMS</cc-title>
+        <cc-title :small="$vuetify.breakpoint.smAndDown">СИСТЕМЫ</cc-title>
         <span class="flavor-text">
-          Your SYSTEMS skill describes your ability to build and pilot technical mechs with powerful
-          electronic warfare tools
+          СИСТЕМЫ описывают вашу способность создавать и
+          пилотировать передовые мехи с мощными возможностями электронной борьбы
         </span>
         <v-row dense>
           <v-col cols="auto" class="ml-auto mr-auto text-center">
@@ -179,17 +182,17 @@
 
         <v-row dense class="mt-n3 mb-6">
           <v-col cols="auto" class="ml-auto mr-auto text-center">
-            <span class="heading h3">ELECTRONIC DEFENSE</span>
+            <span class="heading h3">Э-ЗАЩИТА</span>
             <span class="heading h3 accent--text">
               +{{ pilot.MechSkillsController.MechSkills.Sys }}
             </span>
             <cc-slashes class="ml-1 mr-1" />
-            <span class="heading h3">TECH ATTACK</span>
+            <span class="heading h3">Техническая Атака</span>
             <span class="heading h3 accent--text">
               +{{ pilot.MechSkillsController.MechSkills.Sys }}
             </span>
             <cc-slashes class="ml-1 mr-1" />
-            <span class="heading h3">SP</span>
+            <span class="heading h3">СП</span>
             <span class="heading h3 accent--text">
               +{{ Math.floor(pilot.MechSkillsController.MechSkills.Sys / 2) }}
             </span>
@@ -198,10 +201,10 @@
       </v-col>
 
       <v-col cols="12" lg="6">
-        <cc-title :small="$vuetify.breakpoint.smAndDown">Engineering</cc-title>
+        <cc-title :small="$vuetify.breakpoint.smAndDown">ИНЖЕНЕРИЯ</cc-title>
         <span class="flavor-text">
-          Your ENGINEERING skill describes your ability to build and pilot mechs with powerful
-          reactors, supplies and support systems
+          ИНЖЕНЕРИЯ описывает вашу способность создавать
+          и пилотировать мехи с эффективными реакторами, системами поддержки и припасами
         </span>
         <v-row dense>
           <v-col cols="auto" class="ml-auto mr-auto text-center">
@@ -238,14 +241,14 @@
 
         <v-row dense class="mt-n3 mb-6">
           <v-col cols="auto" class="ml-auto mr-auto text-center">
-            <span class="heading h3">HEAT CAPACITY</span>
+            <span class="heading h3">ТЕПЛОВОЙ МАКСИМУМ</span>
             <span class="heading h3 accent--text">
               +{{ pilot.MechSkillsController.MechSkills.Eng }}
             </span>
 
             <cc-slashes class="ml-1 mr-1" />
 
-            <span class="heading h3">LIMITED SYSTEMS BONUS</span>
+            <span class="heading h3">БОНУС ОГРАНИЧЕННЫХ СИСТЕМ ИЛИ ОРУЖИЯ</span>
             <span class="heading h3 accent--text">
               +{{ Math.floor(pilot.MechSkillsController.MechSkills.Eng / 2) }}
             </span>

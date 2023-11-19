@@ -7,12 +7,12 @@
     @back="$emit('back')"
     @complete="$emit('next')"
   >
-    <cc-title large>Pilot Talents&emsp;</cc-title>
+    <cc-title large>ТАЛАНТЫ ПИЛОТА&emsp;</cc-title>
     <div v-show="$vuetify.breakpoint.mdAndUp">
       <h2 class="heading">
-        UAD IDENT Service
+        Служба IDENT АДС
         <cc-slashes />
-        &nbsp;RM-4c Pilot Self Assessment (2/3)
+        &nbsp;РМ-4В САМОСТОЯТЕЛЬНАЯ ОЦЕНКА ПИЛОТА (2/3)
       </h2>
       <div style="position: absolute; right: 16px; top: 16px">
         <cc-tooltip simple content="Feature In Development">
@@ -21,20 +21,20 @@
       </div>
       <v-container class="flavor-text" style="font-size: 14px">
         <div class="mt-n2">
-          The RM-4b PILOT SELF ASSESSMENT (Talents) audit catalogs an individual pilot's
-          self-reported combat operation aptitudes and confers requisition privileges for simulator
-          time, holofield and cortical sensorium training materials, battlefield telemetry data at
-          classifications below GREY SIERRA SHARP, and (in specific cases) GMS MM-pattern materiel
-          licenses. Additional resources may be made available at your request in the course of
-          field operations.
+          Аудит САМОСТОЯТЕЛЬНОЙ ОЦЕНКИ ПИЛОТА (Таланты) РМ-4В каталогизирует способности к боевым действиям, 
+          о которых сообщает сам пилот, и дает право на использование тренажеров, 
+          обучающих материалов холополя и кортикального сенсориума, данных телеметрии поля боя 
+          с классификацией ниже GREY SIERRA SHARP и (в частных случаях) лицензии на технику 
+          GMS ММ-образца. Дополнительные ресурсы могут быть предоставлены по вашему запросу в 
+          ходе полевых операций.
         </div>
         <v-alert type="warning" color="accent" outlined class="mt-2" dense prominent>
-          <b>Select three (3) Pilot Talents.</b>
+          <b>Выберите три (3) таланта пилота.</b>
           <br />
           <div class="overline" style="line-height: 13px">
-            By submitting this form you attest that your responses are truthful and accurate to the
-            best of your knowledge. Knowingly providing false or or incomplete information is
-            punishable under DoJ/HR AR 303-J.
+            Отправляя эту форму, вы подтверждаете, что ваши ответы являются правдивыми и точными, 
+            насколько вам известно. Заведомое предоставление ложной или неполной информации наказывается 
+            в соответствии с DOJ/HR AR 303-J.
           </div>
         </v-alert>
       </v-container>

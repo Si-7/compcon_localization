@@ -1,7 +1,7 @@
 <template>
   <pl-card-base
     ref="base"
-    title="PILOT GEAR"
+    title="СНАРЯЖЕНИЕ ПИЛОТА"
     :extended="extended"
     :item="item"
     :readonly="readonly"
@@ -24,7 +24,7 @@
           </span>
         </v-col>
         <v-col cols="auto" class="ml-auto text-right mt-n2 mb-n2">
-          <div class="overline">ITEM USES</div>
+          <div class="overline">ИСПОЛЬЗОВАНИЙ ПРЕДМЕТА</div>
           <v-icon v-if="!item.MaxUses" color="secondary" class="mt-n3 mr-2">mdi-infinity</v-icon>
           <cc-item-uses v-else :item="item" color="secondary" class="mt-n3" />
         </v-col>
@@ -55,9 +55,9 @@
       >
         <div v-if="item">
           <span class="overline">
-            GMS EQUIPMENT CATALOG PRINTID: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
+            PRINTID КАТАЛОГА СНАРЯЖЕНИЯ ДМС: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
             <span class="success--text text--darken-1">
-              [ PILOT EQUIPMENT REGISTRATION VERIFIED ]
+              [ РЕГИСТРАЦИЯ СНАРЯЖЕНИЯ ПИЛОТА ПОДТВЕРЖДЕНА ]
             </span>
           </span>
           <br />
@@ -65,13 +65,13 @@
           <span class="flavor-text overline mt-n1" style="display: block">CURRENTLY EQUIPPED</span>
         </div>
         <div v-else>
-          <span class="overline">GMS EQUIPMENT AUTHORIZATION: PILOT/ADDITIONAL GEAR (ANY)</span>
+          <span class="overline">АВТОРИЗАЦИЯ СНАРЯЖЕНИЯ ДМС: ПИЛОТСКОЕ/ДОПОЛНИТЕЛЬНОЕ СНАРЯЖЕНИЕ (ЛЮБОЕ)</span>
           <br />
           <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
-            NO SELECTION
+            НИЧЕГО НЕ ВЫБРАНО
           </span>
           <span class="flavor-text overline mt-n1 error--text" style="display: block">
-            [ EQUIPMENT ID INVALID OR MISSING ]
+            [ ID СНАРЯЖЕНИЯ НЕПРАВИЛЕН ИЛИ ОТСУТСТВУЕТ ]
           </span>
         </div>
       </cc-selector-table>

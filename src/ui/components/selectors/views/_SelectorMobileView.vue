@@ -48,7 +48,7 @@
             :disabled="spDisable && selectedItem.SP > sp && !spIgnore"
             @click="$emit('equip', selectedItem)"
           >
-            Equip {{ selectedItem.Name }}
+            Использовать {{ selectedItem.Name }}
           </v-btn>
         </div>
       </v-col>

@@ -40,7 +40,7 @@
                 simple
                 inline
                 bottom
-                content="Edit License Level"
+                content="Редактировать Уровень Лицензии"
               >
                 <v-icon small dark class="fadeSelect" @click="$refs.levelEdit.show()">
                   mdi-circle-edit-outline
@@ -67,14 +67,14 @@
               :style="$vuetify.breakpoint.lgAndUp ? `margin-right:200px` : ''"
             >
               <div class="overline mb-n9">
-                license level
+                Уровень Лицензии
                 <cc-tooltip
                   v-if="!isLevelingUp"
                   delayed
                   simple
                   inline
                   bottom
-                  content="Edit License Level"
+                  content="Редактировать Уровень Лицензии"
                 >
                   <v-icon small dark class="fadeSelect" @click="$refs.levelEdit.show()">
                     mdi-circle-edit-outline
@@ -93,7 +93,7 @@
                 color="grey lighten-3"
                 @click="$router.push({ name: 'level-up', params: { id: pilot.ID } })"
               >
-                Level Up
+                Поднять Уровень
                 <v-icon right>mdi-arrow-up-bold-hexagon-outline</v-icon>
               </v-btn>
             </v-col>
@@ -112,7 +112,7 @@
                     <v-fade-transition>
                       <v-overlay v-if="hover" absolute color="secondary">
                         <cc-btn color="secondary" @click="$refs.imageSelector.open()">
-                          Set Pilot Portrait
+                          Установить Портрет
                         </cc-btn>
                       </v-overlay>
                     </v-fade-transition>
@@ -123,25 +123,25 @@
           </v-row>
           <v-row v-show="$vuetify.breakpoint.mdAndUp" dense>
             <v-col cols="auto" class="mr-5">
-              <div class="overline mb-n2 subtle--text">name</div>
+              <div class="overline mb-n2 subtle--text">Имя</div>
               <div class="stat-text white--text mt-n2 mb-n1">
                 {{ pilot.Name }}
               </div>
             </v-col>
             <v-col v-if="pilot.Background" cols="auto" class="mr-5">
-              <div class="overline mb-n2 subtle--text">background</div>
+              <div class="overline mb-n2 subtle--text">Предыстория</div>
               <div class="stat-text white--text mt-n2 mb-n1">
                 {{ pilot.Background }}
               </div>
             </v-col>
             <v-col v-if="pilot.PlayerName" cols="auto" class="mr-5">
-              <div class="overline mb-n2 subtle--text">player</div>
+              <div class="overline mb-n2 subtle--text">Игрок</div>
               <div class="stat-text white--text mt-n2 mb-n1">
                 {{ pilot.PlayerName }}
               </div>
             </v-col>
             <v-col cols="auto" class="mr-5">
-              <div class="overline mb-n2 subtle--text">rm-4://(IDENT)</div>
+              <div class="overline mb-n2 subtle--text">рм-4://(IDENT)</div>
               <div class="stat-text white--text mt-n2 mb-n1">
                 <v-dialog max-width="1200px">
                   <template v-slot:activator="{ on }">
@@ -162,7 +162,7 @@
             simple
             inline
             delay
-            :content="`Structure: ${mech.CurrentStructure}/${mech.MaxStructure}`"
+            :content="`Структура: ${mech.CurrentStructure}/${mech.MaxStructure}`"
           >
             <v-icon>cci-structure</v-icon>
           </cc-tooltip>
@@ -172,7 +172,7 @@
           </span>
         </v-col>
         <v-col cols="2" class="unskew">
-          <cc-tooltip simple inline delay :content="`HP: ${mech.CurrentHP}/${mech.MaxHP}`">
+          <cc-tooltip simple inline delay :content="`ПЗ: ${mech.CurrentHP}/${mech.MaxHP}`">
             <v-icon>mdi-heart-outline</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ mech.CurrentHP }}</span>
@@ -183,7 +183,7 @@
             simple
             inline
             delay
-            :content="`Reactor Stress: ${mech.CurrentStress}/${mech.MaxStress}`"
+            :content="`Нагрузка: ${mech.CurrentStress}/${mech.MaxStress}`"
           >
             <v-icon>cci-reactor</v-icon>
           </cc-tooltip>
@@ -197,7 +197,7 @@
             simple
             inline
             delay
-            :content="`Heat: ${mech.CurrentHeat}/${mech.HeatCapacity}`"
+            :content="`Нагрев: ${mech.CurrentHeat}/${mech.HeatCapacity}`"
           >
             <v-icon>mdi-fire</v-icon>
           </cc-tooltip>
@@ -211,7 +211,7 @@
             simple
             inline
             delay
-            :content="`Repair Capacity: ${mech.CurrentRepairs}/${mech.RepairCapacity}`"
+            :content="`Лимит Ремонта: ${mech.CurrentRepairs}/${mech.RepairCapacity}`"
           >
             <v-icon>cci-repair</v-icon>
           </cc-tooltip>
@@ -223,32 +223,32 @@
       </v-row>
       <v-row v-else-if="$vuetify.breakpoint.mdAndUp" id="stat-row" dense>
         <v-col cols="2" offset="1" class="unskew">
-          <cc-tooltip simple inline delay :content="`HP: ${pilot.CurrentHP}/${pilot.MaxHP}`">
+          <cc-tooltip simple inline delay :content="`ПЗ: ${pilot.CurrentHP}/${pilot.MaxHP}`">
             <v-icon>mdi-heart-outline</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ pilot.CurrentHP }}</span>
           <span class="flavor-text subtle--text" style="font-size: 14px">/{{ pilot.MaxHP }}</span>
         </v-col>
         <v-col cols="2" class="unskew">
-          <cc-tooltip simple inline delay :content="`Armor: ${pilot.Armor}`">
+          <cc-tooltip simple inline delay :content="`Броня: ${pilot.Armor}`">
             <v-icon>mdi-shield-outline</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ pilot.Armor }}</span>
         </v-col>
         <v-col cols="2" class="unskew">
-          <cc-tooltip simple inline delay :content="`Electronic Defense: ${pilot.EDefense}`">
+          <cc-tooltip simple inline delay :content="`Э-Защита: ${pilot.EDefense}`">
             <v-icon>cci-edef</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ pilot.EDefense }}</span>
         </v-col>
         <v-col cols="2" class="unskew">
-          <cc-tooltip simple inline delay :content="`Evasion: ${pilot.Evasion}`">
+          <cc-tooltip simple inline delay :content="`Уклонение: ${pilot.Evasion}`">
             <v-icon>cci-evasion</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ pilot.Evasion }}</span>
         </v-col>
         <v-col cols="2" class="unskew">
-          <cc-tooltip simple inline delay :content="`Speed: ${pilot.Speed}`">
+          <cc-tooltip simple inline delay :content="`Скорость: ${pilot.Speed}`">
             <v-icon>$vuetify.icons.move</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ pilot.Speed }}</span>

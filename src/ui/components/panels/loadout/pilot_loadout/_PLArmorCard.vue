@@ -1,7 +1,7 @@
 <template>
   <pl-card-base
     ref="base"
-    title="PILOT ARMOR"
+    title="БРОНЯ ПИЛОТА"
     :extended="extended"
     :item="item"
     :readonly="readonly"
@@ -22,31 +22,31 @@
       </span>
       <v-row dense class="pb-2">
         <v-col class="my-auto">
-          <cc-tooltip simple inline content="Armor Bonus">
+          <cc-tooltip simple inline content="Бонус Брони">
             <v-icon>mdi-shield-outline</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ armor }}</span>
         </v-col>
         <v-col class="my-auto">
-          <cc-tooltip simple inline content="HP Bonus">
+          <cc-tooltip simple inline content="Бонус ПЗ">
             <v-icon>mdi-heart</v-icon>
           </cc-tooltip>
           <span class="stat-text">+{{ hp }}</span>
         </v-col>
         <v-col class="my-auto">
-          <cc-tooltip simple inline content="Electronic Defense">
+          <cc-tooltip simple inline content="Э-Защита">
             <v-icon>cci-edef</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ edef }}</span>
         </v-col>
         <v-col class="my-auto">
-          <cc-tooltip simple inline content="Evasion">
+          <cc-tooltip simple inline content="Уклонение">
             <v-icon>cci-evasion</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ evasion }}</span>
         </v-col>
         <v-col class="my-auto">
-          <cc-tooltip simple inline content="Speed">
+          <cc-tooltip simple inline content="Скорость">
             <v-icon>$vuetify.icons.move</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ speed }}</span>
@@ -68,9 +68,9 @@
       >
         <div v-if="item">
           <span class="overline">
-            GMS ARMORY PRINTID: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
+            PRINTID ОРУЖЕЙНОЙ ДМС: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
             <span class="success--text text--darken-1">
-              [ PILOT MATERIEL REGISTRATION VERIFIED ]
+              [ РЕГИСТРАЦИЯ СОБСТВЕННОСТИ ПИЛОТА ПОДТВЕРЖДЕНА ]
             </span>
           </span>
           <br />
@@ -79,14 +79,14 @@
         </div>
         <div v-else>
           <span class="overline">
-            GMS ARMORY EQUIPMENT AUTHORIZATION: PILOT/PERSONAL ARMOR::TI - TVII-A
+            АВТОРИЗАЦЯ СНАРЯЖЕНИЯ ОРУЖЕЙНОЙ ДМС: ПИЛОТСКАЯ/ПЕРСОНАЛЬНАЯ БРОНЯ::TI - TVII-A
           </span>
           <br />
           <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
-            NO SELECTION
+            НИЧЕГО НЕ ВЫБРАНО
           </span>
           <span class="flavor-text overline mt-n1 error--text" style="display: block">
-            [ MATERIEL ID INVALID OR MISSING ]
+            [ ID СОБСТВЕННОСТИ НЕПРАВИЛЕН ИЛИ ОТСУТСТВУЕТ ]
           </span>
         </div>
       </cc-selector-table>

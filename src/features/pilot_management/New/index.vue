@@ -44,7 +44,7 @@
           edit-icon="mdi-check"
           step="4"
         >
-          <span>Навыки Меха</span>
+          <span>Навыки Мехов</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step editable step="5">Подтверждение</v-stepper-step>

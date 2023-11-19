@@ -35,7 +35,7 @@
       @click="savePilot()"
     >
       <span v-if="$vuetify.breakpoint.mdAndUp">
-        Register New Pilot // {{ pilot.Callsign || default_callsign }} ({{
+        Зарегистрировать нового пилота // {{ pilot.Callsign || default_callsign }} ({{
           pilot.Name || default_name
         }})
       </span>

@@ -1,6 +1,6 @@
 <template>
   <selector
-    title="Pilot Talents"
+    title="Таланты Пилота"
     height="60vh"
     :success="!pilot.TalentsController.IsMissingTalents && enoughSelections"
   >
@@ -33,7 +33,7 @@
             style="width: 95%"
             :value="!pilot.TalentsController.IsMissingTalents && enoughSelections"
           >
-            Talent Selection Complete
+            Выбор Талантов Закончен
           </v-alert>
           <v-alert
             outlined
@@ -48,10 +48,11 @@
               pilot.TalentsController.MaxTalentPoints > pilot.TalentsController.CurrentTalentPoints
             "
           >
+            Необходимо выбрать еще 
             {{
               pilot.TalentsController.MaxTalentPoints - pilot.TalentsController.CurrentTalentPoints
             }}
-            Talent selections remaining
+            таланта
           </v-alert>
           <v-alert
             outlined
@@ -74,7 +75,7 @@
               :disabled="!talents.length"
               @click="pilot.TalentsController.ClearTalents()"
             >
-              Reset
+              Сбросить
             </v-btn>
           </div>
         </v-col>
@@ -88,7 +89,7 @@
             v-model="search"
             prepend-icon="mdi-magnify"
             color="accent"
-            label="Search Talents"
+            label="Искать в талантах"
             dense
             hide-details
             class="mb-2"

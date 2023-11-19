@@ -1,7 +1,7 @@
 <template>
   <pl-card-base
     ref="base"
-    title="PILOT WEAPON"
+    title="ОРУЖИЕ ПИЛОТА"
     :extended="extended"
     :item="item"
     :readonly="readonly"
@@ -49,9 +49,9 @@
       >
         <div v-if="item">
           <span class="overline">
-            GMS ARMORY PRINTID: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
+            PRINTID ОРУЖЕЙНОЙ ДМС: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
             <span class="success--text text--darken-1">
-              [ PILOT ARMAMENT REGISTRATION VERIFIED ]
+              [ РЕГИСТРАЦИЯ ВООРУЖЕНИЯ ПИЛОТА ПОДТВЕРЖДЕНА ]
             </span>
           </span>
           <br />
@@ -60,14 +60,14 @@
         </div>
         <div v-else>
           <span class="overline">
-            GMS ARMORY EQUIPMENT AUTHORIZATION: PILOT/PERSONAL ARMAMENT::S0 - S3(LTD)
+            АВТОРИЗАЦИЯ СНАРЯЖЕНИЯ ОРУЖЕЙНОЙ ДМС: ПИЛОТСКОЕ/ПЕРСОНАЛЬНОЕ ВООРУЖЕНИЕ::S0 - S3(LTD)
           </span>
           <br />
           <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
-            NO SELECTION
+            НИЧЕГО НЕ ВЫБРАНО
           </span>
           <span class="flavor-text overline mt-n1 error--text" style="display: block">
-            [ MATERIEL ID INVALID OR MISSING ]
+            [ ID СОБСТВЕННОСТИ НЕПРАВИЛЕН ИЛИ ОТСУТСТВУЕТ ]
           </span>
         </div>
       </cc-selector-table>

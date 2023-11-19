@@ -26,7 +26,7 @@
             <v-icon>mdi-circle-edit-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Set Custom Name</v-list-item-title>
+            <v-list-item-title>Установить Пользовательское Название</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item @click="$refs.cDesc.show()">
@@ -34,7 +34,7 @@
             <v-icon>mdi-circle-edit-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Set Custom Description</v-list-item-title>
+            <v-list-item-title>Установить Пользовательское Описание</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <div>
@@ -44,7 +44,7 @@
               <v-icon color="error">mdi-delete</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Remove {{ item.Feature.FeatureType }}</v-list-item-title>
+              <v-list-item-title>Убрать {{ item.Feature.FeatureType }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>

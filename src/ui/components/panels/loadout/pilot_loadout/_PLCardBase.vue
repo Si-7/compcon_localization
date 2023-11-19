@@ -13,7 +13,7 @@
                   <v-icon>mdi-swap-vertical-variant</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Change Item</v-list-item-title>
+                  <v-list-item-title>Поменять предмет</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-divider />
@@ -22,7 +22,7 @@
                   <v-icon>cci-variable</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Select Damage Type</v-list-item-title>
+                  <v-list-item-title>Выбрать Тип Урона</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item @click="$refs.cName.show()">
@@ -30,7 +30,7 @@
                   <v-icon>mdi-circle-edit-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Set Custom Name</v-list-item-title>
+                  <v-list-item-title>Установить Пользовательское Название</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item @click="$refs.cDesc.show()">
@@ -38,7 +38,7 @@
                   <v-icon>mdi-circle-edit-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Set Custom Description</v-list-item-title>
+                  <v-list-item-title>Установить Пользовательское Описание</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-divider />
@@ -47,7 +47,7 @@
                   <v-icon color="error">mdi-delete</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Remove Item</v-list-item-title>
+                  <v-list-item-title>Убрать предмет</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -101,7 +101,7 @@
               @click="$refs.selectorDialog.show()"
             >
               <v-row style="height: 100%">
-                <span class="heading h2 subtle--text my-auto" style="width: 100%">// EMPTY //</span>
+                <span class="heading h2 subtle--text my-auto" style="width: 100%">// ПУСТО //</span>
               </v-row>
             </div>
           </div>
@@ -124,7 +124,7 @@
           dense
           hide-details
           prepend-icon="mdi-note"
-          label="Equipment Notes"
+          label="Записи о снаряжении"
           class="mt-2"
         />
       </div>
@@ -133,7 +133,7 @@
       v-if="item"
       ref="cName"
       :placeholder="item.Name"
-      label="Custom Item Name"
+      label="Пользовательское Название Предмета"
       @save="save('Name', $event)"
       @reset="save('Name', '')"
     />
@@ -141,14 +141,14 @@
       v-if="item"
       ref="cDesc"
       :placeholder="item.Description"
-      label="Custom Item Description"
+      label="Пользовательское Описание Предмета"
       @save="save('Description', $event)"
       @reset="save('Description', '')"
     />
     <cc-damage-type-picker
       v-if="item"
       ref="damageTypeDialog"
-      :allowed-types="['Explosive', 'Energy', 'Kinetic']"
+      :allowed-types="['Взрывной', 'Энергетический', 'Кинетический']"
       @select="save('DamageTypeOverride', $event)"
     />
   </v-col>

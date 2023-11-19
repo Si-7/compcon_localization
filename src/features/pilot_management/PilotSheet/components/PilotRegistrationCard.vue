@@ -15,7 +15,7 @@
     </v-row>
 
     <div v-if="$vuetify.breakpoint.mdAndUp" class="flavor-text ml-2">
-      Union Administrative RM-4 Pilot Identification Protocol (IDENT) Record {{ pilot.ID }}
+      Административный Департамент Союза, Протокол Идентификации Пилота РМ-4 (IDENT), Запись {{ pilot.ID }}
     </div>
 
     <div class="ml-2 py-1 px-2">
@@ -32,13 +32,13 @@
           <v-row dense>
             <v-col cols="12" md="8">
               <span class="flavor-text">
-                Callsign:
+                Позывной:
                 <b class="accent--text">{{ pilot.Callsign || 'ERR CALLSIGN NOT FOUND' }}</b>
                 <br />
-                Name (or legal alias):
+                Имя (или юридический псевдоним):
                 <b class="accent--text">{{ pilot.Name || 'ERR NAME NOT FOUND' }}</b>
                 <br />
-                Background:
+                Предыстория:
                 <b class="accent--text">
                   {{ pilot.Background || 'PILOT HISTORY NOT REGISTERED' }}
                 </b>
@@ -46,33 +46,33 @@
             </v-col>
             <v-col v-if="$vuetify.breakpoint.mdAndUp">
               <span class="flavor-text subtle--text">
-                {{ pilot.Callsign ? 'CALLSIGN AVAILABLE' : '--' }}
+                {{ pilot.Callsign ? 'ПОЗЫВНОЙ ДОСТУПЕН' : '--' }}
                 <br />
-                {{ pilot.Name ? 'IDENTITY VERIFIED' : '--' }}
+                {{ pilot.Name ? 'ЛИЧНОСТЬ ПОДТВЕРЖДЕНА' : '--' }}
                 <br />
-                {{ pilot.Background ? 'PH/HR DATA REGISTERED' : '--' }}
+                {{ pilot.Background ? 'ДАННЫЕ ЗАРЕГЕСТРИРОВАНЫ' : '--' }}
               </span>
             </v-col>
           </v-row>
           <div class="flavor-text mt-2">
-            FRAME CONFIGURATION OPTIONS
-            <span class="subtle--text">("H.A.S.E" OMNINET VAULT REMIT)</span>
+            ВАРИАНТЫ КОНФИГУРАЦИИ МЕХА
+            <span class="subtle--text">("К.М.С.И" ХРАНИЛИЩЕ ОМНИНЕТ)</span>
           </div>
           <v-row class="my-1">
             <span class="flavor-text ml-3" style="font-size: 22px; line-height: 15px">
-              [ HULL:
+              [ КРП:
               <span class="stat-text accent--text" style="font-size: 24px">
                 {{ pilot.MechSkillsController.MechSkills.Hull }}&emsp;
               </span>
-              AGI:
+              МНВР:
               <span class="stat-text accent--text" style="font-size: 24px">
                 {{ pilot.MechSkillsController.MechSkills.Agi }}&emsp;
               </span>
-              SYS:
+              СИС:
               <span class="stat-text accent--text" style="font-size: 24px">
                 {{ pilot.MechSkillsController.MechSkills.Sys }}&emsp;
               </span>
-              ENG:
+              ИНЖ:
               <span class="stat-text accent--text" style="font-size: 24px">
                 {{ pilot.MechSkillsController.MechSkills.Eng }}
               </span>
@@ -81,7 +81,7 @@
           </v-row>
           <v-row class="mt-2">
             <v-col cols="12" md="6">
-              <span class="flavor-text">PILOT SKILL TRIGGER AUDIT</span>
+              <span class="flavor-text">АУДИТ ТРИГГЕРОВ ПИЛОТА</span>
               <br />
               <span v-if="!pilot.SkillsController.Skills.length" class="stat-text accent--text">
                 &nbsp;ERR SKILL AUDIT INCOMPLETE
@@ -101,7 +101,7 @@
               </v-chip>
             </v-col>
             <v-col cols="12" md="6">
-              <span class="flavor-text">PILOT TALENT AUDIT</span>
+              <span class="flavor-text">АУДИТ ТАЛАНТОВ ПИЛОТА</span>
               <br />
               <span v-if="!pilot.TalentsController.Talents.length" class="stat-text accent--text">
                 &nbsp;ERR TALENT AUDIT INCOMPLETE
@@ -124,7 +124,7 @@
           <v-row dense>
             <span v-if="pilotReady" class="flavor-text subtle--text">
               <v-icon large color="grey darken-2">mdi-fingerprint</v-icon>
-              BIOMETRIC RECORD VALID [[{{ randomNumber(13, 22) }}PB]] :: OHM C//{{ futuredate() }}
+              БИОМЕТРИЧЕСКИЕ ДАННЫЕ ДЕЙСТВИТЕЛЬНЫ [[{{ randomNumber(13, 22) }}PB]] :: OHM C//{{ futuredate() }}
             </span>
           </v-row>
         </v-col>
@@ -142,15 +142,16 @@
       <v-divider v-show="$vuetify.breakpoint.mdAndUp" class="ma-2" />
       <v-row v-show="$vuetify.breakpoint.mdAndUp" dense>
         <span class="overline" style="line-height: 13px !important; opacity: 0.4">
-          Improper use of this IDENT record and/or its constituent data by the record holder or any
-          other persons is punishable under the DoJ/HR A-645-c. This record is the property of the
-          Union Administrative Office and the information herein must be transmitted on request
-          under NDL-C-DISCORDANT-BREATH encryption protocols. This RM-4 record must be updated every
-          five (5) Cradle Standard Years of objective time to retain GMS licensing rights. Far-field
-          operatives that anticipate deployments lasting longer than five Cradle Standard Years that
-          have not been issued a man-portable Omninet Hook should apply for the RM-11-B IDENT
-          Supplemental (b) Extension. Contact your local Union Adminstrative Officer for any other
-          matters regarding this record.&emsp;&emsp;V-CDL//M-265-114-831 (A)
+          НЕПРАВИЛЬНОЕ ИСПОЛЬЗОВАНИЕ ЭТОЙ ИДЕНТИФИКАЦИОННОЙ ЗАПИСИ И/ИЛИ ЕГО СОСТАВЛЯЮЩИХ 
+          ДАННЫХ ВЛАДЕЛЬЦЕМ ЗАПИСИ ИЛИ ЛЮБЫМИ ДРУГИМИ ЛИЦАМИ НАКАЗЫВАЕТСЯ В СООТВЕТСТВИИ 
+          С DOJ/HR A-645-C. ЭТА ЗАПИСЬ ЯВЛЯЕТСЯ СОБСТВЕННОСТЬЮ АДМИНИСТРАТИВНОГО ДЕПАРТАМЕНТА СОЮЗА, 
+          И ИНФОРМАЦИЯ ДОЛЖНА БЫТЬ ПЕРЕДАНА ПО ЗАПРОСУ В СООТВЕТСТВИИ С ПРОТОКОЛАМИ ШИФРОВАНИЯ 
+          NDL-C-DISCORDANT-BREATH. ЭТА ЗАПИСЬ РМ-4 ДОЛЖНА ОБНОВЛЯТЬСЯ КАЖДЫЕ ПЯТЬ (5) 
+          РЕАЛЬНЫХ ЛЕТ ОБЪЕКТИВНОГО ВРЕМЕНИ ДЛЯ СОХРАНЕНИЯ ЛИЦЕНЗИОННЫХ ПРАВ ДМС. 
+          Оперативникам в дальней зоне, ожидающим развертывания на срок более пяти стандартных лет, 
+          которым не был выдан портативный омнихук, следует подать заявку на ДОПОЛНИТЕЛЬНОЕ 
+          (B) ИДЕНТИФИКАЦИОННОЕ РАСШИРЕНИЕ РМ-11-Б. ПО ВСЕМ ДРУГИМ ВОПРОСАМ, КАСАЮЩИМСЯ ЭТОЙ ЗАПИСИ, 
+          СВЯЖИТЕСЬ С МЕСТНЫМ АДМИНИСТРАТОРОМ СОЮЗА.&emsp;&emsp;V-CDL//M-265-114-831 (A)
         </span>
       </v-row>
     </div>

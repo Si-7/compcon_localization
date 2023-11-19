@@ -5,16 +5,16 @@
         :highlight="!pilot.SkillsController.HasFullSkills"
         :current="pilot.SkillsController.CurrentSkillPoints"
         :max="pilot.SkillsController.MaxSkillPoints"
-        :label="`Edit Pilot Skill Triggers (${pilot.SkillsController.CurrentSkillPoints}/${pilot.SkillsController.MaxSkillPoints})`"
+        :label="`Редактировать Триггеры пилота (${pilot.SkillsController.CurrentSkillPoints}/${pilot.SkillsController.MaxSkillPoints})`"
         @open-selector="$refs.skillSelector.show()"
       />
-      Skill Triggers
+      Триггеры
     </cc-title>
     <cc-solo-dialog
       ref="skillSelector"
       icon="cci-skill"
       no-confirm
-      title="Set Pilot Skill Triggers"
+      title="Установите Триггеры пилота"
       fullscreen
     >
       <cc-skill-selector :pilot="pilot" />
@@ -25,7 +25,7 @@
       class="mt-2"
     >
       <v-col cols="12" md="auto" class="mr-2 text-center">
-        <div class="stat-text">PILOT GRIT</div>
+        <div class="stat-text">СТОЙКОСТЬ ПИЛОТА</div>
         <div
           class="heading h1 secondary--text"
           :style="

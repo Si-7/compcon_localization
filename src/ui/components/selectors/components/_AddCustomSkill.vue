@@ -2,12 +2,12 @@
   <v-row dense align="center">
     <v-col cols="12">
       <div class="centered text-left pl-3">
-        <span class="stark--text flavor-text font-weight-bold">NEW CUSTOM TRIGGER</span>
+        <span class="stark--text flavor-text font-weight-bold">НОВЫЙ ПОЛЬЗОВАТЕЛЬСКИЙ ТРИГГЕР</span>
       </div>
     </v-col>
     <v-col cols="10" md="">
       <div :class="$vuetify.breakpoint.mdAndUp ? 'ml-12 mt-n4' : 'mt-n4'">
-        <v-text-field v-model="newSkill" outlined dense hide-details label="New Skill Trigger" />
+        <v-text-field v-model="newSkill" outlined dense hide-details label="Новый Триггер" />
         <v-textarea
           v-model="newDesc"
           outlined
@@ -16,7 +16,7 @@
           rows="1"
           auto-grow
           class="pl-4 mt-1"
-          label="Description"
+          label="Описание"
         />
         <v-textarea
           v-model="newDetail"
@@ -26,13 +26,13 @@
           rows="3"
           auto-grow
           class="pl-4 mt-1"
-          label="Detail"
+          label="Детали"
         />
       </div>
     </v-col>
     <v-col cols="auto" md="1" class="text-center">
       <div class="mt-2 ml-auto mr-auto">
-        <cc-tooltip simple content="Add Skill">
+        <cc-tooltip simple content="Добавить Триггер">
           <v-btn
             :large="$vuetify.breakpoint.mdAndUp"
             :small="$vuetify.breakpoint.smAndDown"

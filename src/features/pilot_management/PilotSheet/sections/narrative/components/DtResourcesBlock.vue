@@ -2,16 +2,16 @@
   <div class="my-3">
     <cc-title small color="pilot" class="pl-3" style="margin-left: -70px !important">
       <section-edit-icon
-        label="Add Reserves and Bonuses"
+        label="Редактировать Резервы и Бонусы"
         @open-selector="$refs.dtSelector.show()"
       />
-      Reserves and Bonuses
+      Резервы и Бонусы
     </cc-title>
     <cc-solo-dialog
       ref="dtSelector"
       icon="cci-barrage"
       no-confirm
-      title="Edit Reserves and Bonuses"
+      title="Установите Резервы и Бонусы"
       fullscreen
       no-pad
     >

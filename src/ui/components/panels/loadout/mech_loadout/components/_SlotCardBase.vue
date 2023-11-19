@@ -116,7 +116,7 @@
             >
               <v-row style="height: 100%">
                 <div class="heading h2 subtle--text my-auto py-3" style="width: 100%">
-                  // EMPTY //
+                  // ПУСТО //
                 </div>
               </v-row>
             </div>

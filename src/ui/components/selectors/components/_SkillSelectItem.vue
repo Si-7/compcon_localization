@@ -5,7 +5,7 @@
     </v-col>
     <v-col cols="auto">
       <div :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto mr-auto' : ''">
-        <cc-tooltip simple content="Increase Skill Bonus" inline>
+        <cc-tooltip simple content="Увеличить Бонус Триггера" inline>
           <v-btn
             :large="$vuetify.breakpoint.mdAndUp"
             :small="$vuetify.breakpoint.smAndDown"
@@ -17,7 +17,7 @@
             <v-icon x-large>cci-accuracy</v-icon>
           </v-btn>
         </cc-tooltip>
-        <cc-tooltip simple content="Decrease Skill Bonus" inline>
+        <cc-tooltip simple content="Уменьшить Бонус Триггера" inline>
           <v-btn
             :large="$vuetify.breakpoint.mdAndUp"
             :small="$vuetify.breakpoint.smAndDown"

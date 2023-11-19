@@ -87,7 +87,7 @@
         dense
         hide-details
         prepend-icon="mdi-note"
-        label="Equipment Notes"
+        label="Записи о снаряжении"
         class="mt-2"
       />
     </div>

@@ -13,8 +13,8 @@
       &nbsp;MV-2//b COA Resource Requisition
     </h2>
     <div style="position: absolute; right: 16px; top: 16px">
-      <cc-tooltip simple content="Feature In Development">
-        <v-btn small outlined disabled>Suggest Talents</v-btn>
+      <cc-tooltip simple content="Функционал В Разработке">
+        <v-btn small outlined disabled>Предложить Таланты</v-btn>
       </cc-tooltip>
     </div>
     <v-container class="flavor-text" style="font-size: 14px">

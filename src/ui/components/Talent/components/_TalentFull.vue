@@ -55,7 +55,7 @@
                 @click="$emit('add')"
               >
                 <v-icon left small>mdi-lock-open</v-icon>
-                Unlock
+                Получить
               </v-btn>
               <v-btn
                 v-else-if="selectable && parseInt(rank) === n"
@@ -66,7 +66,7 @@
                 @click="$emit('remove')"
               >
                 <v-icon left>mdi-close</v-icon>
-                Remove
+                Убрать
               </v-btn>
             </v-col>
           </v-row>

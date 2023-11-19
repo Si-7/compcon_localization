@@ -1,7 +1,7 @@
 <template>
   <div class="pb-3">
     <cc-title small color="pilot" class="mb-2 pl-5" style="margin-left: -40px!important">
-      Gear Loadout
+      СНАРЯЖЕНИЕ ПИЛОТА
     </cc-title>
     <cc-pilot-loadout :pilot="pilot" />
   </div>

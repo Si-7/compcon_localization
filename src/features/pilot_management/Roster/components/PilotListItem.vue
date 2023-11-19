@@ -58,7 +58,7 @@
             <b class="success--text">УЛ: {{ pilot.Level }}</b>
             <cc-slashes v-show="$vuetify.breakpoint.mdAndUp" />
             <span class="text--text">
-              [ КРП:{{ pilot.MechSkillsController.MechSkills.Hull }} ЛВК:{{
+              [ КРП:{{ pilot.MechSkillsController.MechSkills.Hull }} МНВР:{{
                 pilot.MechSkillsController.MechSkills.Agi
               }}
               СИС:{{ pilot.MechSkillsController.MechSkills.Sys }} ИНЖ:{{

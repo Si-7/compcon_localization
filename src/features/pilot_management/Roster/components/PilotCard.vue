@@ -53,7 +53,7 @@
                   <cc-slashes />
                   <b>{{ pilot.Status }}</b>
                   <v-divider />
-                  КРП {{ pilot.MechSkillsController.MechSkills.Hull }} - ЛВК
+                  КРП {{ pilot.MechSkillsController.MechSkills.Hull }} - МНВР
                   {{ pilot.MechSkillsController.MechSkills.Agi }} - СИС
                   {{ pilot.MechSkillsController.MechSkills.Sys }} - ИНЖ
                   {{ pilot.MechSkillsController.MechSkills.Eng }}
