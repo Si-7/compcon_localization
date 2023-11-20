@@ -1,6 +1,6 @@
 <template>
   <selector
-    title="Pilot Licenses"
+    title="Лицензии пилота"
     height="60vh"
     :success="!pilot.LicenseController.IsMissingLicenses"
   >
@@ -30,7 +30,7 @@
           style="width: 95%"
           :value="!pilot.LicenseController.IsMissingLicenses"
         >
-          License Selection Complete
+          Выбор Лицензий закончен
         </v-alert>
         <v-alert
           outlined
@@ -40,7 +40,7 @@
           :value="pilot.LicenseController.IsMissingLicenses"
         >
           {{ pilot.LicenseController.CurrentLicensePoints }} /
-          {{ pilot.LicenseController.MaxLicensePoints }} Licenses selected
+          {{ pilot.LicenseController.MaxLicensePoints }} Лицензий выбрано
         </v-alert>
         <div class="my-2">
           <v-btn
@@ -50,7 +50,7 @@
             :disabled="!pilot.LicenseController.Licenses.length"
             @click="pilot.LicenseController.ClearLicenses()"
           >
-            Reset
+            Сбросить
           </v-btn>
         </div>
       </v-row>

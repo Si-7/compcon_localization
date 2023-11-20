@@ -78,12 +78,12 @@
       <div v-if="$vuetify.breakpoint.smAndDown" class="text-left pl-0 ml-n6" style="display: grid">
         <v-btn color="accent" small tile @click="$emit('equip', item)">
           <v-icon small left>mdi-plus</v-icon>
-          Add {{ item.Name }}
+          Добавить {{ item.Name }}
         </v-btn>
       </div>
       <v-btn v-else color="accent" small tile @click="$emit('equip', item)">
         <v-icon small left>mdi-plus</v-icon>
-        Add
+        Добавить
       </v-btn>
     </template>
   </v-data-table>

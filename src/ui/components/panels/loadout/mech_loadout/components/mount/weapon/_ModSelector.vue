@@ -26,7 +26,7 @@
         </span>
         <br />
         <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
-          NO SELECTION
+          НИЧЕГО НЕ ВЫБРАНО
         </span>
         <span class="flavor-text overline mt-n1 error--text" style="display: block">
           [ MODIFICATION DATA INVALID OR MISSING ]

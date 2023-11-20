@@ -7,10 +7,10 @@
             :highlight="!pilot.TalentsController.HasFullTalents"
             :current="pilot.TalentsController.CurrentTalentPoints"
             :max="pilot.TalentsController.MaxTalentPoints"
-            :label="`Edit Pilot Talents (${pilot.TalentsController.CurrentTalentPoints}/${pilot.TalentsController.MaxTalentPoints})`"
+            :label="`Редактировать Таланты пилота (${pilot.TalentsController.CurrentTalentPoints}/${pilot.TalentsController.MaxTalentPoints})`"
             @open-selector="$refs.talentSelector.show()"
           />
-          Talents
+          Таланты
         </cc-title>
       </v-col>
       <v-col cols="auto" class="ml-auto">
@@ -40,7 +40,7 @@
       ref="talentSelector"
       icon="cci-trait"
       no-confirm
-      title="Set Pilot Talents"
+      title="Установите Таланты пилота"
       fullscreen
     >
       <cc-talent-selector :pilot="pilot" />

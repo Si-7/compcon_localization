@@ -34,7 +34,7 @@
           class="heading h2 light-panel--text text-center"
           style="margin-top:calc(50vh - 150px);"
         >
-          NO SELECTION
+          НИЧЕГО НЕ ВЫБРАНО
         </div>
         <div v-else class="side-fixed">
           <div class="heading h1 stark--text">{{ selectedItem.Name }}</div>

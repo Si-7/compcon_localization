@@ -1,13 +1,13 @@
 <template>
   <div>
     <cc-title small color="pilot" class="pl-3" style="margin-left: -50px!important">
-      <span class="pl-12">Special Equipment</span>
+      <span class="pl-12">ОСОБОЕ СНАРЯЖЕНИЕ</span>
     </cc-title>
     <cc-solo-dialog
       ref="specialSelector"
       icon="mdi-star-circle-outline"
       no-confirm
-      title="Manage Special Equipment"
+      title="Упрапвлять Особым Снаряжением"
       fullscreen
     >
       <cc-equipment-selector :pilot="pilot" @select="addItem($event)" />
@@ -16,7 +16,7 @@
       ref="exoticSelector"
       icon="mdi-star-circle-outline"
       no-confirm
-      title="Manage Exotic Equipment"
+      title="Упрапвлять Экзотическим Снаряжением"
       fullscreen
     >
       <cc-exotic-selector :pilot="pilot" @select="addItem($event)" />
@@ -24,10 +24,10 @@
     <v-container>
       <v-row dense class="mb-2">
         <v-col>
-          <v-btn tile block @click="$refs.specialSelector.show()">Add Standard Equipment</v-btn>
+          <v-btn tile block @click="$refs.specialSelector.show()">Добавить Стандартное Снаряжение</v-btn>
         </v-col>
         <v-col>
-          <v-btn tile block @click="$refs.exoticSelector.show()">Add Exotic Equipment</v-btn>
+          <v-btn tile block @click="$refs.exoticSelector.show()">Добавить Экзотическое Снаряжение</v-btn>
         </v-col>
       </v-row>
       <no-data-block v-if="!pilot.SpecialEquipment.length" />

@@ -42,7 +42,7 @@
           class="heading h2 light-panel--text text-center"
           style="margin-top:calc(50vh - 150px);"
         >
-          NO SELECTION
+          НИЧЕГО НЕ ВЫБРАНО
         </div>
         <div v-else class="side-fixed">
           <div class="heading h1 mt-2 stark--text">{{ selectedItem.Name }}</div>
@@ -50,7 +50,7 @@
           <cc-item-card :item="selectedItem" />
           <div v-if="equipmentAdd" class="text-center mt-3">
             <v-btn color="accent" x-large tile @click="$emit('equip', selectedItem)">
-              Add {{ selectedItem.Name }}
+              Добавить {{ selectedItem.Name }}
             </v-btn>
           </div>
           <div v-else class="text-center mt-3">

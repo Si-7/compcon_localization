@@ -5,16 +5,16 @@
         :highlight="!pilot.CoreBonusController.HasCBs"
         :current="pilot.CoreBonusController.CurrentCBPoints"
         :max="pilot.CoreBonusController.MaxCBPoints"
-        :label="`Edit Pilot CORE Bonuses (${pilot.CoreBonusController.CurrentCBPoints}/${pilot.CoreBonusController.MaxCBPoints})`"
+        :label="`Редактировать Бонусы Ядра пилота (${pilot.CoreBonusController.CurrentCBPoints}/${pilot.CoreBonusController.MaxCBPoints})`"
         @open-selector="$refs.bonusSelector.show()"
       />
-      CORE Bonuses
+      Бонусы Ядра
     </cc-title>
     <cc-solo-dialog
       ref="bonusSelector"
       icon="cci-corebonus"
       no-confirm
-      title="Set Pilot CORE Bonuses"
+      title="Установите Бонусы Ядра пилота"
       fullscreen
     >
       <cc-core-bonus-selector :pilot="pilot" />

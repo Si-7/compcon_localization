@@ -106,7 +106,7 @@
                     @click="pilot.BondController.AddPower(p)"
                   >
                     <v-icon left>mdi-plus</v-icon>
-                    Add {{ p.name }}
+                    Добавить {{ p.name }}
                   </v-btn>
                   <v-btn
                     v-if="hasPower(p)"

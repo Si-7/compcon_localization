@@ -32,7 +32,7 @@
             delayed
             content="Pilot Licenses, Mech Skills, CORE Bonuses, and Talents"
           >
-            TACTICAL PROFILE
+            ТАКТИЧЕСКИЙ ПРОФИЛЬ
           </cc-tooltip>
         </cc-nav-item>
       </router-link>

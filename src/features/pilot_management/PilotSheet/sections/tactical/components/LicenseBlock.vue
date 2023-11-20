@@ -5,16 +5,16 @@
         :highlight="!pilot.LicenseController.HasLicenses"
         :current="pilot.LicenseController.CurrentLicensePoints"
         :max="pilot.LicenseController.MaxLicensePoints"
-        :label="`Edit Pilot Licenses (${pilot.LicenseController.CurrentLicensePoints}/${pilot.LicenseController.MaxLicensePoints})`"
+        :label="`Редактировать лицензии пилота (${pilot.LicenseController.CurrentLicensePoints}/${pilot.LicenseController.MaxLicensePoints})`"
         @open-selector="$refs.licenseSelector.show()"
       />
-      Licenses
+      Лицензии
     </cc-title>
     <cc-solo-dialog
       ref="licenseSelector"
       icon="cci-frame"
       no-confirm
-      title="Set Pilot Licenses"
+      title="Установите лицензии пилота"
       fullscreen
     >
       <cc-license-selector :pilot="pilot" />
