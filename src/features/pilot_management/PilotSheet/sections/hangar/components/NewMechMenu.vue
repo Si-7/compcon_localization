@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col>
-        <cc-title>Select Frame</cc-title>
+        <cc-title>Выбрать Раму</cc-title>
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-switch v-model="showAll" dense inset hide-details color="warning">
@@ -10,7 +10,7 @@
             slot="label"
             simple
             inline
-            :content="showAll ? 'Unlicensed frames: SHOWN' : 'Unlicensed frames: HIDDEN'"
+            :content="showAll ? 'Нелицензированные рамы: ПОКАЗАНЫ' : 'Нелицензированные рамы: СКРЫТЫ'"
           >
             <v-icon
               :color="showAll ? 'warning' : 'success'"
@@ -81,10 +81,10 @@
       <div v-if="frames[selectedFrame]">
         <v-row justify="center">
           <v-col cols="8">
-            <span class="overline">XK-4-01 // REGISTER MECH NAME</span>
-            <v-text-field v-model="mechName" outlined label="Name" hide-details>
+            <span class="overline">ХК-4-01 // РЕГИСТРИРОВАТЬ НАЗВАНИЕ МЕХА</span>
+            <v-text-field v-model="mechName" outlined label="Название" hide-details>
               <template v-slot:prepend>
-                <cc-tooltip simple content="Generate Random Name">
+                <cc-tooltip simple content="Сгенерировать Случайное Название">
                   <v-icon color="secondary" @click="randomName()">mdi-dice-multiple</v-icon>
                 </cc-tooltip>
               </template>
@@ -99,7 +99,7 @@
         <v-row justify="center">
           <v-col cols="6">
             <v-btn tile x-large block color="secondary" :disabled="!mechName" @click="addMech()">
-              Register New Mech
+              Зарегестрировать Нового Меха
             </v-btn>
           </v-col>
         </v-row>

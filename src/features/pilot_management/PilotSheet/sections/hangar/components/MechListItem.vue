@@ -30,7 +30,7 @@
               v-show="$vuetify.breakpoint.mdAndUp"
               class="heading h2 callsign ml-auto pr-10"
             >
-              / / ACTIVE / /&nbsp;
+              / / АКТИВЕН / /&nbsp;
             </span>
           </v-fade-transition>
         </v-row>
@@ -43,7 +43,7 @@
                 <b>{{ mech.Frame.Source }} {{ mech.Frame.Name }}</b>
               </v-col>
               <v-col cols="auto" class="ml-auto mr-4">
-                <cc-tooltip simple inline content="Delete Mech">
+                <cc-tooltip simple inline content="Удалить Меха">
                   <v-btn
                     small
                     icon
@@ -54,17 +54,17 @@
                     <v-icon small>delete</v-icon>
                   </v-btn>
                 </cc-tooltip>
-                <cc-tooltip simple inline content="Duplicate Mech">
+                <cc-tooltip simple inline content="Дублировать Меха">
                   <v-btn small icon class="fadeSelect" @click.stop="$refs.copy.show()">
                     <v-icon small>mdi-content-copy</v-icon>
                   </v-btn>
                 </cc-tooltip>
-                <cc-tooltip simple inline content="Print Mech Sheet">
+                <cc-tooltip simple inline content="Распечатать Лист Меха">
                   <v-btn small icon class="fadeSelect" @click.stop="$refs.print.show()">
                     <v-icon small>mdi-printer</v-icon>
                   </v-btn>
                 </cc-tooltip>
-                <cc-tooltip simple inline content="Set As Active Mech">
+                <cc-tooltip simple inline content="Установить Активным Мехом">
                   <v-btn
                     small
                     icon
@@ -81,7 +81,7 @@
               <v-col cols="auto">
                 <fieldset class="px-3">
                   <legend class="px-2">
-                    Loadout//{{
+                    Снаряжение//{{
                       mech.MechLoadoutController.ActiveLoadout
                         ? mech.MechLoadoutController.ActiveLoadout.Name
                         : 'ERR'
@@ -101,35 +101,35 @@
                 <v-row v-show="$vuetify.breakpoint.mdAndUp" no-gutters justify="space-around">
                   <v-col cols="auto">
                     <span class="overline">
-                      STR
+                      СТРУКТУРА
                       <b>{{ mech.MaxStructure }}</b>
                     </span>
                   </v-col>
                   <v-divider vertical class="mx-2" />
                   <v-col cols="auto">
                     <span class="overline">
-                      HP
+                      ПЗ
                       <b>{{ mech.MaxHP }}</b>
                     </span>
                   </v-col>
                   <v-divider vertical class="mx-2" />
                   <v-col cols="auto">
                     <span class="overline">
-                      Stress
+                      НАГРУЗКА
                       <b>{{ mech.MaxStress }}</b>
                     </span>
                   </v-col>
                   <v-divider vertical class="mx-2" />
                   <v-col cols="auto">
                     <span class="overline">
-                      Heat
+                      НАГРЕВ
                       <b>{{ mech.HeatCapacity }}</b>
                     </span>
                   </v-col>
                   <v-divider vertical class="mx-2" />
                   <v-col cols="auto">
                     <span class="overline">
-                      RepCap
+                      ЛИМИТ РЕМОНТА
                       <b>{{ mech.RepairCapacity }}</b>
                     </span>
                   </v-col>
@@ -181,7 +181,7 @@ export default Vue.extend({
       )) {
         if (!mount.IsLocked) {
           let str = `${mount.Name}:`
-          if (!mount.Weapons.length) str += ' EMPTY'
+          if (!mount.Weapons.length) str += ' ПУСТО'
           else {
             mount.Weapons.forEach((w, i) => {
               str += ` ${w.Name}`

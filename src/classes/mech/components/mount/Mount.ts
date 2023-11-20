@@ -67,7 +67,7 @@ abstract class Mount {
   }
 
   public get Name(): string {
-    return this._name_override ? this._name_override : `${this.Type} Mount`
+    return this._name_override ? this._name_override : `${this.Type} Слот`
   }
 
   public get Slots(): WeaponSlot[] {

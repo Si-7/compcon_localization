@@ -42,7 +42,7 @@
               class="overline"
               :style="`z-index: 3; position: absolute; top: 30px; left: 4px;`"
             >
-              <b class="success--text">//ACTIVE</b>
+              <b class="success--text">//АКТИВЕН</b>
             </div>
             <v-img :src="mech.Portrait" position="top center" height="100%" />
             <v-fade-transition>
@@ -55,10 +55,10 @@
                     <br />
                     <fieldset>
                       <legend class="px-2">
-                        Loadout//{{
+                        Снаряжение//{{
                           mech.MechLoadoutController.ActiveLoadout
                             ? mech.MechLoadoutController.ActiveLoadout.Name
-                            : 'ERR'
+                            : 'ОШИБКА'
                         }}
                       </legend>
                       <div v-if="mech && mech.MechLoadoutController.ActiveLoadout">
@@ -75,42 +75,42 @@
                     <v-row no-gutters justify="space-between">
                       <v-col cols="auto">
                         <span class="overline">
-                          STR
+                          СТРУКТУРА
                           <b>{{ mech.MaxStructure }}</b>
                         </span>
                       </v-col>
                       <v-divider vertical class="mx-2" />
                       <v-col cols="auto">
                         <span class="overline">
-                          HP
+                          ПЗ
                           <b>{{ mech.MaxHP }}</b>
                         </span>
                       </v-col>
                       <v-divider vertical class="mx-2" />
                       <v-col cols="auto">
                         <span class="overline">
-                          Stress
+                          НАГРУЗКА
                           <b>{{ mech.MaxStress }}</b>
                         </span>
                       </v-col>
                       <v-divider vertical class="mx-2" />
                       <v-col cols="auto">
                         <span class="overline">
-                          Heat
+                          НАГРЕВ
                           <b>{{ mech.HeatCapacity }}</b>
                         </span>
                       </v-col>
                       <v-divider vertical class="mx-2" />
                       <v-col cols="auto">
                         <span class="overline">
-                          RepCap
+                          ЛИМИТ РЕМОНТА
                           <b>{{ mech.RepairCapacity }}</b>
                         </span>
                       </v-col>
                     </v-row>
                   </v-card-text>
                   <v-alert v-if="mech.Destroyed" color="error" dense tile class="text-center">
-                    <span style="letter-spacing: 5px">// DESTROYED //</span>
+                    <span style="letter-spacing: 5px">// УНИЧТОЖЕН //</span>
                   </v-alert>
                   <v-alert
                     v-if="mech.ReactorDestroyed"
@@ -119,17 +119,17 @@
                     tile
                     class="text-center"
                   >
-                    <span style="letter-spacing: 5px">// REACTOR DESTROYED //</span>
+                    <span style="letter-spacing: 5px">// РЕАКТОР УНИЧТОЖЕН //</span>
                   </v-alert>
                   <v-expand-transition>
                     <v-alert v-if="mech.IsActive" color="success" dense tile class="text-center">
-                      <span style="letter-spacing: 5px">// ACTIVE //</span>
+                      <span style="letter-spacing: 5px">// АКТИВЕН //</span>
                     </v-alert>
                   </v-expand-transition>
                   <v-divider />
                   <v-card-actions>
                     <v-spacer />
-                    <cc-tooltip simple inline content="Delete Mech">
+                    <cc-tooltip simple inline content="Удалить Мех">
                       <v-btn
                         small
                         icon
@@ -140,17 +140,17 @@
                         <v-icon>delete</v-icon>
                       </v-btn>
                     </cc-tooltip>
-                    <cc-tooltip simple inline content="Duplicate Mech">
+                    <cc-tooltip simple inline content="Дублировать Мех">
                       <v-btn small icon class="fadeSelect" @click.stop="$refs.copy.show()">
                         <v-icon>mdi-content-copy</v-icon>
                       </v-btn>
                     </cc-tooltip>
-                    <cc-tooltip simple inline content="Print Mech Sheet">
+                    <cc-tooltip simple inline content="Распечатать Лист Меха">
                       <v-btn small icon class="fadeSelect" @click.stop="$refs.print.show()">
                         <v-icon>mdi-printer</v-icon>
                       </v-btn>
                     </cc-tooltip>
-                    <cc-tooltip simple inline content="Set As Active Mech">
+                    <cc-tooltip simple inline content="Установить Активным Мехом">
                       <v-btn
                         small
                         icon
@@ -199,7 +199,7 @@ export default Vue.extend({
       )) {
         if (!mount.IsLocked) {
           let str = `${mount.Name}:`
-          if (!mount.Weapons.length) str += ' EMPTY'
+          if (!mount.Weapons.length) str += ' ПУСТО'
           else {
             mount.Weapons.forEach((w, i) => {
               str += ` ${w.Name}`

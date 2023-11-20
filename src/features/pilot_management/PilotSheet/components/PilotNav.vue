@@ -39,7 +39,7 @@
       <router-link to="../sheet/3">
         <cc-nav-item :selected="selected === '3'">
           <cc-tooltip inline delayed content="Create and Modify Mechs and their Loadouts">
-            MECH HANGAR
+            АНГАР МЕХОВ
           </cc-tooltip>
         </cc-nav-item>
       </router-link>
@@ -55,8 +55,8 @@
         <v-list-item to="../sheet/0">ДОСЬЕ</v-list-item>
         <v-list-item to="../sheet/1">НАРРАТИВНЫЙ ПРОФИЛЬ</v-list-item>
         <v-list-item v-show="hasBondData" to="../sheet/4">BONDS</v-list-item>
-        <v-list-item to="../sheet/2">TACTICAL PROFILE</v-list-item>
-        <v-list-item to="../sheet/3">MECH HANGAR</v-list-item>
+        <v-list-item to="../sheet/2">ТАКТИЧЕСКИЙ ПРОФИЛЬ</v-list-item>
+        <v-list-item to="../sheet/3">АНГАР МЕХОВ</v-list-item>
       </v-list>
     </v-menu>
 

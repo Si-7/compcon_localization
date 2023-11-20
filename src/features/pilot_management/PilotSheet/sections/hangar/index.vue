@@ -1,7 +1,7 @@
 <template>
   <div class="mt-n4">
     <cc-title large color="pilot" class="ml-n10 pl-3 mb-2"
-      >Hangar&emsp;</cc-title
+      >Ангар&emsp;</cc-title
     >
     <v-btn-toggle id="viewtoggle" :value="getView" mandatory>
       <v-btn
@@ -53,7 +53,7 @@
       <v-col cols="auto">
         <cc-btn x-large class="ml-auto mr-auto" @click="$refs.dialog.show()">
           <v-icon left large>cci-accuracy</v-icon>
-          &emsp;Add New Mech
+          &emsp;Добавить Новый Мех
         </cc-btn>
       </v-col>
     </v-row>
@@ -61,7 +61,7 @@
       ref="dialog"
       icon="cci-frame"
       no-confirm
-      title="Add New Mech"
+      title="Добавить Новый Мех"
       fullscreen
     >
       <new-mech-menu :pilot="pilot" @close="$refs.dialog.hide()" />
