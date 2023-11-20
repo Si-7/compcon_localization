@@ -2,36 +2,36 @@
   <div>
     <cc-title small color="pilot" class="pl-3" style="margin-left: -70px!important">
       <span class="ml-9">&emsp;</span>
-      Pilot Combat Telemetry Record
+      ЗАПИСИ БОЕВОЙ ТЕЛЕМЕТРИИ ПИЛОТА
     </cc-title>
     <v-row dense class="stat-text pt-2 pb-2 pl-2 mt-n2">
       <v-col>
         <div>
-          MOVES:
+          ПЕРЕМЕЩЕНИЙ:
           <b class="stark--text">{{ pilot.CombatHistory.moves }}</b>
         </div>
         <div>
-          DAMAGE DEALT:
+          УРОНА НАНЕСЕНО:
           <b class="stark--text">{{ pilot.CombatHistory.damage }}</b>
         </div>
         <div>
-          ENEMIES DESTROYED:
+          ВРАГОВ УНИЧТОЖЕНО:
           <b class="stark--text">{{ pilot.CombatHistory.kills }}</b>
         </div>
         <div>
-          DAMAGE TAKEN:
+          УРОНА ПОЛУЧЕНО:
           <b class="stark--text">{{ pilot.CombatHistory.hp_damage }}</b>
         </div>
         <div>
-          STRUCTURE LOST:
+          СТРУКТУРЫ ПОТЕРЯНО:
           <b class="stark--text">{{ pilot.CombatHistory.structure_damage }}</b>
         </div>
         <div>
-          HEAT TAKEN:
+          НАГРЕВА ПОЛУЧЕНО:
           <b class="stark--text">{{ pilot.CombatHistory.heat_damage }}</b>
         </div>
         <div>
-          REACTOR STRESS:
+          НАГРУЗОК:
           <b class="stark--text">{{ pilot.CombatHistory.reactor_damage }}</b>
         </div>
       </v-col>

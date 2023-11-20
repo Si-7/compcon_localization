@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-alert v-if="pilot.Status === 'KIA' || pilot.IsDead" prominent dense outlined color="error">
+    <v-alert v-if="pilot.Status === 'УБИТ В БОЮ' || pilot.IsDead" prominent dense outlined color="error">
       <v-icon slot="prepend" size="80" class="mr-2">mdi-skull</v-icon>
       <div :class="`heading ${$vuetify.breakpoint.mdAndUp ? 'h1' : 'h3'} pb-2 text-center`">
-        KILLED IN ACTION
+        УБИТ В БОЮ
       </div>
       <div style="position: relative">
         <div
@@ -15,10 +15,10 @@
         >
           <v-menu offset-y offset-x>
             <template v-slot:activator="{ on }">
-              <v-btn color="secondary" x-small outlined v-on="on">Flash Clone Pilot</v-btn>
+              <v-btn color="secondary" x-small outlined v-on="on">Флэш-клонировать пилота</v-btn>
             </template>
             <cc-confirmation
-              content="This will clone the selected pilot. Cloned characters can’t join a mission in progress, and cloned characters receive a random quirk. Additional cloning and subjectivity imprinting adds further quirks."
+              content="Это склонирует выбранного пилота. Клонированные персонажи не могут присоединиться к миссии в процессе и получают случайную причуду. Дополнительное клонирование или перепись субъективности добавляет дополнительные причуды."
               @confirm="setQuirk"
             />
           </v-menu>
@@ -26,11 +26,11 @@
             <template v-slot:activator="{ on }">
               <v-btn color="pimary" x-small class="fadeSelect ml-3" v-on="on">
                 <v-icon small left>mdi-reload</v-icon>
-                Revert
+                Вернуть
               </v-btn>
             </template>
             <cc-confirmation
-              content="This will restore the selected pilot and clear the KIA and Down and Out statuses."
+              content="Это восстановит выбранного пилота и очистит статусы Убит в бою и Нокаут."
               @confirm="pilot.Restore()"
             />
           </v-menu>
@@ -38,7 +38,7 @@
       </div>
     </v-alert>
     <div v-if="pilot.Quirks.length && !hideQuirks">
-      <div class="flavor-text font-weight-bold stark--text">CLONE QUIRKS</div>
+      <div class="flavor-text font-weight-bold stark--text">ПРИЧУДЫ КЛОНА</div>
       <v-row v-for="(q, i) in pilot.Quirks" :key="`clone_quirk_${i}`" dense align="start">
         <v-col>
           <v-alert icon="mdi-dna" prominent dense color="primary" outlined>
@@ -58,7 +58,7 @@
         <v-col v-if="!readonly" cols="auto">
           <v-menu offset-y offset-x>
             <template v-slot:activator="{ on }">
-              <cc-tooltip content="Remove Clone Quirk">
+              <cc-tooltip content="Убрать причуду клона">
                 <v-btn icon class="fadeSelect" v-on="on" @click="pilot.RemoveQuirk(i)">
                   <v-icon large>close</v-icon>
                 </v-btn>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <cc-title small color="pilot" class="pl-3" style="margin-left: -70px!important">
-      <section-edit-icon label="Edit Pilot Biography" @open-selector="show()" />
-      Pilot Biography
+      <section-edit-icon label="Редактировать Биографию Пилота" @open-selector="show()" />
+      Биография Пилота
     </cc-title>
     <div class="my-2">
       <p
@@ -17,7 +17,7 @@
       icon="mdi-circle-edit-outline"
       color="primary"
       large
-      title="Pilot Biography"
+      title="Биография Пилота"
       @confirm="pilot.History = history"
     >
       <tiptap-vuetify

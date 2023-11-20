@@ -1,8 +1,8 @@
 <template>
   <div>
     <cc-title small color="pilot" class="pl-3" style="margin-left: -70px!important">
-      <section-edit-icon label="Edit Pilot Appearance" @open-selector="show()" />
-      Pilot Appearance
+      <section-edit-icon label="Редактировать Внешность Пилота" @open-selector="show()" />
+      Внешность Пилота
     </cc-title>
     <div class="my-2">
       <p
@@ -17,7 +17,7 @@
       icon="mdi-circle-edit-outline"
       color="primary"
       large
-      title="Pilot Appearance"
+      title="Внешность Пилота"
       @confirm="pilot.TextAppearance = appearance"
     >
       <tiptap-vuetify

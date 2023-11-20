@@ -10,7 +10,7 @@
     </div>
     <div>
       <div class="overline my-2">
-        PLAYER NOTES
+        Заметки Игрока
         <v-btn small right icon class="fadeSelect" @click="showNotes = !showNotes">
           <v-icon small v-html="showNotes ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
         </v-btn>

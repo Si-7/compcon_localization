@@ -114,7 +114,7 @@ export default Vue.extend({
       newPilot.RenewID()
       newPilot.Callsign += '″'
       newPilot.Name += ' (COPY)'
-      newPilot.Status = 'ACTIVE'
+      newPilot.Status = 'АКТИВЕН'
       for (const mech of newPilot.Mechs) {
         mech.RenewID()
       }

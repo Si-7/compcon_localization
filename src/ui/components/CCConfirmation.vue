@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-text class="text-center flavor-text">
-      <span class="overline">// PROCESS INTERRUPT: AUTHORIZATION REQUIRED //</span>
+      <span class="overline">// ПРОЦЕСС ПРЕРВАН: НЕОБХОДИМА АВТОРИЗАЦИЯ //</span>
       <br />
       <span v-if="!noCc">//[COMP/CON:</span>
       <b class="stark--text" v-html="content" />
@@ -9,7 +9,7 @@
       <v-divider class="my-2" />
       <v-row dense>
         <cc-btn small color="error" class="ml-auto" @click="$emit('confirm')">
-          CONFIRM
+          ПОДТВЕРДИТЬ
         </cc-btn>
       </v-row>
     </v-card-text>

@@ -415,9 +415,9 @@
     </v-row>
     <v-divider class="my-2" />
     <cc-title small color="pilot">
-      GM's Notes
+      Заметки ГМа
       <cc-text-editor
-        label="Edit Player Notes"
+        label="Редактировать Заметки Игрока"
         :original="mech.GmNote"
         @save="mech.GmNote = $event"
       />
