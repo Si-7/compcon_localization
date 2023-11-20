@@ -25,7 +25,7 @@
           :x-small="$vuetify.breakpoint.smAndDown"
           label
           dark
-          :color="`action--${action.Activation.toLowerCase()}`"
+          :color="`${action.Color}`"
         >
           {{ action.Activation.toUpperCase() }}
         </v-chip>

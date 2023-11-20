@@ -124,7 +124,7 @@
         </v-card-text>
       </v-card>
     </div>
-    <cc-solo-dialog ref="selectorDialog" no-confirm title="SELECT EQUIPMENT" fullscreen no-pad>
+    <cc-solo-dialog ref="selectorDialog" no-confirm title="ВЫБЕРИТЕ СНАРЯЖЕНИЕ" fullscreen no-pad>
       <slot name="selector" />
     </cc-solo-dialog>
     <cc-solo-dialog ref="detailDialog" no-confirm :title="item ? item.Name : ''" large>

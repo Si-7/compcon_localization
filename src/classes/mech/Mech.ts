@@ -232,7 +232,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
       : ([] as ILicenseRequirement[])
 
     if (this._frame.LicenseLevel === 0) {
-      const gmsIdx = requirements.findIndex(x => x.source === 'GMS')
+      const gmsIdx = requirements.findIndex(x => x.source === 'ДМС')
       if (gmsIdx > -1) requirements[gmsIdx].items.push(`${this._frame.Name.toUpperCase()} Frame`)
       else requirements.push(this.Frame.RequiredLicense)
     } else {
@@ -242,7 +242,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
     }
 
     for (const l of requirements) {
-      if (l.source === 'GMS') continue
+      if (l.source === 'ДМС') continue
       l.missing = !this._pilot.has('License', l.name, l.rank)
     }
 

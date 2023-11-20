@@ -1,7 +1,7 @@
 <template>
   <v-card flat tile color="transparent">
     <fieldset>
-      <legend :style="`color: ${color}`" class="heading h3">Systems</legend>
+      <legend :style="`color: ${color}`" class="heading h3">Системы</legend>
       <div style="position: relative">
         <div class="side-legend">
           <span
@@ -9,7 +9,7 @@
           >
             <v-icon v-if="mech.FreeSP < 0" color="error" left>mdi-alert</v-icon>
             {{ mech.FreeSP }} / {{ mech.MaxSP }}
-            <span class="overline">SP</span>
+            <span class="overline">СП</span>
           </span>
         </div>
       </div>

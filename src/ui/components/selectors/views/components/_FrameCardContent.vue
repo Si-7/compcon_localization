@@ -8,7 +8,7 @@
       contain
       class="py-2"
     />
-    <span slot="overline">{{ item.MechTypeString }} Frame</span>
+    <span slot="overline">{{ item.MechTypeString }} РАМА</span>
   </c-card-base>
 </template>
 

@@ -11,9 +11,9 @@
           @click.stop="$refs.selectorDialog.show()"
         >
           <v-icon small>mdi-plus</v-icon>
-          Add Additional System
+          Добавить Дополнительную Систему
         </v-btn>
-        <cc-solo-dialog ref="selectorDialog" no-confirm title="SELECT EQUIPMENT" fullscreen no-pad>
+        <cc-solo-dialog ref="selectorDialog" no-confirm title="ВЫБЕРИТЕ СНАРЯЖЕНИЕ" fullscreen no-pad>
           <system-selector :mech="mech" @equip="equipExtra($event)" />
         </cc-solo-dialog>
       </v-col>
@@ -49,7 +49,7 @@
             </span>
           </v-col>
         </v-row>
-        <span v-else>System</span>
+        <span v-else>Система</span>
       </div>
       <v-row v-if="item" slot="header-items" justify="end" no-gutters>
         <div v-if="item" class="heading" style="display: inline-block">
@@ -84,7 +84,7 @@
           class="text-center white--text stat-text"
           style="letter-spacing: 3px"
         >
-          / / AI IN CASCADE / /
+          / / ИИ В КАСКАДЕ / /
         </v-alert>
         <div v-if="item && item.Effect">
           <div class="overline mt-2">

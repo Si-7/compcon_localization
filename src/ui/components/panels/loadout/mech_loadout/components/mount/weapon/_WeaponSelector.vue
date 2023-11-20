@@ -139,6 +139,8 @@ export default Vue.extend({
     availableWeapons(): MechWeapon[] {
       const fittings = Rules.MountFittings[this.weaponSlot.Size]
       // filter by fitting size
+      console.log(this.weapons);
+      console.log(fittings);
       let i = this.weapons.filter(x => fittings.includes(x.Size) && !x.IsHidden && !x.IsExotic)
 
       // filter already equipped

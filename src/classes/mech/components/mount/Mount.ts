@@ -33,7 +33,7 @@ abstract class Mount {
         ]
       } else if (mountType === MountType.Aux) {
         this.slots = [new WeaponSlot(FittingSize.Auxiliary, this)]
-        this._name_override = 'Integrated Weapon'
+        this._name_override = 'Интегрированное Оружие'
       } else if (mountType === MountType.MainAux) {
         this.slots = [
           new WeaponSlot(FittingSize.Main, this),

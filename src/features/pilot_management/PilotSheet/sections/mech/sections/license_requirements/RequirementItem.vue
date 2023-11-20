@@ -17,12 +17,12 @@
 
     <v-card tile>
       <v-card-title v-if="license.missing" class="error white--text font-weight-bolder py-1 my-0">
-        WARNING: LICENSE MISSING&emsp;
+        ПРЕДУПРЕЖДЕНИЕ: ОТСУТСТВУЕТ ЛИЦЕНЗИЯ&emsp;
       </v-card-title>
       <v-card-text class="pa-2 text--text">
-        <b>{{ license.name }} RANK {{ license.rank }}</b>
+        <b>{{ license.name }} РАНГ {{ license.rank }}</b>
         <br />
-        <i>Required for:&nbsp;</i>
+        <i>Необходимо для:&nbsp;</i>
         {{ license.items.join(', ') }}
       </v-card-text>
     </v-card>

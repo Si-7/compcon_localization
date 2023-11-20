@@ -33,7 +33,7 @@
     <v-row no-gutters>
       <v-col cols="auto">
         <span class="heading sub">
-          ACTIVE {{ coreSystem.ActiveName ? ` - ${coreSystem.ActiveName}` : '' }}
+          АКТИВИРУЕМАЯ {{ coreSystem.ActiveName ? ` - ${coreSystem.ActiveName}` : '' }}
         </span>
       </v-col>
       <v-col cols="auto" class="ml-auto">

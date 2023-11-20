@@ -2,9 +2,9 @@
   <v-simple-table dense fixed-header class="mb-4 mt-4 flavor-text panel px-0">
     <thead>
       <tr>
-        <th class="text-left">Name</th>
-        <th class="text-left">Frame</th>
-        <th class="text-left">Status</th>
+        <th class="text-left">Название</th>
+        <th class="text-left">Рама</th>
+        <th class="text-left">Статус</th>
       </tr>
     </thead>
     <tbody>

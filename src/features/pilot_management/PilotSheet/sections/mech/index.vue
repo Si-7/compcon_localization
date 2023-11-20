@@ -125,10 +125,10 @@
       <attributes-block :color="color" :mech="mech" :pilot="pilot" />
     </v-row>
     <cc-title small class="ml-n6" :color="color">
-      {{ mech.Frame.Source }} {{ mech.Frame.Name }} CORE System
+      {{ mech.Frame.Source }} {{ mech.Frame.Name }} Система Ядра
     </cc-title>
     <core-item :core-system="mech.Frame.CoreSystem" :color="color" />
-    <cc-title small :color="color" class="mb-2 ml-n6">Equipment Loadout</cc-title>
+    <cc-title small :color="color" class="mb-2 ml-n6">Выгрузка Снаряжения</cc-title>
     <cc-mech-loadout :mech="mech" class="px-3" />
     <delete-mech-dialog ref="deleteDialog" :mech="mech" @delete="deleteMech()" />
   </div>

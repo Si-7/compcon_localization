@@ -1,8 +1,8 @@
 <template>
   <div>
     <cc-title small :color="color" style="margin-left: -70px!important">
-      <section-edit-icon label="Edit Operator Notes" @open-selector="show()" />
-      Operator Notes
+      <section-edit-icon label="Редактировать Заметки Оператора" @open-selector="show()" />
+      Заметки Оператора
     </cc-title>
     <div class="my-2">
       <p
@@ -17,7 +17,7 @@
       icon="mdi-circle-edit-outline"
       color="primary"
       large
-      title="Operator Notes"
+      title="Заметки Оператора"
       @confirm="mech.Notes = notes"
     >
       <tiptap-vuetify

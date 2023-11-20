@@ -19,36 +19,36 @@ enum ActivationType {
   Full = 'Полное',
   Invade = 'Вторжение',
   FullTech = 'Полная Технология',
-  QuickTech = 'Быстрая технология',
+  QuickTech = 'Быстрая Технология',
   Reaction = 'Реакция',
   Other = 'Прочее',
   Downtime = 'Отдыха',
 }
 
 enum MountType {
-  Main = 'Main',
-  Heavy = 'Heavy',
-  AuxAux = 'Aux/Aux',
-  Aux = 'Aux',
-  MainAux = 'Main/Aux',
-  Flex = 'Flex',
+  Main = 'Основной',
+  Heavy = 'Тяжелый',
+  AuxAux = 'Втор./Вспом.',
+  Aux = 'Вспомогательный',
+  MainAux = 'Осн./Втор.',
+  Flex = 'Гибкий',
   Integrated = 'Integrated',
 }
 
 // governs what can be added to a mount (weapon slot)
 enum FittingSize {
-  Auxiliary = 'Auxiliary',
-  Main = 'Main',
-  Flex = 'Flex',
-  Heavy = 'Heavy',
+  Auxiliary = 'Вспомогательный',
+  Main = 'Основной',
+  Flex = 'Гибкий',
+  Heavy = 'Тяжелый',
   Integrated = 'Integrated',
 }
 
 enum WeaponSize {
-  Aux = 'Вспомогательное',
-  Main = 'Основное',
-  Heavy = 'Тяжелое',
-  Superheavy = 'Сверхтяжелое',
+  Aux = 'Вспомогательный',
+  Main = 'Основной',
+  Heavy = 'Тяжелый',
+  Superheavy = 'Сверхтяжелый',
 }
 
 enum WeaponType {

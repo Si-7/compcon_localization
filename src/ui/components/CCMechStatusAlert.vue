@@ -2,32 +2,31 @@
   <v-alert v-if="show" :color="color" dense dark class="ma-0">
     <v-icon slot="prepend" x-large class="ml-n2 mr-2" color="white">{{ icon }}</v-icon>
     <div :class="`heading ${small ? 'h3' : 'h2'}`">
-      <span v-if="type === 'destroyed'">MECH DESTROYED</span>
-      <span v-else-if="type === 'cascading'">DANGER: UNSHACKLED NHP</span>
-      <span v-else-if="type === 'overSP'">ALERT: SYSTEM CAPACITY EXCEEDED</span>
-      <span v-else-if="type === 'unfinished'">WARNING: EMPTY MOUNTS DETECTED</span>
-      <span v-else-if="type === 'underSP'">WARNING: SYSTEM CAPACITY REMAINING</span>
-      <span v-else-if="type === 'unlicensed'">WARNING: UNLICENSED EQUIPMENT DETECTED</span>
+      <span v-if="type === 'destroyed'">МЕХ УНИЧТОЖЕН</span>
+      <span v-else-if="type === 'cascading'">ОПАСНОСТЬ: НЧЛ В КАСКАДЕ</span>
+      <span v-else-if="type === 'overSP'">ТРЕВОГА: ВМЕСТИМОСТЬ СИСТЕМ ПРЕВЫШЕНА</span>
+      <span v-else-if="type === 'unfinished'">ПРЕДУПРЕЖДЕНИЕ: ЗАМЕЧЕНЫ ПУСТЫЕ СЛОТЫ</span>
+      <span v-else-if="type === 'underSP'">ПРЕДУПРЕЖДЕНИЕ: ОСТАЛАСЬ ВМЕСТИМОСТЬ СИСТЕМ</span>
+      <span v-else-if="type === 'unlicensed'">ПРЕДУПРЕЖДЕНИЕ: ЗАМЕЧЕНО НЕЛИЦЕНЗИРОВАННОЕ СНАРЯЖЕНИЕ</span>
     </div>
     <div v-if="!small && !hideClear" class="mt-1">
       <v-btn v-if="type === 'destroyed'" block small outlined dark @click="$emit('reprint')">
         <v-icon left>cci-mech</v-icon>
-        Reprint Mech
+        Перепечатать Меха
       </v-btn>
       <span v-else-if="type === 'cascading'" class="white--text flavor-text">
-        UNSHACKLED NHP REPRESENT AN IMMININENT THREAT TO ANY PERSONS OR PROPERTY WITHIN THE MAXIMUM
-        OPERATIONAL AREA OF THE FRAME. FAILURE TO HARDCYCLE CONSTITUTES CONTRIBUTORY NEGLIGENCE
-        UNDER UNION LAW.
+        ОСВОБОЖДЕННЫЕ НЧЛ ПРЕДСТАВЛЯЮТ НЕПОСРЕДСТВЕННУЮ УГРОЗУ ДЛЯ ЛЮБЫХ ЛЮДЕЙ ИЛИ СОБСТВЕННОСТИ 
+        В РАМКАХ МАКСИМАЛЬНОЙ РАБОЧЕЙ ЗОНЫ РАМЫ. НЕВЫПОЛНЕНИЕ ЖЕСТКОГО ЦИКЛА ПРЕДСТАВЛЯЕТ СОБСТВЕННУЮ 
+        ХАЛАТНОСТЬ ПО ЗАКОНОДАТЕЛЬСТВУ СОЮЗА.
       </span>
       <span v-else-if="type === 'overSP'" class="white--text flavor-text">
-        Loadout configuration exceeds available Frame System Capacity
+        Снаряжение конфигурации превышает доступные СП
       </span>
       <span v-else-if="type === 'unfinished' || type === 'underSP'" class="white--text flavor-text">
-        Operational capacity significantly impaired
+        Эксплуатационные возможности значительно нарушены
       </span>
       <span v-else-if="type === 'unlicensed'" class="white--text flavor-text">
-        Pilot is missing one or more licenses required to legally print or operate this
-        configuration
+        У пилота нет одной или больше лицензий, необходимых для легальной печати или использования этой конфигурации
       </span>
     </div>
   </v-alert>

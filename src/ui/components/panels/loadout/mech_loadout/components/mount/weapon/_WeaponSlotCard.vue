@@ -37,7 +37,7 @@
             </div>
           </v-col>
         </v-row>
-        <div v-else>{{ weaponSlot.Size }} Weapon</div>
+        <div v-else>{{ weaponSlot.Size }} Оружие</div>
       </div>
       <v-row v-if="item" slot="header-items" justify="end" no-gutters>
         <v-col cols="auto">
@@ -53,7 +53,7 @@
         </v-col>
         <v-col v-if="item && item.SP" cols="auto">
           <div class="pl-3 ml-3" style="border-left: 1px solid #616161">
-            <span>{{ item.SP }}SP</span>
+            <span>{{ item.SP }}СП</span>
           </div>
         </v-col>
         <v-col v-if="!readonly" cols="auto">
@@ -88,7 +88,7 @@
               @click.stop="$refs.modDialog.show()"
             >
               <v-icon :color="color" left>cci-weaponmod</v-icon>
-              <span>NO MOD INSTALLED</span>
+              <span>НИКАКОГО МОДА НЕ УСТАНОВЛЕНО</span>
             </v-btn>
           </div>
         </equipment-header>
@@ -101,7 +101,7 @@
           <div v-if="item.ProfileOnAttack">
             <div class="mb-n2 mt-1">
               <v-icon class="mt-n1">cci-weapon</v-icon>
-              <span class="overline stark--text">ON ATTACK</span>
+              <span class="overline stark--text">ПРИ АТАКЕ</span>
               <p
                 v-html-safe="item.ProfileOnAttack"
                 class="text--text body-text mb-1 mr-2 ml-6 mt-n2"
@@ -111,7 +111,7 @@
           <div v-if="item.ProfileOnHit">
             <div class="mb-n2 mt-1">
               <v-icon class="mt-n1">cci-weapon</v-icon>
-              <span class="overline stark--text">ON HIT</span>
+              <span class="overline stark--text">ПРИ ПОПАДАНИИ</span>
               <p
                 v-html-safe="item.ProfileOnHit"
                 class="text--text body-text mb-1 mr-2 ml-6 mt-n2"
@@ -121,7 +121,7 @@
           <div v-if="item.ProfileOnCrit">
             <div class="mb-n2 mt-1">
               <v-icon class="mt-n1">cci-weapon</v-icon>
-              <span class="overline stark--text">ON CRITICAL HIT</span>
+              <span class="overline stark--text">ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ</span>
               <p
                 v-html-safe="item.ProfileOnCrit"
                 class="text--text body-text mb-1 mr-2 ml-6 mt-n2"
@@ -151,7 +151,7 @@
       v-if="item"
       ref="modDialog"
       no-confirm
-      :title="`${item.Mod ? 'Modify' : 'Install'} ${item.Name} Modification`"
+      :title="`${item.Mod ? 'Модифицировать' : 'Установить'} ${item.Name} Модификацию`"
       fullscreen
       no-pad
     >
