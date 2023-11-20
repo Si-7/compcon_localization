@@ -1,38 +1,39 @@
 <template>
   <cc-stepper-content complete :exit="`/pilot/${pilot.ID}`" @complete="$emit('next')">
-    <cc-title large>Level Up (Overview)&emsp;</cc-title>
+    <cc-title large>Поднятие уровня (Обзор)&emsp;</cc-title>
     <h2 class="heading">
-      MV-2 License Acquisition Request
+      ЗАПРОС НА ПРИОБРЕТЕНИЕ ЛИЦЕНЗИИ МВ-2
       <cc-slashes />
-      &nbsp;Overview
+      &nbsp;Обзор
     </h2>
     <div style="position: absolute; right: 16px; top: 16px">
-      <cc-tooltip simple content="Feature In Development">
-        <v-btn small outlined disabled>Suggest Level Upgrades</v-btn>
+      <cc-tooltip simple content="Функционал В Разработке">
+        <v-btn small outlined disabled>Предложить улучшения</v-btn>
       </cc-tooltip>
     </div>
     <v-container class="flavor-text" style="font-size: 14px">
       <span>
-        The UAD IDENT MV-2 License Acquisition Request has been designed to allow active Union
-        personnel to register license updates while field-deployed and receive immediate UN and GMS
-        field support resources. Union personnel should confirm the correctness of their submitted
-        form with their local Union officer, or, in the event an officer is unavailable, request an
-        NHP-directed review at secure Omninet address
+        Запрос на приобретение лицензии АДС IDENT МВ-2 был разработан, чтобы позволить активному 
+        персоналу Союза регистрировать обновления лицензий во время развертывания и 
+        немедленно получать ресурсы Союза и ДМС для поддержки на местах. Сотрудники Союза должны 
+        подтвердить правильность отправленной формы у своего местного представителя Союза или, 
+        в случае, если сотрудник недоступен, запросить проверку под руководством НЧЛ по защищенному 
+        адресу омнинета
         <code>un_omni-18364.andes.cerrobonete.node:9</code>
       </span>
       <v-alert color="accent" outlined dense border="left" class="mt-2">
         <span class="overline">
-          Submitting unauthorized licensing updates and/or submitting applications for unauthorized
-          or previously-witheld license rights without prior MV-8a/j authorization by a Union
-          Administrator will result in the automatic rejection of the licensing application and may
-          result in a licensing audit under DoJ/HR AR 716-J
+          ЗАПРОС НЕСАНКЦИОНИРОВАННЫХ ОБНОВЛЕНИЙ ЛИЦЕНЗИИ И/ИЛИ ПОДАЧА ЗАЯВЛЕНИЙ НА НЕСАНКЦИОНИРОВАННЫЕ 
+          ИЛИ РАНЕЕ ИМЕЕМЫЕ ЛИЦЕНЗИОННЫЕ ПРАВА БЕЗ ПРЕДВАРИТЕЛЬНОГО РАЗРЕШЕНИЯ МВ-8А/J АДМИНИСТРАТОРА СОЮЗА 
+          ПРИВЕДЕТ К АВТОМАТИЧЕСКОМУ ОТКЛОНЕНИЮ ЗАЯВЛЕНИЯ НА ЛИЦЕНЗИРОВАНИЕ И МОЖЕТ ПРИВЕСТИ К ЛИЦЕНЗИОННОМУ 
+          АУДИТУ ПОД DoJ/HR AR 716-J.
         </span>
       </v-alert>
     </v-container>
     <v-container class="flavor-text">
       <v-row justify="center">
         <v-col class="text-center">
-          The UAD IDENT Service has determined that&nbsp;
+          Служба IDENT АДС определила, что&nbsp;
           <div
             class="accent--text stat-text d-inline-block"
             style="position: relative; top: 10px; line-height: 10px;"
@@ -43,7 +44,7 @@
             <br />
             <span class="overline subtle--text">{{ pilot.ID }}</span>
           </div>
-          &nbsp;is eligible for the following license update:
+          &nbsp;имеет право на следующее обновление лицензии:
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -51,21 +52,21 @@
           <v-card-text>
             <v-row class="px-3">
               <v-col class="text-center" cols="auto">
-                <span class="overline white--text">LICENSE LEVEL</span>
+                <span class="overline white--text">УРОВЕНЬ ЛИЦЕНЗИИ</span>
                 <br />
                 <span class="white--text display-4 font-weight-black">{{ pilot.Level }}</span>
               </v-col>
               <v-col cols="auto" class="flavor-text white--text px-4">
                 <ul>
-                  <li>PILOT SKILL TRIGGER IMPROVEMENT</li>
-                  <li>PILOT TALENT UPGRADE</li>
-                  <li>MECH SKILL UPGRADE</li>
-                  <li>GRIT IMPROVEMENT</li>
-                  <li>NEW LICENSE UNLOCK</li>
+                  <li>УЛУЧШЕНИЕ ТРИГГЕРА ПИЛОТА</li>
+                  <li>УЛУЧШЕНИЕ ТАЛАНТА ПИЛОТА</li>
+                  <li>УЛУЧШЕНИЕ НАВЫКА МЕХОВ</li>
+                  <li>УЛУЧШЕНИЕ СТОЙКОСТИ</li>
+                  <li>РАЗБЛОКИРОВКА НОВОЙ ЛИЦЕНЗИИ</li>
                   <li v-if="cbEligible" class="font-weight-bolder">
-                    CORE BONUS INSTALLATION
+                    УСТАНОВКА БОНУСА ЯДРА
                   </li>
-                  <li v-else class="subtle--text">INELIGIBLE FOR CORE BONUS</li>
+                  <li v-else class="subtle--text">НЕ ПОДХОДИТ ДЛЯ БОНУСА ЯДРА</li>
                 </ul>
               </v-col>
             </v-row>

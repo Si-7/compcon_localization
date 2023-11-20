@@ -33,15 +33,15 @@
         <span>
           <span v-if="isSelected">
             <v-icon left>cci-difficulty</v-icon>
-            Remove Bonus
+            Убрать Бонус
           </span>
           <span v-else-if="isSelectable">
             <v-icon left>cci-accuracy</v-icon>
-            Add Bonus
+            Добавить Бонус
           </span>
           <span v-else>
             <v-icon left>mdi-lock</v-icon>
-            Unavailable
+            Недоступно
           </span>
         </span>
       </v-btn>

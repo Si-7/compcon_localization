@@ -10,24 +10,24 @@
     <br />
     <v-alert type="error" outlined :value="!pilotReady">
       <span class="stat-text accent--text">
-        WARNING: Submission for IDENT record {{ pilot.ID }} has the following issue(s):
+        ВНИМАНИЕ: Запрос на IDENT запись {{ pilot.ID }} имеет следующую(ие) проблему(ы):
       </span>
       <ul class="flavor-text error--text">
-        <li v-if="!pilot.Callsign">PILOT CALLSIGN blank or invalid</li>
-        <li v-if="!pilot.Name">PILOT NAME blank or invalid</li>
+        <li v-if="!pilot.Callsign">Позывной пилота пуст или неверный</li>
+        <li v-if="!pilot.Name">Имя пилота пусто или неверно</li>
         <li v-if="!pilot.SkillsController.HasFullSkills">
-          PILOT SKILL TRIGGERS incomplete or invalid
+          Триггеры пилота неполны или неверны
         </li>
         <li v-if="!pilot.TalentsController.HasFullTalents">PILOT TALENTS incomplete or invalid</li>
         <li v-if="!pilot.MechSkillsController.HasFullHASE">
-          PILOT MECH SKILLS incomplete or invalid
+          Навыки Мехов пилота неполны или неверны
         </li>
-        <li v-if="!pilot.LicenseController.HasLicenses">PILOT LICENSES incomplete or invalid</li>
-        <li v-if="!pilot.CoreBonusController.HasCBs">PILOT CORE BONUSES incomplete or invalid</li>
+        <li v-if="!pilot.LicenseController.HasLicenses">Лицензии пилота неполны или неверны</li>
+        <li v-if="!pilot.CoreBonusController.HasCBs">Бонусы Ядра пилота неполны или неверны</li>
       </ul>
     </v-alert>
     <v-btn x-large block color="secondary" tile class="mx-2 my-8" @click="savePilot()">
-      Update Pilot Record // {{ pilot.Callsign }} ({{ pilot.Name }})
+      ОБНОВИТЬ ЗАПИСЬ ПИЛОТА // {{ pilot.Callsign }} ({{ pilot.Name }})
     </v-btn>
   </cc-stepper-content>
 </template>

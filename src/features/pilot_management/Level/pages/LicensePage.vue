@@ -6,30 +6,30 @@
     @back="$emit('back')"
     @complete="$emit('next')"
   >
-    <cc-title large>Unlock License&emsp;</cc-title>
+    <cc-title large>Разблокируйте Лицензию&emsp;</cc-title>
     <h2 class="heading">
-      MV-2 License Acquisition Request
+      ЗАПРОС НА ПРИОБРЕТЕНИЕ ЛИЦЕНЗИИ МВ-2
       <cc-slashes />
-      &nbsp;MV-2//d Licensor/Licensee Transmit Record
+      &nbsp;МВ-2//г Запись Передачи Лицензиар/Лицензиат
     </h2>
     <div style="position: absolute; right: 16px; top: 16px">
-      <cc-tooltip simple content="Feature In Development">
-        <v-btn small outlined disabled>Suggest License</v-btn>
+      <cc-tooltip simple content="Функционал В Разработке">
+        <v-btn small outlined disabled>Предложить Лицензию</v-btn>
       </cc-tooltip>
     </div>
     <v-container class="flavor-text" style="font-size: 14px">
       <span>
-        The MV-2 Licensor/Licensee Transmit Record registers the transmission and receipt of a
-        UN-recognized FRAME License consisting of, but not limited to, Equipment Print Templates not
-        exceeding 1.5EB, FRAME Print Templates not exceeding 3.75EB, and access protocols to
-        FRAME-compliant system software.
+        Запись Передачи Лицензиар/Лицензиат МВ-2 регистрирует передачу и получение признанной ДВФС 
+        лицензии рамы, состоящей из, помимо прочего, шаблонов печати оборудования размером 
+        не более 1,5 EB, шаблонов печати рамы размером не более 3,75 EB и протоколов доступа к 
+        совместимому с рамой системному программному обеспечению.
       </span>
       <v-alert color="accent" outlined dense border="left" class="mt-2">
-        <b>Unlock a License.</b>
+        <b>Разблокируйте Лицензию.</b>
         <br />
         <span class="overline">
-          Union and its representatives are not liable for problems arising from the printing,
-          installation, and/or use of unrecognized or prohibited License materials.
+          СОЮЗ И ЕГО ПРЕДСТАВИТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ПРОБЛЕМЫ, ВОЗНИКАЮЩИЕ В РЕЗУЛЬТАТЕ 
+          ПЕЧАТИ, УСТАНОВКИ И/ИЛИ ИСПОЛЬЗОВАНИЯ НЕПРИЗНАННЫХ ИЛИ ЗАПРЕЩЕННЫХ ЛИЦЕНЗИОННЫХ МАТЕРИАЛОВ.
         </span>
       </v-alert>
     </v-container>

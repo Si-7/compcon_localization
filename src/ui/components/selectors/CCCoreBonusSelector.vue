@@ -1,6 +1,6 @@
 <template>
   <selector
-    title="Pilot CORE Bonuses"
+    title="Бонусы Ядра Пилота"
     height="60vh"
     :success="!pilot.CoreBonusController.IsMissingCBs"
   >
@@ -28,7 +28,7 @@
           style="width: 95%"
           :value="!pilot.CoreBonusController.IsMissingCBs"
         >
-          CORE Bonus Selection Complete
+          Выбор Бонусов Ядра завершен
         </v-alert>
         <v-alert
           outlined
@@ -38,7 +38,7 @@
           :value="pilot.CoreBonusController.IsMissingCBs"
         >
           {{ pilot.CoreBonusController.CurrentCBPoints }} /
-          {{ pilot.CoreBonusController.MaxCBPoints }} CORE Bonuses selected
+          {{ pilot.CoreBonusController.MaxCBPoints }} Бонусов Ядра выбрано
         </v-alert>
         <div class="my-2">
           <v-btn
@@ -48,7 +48,7 @@
             :disabled="!pilot.CoreBonusController.CoreBonuses.length"
             @click="pilot.CoreBonusController.ClearCoreBonuses()"
           >
-            Reset
+            Сбросить
           </v-btn>
         </div>
       </v-row>
@@ -164,20 +164,20 @@ export default class CCCoreBonusSelector extends Vue {
     const br = this.$vuetify.breakpoint.smAndDown ? '<br>' : '&emsp;//&emsp;'
     const abbr = `<b>${m.ID}</b>`
     const name = `<b>${m.Name}</b>`
-    if (m.ID === 'GMS')
+    if (m.ID === 'ДМС')
       return `<b>${this.selectedCount(
         m.ID
-      )}</b> ${abbr} CORE Bonuses Selected<br>${name} CORE Bonuses do not have a license requirement`
+      )}</b> ${abbr} Бонусов Ядра выбрано<br>${name} Бонусы Ядра не имеют требований по лицензиям`
     const lvl = `<b>${this.pilot.LicenseController.LicenseLevel(m.ID)}</b>`
-    let output = `${lvl} ${abbr} Licenses Acquired ${br} `
+    let output = `${lvl} ${abbr} Лицензий Получено ${br} `
     let remain = (3 % this.pilot.Level || 3) - this.pilot.LicenseController.LicenseLevel(m.ID)
     if (remain < 1) remain += 3
-    output += `<b>${this.availableCount(m.ID)}</b> ${abbr} CORE Bonuses Available ${br} `
-    output += `<b>${this.selectedCount(m.ID)}</b> ${abbr} CORE Bonuses Selected`
+    output += `<b>${this.availableCount(m.ID)}</b> ${abbr} Бонусов Ядра доступно ${br} `
+    output += `<b>${this.selectedCount(m.ID)}</b> ${abbr} Бонусов Ядра выбрано`
     if (this.pilot.Level < 12)
       output += `<br>${
-        this.pilot.Level < 3 ? 'First' : 'Next'
-      } ${name} CORE Bonus available in <b>${remain}</b> License Level${remain === 1 ? '' : 's'}`
+        this.pilot.Level < 3 ? 'Первый' : 'Следующий'
+      } ${name} Бонус Ядра доступен через <b>${remain}</b> УЛ`
     return output
   }
 
@@ -186,7 +186,7 @@ export default class CCCoreBonusSelector extends Vue {
       .length
   }
   availableCount(m: string): number {
-    if (m.toUpperCase() === 'GMS') return Infinity
+    if (m.toUpperCase() === 'ДМС') return Infinity
     const extraLicenses = Bonus.Int(0, 'cb_point', this.pilot)
     return (
       Math.floor(this.pilot.LicenseController.LicenseLevel(m) / 3) +

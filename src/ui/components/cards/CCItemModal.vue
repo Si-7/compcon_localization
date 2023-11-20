@@ -10,7 +10,7 @@
     >
       <span slot="button" class="white--text" style="width: 100%">
         <v-icon :left="!smallBtn">{{ item.Icon }}</v-icon>
-        {{ truncate(item.Name) }} {{ item.ItemType === 'Frame' ? 'FRAME' : '' }}
+        {{ truncate(item.Name) }} {{ item.ItemType === 'Frame' ? 'РАМА' : '' }}
       </span>
 
       <span slot="title">
@@ -25,7 +25,7 @@
         icon
         @click="$refs.dialog.confirm()"
       >
-        <v-icon large left>close</v-icon>
+        <v-icon large left>закрыть</v-icon>
       </v-btn>
 
       <v-chip

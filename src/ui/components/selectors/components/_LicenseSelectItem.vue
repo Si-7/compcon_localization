@@ -62,11 +62,11 @@
         @click="$emit('add')"
       >
         <v-icon left>cci-accuracy</v-icon>
-        Unlock {{ license.Name }} {{ 'I'.repeat(rank + 1) }}
+        Разблокировать {{ license.Name }} {{ 'I'.repeat(rank + 1) }}
       </v-btn>
       <v-btn v-if="rank" block outlined color="error" @click="$emit('remove')">
         <v-icon left>cci-difficulty</v-icon>
-        Remove {{ license.Name }} {{ 'I'.repeat(rank) }}
+        Убрать {{ license.Name }} {{ 'I'.repeat(rank) }}
       </v-btn>
     </v-expansion-panel-content>
   </v-expansion-panel>

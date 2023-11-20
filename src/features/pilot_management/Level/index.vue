@@ -9,7 +9,7 @@
           edit-icon="mdi-check"
           step="1"
         >
-          <span>Overview</span>
+          <span>Обзор</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -19,7 +19,7 @@
           edit-icon="mdi-check"
           step="2"
         >
-          <span>Skills</span>
+          <span>Триггеры</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -29,7 +29,7 @@
           edit-icon="mdi-check"
           step="3"
         >
-          <span>Talents</span>
+          <span>Таланты</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step
@@ -39,7 +39,7 @@
           edit-icon="mdi-check"
           step="4"
         >
-          <span>Mech Skills</span>
+          <span>Навыки Мехов</span>
         </v-stepper-step>
         <v-divider />
 
@@ -51,7 +51,7 @@
           edit-icon="mdi-check"
           step="5"
         >
-          <span>Licenses</span>
+          <span>Лицензии</span>
         </v-stepper-step>
         <v-divider />
 
@@ -63,7 +63,7 @@
           edit-icon="mdi-check"
           step="6"
         >
-          <span>CORE Bonuses</span>
+          <span>Бонусы Ядра</span>
         </v-stepper-step>
         <v-divider />
         <v-stepper-step editable step="7">Confirm</v-stepper-step>
