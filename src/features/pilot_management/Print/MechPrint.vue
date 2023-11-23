@@ -276,6 +276,7 @@
             <p v-if="p.OnHit" :v-html-safe="`<b>ПРИ ПОПАДАНИИ:</b> ${p.OnHit}`" print />
             <p v-if="p.OnCrit" :v-html-safe="`<b>ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ:</b> ${p.OnCrit}`" print />
             <print-action :actions="p.Actions" />
+            <p v-if="p.Effect" class="caption mb-n1" v-html="p.Effect" />
             <print-deployable :deployables="p.Deployables" />
           </div>
           <div class="text-right" style="position: absolute; bottom: 0; left: 0; right: 0">
