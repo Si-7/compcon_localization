@@ -8338,10 +8338,10 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
 
-lancer-data-rus@^1.1.18:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/lancer-data-rus/-/lancer-data-rus-1.1.18.tgz#8c18f12377802f1edffa3389dd8d5613439bb741"
-  integrity sha512-Ilara1gf2YoQ2QglqvY4Le4Nd+79Q5RDCxRAYrEDzjr/POhSGjnKz0FnDxOQxH0YXlotLi9bBZNctHHtOwaCAg==
+lancer-data-rus@^1.1.19:
+  version "1.1.19"
+  resolved "https://registry.yarnpkg.com/lancer-data-rus/-/lancer-data-rus-1.1.19.tgz#50a2abe1cd25b758a881ba716a20769b72749ff4"
+  integrity sha512-wXUA5Q/F42iZygrlfrtH6QeZ/YJtRl1wJbTTQYs6mOA3jQ0X0la+rsr5ryyTziNziOuH4PBZopZLbEwc13f1lA==
   dependencies:
     yarn "^1.22.19"
 

@@ -1,23 +1,23 @@
 <template>
-  <cc-solo-dialog ref="dialog" icon="mdi-printer" large no-confirm title="Print Character Sheets">
+  <cc-solo-dialog ref="dialog" icon="mdi-printer" large no-confirm title="Распечатать листы персонажа">
     <v-card-text>
       <v-select
         v-model="selectedMechID"
         :items="pilot.Mechs"
         item-text="Name"
         item-value="ID"
-        label="Include Mech (optional)"
+        label="Включить мех (опционально)"
         outlined
         clearable
       />
 
-      <v-btn class="my-2" color="primary" large block tile @click="print()">Print</v-btn>
+      <v-btn class="my-2" color="primary" large block tile @click="print()">Распечатать</v-btn>
       <v-btn class="my-2" small color="accent" outlined block tile @click="printBlank()">
-        Print Blank Character Sheets
+        Распечатать пустые листы персонажа
       </v-btn>
-      <cc-tooltip simple content="Feature In Development">
+      <cc-tooltip simple content="Функционал В Разработке">
         <v-btn class="my-2" small text block tile disabled>
-          Print Character Campaign Portfolio
+          Распечатать портфолио кампании персонажа
           <v-icon right small>mdi-information-outline</v-icon>
         </v-btn>
       </cc-tooltip>

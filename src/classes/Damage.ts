@@ -39,15 +39,15 @@ class Damage {
 
   private getDamageType(str?: string): DamageType {
     switch (str?.toLowerCase()) {
-      case 'kinetic':
+      case 'кинетический':
         return DamageType.Kinetic
-      case 'energy':
+      case 'энергетический':
         return DamageType.Energy
-      case 'explosive':
+      case 'взрывной':
         return DamageType.Explosive
-      case 'heat':
+      case 'нагрев':
         return DamageType.Heat
-      case 'burn':
+      case 'горение':
         return DamageType.Burn
     }
     return DamageType.Variable
@@ -107,7 +107,7 @@ class Damage {
 
   public get Text(): string {
     if (this.Override) return this.Value
-    return `${this.Value} ${Object.keys(DamageType).find(key => DamageType[key] === this.Type)} Damage`
+    return `${this.Value} ${this.Type} урона`
   }
 
   public static Serialize(damage: Damage): IDamageData {

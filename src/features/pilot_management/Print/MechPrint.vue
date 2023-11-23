@@ -6,7 +6,7 @@
         <div class="heading h2 mt-n4 font-weight-bolder">{{ mech.Name }}</div>
       </v-col>
       <v-col cols="auto" class="ml-auto text-center caption">
-        <div class="overline mt-n2">OVERCHARGE</div>
+        <div class="overline mt-n2">ПЕРЕГРУЗКА</div>
         <span class="mx-1 oc-border">
           &nbsp;+1
           <v-icon small class="ml-n1">mdi-fire</v-icon>
@@ -28,28 +28,28 @@
 
     <v-row dense align="center" justify="space-around" class="mt-n5 mb-1">
       <v-col cols="auto">
-        <span class="font-weight-bold overline pr-3">HULL</span>
+        <span class="font-weight-bold overline pr-3">КРП</span>
         <div class="ml-4 mt-n3" style="position: relative; width: max-content">
           <v-icon x-large style="margin-right: -3px !important">mdi-hexagon-outline</v-icon>
           <div class="heading h2 icon-overlap" v-html="mech.Hull" />
         </div>
       </v-col>
       <v-col cols="auto">
-        <span class="font-weight-bold overline pr-3">AGI</span>
+        <span class="font-weight-bold overline pr-3">МНВР</span>
         <div class="ml-4 mt-n3" style="position: relative; width: max-content">
           <v-icon x-large style="margin-right: -3px !important">mdi-hexagon-outline</v-icon>
           <div class="heading h2 icon-overlap" v-html="mech.Agi" />
         </div>
       </v-col>
       <v-col cols="auto">
-        <span class="font-weight-bold overline pr-3">SYS</span>
+        <span class="font-weight-bold overline pr-3">СИС</span>
         <div class="ml-4 mt-n3" style="position: relative; width: max-content">
           <v-icon x-large style="margin-right: -3px !important">mdi-hexagon-outline</v-icon>
           <div class="heading h2 icon-overlap" v-html="mech.Sys" />
         </div>
       </v-col>
       <v-col cols="auto">
-        <span class="font-weight-bold overline pr-3">ENG</span>
+        <span class="font-weight-bold overline pr-3">ИНЖ</span>
         <div class="ml-4 mt-n3" style="position: relative; width: max-content">
           <v-icon x-large style="margin-right: -3px !important">mdi-hexagon-outline</v-icon>
           <div class="heading h2 icon-overlap" v-html="mech.Eng" />
@@ -62,12 +62,12 @@
         <v-divider vertical />
       </v-col>
       <v-col class="text-center">
-        <div class="overline" style="line-height: 30px">CORE POWER</div>
+        <div class="overline" style="line-height: 30px">МОЩЬ ЯДРА</div>
         <v-icon size="30" color="grey lighten-2" class="mr-n1 mt-n3">mdi-battery-outline</v-icon>
         <div class="d-inline-block flavor-text font-weight-bold mb-n2">/1</div>
       </v-col>
       <v-col class="text-center">
-        <div class="overline" style="line-height: 30px">REPAIR CAPACITY</div>
+        <div class="overline" style="line-height: 30px">ЛИМИТ РЕМОНТА</div>
         <v-icon size="30" color="grey lighten-2" class="mr-n1 mt-n3">cci-repair</v-icon>
         <div
           class="d-inline-block flavor-text font-weight-bold mb-n2"
@@ -78,7 +78,7 @@
 
     <v-row dense justify="space-between" align="start" class="mt-n4">
       <v-col class="text-center">
-        <div style="line-height: 0" class="overline mb-4">STRUCTURE</div>
+        <div style="line-height: 0" class="overline mb-4">СТРУКТУРА</div>
         <div>
           <v-icon size="60" color="grey lighten-3" class="mr-n3 mt-n6">cci-structure</v-icon>
           <b
@@ -90,7 +90,7 @@
       <v-col cols="auto">
         <v-row dense no-gutters justify="center">
           <v-col cols="auto" class="text-center">
-            <div style="line-height: 0" class="overline mb-4 mr-6">HP</div>
+            <div style="line-height: 0" class="overline mb-4 mr-6">ПЗ</div>
             <div>
               <v-icon size="60" color="grey lighten-3" class="mr-n3 mt-n6">
                 mdi-hexagon-outline
@@ -102,7 +102,7 @@
             </div>
           </v-col>
           <v-col v-if="mech.Armor" cols="auto" class="text-center mb-1" align-self="end">
-            <div style="line-height: 0" class="overline mb-4 ml-2">ARMOR</div>
+            <div style="line-height: 0" class="overline mb-4 ml-2">БРОНЯ</div>
             <div class="heading h2 mt-n4 mr-n2">
               <v-icon class="mt-n1 mr-n1">mdi-shield</v-icon>
               {{ mech.Armor }}
@@ -112,7 +112,7 @@
       </v-col>
       <v-spacer />
       <v-col class="text-center">
-        <div style="line-height: 0" class="overline mb-4 mr-2">STRESS</div>
+        <div style="line-height: 0" class="overline mb-4 mr-2">НАГРУЗКА</div>
         <div>
           <v-icon size="60" color="grey lighten-3" class="mr-n3 mt-n6">cci-reactor</v-icon>
           <b
@@ -122,7 +122,7 @@
         </div>
       </v-col>
       <v-col class="text-center">
-        <div style="line-height: 0" class="overline mb-4 mr-6">HEAT</div>
+        <div style="line-height: 0" class="overline mb-4 mr-6">НАГРЕВ</div>
         <div>
           <v-icon size="60" color="grey lighten-3" class="mr-n3 mt-n6">mdi-fire</v-icon>
           <b
@@ -136,55 +136,55 @@
     <v-row dense>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">ATK</legend>
+          <legend class="caption font-weight-bold px-1">АТАКА</legend>
           <div class="heading h2 text-center mt-n2">{{ signed(mech.AttackBonus) }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">TECH ATK</legend>
+          <legend class="caption font-weight-bold px-1">ТЕХ АТАКА</legend>
           <div class="heading h2 text-center mt-n2">{{ signed(mech.TechAttack) }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">SAVE</legend>
+          <legend class="caption font-weight-bold px-1">СПАСБРОСОК</legend>
           <div class="heading h2 text-center mt-n2">{{ mech.SaveTarget }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">SPEED</legend>
+          <legend class="caption font-weight-bold px-1">СКОРОСТЬ</legend>
           <div class="heading h2 text-center mt-n2">{{ mech.Speed }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">E-DEF</legend>
+          <legend class="caption font-weight-bold px-1">Э-ЗАЩ</legend>
           <div class="heading h2 text-center mt-n2">{{ mech.EDefense }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">EVASION</legend>
+          <legend class="caption font-weight-bold px-1">УКЛОНЕНИЕ</legend>
           <div class="heading h2 text-center mt-n2">{{ mech.Evasion }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">SENSORS</legend>
+          <legend class="caption font-weight-bold px-1">СЕНСОРЫ</legend>
           <div class="heading h2 text-center mt-n2">{{ mech.SensorRange }}</div>
         </fieldset>
       </v-col>
       <v-col>
         <fieldset>
-          <legend class="caption font-weight-bold px-1">LTD SYS</legend>
+          <legend class="caption font-weight-bold px-1">ОГР. СИС.</legend>
           <div class="heading h2 text-center mt-n2">{{ signed(mech.LimitedBonus) }}</div>
         </fieldset>
       </v-col>
     </v-row>
 
-    <div class="overline mb-n2">FRAME TRAITS</div>
+    <div class="overline mb-n2">ЧЕРТЫ РАМЫ</div>
     <v-row dense justify="space-between" class="caption mt-n1">
       <v-col v-for="(t, i) in mech.Frame.Traits" :key="`mt_${i}`" class="mt-n1">
         <fieldset>
@@ -194,15 +194,15 @@
       </v-col>
     </v-row>
 
-    <div class="overline mb-n3">CORE SYSTEM</div>
+    <div class="overline mb-n3">СИСТЕМА ЯДРА</div>
     <fieldset class="mt-n2">
       <legend class="heading h3 ml-1 px-2">{{ mech.Frame.CoreSystem.Name }}</legend>
       <div v-if="mech.Frame.CoreSystem.PassiveEffect">
         <span class="heading ml-4">
           {{
             mech.Frame.CoreSystem.PassiveName
-              ? `${mech.Frame.CoreSystem.PassiveName} (PASSIVE)`
-              : 'CORE PASSIVE'
+              ? `${mech.Frame.CoreSystem.PassiveName} (ПАССИВНАЯ)`
+              : 'ПАССИВНАЯ СИСТЕМА'
           }}
         </span>
         <br />
@@ -211,8 +211,8 @@
       <div v-if="mech.Frame.CoreSystem.PassiveEffect" class="heading ml-4">
         {{
           mech.Frame.CoreSystem.ActiveName
-            ? `${mech.Frame.CoreSystem.ActiveName} (ACTIVE)`
-            : 'CORE ACTIVE'
+            ? `${mech.Frame.CoreSystem.ActiveName} (АКТИВИРУЕМАЯ)`
+            : 'АКТИВИРУЕМАЯ СИСТЕМА'
         }}
       </div>
       <p v-html-safe="mech.Frame.CoreSystem.ActiveEffect" class="caption ml-6 mb-1" />
@@ -230,7 +230,7 @@
       <v-col cols="auto">
         <span class="heading h3">
           {{ mech.MechLoadoutController.ActiveLoadout.Name }}
-          <span class="overline">//LOADOUT</span>
+          <span class="overline">//ВЫГРУЗКА</span>
         </span>
       </v-col>
       <v-col>
@@ -245,9 +245,9 @@
     >
       <legend class="heading ml-1 px-2 mb-n2">{{ m.Name }}</legend>
       <div v-if="m.IsLocked" class="text-center flavor-text">
-        MOUNT LOCKED
+        СЛОТ БЛОКИРОВАН
         <br />
-        <span class="overline">// SUPERHEAVY WEAPON BRACING //</span>
+        <span class="overline">// УСИЛЕНИЕ СВЕРХТЯЖЕЛОГО ОРУЖИЯ //</span>
       </div>
       <div v-for="(w, j) in m.Weapons" v-else :key="`mmtw_${i}_${j}`" class="px-1">
         <v-row no-gutters class="stat-text">
@@ -272,9 +272,9 @@
             <span v-if="p.Damage && p.Damage.length">|</span>
             <b v-for="(d, k) in p.Damage" :key="`mmwd_${i}_${j}_${k}`">{{ d.Text }}&nbsp;</b>
             <p v-if="p.Effect" :v-html-safe="p.Effect" print />
-            <p v-if="p.OnAttack" :v-html-safe="`<b>ON ATTACK:</b> ${p.OnAttack}`" print />
-            <p v-if="p.OnHit" :v-html-safe="`<b>ON HIT:</b> ${p.OnHit}`" print />
-            <p v-if="p.OnCrit" :v-html-safe="`<b>ON CRIT:</b> ${p.OnCrit}`" print />
+            <p v-if="p.OnAttack" :v-html-safe="`<b>ПРИ АТАКЕ:</b> ${p.OnAttack}`" print />
+            <p v-if="p.OnHit" :v-html-safe="`<b>ПРИ ПОПАДАНИИ:</b> ${p.OnHit}`" print />
+            <p v-if="p.OnCrit" :v-html-safe="`<b>ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ:</b> ${p.OnCrit}`" print />
             <print-action :actions="p.Actions" />
             <print-deployable :deployables="p.Deployables" />
           </div>
@@ -286,7 +286,7 @@
           <span class="heading">
             {{ w.Mod.Name }}
           </span>
-          <span class="overline">&nbsp;//APPLIED MOD</span>
+          <span class="overline">&nbsp;//ПРИМЕНЯЕМЫЙ МОД</span>
           <br />
           <p v-if="w.Mod.Effect" :v-html="w.Mod.Effect" print />
         </div>
@@ -294,7 +294,7 @@
     </fieldset>
 
     <fieldset>
-      <legend class="heading ml-1 px-2">Systems</legend>
+      <legend class="heading ml-1 px-2">Системы</legend>
       <div
         v-for="(s, i) in mech.MechLoadoutController.ActiveLoadout.Systems"
         :key="`mms_${i}`"

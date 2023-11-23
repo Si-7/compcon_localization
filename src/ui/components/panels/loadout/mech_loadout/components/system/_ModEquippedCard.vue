@@ -9,7 +9,7 @@
             <span v-if="mod.FlavorName" class="caption ml-2 my-n1">//{{ mod.TrueName }}</span>
           </span>
           <span v-else class="py-1 error" style="letter-spacing: 3px">
-            &emsp;/ / {{ mod.Name }} DESTROYED / /&emsp;
+            &emsp;/ / {{ mod.Name }} УНИЧТОЖЕН / /&emsp;
           </span>
         </span>
       </div>
@@ -38,9 +38,9 @@
               class="text-center white--text stat-text"
               style="letter-spacing: 3px;"
             >
-              / / AI IN CASCADE / /
+              / / ИИ В КАСКАДЕ / /
             </v-alert>
-            <div class="overline mt-n1">APPLIED TO</div>
+            <div class="overline mt-n1">ПРИМЕНЯЕТСЯ К</div>
             <div class="heading h3 subtle--text ml-3 mt-n2 mb-1">{{ weapon.Name }}</div>
           </v-col>
         </v-row>

@@ -3,54 +3,52 @@
     ref="dialog"
     icon="mdi-printer"
     large
-    title="Print Options"
+    title="Опции печати"
     @confirm="$emit('set', options)"
   >
     <v-card-text class="flavor-text">
       <v-card flat tile>
         <fieldset>
-          <legend class="clipped-small heading h3">General Print Options&emsp;</legend>
-          <print-option-select mandatory title="Layout" :items="layoutOptions" />
-          <print-option-select mandatory title="Font Size" :items="fontSizeOptions" />
+          <legend class="clipped-small heading h3">Общие настройки печати&emsp;</legend>
+          <print-option-select mandatory title="Разметка" :items="layoutOptions" />
+          <print-option-select mandatory title="Размер Шрифта" :items="fontSizeOptions" />
           <print-option-select
             mandatory
-            title="Print Trackable Stats as:"
+            title="Распечатать отслеживаемые статы как:"
             :items="trackableStatOptions"
           />
         </fieldset>
         <v-overlay absolute :value="true" color="panel" opacity="0.85">
-          <span class="heading h2 text--text">Feature In Development</span>
+          <span class="heading h2 text--text">Функционал В Разработке</span>
         </v-overlay>
       </v-card>
       <v-card flat tile>
         <fieldset>
-          <legend class="clipped-small heading h3">Pilot Sheet Options&emsp;</legend>
-          include:
-          <print-option-select multiple title="Include" :items="pilotIncludeOptions" />
+          <legend class="clipped-small heading h3">Настройки листа пилота&emsp;</legend>
+          <print-option-select multiple title="Включить" :items="pilotIncludeOptions" />
         </fieldset>
         <v-overlay absolute :value="true" color="panel" opacity="0.85">
-          <span class="heading h2 text--text">Feature In Development</span>
+          <span class="heading h2 text--text">Функционал В Разработке</span>
         </v-overlay>
       </v-card>
       <v-scroll-y-transition>
         <v-card flat tile>
           <fieldset>
-            <legend class="clipped-small heading h3">Mech Sheet Options&emsp;</legend>
-            include:
-            <print-option-select multiple title="Include" :items="mechIncludeOptions" />
+            <legend class="clipped-small heading h3">Настройки листа меха&emsp;</legend>
+            <print-option-select multiple title="Включить" :items="mechIncludeOptions" />
           </fieldset>
           <v-overlay absolute :value="true" color="panel" opacity="0.85">
-            <span class="heading h2 text--text">Feature In Development</span>
+            <span class="heading h2 text--text">Функционал В Разработке</span>
           </v-overlay>
         </v-card>
       </v-scroll-y-transition>
       <v-card flat tile>
         <fieldset>
-          <legend>Extras</legend>
-          <print-option-select multiple title="Also Print" :items="extraOptions" />
+          <legend>Дополнительно</legend>
+          <print-option-select multiple title="Также распечатать" :items="extraOptions" />
         </fieldset>
         <v-overlay absolute :value="true" color="panel" opacity="0.85">
-          <span class="heading h2 text--text">Feature In Development</span>
+          <span class="heading h2 text--text">Функционал В Разработке</span>
         </v-overlay>
       </v-card>
     </v-card-text>

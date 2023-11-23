@@ -2,47 +2,47 @@
   <v-container fluid>
     <v-row dense align="start">
       <v-col cols="auto" class="mr-4">
-        <div class="overline mt-n2 mb-n4">CALLSIGN</div>
+        <div class="overline mt-n2 mb-n4">ПОЗЫВНОЙ</div>
         <div class="heading h2 my-n2">
           {{ pilot.Callsign }}
         </div>
         <div class="my-n2">
-          <div>{{ pilot.Name }}, LL {{ pilot.Level }}</div>
+          <div>{{ pilot.Name }}, УЛ {{ pilot.Level }}</div>
           <div v-if="pilot.Background" class="caption my-n1 grey--text">{{ pilot.Background }}</div>
         </div>
       </v-col>
       <v-col class="ml-auto mr-auto">
         <v-row dense justify="space-between">
           <v-col cols="auto">
-            <div class="overline mt-n2 mb-n3">HP</div>
+            <div class="overline mt-n2 mb-n3">ПЗ</div>
             <div>
               <v-icon size="50" color="grey lighten-3" class="mr-n1">mdi-hexagon-outline</v-icon>
               <b class="flavor-text pt-3" v-html="`/${pilot.MaxHP}`" />
             </div>
           </v-col>
           <v-col cols="auto">
-            <div class="overline mt-n2 mb-n3 ml-n7">ARMOR</div>
+            <div class="overline mt-n2 mb-n3 ml-n7">БРОНЯ</div>
             <div style="position: relative; width: max-content">
               <v-icon size="50" color="grey lighten-3">mdi-shield-outline</v-icon>
               <div class="heading p-stat icon-overlap" v-html="pilot.Armor" />
             </div>
           </v-col>
           <v-col cols="auto">
-            <div class="overline mt-n2 mb-n3 ml-n6">E-DEF</div>
+            <div class="overline mt-n2 mb-n3 ml-n6">Э-ЗАЩ</div>
             <div style="position: relative; width: max-content">
               <v-icon size="50" color="grey lighten-3">cci-marker</v-icon>
               <div class="heading p-stat icon-overlap" v-html="pilot.EDefense" />
             </div>
           </v-col>
           <v-col cols="auto">
-            <div class="overline mt-n2 mb-n3 ml-n8">EVASION</div>
+            <div class="overline mt-n2 mb-n3 ml-n8">УКЛОНЕНИЕ</div>
             <div style="position: relative; width: max-content">
               <v-icon size="50" color="grey lighten-3">cci-evasion</v-icon>
               <div class="heading p-stat icon-overlap" v-html="pilot.Evasion" />
             </div>
           </v-col>
           <v-col cols="auto">
-            <div class="overline mt-n2 mb-n3 ml-n6">SPEED</div>
+            <div class="overline mt-n2 mb-n3 ml-n6">СКОРОСТЬ</div>
             <div style="position: relative; width: max-content">
               <v-icon size="50" color="grey lighten-3">$vuetify.icons.move</v-icon>
               <div class="heading p-stat icon-overlap" v-html="pilot.Speed" />
@@ -51,7 +51,7 @@
         </v-row>
       </v-col>
       <v-col cols="auto" class="text-right mt-n1 ml-4">
-        <div class="overline mr-9">GRIT</div>
+        <div class="overline mr-9">СТОЙКОСТЬ</div>
         <div class="heading mt-n5" style="font-size: 65px; line-height: 60px">
           +{{ pilot.Grit }}
         </div>
@@ -60,7 +60,7 @@
 
     <v-row dense align="start" justify="space-between">
       <v-col>
-        <div class="overline">SKILL TRIGGERS</div>
+        <div class="overline">ТРИГГЕРЫ</div>
         <div class="text-left">
           <v-chip
             v-for="(s, i) in pilot.SkillsController.Skills"
@@ -80,7 +80,7 @@
       <v-col cols="4">
         <v-row dense justify="space-between" class="mt-n5 pl-3">
           <v-col>
-            <span class="font-weight-bold overline pr-4">HULL</span>
+            <span class="font-weight-bold overline pr-4">КРП</span>
             <div class="ml-3 mt-n3" style="position: relative; width: max-content">
               <v-icon x-large color="grey lighten-1" style="margin-right: -3px !important">
                 mdi-hexagon-outline
@@ -92,7 +92,7 @@
             </div>
           </v-col>
           <v-col>
-            <span class="font-weight-bold overline pr-3">AGI</span>
+            <span class="font-weight-bold overline pr-3">МНВР</span>
             <div class="ml-3 mt-n3" style="position: relative; width: max-content">
               <v-icon x-large color="grey lighten-1" style="margin-right: -3px !important">
                 mdi-hexagon-outline
@@ -104,7 +104,7 @@
             </div>
           </v-col>
           <v-col>
-            <span class="font-weight-bold overline pr-3">SYS</span>
+            <span class="font-weight-bold overline pr-3">СИС</span>
             <div class="ml-3 mt-n3" style="position: relative; width: max-content">
               <v-icon x-large color="grey lighten-1" style="margin-right: -3px !important">
                 mdi-hexagon-outline
@@ -116,7 +116,7 @@
             </div>
           </v-col>
           <v-col>
-            <span class="font-weight-bold overline pr-3">ENG</span>
+            <span class="font-weight-bold overline pr-3">ИНЖ</span>
             <div class="ml-3 mt-n3" style="position: relative; width: max-content">
               <v-icon x-large color="grey lighten-1" style="margin-right: -3px !important">
                 mdi-hexagon-outline
@@ -139,7 +139,7 @@
       class="mt-n2"
     >
       <v-col>
-        <div class="overline mb-n2 mt-n1">LICENSES</div>
+        <div class="overline mb-n2 mt-n1">ЛИЦЕНЗИИ</div>
         <div class="text-left">
           <v-chip
             v-for="(l, i) in pilot.LicenseController.Licenses"
@@ -160,7 +160,7 @@
       </v-col>
     </v-row>
 
-    <div class="overline mb-n3 mt-n1">TALENTS</div>
+    <div class="overline mb-n3 mt-n1">ТАЛАНТЫ</div>
     <v-row
       v-for="(t, i) in pilot.TalentsController.Talents"
       :key="`pt_${i}`"
@@ -185,7 +185,7 @@
     </v-row>
 
     <div v-if="pilot.CoreBonusController.CoreBonuses.length" class="overline mb-n3 mt-n1">
-      CORE BONUSES
+      БОНУСЫ ЯДРА
     </div>
     <v-row
       v-for="(b, i) in pilot.CoreBonusController.CoreBonuses"
@@ -202,7 +202,7 @@
       </v-col>
     </v-row>
 
-    <div class="overline mb-n3 mt-n1">PILOT LOADOUT</div>
+    <div class="overline mb-n3 mt-n1">ВЫГРУЗКА ПИЛОТА</div>
     <v-row dense justify="space-between" class="mt-n1 caption">
       <v-col
         v-for="(a, i) in pilot.Loadout.Armor.filter(x => x)"
@@ -212,15 +212,15 @@
         <fieldset v-if="a">
           <legend class="heading ml-1 px-2">
             {{ a.Name }}
-            <span class="overline flavor-text">//ARMOR</span>
+            <span class="overline flavor-text">//БРОНЯ</span>
           </legend>
           <div
             class="pa-1 mt-n2"
             v-html="
-              `+${a.Armor || 0} Armor / E-Def: ${a.EDefense || 'N/A'} / Evasion: ${
+              `+${a.Armor || 0} Брони / Э-Защ: ${a.EDefense || 'N/A'} / Уклонение: ${
                 a.Evasion || 'N/A'
-              }<br>${a.HPBonus ? `HP Bonus: +${a.HPBonus}` : ''}${
-                a.Speed ? ` / Speed: ${a.Speed}` : ''
+              }<br>${a.HPBonus ? `бонус ПЗ: +${a.HPBonus}` : ''}${
+                a.Speed ? ` / Скорость: ${a.Speed}` : ''
               }`
             "
           />
@@ -230,7 +230,7 @@
         <fieldset v-if="w">
           <legend class="heading ml-1 px-2">
             {{ w.Name }}
-            <span class="overline flavor-text">//WEAPON</span>
+            <span class="overline flavor-text">//ОРУЖИЕ</span>
           </legend>
           <div class="pa-1 mt-n2">
             <b v-for="(r, j) in w.Range" :key="`plwr_${i}_${j}`">{{ r.Text }}</b>
@@ -251,7 +251,7 @@
         <fieldset v-if="g">
           <legend class="heading ml-1 px-2">
             {{ g.Name }}
-            <span class="overline flavor-text">//GEAR</span>
+            <span class="overline flavor-text">//СНАР.</span>
           </legend>
           <div class="pa-1 my-n2">
             <div v-if="g.Description" v-html-safe="g.Description" />

@@ -151,7 +151,7 @@
     <cc-damage-type-picker
       v-if="item"
       ref="damageTypeDialog"
-      :allowed-types="['Explosive', 'Energy', 'Kinetic']"
+      :allowed-types="['Взрывной', 'Энергетический', 'Кинетический']"
       @select="item.DamageTypeOverride = $event"
     />
     <cc-string-edit-dialog

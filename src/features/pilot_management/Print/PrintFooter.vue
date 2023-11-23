@@ -1,17 +1,17 @@
 <template>
   <v-bottom-navigation fixed grow horizontal color="primary" class="no-print">
     <v-btn @click="$router.go(-1)">
-      <span>Close Preview</span>
+      <span>Закрыть Превью</span>
       <v-icon>mdi-close</v-icon>
     </v-btn>
     <v-spacer />
     <v-btn @click="$refs.options.show()">
-      <span>Options</span>
+      <span>Опции</span>
       <v-icon>mdi-cog</v-icon>
     </v-btn>
     <options-dialog ref="options" @set="setOptions($event)" />
     <v-btn @click="print()">
-      <span>Print</span>
+      <span>Распечатать</span>
       <v-icon>print</v-icon>
     </v-btn>
   </v-bottom-navigation>

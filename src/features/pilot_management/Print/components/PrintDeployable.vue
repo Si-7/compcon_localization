@@ -4,44 +4,44 @@
       <div class="text-center caption font-weight-bold">{{ d.name }}</div>
       <v-row justify="center" dense class="text-center mt-n1">
         <v-col v-if="d.size" cols="auto">
-          <div class="caption font-weight-bold" v-html="`Size ${d.size === 0.5 ? '½' : d.size}`" />
+          <div class="caption font-weight-bold" v-html="`Размер ${d.size === 0.5 ? '½' : d.size}`" />
         </v-col>
         <v-col v-if="d.armor" cols="auto">
-          <div class="caption" v-html="`<b>Armor</b>: ${d.armor}`" />
+          <div class="caption" v-html="`<b>Броня</b>: ${d.armor}`" />
         </v-col>
         <v-col v-if="d.hp || d.size" cols="auto">
           <div
             class="caption"
             v-html="
-              `<b>HP</b>: ${
+              `<b>ПЗ</b>: ${
                 d.hp ? d.hp.toString().replace(/[{}]/gim, '') : parseFloat(d.size || 0.5) * 10
               }`
             "
           />
         </v-col>
         <v-col v-if="d.size" cols="auto">
-          <div class="caption" v-html="`<b>Evasion:</b> ${d.evasion || 10}`" />
+          <div class="caption" v-html="`<b>Уклонение:</b> ${d.evasion || 10}`" />
         </v-col>
         <v-col v-if="d.edef" cols="auto">
-          <div class="caption" v-html="`<b>E-Defense:</b> ${d.edef}`" />
+          <div class="caption" v-html="`<b>Э-Защита:</b> ${d.edef}`" />
         </v-col>
         <v-col v-if="d.heatcap" cols="auto">
-          <div class="caption" v-html="`<b>Heat Capacity:</b> ${d.heatcap}`" />
+          <div class="caption" v-html="`<b>Тепловой Максимум:</b> ${d.heatcap}`" />
         </v-col>
         <v-col v-if="d.sensor" cols="auto">
-          <div class="caption" v-html="`<b>Sensor Range:</b> ${d.sensor}`" />
+          <div class="caption" v-html="`<b>Дальность Сенсоров:</b> ${d.sensor}`" />
         </v-col>
         <v-col v-if="d.techattack" cols="auto">
-          <div class="caption" v-html="`<b>Tech Attack:</b> ${d.techattack}`" />
+          <div class="caption" v-html="`<b>Тех Атака:</b> ${d.techattack}`" />
         </v-col>
         <v-col v-if="d.repcap" cols="auto">
-          <div class="caption" v-html="`<b>Repair Capacity:</b> ${d.repcap}`" />
+          <div class="caption" v-html="`<b>Лимит Ремонта:</b> ${d.repcap}`" />
         </v-col>
         <v-col v-if="d.save" cols="auto">
-          <div class="caption" v-html="`<b>Save Target:</b> ${d.save}`" />
+          <div class="caption" v-html="`<b>Спасбросок Цели:</b> ${d.save}`" />
         </v-col>
         <v-col v-if="d.speed" cols="auto">
-          <div class="caption" v-html="`<b>Speed:</b> ${d.speed}`" />
+          <div class="caption" v-html="`<b>Скорость:</b> ${d.speed}`" />
         </v-col>
       </v-row>
       <div>
