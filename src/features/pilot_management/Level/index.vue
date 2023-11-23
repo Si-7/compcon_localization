@@ -66,7 +66,7 @@
           <span>Бонусы Ядра</span>
         </v-stepper-step>
         <v-divider />
-        <v-stepper-step editable step="7">Confirm</v-stepper-step>
+        <v-stepper-step editable step="7">Подтверждение</v-stepper-step>
       </v-stepper-header>
 
       <v-stepper-items>

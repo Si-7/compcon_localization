@@ -16,7 +16,7 @@
             <v-icon left class="fadeSelect mt-n2" v-on="on">mdi-menu</v-icon>
           </template>
           <v-list class="px-2 py-3">
-            <v-list-item-subtitle class="overline">Available Loadouts</v-list-item-subtitle>
+            <v-list-item-subtitle class="overline">Доступные выгрузки</v-list-item-subtitle>
             <v-list-item
               v-for="(l, i) in loadouts"
               :key="`pl_${i}`"
@@ -27,7 +27,7 @@
             <v-list-item v-if="!readonly" @click="$emit('add-loadout')">
               <v-list-item-title class="accent--text font-weight-bold">
                 <v-icon color="primary" left>add</v-icon>
-                Add New Loadout
+                Добавить новую выгрузку
               </v-list-item-title>
             </v-list-item>
           </v-list>

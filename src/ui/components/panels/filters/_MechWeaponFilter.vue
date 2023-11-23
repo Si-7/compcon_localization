@@ -8,7 +8,7 @@
         class="px-2"
         prepend-icon="mdi-factory"
         outlined
-        label="From Manufacturer"
+        label="От производителя"
         :items="manufacturers"
         chips
         deletable-chips
@@ -27,7 +27,7 @@
         deletable-chips
         small-chips
         outlined
-        label="Tags"
+        label="Метки"
         :items="tags"
         item-value="ID"
         multiple
@@ -46,7 +46,7 @@
         deletable-chips
         small-chips
         outlined
-        label="Weapon Type"
+        label="Тип оружия"
         :items="weaponTypes"
         @change="updateFilters()"
       />
@@ -62,7 +62,7 @@
         deletable-chips
         small-chips
         outlined
-        label="Required Mount"
+        label="Необходимый слот"
         :items="weaponSizes"
         @change="updateFilters()"
       />
@@ -77,7 +77,7 @@
         chips
         deletable-chips
         outlined
-        label="Attack Type"
+        label="Тип атаки"
         :items="attackTypes"
         multiple
         small-chips
@@ -94,7 +94,7 @@
         chips
         deletable-chips
         outlined
-        label="Damage Type"
+        label="Тип урона"
         :items="damageTypes"
         multiple
         small-chips
@@ -111,7 +111,7 @@
         chips
         deletable-chips
         outlined
-        label="From Content Pack"
+        label="Из контент пака"
         :items="lcps"
         multiple
         small-chips
@@ -120,11 +120,11 @@
     </v-col>
     <v-col cols="12" md="4" class="text-center">
       <v-icon>cci-system-point</v-icon>
-      <span class="text-button">SP Cost</span>
+      <span class="text-button">Цена СП</span>
       <v-btn-toggle v-model="spType" color="accent" class="ml-1 py-1" @change="updateFilters()">
-        <v-btn value="less" small text>Less Than</v-btn>
-        <v-btn value="eq" small text>Equal To</v-btn>
-        <v-btn value="greater" small text>Greater Than</v-btn>
+        <v-btn value="less" small text>Меньше чем</v-btn>
+        <v-btn value="eq" small text>Равна</v-btn>
+        <v-btn value="greater" small text>Больше чем</v-btn>
       </v-btn-toggle>
       <v-row no-gutters justify="center">
         <v-col cols="auto">

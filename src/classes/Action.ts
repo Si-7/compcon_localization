@@ -140,7 +140,7 @@ class Action {
 
   public constructor(data: IActionData, origin?: string, heat?: number) {
     if (data.name) this.Name = data.name
-    else this.Name = `Activate ${origin}` || 'Unknown Action'
+    else this.Name = `Активировать ${origin}` || 'Unknown Action'
     this.ID = data.id ? data.id : `act_${this.Name.toLowerCase().replace(/\s/g, '')}_${uuid()}`
     this.Origin = origin || ''
     this.IsItemAction = !!origin
@@ -150,7 +150,7 @@ class Action {
         : [data.synergy_locations]
     else this.SynergyLocations = []
     if (data.confirm) this.Confirm = Array.isArray(data.confirm) ? data.confirm : [data.confirm]
-    else this.Confirm = [`ACTIVATION CONFIRMED.`]
+    else this.Confirm = [`АКТИВАЦИЯ ПОДТВЕРЖДЕНА.`]
     this.Log = data.log || ''
     this.Activation = data.activation || ActivationType.Quick
     this.Terse = data.terse || ''
@@ -257,7 +257,7 @@ class Action {
     const a = new Action(
       {
         id: `deploy_${d.name}_${uuid()}`,
-        name: `Deploy ${d.name}`,
+        name: `Развернуть ${d.name}`,
         activation: d.activation,
         cost: d.cost || 1,
         detail: '',

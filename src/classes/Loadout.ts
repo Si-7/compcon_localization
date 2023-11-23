@@ -20,7 +20,7 @@ abstract class Loadout {
 
   public constructor(count?: number, id?: string) {
     this._id = id ? id : uuid()
-    if (!count) this._name = 'Primary'
+    if (!count) this._name = 'Основная'
     else this._name = ordArr[count]
   }
 

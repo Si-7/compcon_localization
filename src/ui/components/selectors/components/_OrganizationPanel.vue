@@ -2,18 +2,18 @@
   <v-row justify="center">
     <v-col cols="12" md="7">
       <cc-titled-panel
-        title="New Organization"
+        title="Новая организация"
         icon="mdi-account-group"
         color="reserve--organization darken-2"
       >
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="orgName" color="accent" label="Name" outlined hide-details />
+            <v-text-field v-model="orgName" color="accent" label="Название" outlined hide-details />
           </v-col>
           <v-col cols="6">
             <v-select
               v-model="orgType"
-              label="Type"
+              label="Тип"
               color="accent"
               :items="orgTypes"
               outlined
@@ -23,7 +23,7 @@
         </v-row>
         <v-textarea
           v-model="orgDetails"
-          label="Purpose, goal, and organization details"
+          label="Цель и детали организации"
           color="accent"
           auto-grow
           rows="2"
@@ -31,7 +31,7 @@
           hide-details
         />
         <br />
-        <span class="heading h3">Start with:</span>
+        <span class="heading h3">Начать с:</span>
         <v-row dense justify="center" class="mx-4">
           <v-col cols="12" md="" class="text-center">
             <v-btn
@@ -42,15 +42,13 @@
               color="secondary"
               @click="orgStart = 'efficiency'"
             >
-              Efficiency
+              Эффективности
               <cc-tooltip
                 simple
                 inline
-                content="How directly effective your organization is at what it does (a military
-                organization with high efficiency would be good at combat, for example).
-                <br />Efficiency can be used to perform activities related to your organization’s
-                purpose (science, military, etc). You can use these advantages as
-                <strong>reserves.</strong>"
+                content="Эффективность определяет, насколько эффективно ваша организация ведет деятельность в рамках своей сферы
+                (например, военная организация с высокой эффективностью будет хороша в бою). Преимущества, полученные с помощью 
+                вашей организации, могут быть использованы как <strong>Резервы</strong>."
               >
                 <v-icon small right>mdi-help-circle-outline</v-icon>
               </cc-tooltip>
@@ -58,7 +56,7 @@
             <div v-else>
               <span class="heading h3">+ {{ orgStart === 'efficiency' ? '2' : '0' }}</span>
               <br />
-              <span>Organization Efficiency</span>
+              <span>Эффективность организации</span>
             </div>
           </v-col>
           <v-divider v-show="$vuetify.breakpoint.mdAndUp" vertical class="mx-5" />
@@ -71,13 +69,16 @@
               color="secondary"
               @click="orgStart = 'influence'"
             >
-              Influence
+              Влияния
               <cc-tooltip
                 simple
                 inline
-                content="Influence is your organization’s size, reach, wealth, and reputation.
-                Influence be used to acquire assets, create opportunities, or sway public
-                opinion."
+                content="Влияние — это размер,
+                охват, богатство и репутация организации. Влияние
+                используется при приобретении активов, создании
+                возможностей или влиянии на общественное мнение.
+                Преимущества, полученные с помощью вашей организации, 
+                могут быть использованы как <strong>Резервы</strong>."
               >
                 <v-icon small right>mdi-help-circle-outline</v-icon>
               </cc-tooltip>
@@ -85,7 +86,7 @@
             <div v-else>
               <span class="heading h3">+ {{ orgStart === 'influence' ? '2' : '0' }}</span>
               <br />
-              <span>Organization Influence</span>
+              <span>Влияние организации</span>
             </div>
           </v-col>
         </v-row>
@@ -100,7 +101,7 @@
           @click="add()"
         >
           <v-icon left>cci-accuracy</v-icon>
-          Add Organization
+          Добавить организация
         </v-btn>
       </cc-titled-panel>
     </v-col>

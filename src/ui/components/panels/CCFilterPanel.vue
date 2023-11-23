@@ -21,15 +21,15 @@
     </template>
 
     <v-sheet>
-      <cc-titlebar dark icon="mdi-filter-variant">Set Item Filters</cc-titlebar>
+      <cc-titlebar dark icon="mdi-filter-variant">Установить Фильтры Предметов</cc-titlebar>
       <v-card-text pb-0>
         <cc-item-filter ref="controls" :item-type="itemType" @set-filters="applyFilters($event)" />
       </v-card-text>
       <v-divider />
       <v-card-actions>
-        <v-btn text @click="panel = false">dismiss</v-btn>
+        <v-btn text @click="panel = false">закрыть</v-btn>
         <v-spacer />
-        <cc-btn color="warning" class="mr-3" @click="clearFilters">clear all</cc-btn>
+        <cc-btn color="warning" class="mr-3" @click="clearFilters">очистить все</cc-btn>
       </v-card-actions>
     </v-sheet>
   </v-bottom-sheet>

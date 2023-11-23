@@ -16,7 +16,7 @@
           <v-icon dark>mdi-arrow-left</v-icon>
         </v-btn>
       </template>
-      <span>Back</span>
+      <span>Назад</span>
     </v-tooltip>
 
     <v-tooltip bottom open-delay="500ms">
@@ -25,7 +25,7 @@
           <v-icon dark>mdi-arrow-right</v-icon>
         </v-btn>
       </template>
-      <span>Forward</span>
+      <span>Вперед</span>
     </v-tooltip>
 
     <v-tooltip bottom open-delay="500ms">
@@ -34,7 +34,7 @@
           <v-icon dark>mdi-home</v-icon>
         </v-btn>
       </template>
-      <span>Main Menu</span>
+      <span>Главное Меню</span>
     </v-tooltip>
 
     <v-tooltip bottom open-delay="500ms">
@@ -46,7 +46,7 @@
           </v-btn>
         </router-link>
       </template>
-      <span>Compendium</span>
+      <span>Компендиум</span>
     </v-tooltip>
 
     <v-divider vertical dark class="mx-2" />
@@ -66,7 +66,7 @@
 
     <v-divider v-if="$vuetify.breakpoint.mdAndUp && isAuthed" vertical dark class="mx-2" />
 
-    <cc-tooltip v-if="$vuetify.breakpoint.mdAndUp && isAuthed" bottom content="Open cloud account menu">
+    <cc-tooltip v-if="$vuetify.breakpoint.mdAndUp && isAuthed" bottom content="Открыть меню облачного аккаунта">
       <v-btn icon dark @click="$refs.cloudModal.show()">
         <v-icon>mdi-cloud-sync-outline</v-icon>
       </v-btn>
@@ -74,7 +74,7 @@
 
     <v-divider v-if="$vuetify.breakpoint.mdAndUp" vertical dark class="mx-2" />
 
-    <cc-tooltip bottom content="Help &amp; FAQ">
+    <cc-tooltip bottom content="Помощь &amp; FAQ">
       <v-btn icon dark @click="$refs.helpModal.show()">
         <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
@@ -90,14 +90,14 @@
       </template>
 
       <v-list dense>
-        <v-list-item @click="$refs.contentModal.show()">Manage Content</v-list-item>
-        <v-list-item @click="$refs.optionsModal.show()">Options</v-list-item>
-        <v-list-item @click="$refs.aboutModal.show()">About</v-list-item>
-        <v-list-item @click="$refs.creditsModal.show()">Credits</v-list-item>
-        <v-list-item @click="$refs.helpModal.show()">Help</v-list-item>
+        <v-list-item @click="$refs.contentModal.show()">Управлять контент паками</v-list-item>
+        <v-list-item @click="$refs.optionsModal.show()">Опции</v-list-item>
+        <v-list-item @click="$refs.aboutModal.show()">О сайте</v-list-item>
+        <v-list-item @click="$refs.creditsModal.show()">Авторы</v-list-item>
+        <v-list-item @click="$refs.helpModal.show()">Помощь</v-list-item>
         <v-divider />
         <v-list-item target="_blank" href="https://www.patreon.com/compcon">
-          Support COMP/CON
+          Поддержать COMP/CON
         </v-list-item>
       </v-list>
     </v-menu>
@@ -110,7 +110,7 @@
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      title="Управлять контент паками"
     >
       <content-page />
     </cc-solo-dialog>
@@ -121,19 +121,19 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      title="Опции & Профиль пользователя"
     >
       <options-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="aboutModal" large no-confirm title="About"><about-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" large no-confirm title="Credits">
+    <cc-solo-dialog ref="aboutModal" large no-confirm title="О сайте"><about-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="creditsModal" large no-confirm title="Авторы">
       <credits-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="helpModal" large no-confirm title="Help"><help-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm title="Credits">
+    <cc-solo-dialog ref="helpModal" large no-confirm title="Помощь"><help-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm title="Авторы">
       <credits-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="cloudModal" large no-confirm title="Cloud Account">
+    <cc-solo-dialog ref="cloudModal" large no-confirm title="Облачный аккаунт">
       <cloud-page />
     </cc-solo-dialog>
   </v-app-bar>

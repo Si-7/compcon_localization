@@ -10,7 +10,7 @@
           solo
           hide-details
           single-line
-          placeholder="Search"
+          placeholder="Поиск"
           @input="setSearch($event)"
         />
       </v-col>

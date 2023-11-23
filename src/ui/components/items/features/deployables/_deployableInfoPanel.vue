@@ -12,8 +12,8 @@
         </v-col>
         <v-col cols="auto" class="ml-auto">
           <v-chip slot="title-items" color="stark" small class="stat-text mr-2 pr-0" outlined label>
-            DEPLOY&nbsp;
-            <v-chip small label dark :color="`action--${activation}`" class="text-uppercase">
+            РАЗВЕРНУТЬ&nbsp;
+            <v-chip small label dark :color="`${color}`" class="text-uppercase">
               {{ activation }}
             </v-chip>
           </v-chip>
@@ -27,6 +27,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import deployableInfoBase from './_deployableInfoBase.vue'
+import { ActivationType } from '@/class'
 
 export default Vue.extend({
   name: 'deployable-info-panel',
@@ -39,8 +40,11 @@ export default Vue.extend({
   },
   computed: {
     activation() {
-      return this.deployable.activation ? this.deployable.activation.toLowerCase() : 'quick'
+      return this.deployable.activation ? <ActivationType>this.deployable.activation : ActivationType.Quick
     },
+    color() {
+      return `action--${Object.keys(ActivationType).find(key => ActivationType[key] === (this.deployable.activation ? <ActivationType>this.deployable.activation : ActivationType.Quick)).toLowerCase()}`
+    }
   },
 })
 </script>

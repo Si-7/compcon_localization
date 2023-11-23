@@ -125,7 +125,7 @@
         >
           <span v-if="!pilot.TextAppearance">
             <v-icon left>mdi-plus</v-icon>
-            Add Pilot Description
+            Добавить Описание Пилота
           </span>
           <span v-else>
             <v-icon left>mdi-circle-edit-outline</v-icon>

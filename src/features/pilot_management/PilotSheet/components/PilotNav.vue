@@ -22,7 +22,7 @@
       </router-link>
       <router-link to="../sheet/4">
         <cc-nav-item v-show="hasBondData" :selected="selected === '4'">
-          <cc-tooltip inline delayed content="Pilot Bonds">BONDS</cc-tooltip>
+          <cc-tooltip inline delayed content="Pilot Bonds">СВЯЗИ</cc-tooltip>
         </cc-nav-item>
       </router-link>
       <router-link to="../sheet/2">
@@ -70,13 +70,13 @@
       dark
       @click="toMech()"
     >
-      <cc-tooltip inline delayed content="Active Mech Sheet">
+      <cc-tooltip inline delayed content="Лист активного меха">
         <v-icon large color="white">cci-frame</v-icon>
       </cc-tooltip>
     </v-btn>
     <router-link :to="`/active/${pilot.ID}`">
       <v-btn icon fab x-small outlined class="mr-4 unskew" dark>
-        <cc-tooltip inline delayed content="Active Mode">
+        <cc-tooltip inline delayed content="Активный режим">
           <v-icon large color="white">cci-activate</v-icon>
         </cc-tooltip>
       </v-btn>
@@ -113,19 +113,19 @@
         <v-icon color="white">mdi-code-json</v-icon>
       </v-btn>
     </cc-tooltip>
-    <cc-tooltip inline delayed content="Pilot Options">
+    <cc-tooltip inline delayed content="Опции пилота">
       <edit-menu :pilot="pilot" class="unskew" style="display: inline-block" />
     </cc-tooltip>
     <v-menu offset-y top right absolute>
       <template v-slot:activator="{ on: menu }">
-        <cc-tooltip inline delayed content="Pilot Sheet Layout Options">
+        <cc-tooltip inline delayed content="Варианты разметки листа пилота">
           <v-btn class="unskew ml-2" icon dark v-on="menu">
             <v-icon>mdi-view-grid-plus</v-icon>
           </v-btn>
         </cc-tooltip>
       </template>
       <v-list subheader>
-        <v-subheader class="heading h2 white--text primary py-0 px-4">Layout Options</v-subheader>
+        <v-subheader class="heading h2 white--text primary py-0 px-4">Варианты разметки</v-subheader>
         <v-list-item-group>
           <v-list-item @click="$emit('set', 'tabbed')">
             <v-list-item-icon class="ma-0 mr-2 mt-3">

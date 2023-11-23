@@ -75,8 +75,8 @@ export default Vue.extend({
   methods: {
     ttContent() {
       if (!this.isSelected && !this.isSelectable) return 'Locked'
-      else if (this.isSelected) return `Remove ${this.bonus.Name}`
-      return `Add ${this.bonus.Name}`
+      else if (this.isSelected) return `Убрать ${this.bonus.Name}`
+      return `Добавить ${this.bonus.Name}`
     },
   },
 })

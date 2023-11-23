@@ -108,7 +108,7 @@
         </v-card-text>
       </v-card>
     </div>
-    <cc-solo-dialog ref="selectorDialog" no-confirm :title="`Equip ${title}`" fullscreen no-pad>
+    <cc-solo-dialog ref="selectorDialog" no-confirm :title="`Надеть ${title}`" fullscreen no-pad>
       <slot name="selector" />
     </cc-solo-dialog>
     <cc-solo-dialog ref="detailDialog" no-confirm :title="item ? item.Name : ''" large>

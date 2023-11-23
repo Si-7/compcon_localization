@@ -1,13 +1,13 @@
 <template>
   <v-row justify="center">
     <v-col cols="12" md="7">
-      <cc-titled-panel title="New Project" icon="mdi-atom-variant" color="reserve--project">
+      <cc-titled-panel title="Новый проект" icon="mdi-atom-variant" color="reserve--project">
         <v-row dense>
           <v-col cols="12" md="">
             <v-text-field
               v-model="projectName"
               color="accent"
-              label="Project Name"
+              label="Название проекта"
               outlined
               hide-details
             />
@@ -24,11 +24,11 @@
                   class="mr-3"
                 >
                   <span slot="label" class="stat-text text--text">
-                    Complicated
+                    Сложный
                     <cc-tooltip
                       simple
                       inline
-                      content="This project is complex, resource-intensive, or generally difficult to complete"
+                      content="Этот проект сложен, требует много ресурсов или в общем сложновыполним"
                     >
                       <v-icon small>mdi-help-circle-outline</v-icon>
                     </cc-tooltip>
@@ -38,11 +38,11 @@
               <v-col cols="auto" class="text-center">
                 <v-switch v-model="finished" dense inset hide-details color="secondary">
                   <span slot="label" class="stat-text text--text">
-                    Finished
+                    Закончен
                     <cc-tooltip
                       simple
                       inline
-                      content="This project is complete and available to use as a <strong>reserve</strong>"
+                      content="Этот проект выполнен и доступен для использования в виде <strong>резерва</strong>"
                     >
                       <v-icon small>mdi-help-circle-outline</v-icon>
                     </cc-tooltip>
@@ -56,7 +56,7 @@
           v-model="details"
           auto-grow
           rows="2"
-          label="Details"
+          label="Детали"
           filled
           hide-details
           color="accent"
@@ -64,7 +64,7 @@
         />
         <v-combobox
           v-model="costs"
-          label="Requirements"
+          label="Требования"
           :items="projectCosts"
           chips
           multiple
@@ -84,7 +84,7 @@
           @click="add()"
         >
           <v-icon left>cci-accuracy</v-icon>
-          Add Project
+          Добавить проект
         </v-btn>
       </cc-titled-panel>
     </v-col>
@@ -104,10 +104,10 @@ export default Vue.extend({
     finished: false,
     costs: [],
     projectCosts: [
-      'Quality materials',
-      'Specific knowledge or techniques',
-      'Specialized tools',
-      'A good workspace',
+      'Качественные материалы',
+      'Специальные знания или методы',
+      'Специализированные инструменты',
+      'Хорошее рабочее место',
     ],
   }),
   methods: {

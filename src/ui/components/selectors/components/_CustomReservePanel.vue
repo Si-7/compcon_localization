@@ -2,9 +2,9 @@
   <v-row justify="center">
     <v-col cols="12" md="7">
       <cc-titled-panel
-        title="Custom Reserve"
-        :icon="`cci-reserve-${customType.toLowerCase()}`"
-        :color="`reserve--${customType.toLowerCase()}`"
+        title="Пользовательский резерв"
+        :icon="`${icon(customType)}`"
+        :color="`${color(customType)}`"
       >
         <div class="text-center">
           <v-btn-toggle
@@ -14,24 +14,24 @@
             :group="$vuetify.breakpoint.mdAndUp"
             color="secondary"
           >
-            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Resource">
-              Resource
+            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Ресурс">
+              Ресурс
             </v-btn>
             <v-divider v-show="$vuetify.breakpoint.mdAndUp" vertical class="mx-2" />
-            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Mech">Mech</v-btn>
+            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Мех">Мех</v-btn>
             <v-divider v-show="$vuetify.breakpoint.mdAndUp" vertical class="mx-2" />
-            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Tactical">
-              Tactical
+            <v-btn :small="$vuetify.breakpoint.smAndDown" value="Тактический">
+              Тактический
             </v-btn>
           </v-btn-toggle>
         </div>
         <div class="mx-4 my-2">
-          <v-text-field v-model="customName" outlined label="Resource Name" hide-details />
+          <v-text-field v-model="customName" outlined label="Название ресурса" hide-details />
           <v-textarea
             v-model="details"
             auto-grow
             rows="2"
-            label="Details"
+            label="Детали"
             filled
             hide-details
             class="my-3"
@@ -47,7 +47,7 @@
           @click="add()"
         >
           <v-icon left>cci-accuracy</v-icon>
-          Add Reserve
+          Добавить резерв
         </v-btn>
       </cc-titled-panel>
     </v-col>
@@ -57,11 +57,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Reserve } from '@/class'
+import { ReserveType } from '@/class'
 
 export default Vue.extend({
   name: 'custom-reserve-panel',
   data: () => ({
-    customType: 'Resource',
+    customType: 'Ресурс',
     customName: '',
     details: '',
   }),
@@ -87,6 +88,16 @@ export default Vue.extend({
       this.customName = ''
       this.details = ''
     },
+    icon(str: string) {
+      if (<ReserveType>str === ReserveType.Resources) return 'cci-reserve-resource'
+      if (<ReserveType>str === ReserveType.Mech) return 'cci-reserve-mech'
+      if (<ReserveType>str === ReserveType.Tactical) return 'cci-reserve-tactical'
+    },
+    color(str: string) {
+      if (<ReserveType>str === ReserveType.Resources) return 'reserve--resource'
+      if (<ReserveType>str === ReserveType.Mech) return 'reserve--mech'
+      if (<ReserveType>str === ReserveType.Tactical) return 'reserve--tactical'
+    }
   },
 })
 </script>

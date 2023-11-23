@@ -42,10 +42,10 @@
           hide-actions
           single-line
           dense
-          placeholder="Search"
+          placeholder="Поиск"
           clearable
           persistent-hint
-          :hint="`${fItems.length} Items`"
+          :hint="`${fItems.length} Предметов`"
         />
       </v-col>
       <cc-filter-panel :item-type="itemType" @set-filters="setFilters" />

@@ -11,27 +11,27 @@
     >
       <div v-if="equipped">
         <span class="overline">
-          UNION ARMORY PRINTID: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
+          PRINTID ОРУЖЕЙНОЙ СОЮЗА: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
           <span class="success--text text--darken-1">
-            [ FRAME EQUIPMENT REGISTRATION VERIFIED ]
+            [ РЕГИСТРАЦИЯ СНАРЯЖЕНИЯ РАМЫ ПОДТВЕРЖДЕНА ]
           </span>
         </span>
         <br />
         <span class="heading h1 accent--text" style="line-height: 20px">
           {{ equipped.Name }}
         </span>
-        <span class="flavor-text overline mt-n1" style="display: block">CURRENTLY EQUIPPED</span>
+        <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС ИСПОЛЬЗУЕТСЯ</span>
       </div>
       <div v-else>
         <span class="overline">
-          UNION ARMORY EQUIPMENT AUTHORIZATION: FRAME EQUIPMENT//COMBAT SYSTEM
+          АВТОРИЗАЦИЯ СНАРЯЖЕНИЯ ОРУЖЕЙНОЙ СОЮЗА: СНАРЯЖЕНИЕ РАМЫ//БОЕВАЯ СИСТЕМА
         </span>
         <br />
         <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
           НИЧЕГО НЕ ВЫБРАНО
         </span>
         <span class="flavor-text overline mt-n1 error--text" style="display: block">
-          [ EQUIPMENT ID INVALID OR MISSING ]
+          [ ID НЕПРАВИЛЕН ИЛИ ОТСУТСТВУЕТ ]
         </span>
       </div>
       <div slot="extra-item" class="mt-2 mb-n2">

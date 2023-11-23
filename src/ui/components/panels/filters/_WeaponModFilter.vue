@@ -8,7 +8,7 @@
         class="px-2"
         prepend-icon="mdi-factory"
         outlined
-        label="From Manufacturer"
+        label="От производителя"
         :items="manufacturers"
         chips
         deletable-chips
@@ -26,7 +26,7 @@
         chips
         deletable-chips
         outlined
-        label="From Content Pack"
+        label="Из контент пака"
         :items="lcps"
         multiple
         small-chips
@@ -44,7 +44,7 @@
         deletable-chips
         small-chips
         outlined
-        label="Tags"
+        label="Метки"
         :items="tags"
         item-value="ID"
         multiple

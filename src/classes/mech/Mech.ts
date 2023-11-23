@@ -267,7 +267,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get SizeContributors(): string[] {
-    const output = [`FRAME Base Size: ${this.Frame.Size}`]
+    const output = [`Базовый размер рамы: ${this.Frame.Size}`]
     Bonus.Contributors('size', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -281,7 +281,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get ArmorContributors(): string[] {
-    const output = [`FRAME Base Armor: ${this.Frame.Armor}`]
+    const output = [`Базовая броня рамы: ${this.Frame.Armor}`]
     Bonus.Contributors('armor', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -295,8 +295,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get SaveTargetContributors(): string[] {
     const output = [
-      `FRAME Base Save Target: ${this.Frame.SaveTarget}`,
-      `Pilot GRIT Bonus: +${this._pilot.Grit}`,
+      `Базовый Спасбросок Цели рамы: ${this.Frame.SaveTarget}`,
+      `Бонус от стойкости пилота: +${this._pilot.Grit}`,
     ]
     Bonus.Contributors('save', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -313,8 +313,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   public get EvasionContributors(): string[] {
     if (this.IsStunned) return ['STUNNED']
     const output = [
-      `FRAME Base Evasion: ${this.Frame.Evasion}`,
-      `Pilot AGILITY Bonus: +${this.Agi}`,
+      `Базовое уклонение рамы: ${this.Frame.Evasion}`,
+      `Бонус от МАНЕВРЕННОСТИ пилота: +${this.Agi}`,
     ]
     Bonus.Contributors('evasion', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -329,8 +329,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get SpeedContributors(): string[] {
     const output = [
-      `FRAME Base Speed: ${this.Frame.Speed}`,
-      `Pilot AGILITY Bonus: +${Math.floor(this.Agi / 2)}`,
+      `Базовая скорость рамы: ${this.Frame.Speed}`,
+      `Бонус от МАНЕВРЕННОСТИ пилота: +${Math.floor(this.Agi / 2)}`,
     ]
     Bonus.Contributors('speed', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -344,7 +344,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get SensorRangeContributors(): string[] {
-    const output = [`FRAME Base Sensor Range: ${this.Frame.SensorRange}`]
+    const output = [`Базовая дальность сенсоров рамы: ${this.Frame.SensorRange}`]
     Bonus.Contributors('sensor', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -358,8 +358,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get EDefenseContributors(): string[] {
     const output = [
-      `FRAME Base E-Defense: ${this.Frame.EDefense}`,
-      `Pilot SYSTEMS Bonus: +${this.Sys}`,
+      `Базовая Э-Защита рамы: ${this.Frame.EDefense}`,
+      `Бонус от СИСТЕМ пилота: +${this.Sys}`,
     ]
     Bonus.Contributors('edef', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -373,7 +373,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get LimitedContributors(): string[] {
-    const output = [`Pilot ENGINEERING Bonus: +${Math.floor(this.Eng / 2)}`]
+    const output = [`Бонус от ИНЖЕНЕРИИ пилота: +${Math.floor(this.Eng / 2)}`]
     Bonus.Contributors('limited_bonus', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -386,7 +386,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get AttackBonusContributors(): string[] {
-    const output = [`Pilot GRIT Bonus: ${this._pilot.Grit}`]
+    const output = [`Бонус от стойкости пилота: ${this._pilot.Grit}`]
     Bonus.Contributors('attack', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -400,8 +400,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get TechAttackContributors(): string[] {
     const output = [
-      `FRAME Base Tech Attack: ${this.Frame.TechAttack}`,
-      `Pilot SYSTEMS Bonus: +${this.Sys}`,
+      `Базовая Техническая Атака рамы: ${this.Frame.TechAttack}`,
+      `Бонус от СИСТЕМ пилота: +${this.Sys}`,
     ]
     Bonus.Contributors('tech_attack', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -415,7 +415,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get GrappleContributors(): string[] {
-    const output = [`Base Grapple Value: ${this.Grapple}`]
+    const output = [`Базовое значение Хвата: ${this.Grapple}`]
     Bonus.Contributors('grapple', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -428,7 +428,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get RamContributors(): string[] {
-    const output = [`Base Ram Value: ${this.Ram}`]
+    const output = [`Базовое значение Тарана: ${this.Ram}`]
     Bonus.Contributors('ram', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -441,7 +441,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get SaveBonusContributors(): string[] {
-    const output = [`Pilot GRIT Bonus: ${this._pilot.Grit}`]
+    const output = [`Бонус от стойкости пилота: ${this._pilot.Grit}`]
     Bonus.Contributors('save', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -485,7 +485,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get StructureContributors(): string[] {
-    const output = [`FRAME Base Structure: ${this.Frame.Structure}`]
+    const output = [`Базовая Структура рамы: ${this.Frame.Structure}`]
     Bonus.Contributors('structure', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -529,9 +529,9 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get HPContributors(): string[] {
     const output = [
-      `FRAME Base HP: ${this.Frame.HP}`,
-      `Pilot GRIT Bonus: +${this._pilot.Grit}`,
-      `Pilot HULL Bonus: +${this.Hull * 2}`,
+      `Базовые ПЗ рамы: ${this.Frame.HP}`,
+      `Бонус от стойкости пилота: +${this._pilot.Grit}`,
+      `Бонус от КОРПУСА пилота: +${this.Hull * 2}`,
     ]
     Bonus.Contributors('hp', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -555,9 +555,9 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get SPContributors(): string[] {
     const output = [
-      `FRAME Base SP: ${this.Frame.SP}`,
-      `Pilot GRIT Bonus: +${this._pilot.Grit}`,
-      `Pilot SYSTEMS Bonus: +${Math.floor(this.Sys / 2)}`,
+      `Базовые СП рамы: ${this.Frame.SP}`,
+      `Бонус от стойкости пилота: +${this._pilot.Grit}`,
+      `Бонус от СИСТЕМ пилота: +${Math.floor(this.Sys / 2)}`,
     ]
     Bonus.Contributors('sp', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -609,8 +609,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get HeatCapContributors(): string[] {
     const output = [
-      `FRAME Base Heat Capacity: ${this.Frame.HeatCap}`,
-      `Pilot ENGINEERING Bonus: +${this.Eng}`,
+      `Базовый Тепловой Максимум рамы: ${this.Frame.HeatCap}`,
+      `Бонус от ИНЖЕНЕРИИ пилота: +${this.Eng}`,
     ]
     Bonus.Contributors('heatcap', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
@@ -634,7 +634,7 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
   }
 
   public get StressContributors(): string[] {
-    const output = [`FRAME Base Reactor Stress: ${this.Frame.HeatStress}`]
+    const output = [`Базовая Нагрузка рамы: ${this.Frame.HeatStress}`]
     Bonus.Contributors('stress', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''
       output.push(`${b.name}: ${sign}${b.val}`)
@@ -657,8 +657,8 @@ class Mech implements IActor, IPortraitContainer, ISaveable, IFeatureController 
 
   public get RepCapContributors(): string[] {
     const output = [
-      `FRAME Base Repair Capacity: ${this.Frame.RepCap}`,
-      `Pilot HULL Bonus: +${Math.floor(this.Hull / 2)}`,
+      `Базовый Лимит Ремонта рамы: ${this.Frame.RepCap}`,
+      `Бонус от КОРПУСА пилота: +${Math.floor(this.Hull / 2)}`,
     ]
     Bonus.Contributors('repcap', this).forEach(b => {
       const sign = b.val > -1 ? '+' : ''

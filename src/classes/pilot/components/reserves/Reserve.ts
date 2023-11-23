@@ -87,7 +87,8 @@ class Reserve {
   public get Icon(): string {
     if (this.Type === ReserveType.Organization) return 'mdi-account-group'
     if (this.Type === ReserveType.Project) return 'cci-orbital'
-    return `cci-reserve-${this.Type.toString().toLowerCase()}`
+    if (this.Type === ReserveType.Resources) return 'cci-reserve-resource'
+    return `cci-reserve-${Object.keys(ReserveType).find(key => ReserveType[key] === this.Type).toLowerCase()}`
   }
 
   public get SpecialEquipment(): CompendiumItem[] {
@@ -124,6 +125,7 @@ class Reserve {
   }
 
   public get Color(): string {
+    if (this.Type === ReserveType.Resources) return 'reserve--resource'
     return this._used ? 'grey darken-1' : `reserve--${Object.keys(ReserveType).find(key => ReserveType[key] === this.Type).toLowerCase()}`
   }
 

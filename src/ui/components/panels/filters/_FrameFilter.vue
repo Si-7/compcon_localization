@@ -8,7 +8,7 @@
         dense
         prepend-icon="mdi-factory"
         outlined
-        label="From Manufacturer"
+        label="От производителя"
         :items="manufacturers"
         chips
         deletable-chips
@@ -26,7 +26,7 @@
         chips
         deletable-chips
         outlined
-        label="Role"
+        label="Роль"
         :items="mechTypes"
         multiple
         small-chips
@@ -43,7 +43,7 @@
         chips
         deletable-chips
         outlined
-        label="Has Mount"
+        label="Имеет слоты"
         :items="mountTypes"
         multiple
         small-chips
@@ -60,7 +60,7 @@
         chips
         deletable-chips
         outlined
-        label="From Content Pack"
+        label="Из контент пака"
         :items="lcps"
         multiple
         small-chips

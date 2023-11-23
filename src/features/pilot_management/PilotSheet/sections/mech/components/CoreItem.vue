@@ -9,7 +9,7 @@
 
     <div v-if="coreSystem.PassiveName">
       <span class="heading sub">
-        PASSIVE {{ coreSystem.PassiveName ? ` - ${coreSystem.PassiveName}` : '' }}
+        ПАССИВНАЯ {{ coreSystem.PassiveName ? ` - ${coreSystem.PassiveName}` : '' }}
       </span>
       <div class="light-panel pa-2 clipped mb-2 mx-3">
         <p

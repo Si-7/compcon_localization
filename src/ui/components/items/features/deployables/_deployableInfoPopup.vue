@@ -10,7 +10,7 @@
       {{ deployable.name }}
     </span>
     <v-chip slot="title-items" dark small class="stat-text mr-2 pr-0 mt-4" outlined label>
-      DEPLOY&nbsp;
+      РАЗВЕРНУТЬ&nbsp;
       <v-chip small label dark :color="`action--${activation.toLowerCase()}`">
         {{ activation.toUpperCase() }}
       </v-chip>

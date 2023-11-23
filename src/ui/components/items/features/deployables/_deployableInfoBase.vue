@@ -6,7 +6,7 @@
         inline
         class="mx-1"
         :icon="`cci-size-${deployable.size === 0.5 ? 'half' : deployable.size}`"
-        name="Size"
+        name="Размер"
         :value="`${deployable.size === 0.5 ? '½' : deployable.size}`"
       />
       <cc-statblock-panel
@@ -14,7 +14,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.armor"
-        name="Armor"
+        name="Броня"
         :value="deployable.armor"
       />
       <cc-statblock-panel
@@ -22,7 +22,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.hp"
-        name="HP"
+        name="ПЗ"
         :value="
           deployable.hp
             ? deployable.hp.toString().replace(/[{}]/gim, '')
@@ -34,7 +34,7 @@
         icon="$vuetify.icons.evasion"
         inline
         class="mx-1"
-        name="Evasion"
+        name="Уклонение"
         :value="deployable.evasion || 5"
       />
       <cc-statblock-panel
@@ -42,7 +42,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.edef"
-        name="E-Defense"
+        name="Э-Защита"
         :value="deployable.edef"
       />
       <cc-statblock-panel
@@ -50,7 +50,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.heat"
-        name="Heat Capacity"
+        name="Тепловой Максимум"
         :value="deployable.heatcap"
       />
       <cc-statblock-panel
@@ -58,7 +58,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.sensor"
-        name="Sensor Range"
+        name="Дальность Сенсоров"
         :value="deployable.sensor"
       />
       <cc-statblock-panel
@@ -66,7 +66,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.tech"
-        name="Tech Attack"
+        name="Техническая Атака"
         :value="deployable.techattack"
       />
       <cc-statblock-panel
@@ -74,7 +74,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.repair"
-        name="Repair Capacity"
+        name="Лимит Ремонта"
         :value="deployable.repcap"
       />
       <cc-statblock-panel
@@ -82,7 +82,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.save"
-        name="Save Target"
+        name="Спасбросок Цели"
         :value="deployable.save"
       />
       <cc-statblock-panel
@@ -90,7 +90,7 @@
         inline
         class="mx-1"
         icon="$vuetify.icons.speed"
-        name="Speed"
+        name="Скорость"
         :value="deployable.speed"
       />
     </v-row>

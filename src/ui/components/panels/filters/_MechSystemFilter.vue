@@ -8,7 +8,7 @@
         dense
         prepend-icon="mdi-factory"
         outlined
-        label="From Manufacturer"
+        label="От производителя"
         :items="manufacturers"
         chips
         deletable-chips
@@ -26,7 +26,7 @@
         chips
         deletable-chips
         outlined
-        label="Tags"
+        label="Метки"
         :items="tags"
         multiple
         small-chips
@@ -42,7 +42,7 @@
         dense
         prepend-icon="cci-system"
         outlined
-        label="System Type"
+        label="Тип системы"
         :items="systemTypes"
         chips
         deletable-chips
@@ -60,7 +60,7 @@
         chips
         deletable-chips
         outlined
-        label="From Content Pack"
+        label="Из контент пака"
         :items="lcps"
         multiple
         small-chips
@@ -69,11 +69,11 @@
     </v-col>
     <v-col cols="12" md="4" class="text-center">
       <v-icon>cci-system-point</v-icon>
-      <span class="text-button">SP Cost</span>
+      <span class="text-button">Цена СП</span>
       <v-btn-toggle v-model="spType" color="accent" class="ml-1 py-1" @change="updateFilters()">
-        <v-btn value="less" small text>Less Than</v-btn>
-        <v-btn value="eq" small text>Equal To</v-btn>
-        <v-btn value="greater" small text>Greater Than</v-btn>
+        <v-btn value="less" small text>Меньше чем</v-btn>
+        <v-btn value="eq" small text>Равна</v-btn>
+        <v-btn value="greater" small text>Больше чем</v-btn>
       </v-btn-toggle>
       <v-row no-gutters justify="center">
         <v-col cols="auto">

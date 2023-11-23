@@ -7,29 +7,29 @@
     />
     <v-tabs background-color="primary" hide-slider grow>
       <v-tab>
-        <b>Pilot Bonuses</b>
+        <b>Бонусы пилота</b>
       </v-tab>
       <v-tab>
-        <b>Resource Reserves</b>
+        <b>Ресурсные резервы</b>
       </v-tab>
       <v-tab>
-        <b>Tactical Reserves</b>
+        <b>Тактические резервы</b>
       </v-tab>
       <v-tab>
-        <b>Mech Reserves</b>
+        <b>Резервы мехов</b>
       </v-tab>
       <v-tab>
-        <b>Custom Reserve</b>
+        <b>Пользовательские резервы</b>
       </v-tab>
       <v-tab>
-        <b>Project</b>
+        <b>Проект</b>
       </v-tab>
       <v-tab>
-        <b>Organization</b>
+        <b>Организация</b>
       </v-tab>
       <v-tab-item>
         <v-row dense>
-          <v-col v-for="r in reserves['Bonus']" :key="`item_${r.ID}`" cols="12" md="6">
+          <v-col v-for="r in reserves['Бонус']" :key="`item_${r.ID}`" cols="12" md="6">
             <reserve-item
               :reserve="r"
               icon="cci-pilot"
@@ -42,7 +42,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-row dense>
-          <v-col v-for="r in reserves['Resource']" :key="`item_${r.ID}`" cols="12" md="6">
+          <v-col v-for="r in reserves['Ресурс']" :key="`item_${r.ID}`" cols="12" md="6">
             <reserve-item
               :reserve="r"
               icon="cci-reserve-resource"
@@ -55,7 +55,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-row dense>
-          <v-col v-for="r in reserves['Tactical']" :key="`item_${r.ID}`" cols="12" md="6">
+          <v-col v-for="r in reserves['Тактический']" :key="`item_${r.ID}`" cols="12" md="6">
             <reserve-item
               :reserve="r"
               icon="cci-reserve-tactical"
@@ -68,7 +68,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-row dense>
-          <v-col v-for="r in reserves['Mech']" :key="`item_${r.ID}`" cols="12" md="6">
+          <v-col v-for="r in reserves['Мех']" :key="`item_${r.ID}`" cols="12" md="6">
             <reserve-item
               :reserve="r"
               icon="cci-reserve-mech"

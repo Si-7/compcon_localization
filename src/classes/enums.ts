@@ -144,14 +144,14 @@ enum ReserveType {
 }
 
 enum OrgType {
-  Military = 'Military',
-  Scientific = 'Scientific',
-  Academic = 'Academic',
-  Criminal = 'Criminal',
-  Humanitarian = 'Humanitarian',
-  Industrial = 'Industrial',
-  Entertainment = 'Entertainment',
-  Political = 'Political',
+  Military = 'Военная',
+  Scientific = 'Научная',
+  Academic = 'Академическая',
+  Criminal = 'Криминальная',
+  Humanitarian = 'Гуманитарная',
+  Industrial = 'Промышленная',
+  Entertainment = 'Развлекательная',
+  Political = 'Политическая',
 }
 
 enum EncounterSide {
