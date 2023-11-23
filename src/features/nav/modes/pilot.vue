@@ -17,9 +17,9 @@
             <v-icon large>cci-activate</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Active Mode</v-list-item-title>
+            <v-list-item-title>Активный режим</v-list-item-title>
             <v-list-item-subtitle>
-              Gameplay manager for running a pilot in LANCER sessions
+              Геймплей менеджер для управления пилотом во время сессий ЛАНСЕР
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -28,9 +28,9 @@
             <v-icon large>cci-pilot</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Pilot Sheet</v-list-item-title>
+            <v-list-item-title>Лист пилота</v-list-item-title>
             <v-list-item-subtitle>
-              View, edit, and update this pilot's information
+              Просматривайте, редактируйте и обновляйте информацию пилота
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -39,9 +39,9 @@
             <v-icon large>cci-frame</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Mech Hangar</v-list-item-title>
+            <v-list-item-title>Ангар мехов</v-list-item-title>
             <v-list-item-subtitle>
-              Build mechs and manage this pilot's library of mech configurations
+              Стройте и управляйте мехами этого пилота
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
