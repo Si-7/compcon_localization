@@ -31,10 +31,10 @@
       </div>
     </div>
     <div class="clipped px-2 pt-1">
-      <span id="title">COMP/CON</span>
+      <span id="title">COMP/CON_ru</span>
       <br />
       <div id="subtitle">
-        <span>VERSION: {{ $appVersion }}</span>
+        <span>ВЕРСИЯ: {{ $appVersion }}</span>
       </div>
     </div>
     <div

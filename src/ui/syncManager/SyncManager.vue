@@ -8,7 +8,7 @@
         <v-col cols="auto">
           <v-btn @click="fetch()" color="primary" small class="mb-3">
             <v-icon left>mdi-reload</v-icon>
-            Refresh Table
+            Обновить таблицу
           </v-btn>
         </v-col>
       </v-row>
@@ -20,7 +20,7 @@
               <v-chip dark color="primary" outlined x-small class="mt-n1 mr-2">
                 <b>{{ itemsByType(k).length.toString().padStart(3, '0') }}</b>
               </v-chip>
-              <span class="heading h3">{{ k }}</span>
+              <span class="heading h3">{{ displayTypes(k) }}</span>
             </span>
             <v-spacer />
           </v-expansion-panel-header>
@@ -30,15 +30,15 @@
                 <thead>
                   <th width="10%">
                     <v-btn v-if="!selectedItems.length" x-small outlined @click="selectAll(k)">
-                      Select All
+                      Выбрать все
                     </v-btn>
                     <v-btn v-else x-small outlined @click="deselectAll(k)">Deselect All</v-btn>
                   </th>
-                  <th>Name</th>
-                  <th>Last Local Update</th>
-                  <th>Last Cloud Update</th>
-                  <th>Status</th>
-                  <th>Options</th>
+                  <th>Название</th>
+                  <th>Последнее локальное обновление</th>
+                  <th>Последнее облачное обновление</th>
+                  <th>Статус</th>
+                  <th>Опции</th>
                 </thead>
                 <tbody>
                   <tr v-for="item in itemsByType(k)" :key="`item_${item.id}`">
@@ -51,8 +51,8 @@
                       <v-row no-gutters align="center">
                         <v-col><v-divider /></v-col>
                         <v-col cols="auto" class="px-2">
-                          <b v-if="item.remote" class="primary--text text--darken-1">Remote</b>
-                          <b v-else class="success--text text--darken-1">Synced</b>
+                          <b v-if="item.remote" class="primary--text text--darken-1">Удаленный ресурс</b>
+                          <b v-else class="success--text text--darken-1">Синхронизировано</b>
                         </v-col>
                         <v-col><v-divider /></v-col>
                       </v-row>
@@ -64,8 +64,8 @@
                       >
                         {{ item.lastModifiedLocal.split('GMT')[0] }}
                       </span>
-                      <span v-else-if="item.missingContent"><i class="text--disabled">ERR</i></span>
-                      <span v-else class="text--disabled"><i>No Data</i></span>
+                      <span v-else-if="item.missingContent"><i class="text--disabled">ОШИБКА</i></span>
+                      <span v-else class="text--disabled"><i>Нет данных</i></span>
                     </td>
                     <td v-if="!isAtLatest(item)">
                       <span
@@ -74,30 +74,30 @@
                       >
                         {{ item.lastModifiedCloud.split('GMT')[0] }}
                       </span>
-                      <span v-else class="text--disabled"><i>No Data</i></span>
+                      <span v-else class="text--disabled"><i>Нет данных</i></span>
                     </td>
                     <td>
                       <cc-tooltip
                         inline
                         v-if="item.remote"
-                        title="Remote Resource"
-                        :content="`The instance of this item is linked to data in another user's account. Local changes will not persist, and this item will be updated to the latest version of the data published to the author's cloud account.`"
+                        title="Удаленный ресурс"
+                        :content="`Экземпляр этого элемента связан с данными в учетной записи другого пользователя. Локальные изменения не сохранятся, и этот элемент будет обновлен до последней версии данных, опубликованных в облачной учетной записи автора.`"
                       >
                         <v-icon color="primary">mdi-cloud-braces</v-icon>
                       </cc-tooltip>
                       <cc-tooltip
                         inline
                         v-if="item.deleted"
-                        title="Marked for Deletion"
-                        :content="`This item has been marked for deletion. It can be restored at any time using the 'Restore' option, or deleted permanently using the 'Delete Permanently' option. If no action is taken, this item will automatically be deleted after ${item.delete_time}`"
+                        title="Отмечено для удаления"
+                        :content="`Этот элемент помечен для удаления. Его можно восстановить в любое время с помощью опции «Восстановить» или удалить навсегда с помощью опции «Удалить навсегда». Если не предпринято никаких действий, этот элемент будет автоматически удален после ${item.delete_time}`"
                       >
                         <v-icon color="error">mdi-delete-alert</v-icon>
                       </cc-tooltip>
                       <cc-tooltip
                         inline
                         v-if="item.missingContent"
-                        title="Missing Required LCP"
-                        content="This item requires one or more Lancer Content Packages not currently installed and/or activated"
+                        title="Отсутствуют необходимые LCP"
+                        content="Для этого элемента требуется один или несколько пакетов LCP, которые в данный момент не установлены и/или не активированы."
                       >
                         <v-icon color="error">mdi-folder-off</v-icon>
                       </cc-tooltip>
@@ -105,28 +105,28 @@
                         <cc-tooltip
                           inline
                           v-if="isAtLatest(item)"
-                          title="Item Synced"
-                          :content="`The latest version of this item is stored both locally and in your cloud account. This item was last modifed at: ${item.lastModifiedLocal}`"
+                          title="Объект синхронизирован"
+                          :content="`Последняя версия этого элемента хранится как локально, так и в вашей облачной учетной записи. Последний раз этот элемент изменялся: ${item.lastModifiedLocal}`"
                         >
                           <v-icon color="success darken-1">mdi-check-bold</v-icon>
                         </cc-tooltip>
                         <cc-tooltip
                           inline
                           v-else-if="item.latest === 'local'"
-                          title="Local Changes Detected"
-                          :content="`No cloud data found, or the local version of this item is the latest. This item was last modifed at: ${
+                          title="Обнаружены локальные изменения"
+                          :content="`Облачные данные не найдены, или локальная версия этого элемента является последней. Последний раз этот элемент изменялся: ${
                             item.lastModifiedLocal || '???'
-                          }. Syncing now will overwrite this item's cloud data with the local version.`"
+                          }. При синхронизации сейчас облачные данные этого элемента будут перезаписаны локальной версией.`"
                         >
                           <v-icon color="panel">mdi-check</v-icon>
                         </cc-tooltip>
                         <cc-tooltip
                           inline
                           v-else
-                          title="Cloud Changes Detected"
-                          :content="`No local data found, or the cloud version of this item is the latest. This item was last modifed at: ${
+                          title="Обнаружены изменения в облаке"
+                          :content="`Локальные данные не найдены, или облачная версия этого элемента является последней. Последний раз этот элемент изменялся: ${
                             item.lastModifiedCloud || '???'
-                          }. Syncing now will overwrite this item's local data with the version stored in the cloud.`"
+                          }. При синхронизации сейчас локальные данные этого элемента перезапишутся версией, хранящейся в облаке.`"
                         >
                           <v-icon color="panel">mdi-check</v-icon>
                         </cc-tooltip>
@@ -143,7 +143,7 @@
                         @overwite-local="overwriteSingle(item, 'cloud', 'local')"
                         @overwite-cloud="overwriteSingle(item, 'local', 'cloud')"
                       />
-                      <cc-tooltip v-else inline content="Sync local data to latest remote data">
+                      <cc-tooltip v-else inline content="Синхронизировать локальные данные с последними удаленными данными">
                         <v-btn icon @click="remoteUpdate(item)">
                           <v-icon color="primary">mdi-cloud-sync</v-icon>
                         </v-btn>
@@ -157,7 +157,7 @@
                   <th class="py-2">
                     <cc-tooltip
                       inline
-                      content="Overwrites the local data of the selected items with the versions stored in the cloud."
+                      content="Перезаписывает локальные данные выбранных элементов версиями, хранящимися в облаке."
                     >
                       <v-btn
                         small
@@ -165,14 +165,14 @@
                         :disabled="!selectedItems.length"
                         @click="overwriteSelected('cloud', 'local')"
                       >
-                        Overwrite Local
+                      Перезаписать локальный
                       </v-btn>
                     </cc-tooltip>
                   </th>
                   <th class="py-2">
                     <cc-tooltip
                       inline
-                      content="Removes the cloud data for the selected items and replaces them with copies of the current local data."
+                      content="Удаляет облачные данные для выбранных элементов и заменяет их копиями текущих локальных данных."
                     >
                       <v-btn
                         small
@@ -180,7 +180,7 @@
                         :disabled="!selectedItems.length"
                         @click="overwriteSelected('local', 'cloud')"
                       >
-                        Overwrite Cloud
+                      Перезаписать облако
                       </v-btn>
                     </cc-tooltip>
                   </th>
@@ -188,7 +188,7 @@
                   <th class="py-2">
                     <cc-tooltip
                       inline
-                      content="Syncs all selected items to the most recently updated data."
+                      content="Синхронизирует все выбранные элементы с последними обновленными данными."
                     >
                       <v-btn
                         small
@@ -196,7 +196,7 @@
                         :disabled="!selectedItems.length"
                         @click="syncSelected()"
                       >
-                        Sync to Latest
+                      Синхронизировать с последней версией
                       </v-btn>
                     </cc-tooltip>
                   </th>
@@ -212,12 +212,12 @@
       <v-row justify="center" align="center">
         <v-col cols="8">
           <cc-tooltip
-            title="Sync Data"
-            content="COMP/CON will compare local and cloud data, updating all items (including remote resources) to the latest version found. All items that have been marked for deletion for longer than 30 days will be permanently removed."
+            title="Синхронизировать данные"
+            content="COMP/CON сравнит локальные и облачные данные, обновив все элементы (включая удаленные ресурсы) до последней найденной версии. Все элементы, помеченные для удаления более 30 дней, будут удалены без возможности восстановления."
           >
             <v-btn @click="syncAll()" color="primary" block x-large>
               <v-icon large class="mr-2">mdi-cloud-sync</v-icon>
-              Smart Sync All
+              Умная синхронизация всех
             </v-btn>
           </cc-tooltip>
         </v-col>
@@ -268,6 +268,21 @@ export default Vue.extend({
     },
   },
   methods: {
+    displayTypes(type) {
+      switch (type) {
+        case 'Active Mission':
+          return 'Активная Миссия'
+        case 'Mission':
+          return 'Миссия'
+        case 'Encounter':
+          return 'Бой'
+        case 'NPC':
+          return 'НИП'
+        case 'Pilot':
+        default:
+          return 'Пилот'
+      }
+    },
     selectAll(type) {
       this.itemsByType(type).forEach(i => {
         this.$set(i, 'selected', true)
@@ -306,10 +321,10 @@ export default Vue.extend({
       this.loading = true
       SyncItem(item)
         .then(() => this.fetch())
-        .then(() => this.$notify('Sync successful', 'success'))
+        .then(() => this.$notify('Синхронизация прошла успешно', 'success'))
         .catch(() =>
           this.$notify(
-            'An error occured while syncing. You may be missing one or more required LCPs.',
+            'При синхронизации произошла ошибка. Возможно, вам не хватает одного или нескольких необходимых LCP.',
             'error'
           )
         )
@@ -320,11 +335,11 @@ export default Vue.extend({
         .then(() => SaveAllLocalUpdates())
         .then(() => this.fetch())
         .then(() =>
-          this.$notify(`Synced ${this.selectedItems.length} items successfully`, 'success')
+          this.$notify(`Синхронизировано ${this.selectedItems.length} объектов успешно`, 'success')
         )
         .catch(() =>
           this.$notify(
-            'An error occured while syncing. You may be missing one or more required LCPs.',
+            'При синхронизации произошла ошибка. Возможно, вам не хватает одного или нескольких необходимых LCP.',
             'error'
           )
         )
@@ -333,8 +348,8 @@ export default Vue.extend({
       this.loading = true
       Overwrite(item, source, dest)
         .then(() => this.fetch())
-        .then(() => this.$notify('Overwrite successful', 'success'))
-        .catch(() => this.$notify('An error occured while overwriting.', 'error'))
+        .then(() => this.$notify('Перезапись прошла успешно', 'success'))
+        .catch(() => this.$notify('Произошла ошибка при перезаписи.', 'error'))
     },
     async overwriteSelected(source, dest) {
       this.loading = true
@@ -342,9 +357,9 @@ export default Vue.extend({
         .then(() => SaveAllLocalUpdates())
         .then(() => this.fetch())
         .then(() =>
-          this.$notify(`Replaced ${this.selectedItems.length} items successfully`, 'success')
+          this.$notify(`Заменено ${this.selectedItems.length} объектов успешно`, 'success')
         )
-        .catch(() => this.$notify('An error occured while overwriting.', 'error'))
+        .catch(() => this.$notify('Произошла ошибка при перезаписи.', 'error'))
     },
     async undelete(item) {
       const local = GetLocalItem(item) as ICloudSyncable
@@ -363,9 +378,9 @@ export default Vue.extend({
     deleteForever(item) {
       DeleteForever(item)
         .then(() => this.fetch())
-        .then(() => this.$notify('Delete successful', 'success'))
+        .then(() => this.$notify('Удаление успешно', 'success'))
         .catch(() =>
-          this.$notify('An error occured while attempting to delete this record.', 'error')
+          this.$notify('Произошла ошибка при попытке удалить эту запись.', 'error')
         )
     },
     syncAll(hideAlert?: boolean) {
@@ -375,21 +390,21 @@ export default Vue.extend({
         .then(() => sleep(500))
         .then(() => this.fetch())
         .then(() => {
-          if (!hideAlert) this.$notify(`Synced ${this.items.length} items successfully`, 'success')
+          if (!hideAlert) this.$notify(`Синхронизировано ${this.items.length} объектов успешно`, 'success')
         })
         .catch(() => {
-          if (!hideAlert) this.$notify('An error occured while syncing.', 'error')
+          if (!hideAlert) this.$notify('При синхронизации произошла ошибка.', 'error')
         })
     },
     async remoteUpdate(item) {
       const local = GetLocalItem(item) as ICloudSyncable
       try {
         RemoteSyncItem(local)
-        this.$notify('Pilot synced to remote', 'success')
+        this.$notify('Пилот синхронизирован с удаленным', 'success')
         this.fetch()
       } catch (error) {
         console.error(error)
-        this.$notify('An error occurred while attempting to download remote data', 'error')
+        this.$notify('Произошла ошибка при попытке загрузить удаленные данные.', 'error')
       }
     },
   },

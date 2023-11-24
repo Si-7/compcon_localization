@@ -1,20 +1,20 @@
 <template>
   <div>
     <v-row dense class="panel" justify="center" align="center">
-      <v-col cols="auto" style="letter-spacing: 5px">SIGN IN</v-col>
+      <v-col cols="auto" style="letter-spacing: 5px">ВХОД</v-col>
     </v-row>
     <v-form @submit="signIn()" @submit.prevent>
       <v-row class="mt-2">
         <v-col lg="6" cols="12">
-          <v-text-field v-model="email" label="E-Mail Address" dense outlined hide-details />
+          <v-text-field v-model="email" label="Адрес электронной почты" dense outlined hide-details />
           <div>
             <v-fade-transition>
               <div>
                 <a v-if="email && emailValid()" @click="$emit('reverify', email)">
-                  <i>Click here to use a verification code.</i>
+                  <i>Нажмите здесь, чтобы использовать код подтверждения.</i>
                 </a>
-                <i v-else-if="!email">Have a verification code? Enter your email to use it.</i>
-                <i v-else>Please enter a valid email address</i>
+                <i v-else-if="!email">Есть код подтверждения? Введите свой адрес электронной почты, чтобы использовать его.</i>
+                <i v-else>Пожалуйста, введите действительный адрес электронной почты</i>
               </div>
             </v-fade-transition>
           </div>
@@ -22,7 +22,7 @@
         <v-col lg="6" cols="12">
           <v-text-field
             v-model="password"
-            label="Password"
+            label="Пароль"
             dense
             outlined
             hide-details
@@ -31,7 +31,7 @@
             @click:append="show = !show"
           />
           <div class="text-right" @click="$emit('set-state', 'reset')">
-            <a><i>Forgot Password?</i></a>
+            <a><i>Забыли пароль?</i></a>
           </div>
         </v-col>
       </v-row>
@@ -44,11 +44,11 @@
             :loading="loading"
             :disabled="loading || !email || !password"
           >
-            Sign In
+            Войти
           </v-btn>
           <br />
           <v-btn small color="accent" class="mt-1" outlined @click="$emit('set-state', 'sign-up')">
-            Create Account
+            Создать Аккаунт
           </v-btn>
         </v-col>
       </v-row>
@@ -64,7 +64,7 @@
         icon="mdi-alert"
         dismissible
       >
-        <div class="font-weight-bold">ERROR</div>
+        <div class="font-weight-bold">ОШИБКА</div>
         <div v-html="error" />
       </v-alert>
     </v-scroll-y-transition>
@@ -115,7 +115,7 @@ export default Vue.extend({
         .then(() => {
           console.log(userstore.UserProfile.Theme)
           SetTheme(userstore.UserProfile.Theme, this.$vuetify)
-          this.$notify('Cloud Data Synchronized', 'success')
+          this.$notify('Облачные данные синхронизированы', 'success')
           this.loading = false
           this.showError = false
         })

@@ -10,7 +10,7 @@
     >
       <v-row dense justify="space-between" align="center">
         <v-col v-if="userProfile" class="text-center heading h3 mt-3 mb-2">
-          CONNECTED
+          ПОДКЛЮЧЕНО
           <cc-slashes />
           <b class="accent--text">
             {{ userProfile.Username }}
@@ -19,12 +19,12 @@
 
         <v-col cols="auto">
           <v-btn small tile color="warning darken-1" :loading="loading" @click="signOut">
-            Sign Out
+            Выйти
           </v-btn>
         </v-col>
       </v-row>
       <v-row dense class="panel" justify="center" align="center">
-        <v-col cols="auto" style="letter-spacing: 5px">CHANGE PASSWORD</v-col>
+        <v-col cols="auto" style="letter-spacing: 5px">ПОМЕНЯТЬ ПАРОЛЬ</v-col>
       </v-row>
       <v-row dense class="my-2">
         <v-col lg="6" cols="12">
@@ -32,7 +32,7 @@
             v-model="oldpass"
             outlined
             dense
-            label="Old Password"
+            label="Старый пароль"
             :type="showOld ? 'text' : 'password'"
             :append-icon="showOld ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="showOld = !showOld"
@@ -43,7 +43,7 @@
             v-model="newpass"
             outlined
             dense
-            label="New Password"
+            label="Новый пароль"
             :rules="[rules.passLength, passMatch]"
             :type="showNew ? 'text' : 'password'"
             :append-icon="showNew ? 'mdi-eye' : 'mdi-eye-off'"
@@ -60,16 +60,16 @@
             :loading="loading"
             @click="changePass"
           >
-            Submit
+            Отправить
           </v-btn>
         </v-col>
       </v-row>
       <v-row dense class="panel" justify="center" align="center">
-        <v-col cols="auto" style="letter-spacing: 5px">ACCOUNT DATA</v-col>
+        <v-col cols="auto" style="letter-spacing: 5px">ДАННЫЕ АККАУНТА</v-col>
       </v-row>
       <div v-if="iid" class="caption text-center mt-1 mb-n3">
-        COMP/CON USER IDENTITYID: {{ iid }}
-        <cc-tooltip simple inline content="Copy IID to clipboard">
+        IID ПОЛЬЗОВАТЕЛЯ COMP/CON: {{ iid }}
+        <cc-tooltip simple inline content="Копировать IID в буфер обмена">
           <v-btn icon small right @click="copyIid()">
             <v-icon small>mdi-clipboard-text-outline</v-icon>
           </v-btn>
@@ -77,26 +77,26 @@
       </div>
 
       <v-alert class="my-3" prominent icon="mdi-alert" color="warning darken-2" outlined>
-        <b>Cloud Sync functionality has changed</b>
+        <b>Функциональность синхронизации с облаком изменилась.</b>
         <div class="text--text">
-          Cloud auto-syncing has
-          <b>changed,</b>
-          manual saving or loading to/from the cloud can be done here, or through the options in the
-          nav bar. If auto-sync is enabled, COMP/CON will try to sync all local and cloud data when
-          your account is logged in.
+          Автоматическая синхронизация с облаком изменилась. Сохранение или загрузка 
+          в облако или из него вручную можно выполнить здесь или с помощью параметров 
+          на панели навигации. Если включена автоматическая синхронизация, COMP/CON 
+          попытается синхронизировать все локальные и облачные данные при входе в вашу 
+          учетную запись.
         </div>
 
         <div v-show="!isOnV2" class="pa-2">
           <v-card outlined style="border-color: var(--v-error-base); border-width: 3px">
             <div class="font-weight-bold text--text pa-2">
-              COMP/CON has determined that your cloud account is not configured for the most recent
-              backend changes. Clicking the upgrade button will save a backup of your current local
-              data and attempt to update your account data. This process should take less than a
-              second and the app will reload itself once complete.
+              COMP/CON определил, что ваша облачная учетная запись не настроена для последних 
+              изменений серверной части. Нажатие кнопки «Обновить» сохранит резервную копию ваших 
+              текущих локальных данных и попытается обновить данные вашей учетной записи. Этот процесс 
+              должен занять меньше секунды, и после завершения приложение перезагрузится.
             </div>
             <div class="px-12 py-2">
               <v-btn block class="secondary" :loading="upgradeLoading" @click="v2Upgrade()">
-                UPGRADE
+                АПГРЕЙД
               </v-btn>
             </div>
           </v-card>
@@ -104,15 +104,15 @@
       </v-alert>
 
       <v-card v-if="isOnV2" class="mt-3 mb-6">
-        <v-card-title class="heading h3">Auto-sync settings</v-card-title>
+        <v-card-title class="heading h3">Настройки автоматической синхронизации</v-card-title>
         <v-card-text class="px-10">
           <v-row dense align="center">
             <v-col>
               <span class="heading h3">
-                On Login
+                При входе
                 <cc-tooltip
                   inline
-                  content="This will automatically smart sync all item and LCP data whenever the account login process is successful. If you do not log out, this will occur shortly after the application starts. "
+                  content="Это будет автоматически синхронизировать все элементы и данные LCP каждый раз, когда процесс входа в учетную запись будет успешным. Если вы не выйдете из системы, это произойдет вскоре после запуска приложения. "
                 >
                   <v-icon left>mdi-information-outline</v-icon>
                 </cc-tooltip>
@@ -128,16 +128,16 @@
                 @change="userUpdate()"
               />
             </v-col>
-            <v-col v-if="userProfile.SyncFrequency.cloudSync_v2" cols="auto"><b>ON</b></v-col>
-            <v-col v-else cols="auto"><i>OFF</i></v-col>
+            <v-col v-if="userProfile.SyncFrequency.cloudSync_v2" cols="auto"><b>ВКЛ</b></v-col>
+            <v-col v-else cols="auto"><i>ВЫКЛ</i></v-col>
           </v-row>
           <v-row dense align="center">
             <v-col>
               <span class="heading h3">
-                Sync Remote Resources
+                Синхронизировать удаленные ресурсы
                 <cc-tooltip
                   inline
-                  content="This will automatically attempt to sync all remote resources with the latest versions in their authors' cloud accounts. Remote data cannot be saved to your own cloud account."
+                  content="При этом будут автоматически предпринята попытка синхронизировать все удаленные ресурсы с последними версиями в облачных учетных записях их авторов. Удаленные данные не могут быть сохранены в вашей собственной облачной учетной записи."
                 >
                   <v-icon left>mdi-information-outline</v-icon>
                 </cc-tooltip>
@@ -153,8 +153,8 @@
                 @change="userUpdate()"
               />
             </v-col>
-            <v-col v-if="userProfile.SyncFrequency.remotes" cols="auto"><b>ON</b></v-col>
-            <v-col v-else cols="auto"><i>OFF</i></v-col>
+            <v-col v-if="userProfile.SyncFrequency.remotes" cols="auto"><b>ВКЛ</b></v-col>
+            <v-col v-else cols="auto"><i>ВЫКЛ</i></v-col>
           </v-row>
         </v-card-text>
       </v-card>
@@ -182,7 +182,7 @@
           icon="mdi-alert"
           dismissible
         >
-          <div class="font-weight-bold">ERROR</div>
+          <div class="font-weight-bold">ОШИБКА</div>
           <div v-html="error" />
         </v-alert>
       </v-scroll-y-transition>

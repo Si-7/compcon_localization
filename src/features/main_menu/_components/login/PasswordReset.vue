@@ -1,34 +1,34 @@
 <template>
   <div>
     <v-row dense class="panel" justify="center" align="center">
-      <v-col cols="auto" style="letter-spacing: 5px">RESET PASSWORD</v-col>
+      <v-col cols="auto" style="letter-spacing: 5px">СБРОСИТЬ ПАРОЛЬ</v-col>
     </v-row>
     <v-row class="mt-2" justify="center">
       <v-col lg="6" cols="12">
-        <v-text-field v-model="email" outlined dense label="E-Mail Address" hide-details />
+        <v-text-field v-model="email" outlined dense label="Адрес электронной почты" hide-details />
       </v-col>
     </v-row>
     <v-row no-gutters justify="center" align="start" class="mt-n2 text-center">
       <v-col cols="auto">
         <v-btn color="secondary" :disabled="!email" :loading="loading" @click="reset()">
-          Send Password Reset E-Mail
+          Отправить письмо сброса пароля
         </v-btn>
       </v-col>
     </v-row>
     <v-slide-x-transition group>
       <v-row v-if="sent" key="a">
         <v-col cols="12" class="text-center body-text stark--text">
-          <div>Password reset code sent to {{ email }}</div>
+          <div>Код сброса пароля отправлен на {{ email }}</div>
         </v-col>
         <v-col lg="6" cols="12">
-          <v-text-field v-model="code" outlined dense label="Password Reset Code" />
+          <v-text-field v-model="code" outlined dense label="Код сброса пароля" />
         </v-col>
         <v-col lg="6" cols="12">
           <v-text-field
             v-model="newpass"
             outlined
             dense
-            label="New Password"
+            label="Новый пароль"
             :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
             :type="show ? 'text' : 'password'"
             :rules="[rules.passLength]"
@@ -45,7 +45,7 @@
             :disabled="!newpass"
             @click="setNewPassword()"
           >
-            submit
+            Отправить
           </v-btn>
         </v-col>
       </v-row>
@@ -53,7 +53,7 @@
     <v-row justify="center">
       <v-col cols="auto">
         <v-btn text color="accent" class="mt-1" @click="$emit('set-state', 'sign-in')">
-          Cancel
+          Отменить
         </v-btn>
       </v-col>
     </v-row>

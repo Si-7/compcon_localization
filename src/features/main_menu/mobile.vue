@@ -39,7 +39,7 @@
           class="heading mech mt-n5 text-center"
           style="letter-spacing: 8px"
         >
-          COMP/CON
+          COMP/CON_ru
         </div>
         <!-- Shout out Netlify on web for their free open source plan -->
         <v-btn

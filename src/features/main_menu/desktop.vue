@@ -38,8 +38,8 @@
           <cc-tooltip
             v-if="missingContent"
             inline
-            title="Unloadble Content Detected"
-            content="COMP/CON has detected one or more items that are missing Lancer Content Pack data. These items cannot be loaded without installing and activated LCPs. These issues may be able to be resolved in the Content Manager."
+            title="Незагружаемый контент замечен"
+            content="COMP/CON один или больше предметов, которым не хватает данных LCP паков. Эти проблемы можно решить в Материалах."
           >
             <v-avatar color="white"><v-icon color="error" large>mdi-folder-off</v-icon></v-avatar>
           </cc-tooltip>
@@ -54,17 +54,17 @@
             <v-icon left>
               {{ userstore.IsLoggedIn ? 'cci-pilot' : 'mdi-account-off-outline' }}
             </v-icon>
-            <span>{{ userstore.IsLoggedIn ? 'Connected' : 'Log In' }}</span>
+            <span>{{ userstore.IsLoggedIn ? 'Подключено' : 'Войти' }}</span>
           </v-btn>
         </v-col>
         <v-col cols="auto" class="ml-1 mr-3"><v-divider vertical class="d-inline" /></v-col>
         <v-col cols="auto" class="text-center mr-3">
           <v-btn small dark outlined @click="bulkExport">
             <v-icon left>mdi-database</v-icon>
-            Create Data Backup
+            Создать бэкап данных
             <cc-tooltip
               inline
-              content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+              content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. Настоятельно рекомендуется часто выполнять резервное копирование данных."
             >
               <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
             </cc-tooltip>
@@ -75,10 +75,10 @@
             <template v-slot:activator="{ on }">
               <v-btn small dark outlined v-on="on">
                 <v-icon left>mdi-database-refresh</v-icon>
-                Load Data Backup
+                Загрузить бэкап данных
                 <cc-tooltip
                   inline
-                  content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+                  content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. Настоятельно рекомендуется часто выполнять резервное копирование данных."
                 >
                   <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
                 </cc-tooltip>
@@ -87,13 +87,13 @@
             <v-card>
               <v-card-text class="pa-6">
                 <p class="text-center heading h3 text--text">
-                  This will OVERWRITE
-                  <b class="accent--text">ALL</b>
-                  local COMP/CON data.
+                  Это ПЕРЕПИШЕТ
+                  <b class="accent--text">ВСЕ</b>
+                  локальные данные COMP/CON.
                   <br />
-                  This
-                  <b class="accent--text">cannot</b>
-                  be undone.
+                  Это
+                  <b class="accent--text">нельзя</b>
+                  отменить.
                 </p>
                 <v-file-input
                   v-model="fileValue"
@@ -102,7 +102,7 @@
                   dense
                   hide-details
                   autofocus
-                  placeholder="Select COMP/CON Bulk Export File"
+                  placeholder="Выберите файл массового экспорта COMP/CON"
                   prepend-icon="mdi-paperclip"
                   @change="bulkImport"
                 />
@@ -121,13 +121,13 @@
                 @mouseenter="ccLog('options')"
                 @click="$refs.optionsModal.show()"
               >
-                Options
+                Опции
               </v-btn>
             </v-col>
 
             <v-col cols="auto">
               <v-btn small dark text @mouseenter="ccLog('about')" @click="$refs.aboutModal.show()">
-                About
+                О сайте
               </v-btn>
             </v-col>
 
@@ -139,13 +139,13 @@
                 @mouseenter="ccLog('about')"
                 @click="$refs.creditsModal.show()"
               >
-                Credits
+                Авторы
               </v-btn>
             </v-col>
 
             <v-col cols="auto">
               <v-btn small dark text @mouseenter="ccLog('help')" @click="$refs.helpModal.show()">
-                Help
+                Помощь
               </v-btn>
             </v-col>
 
@@ -159,14 +159,14 @@
                 href="https://www.patreon.com/compcon"
                 tabindex="0"
               >
-                Support This Project
+                Поддержать этот проект
               </v-btn>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-footer>
-    <cc-solo-dialog ref="loginModal" large no-confirm title="CLOUD ACCOUNT">
+    <cc-solo-dialog ref="loginModal" large no-confirm title="ОБЛАЧНЫЙ АККАУНТ">
       <sign-in />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -175,13 +175,13 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      title="Опции & Профиль пользователя"
     >
       <options-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="aboutModal" large no-confirm title="About"><about-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="helpModal" large no-confirm title="Help"><help-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm title="Credits">
+    <cc-solo-dialog ref="aboutModal" large no-confirm title="О сайте"><about-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="helpModal" large no-confirm title="Помощь"><help-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm title="Авторы">
       <credits-page />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -190,7 +190,7 @@
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      title="Управлять паками контента"
     >
       <content-page />
     </cc-solo-dialog>
@@ -250,13 +250,13 @@ export default Vue.extend({
       await saveFile(
         `CC_${new Date().toISOString().slice(0, 10)}.compcon`,
         JSON.stringify(result),
-        'Save COMP/CON Archive'
+        'Сохранить архив COMP/CON'
       )
     },
     async bulkImport(file) {
       await importAll(file)
-        .then(() => this.$notify('Data import successful', 'confirmation'))
-        .catch(err => this.$notify(`ERROR: Unable to import: ${err}`, 'error'))
+        .then(() => this.$notify('Импорт данных успешен', 'confirmation'))
+        .catch(err => this.$notify(`ОШИБКА: Не получилось импортировать: ${err}`, 'error'))
       this.importDialog = false
     },
     ccLog(btn: string) {

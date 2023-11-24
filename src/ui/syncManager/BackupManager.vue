@@ -7,14 +7,14 @@
             <template v-slot:activator="{ on }">
               <v-btn block color="accent" v-on="on">
                 <v-icon left>mdi-database</v-icon>
-                Create Backup
+                Создать Бэкап
               </v-btn>
             </template>
             <v-card max-width="30vw">
               <v-card-text class="text-center stark--text">
-                This tool will save a snapshot of all local user data and LCP content, including
-                data marked for deletion. It produces a .compcon file that can be loaded from the
-                "Load Backup" interface.
+                Этот инструмент сохранит снимок всех локальных пользовательских данных и содержимого LCP, 
+                включая данные, помеченные для удаления. Он создает файл .compcon, который можно загрузить 
+                из интерфейса «Загрузить резервную копию».
                 <v-divider class="my-3" />
                 <v-btn block color="accent" @click="dataExport()">Generate Backup</v-btn>
               </v-card-text>
@@ -26,15 +26,12 @@
             <template v-slot:activator="{ on }">
               <v-btn block color="accent" v-on="on">
                 <v-icon left>mdi-database-refresh</v-icon>
-                Load Backup
+                Загрузить Бэкап
               </v-btn>
             </template>
             <v-card max-width="30vw">
               <v-card-text class="text-center stark--text">
-                This tool uses a .compcon file produced by the "Create Backup" option. It will
-                replace
-                <b>all</b>
-                local data.
+                Этот инструмент использует файл .compcon, созданный с помощью параметра «Создать резервную копию». Он заменит все локальные данные.
                 <v-divider class="my-3" />
                 <v-file-input
                   v-model="fileValue"
@@ -43,7 +40,7 @@
                   dense
                   hide-details
                   autofocus
-                  placeholder="Select COMP/CON Bulk Export File"
+                  placeholder="Выберите файл массового экспорта COMP/CON"
                   prepend-icon="mdi-paperclip"
                 />
                 <v-divider class="my-3" />
@@ -54,7 +51,7 @@
                   :disabled="!fileValue"
                   @click="importConfirm = true"
                 >
-                  Confirm
+                  Подтвердить
                 </v-btn>
                 <v-btn
                   block
@@ -64,7 +61,7 @@
                   @click="importfile"
                   :disabled="!importConfirm"
                 >
-                  Overwrite Local Data
+                Перезаписать локальные данные
                 </v-btn>
               </v-card-text>
             </v-card>
@@ -75,14 +72,12 @@
             <template v-slot:activator="{ on }">
               <v-btn block color="error darken-1" v-on="on">
                 <v-icon left>mdi-delete</v-icon>
-                Delete All Local Data
+                Удалить все локальные данные
               </v-btn>
             </template>
             <v-card max-width="30vw">
               <v-card-text class="text-center stark--text">
-                This action will delete
-                <b>all</b>
-                local COMP/CON data. Cloud data will not be affected.
+                Это действие удалит все локальные данные COMP/CON. Облачные данные не будут затронуты.
                 <v-divider class="my-3" />
                 <v-btn
                   v-model="deleteLocalConfirm"
@@ -90,7 +85,7 @@
                   :color="deleteLocalConfirm ? 'secondary' : 'accent'"
                   @click="deleteLocalConfirm = true"
                 >
-                  Confirm
+                  Подтвердить
                 </v-btn>
                 <v-btn
                   block
@@ -100,7 +95,7 @@
                   :disabled="!deleteLocalConfirm"
                   @click="deleteAll(false)"
                 >
-                  Delete All Local Data
+                Удалить все локальные данные
                 </v-btn>
               </v-card-text>
             </v-card>
@@ -111,15 +106,12 @@
             <template v-slot:activator="{ on }">
               <v-btn block color="error darken-1" v-on="on">
                 <v-icon left>mdi-cloud-alert</v-icon>
-                Delete All Cloud Data
+                Удалить все облачные данные
               </v-btn>
             </template>
             <v-card max-width="30vw">
               <v-card-text class="text-center stark--text">
-                This action will delete
-                <b>all</b>
-                COMP/CON data stored in the cloud under the current user ({{ username }}). Local
-                data will not be affected.
+                Это действие удалит все данные COMP/CON, хранящиеся в облаке под именем текущего пользователя ({{ username }}). Локальные данные не будут затронуты.
                 <v-divider class="my-3" />
                 <v-btn
                   v-model="deleteCloudConfirm"
@@ -127,7 +119,7 @@
                   :color="deleteCloudConfirm ? 'secondary' : 'accent'"
                   @click="deleteCloudConfirm = true"
                 >
-                  Confirm
+                  Подтвердить
                 </v-btn>
                 <v-btn
                   block
@@ -137,7 +129,7 @@
                   :disabled="!deleteCloudConfirm"
                   @click="deleteAll(true)"
                 >
-                  Delete All Cloud Data
+                Удалить все облачные данные
                 </v-btn>
               </v-card-text>
             </v-card>
@@ -173,13 +165,13 @@ export default Vue.extend({
       await saveFile(
         `CC_${new Date().toISOString().slice(0, 10)}.compcon`,
         JSON.stringify(result),
-        'Save COMP/CON Archive'
+        'Сохранить архив COMP/CON'
       )
     },
     async importfile() {
       importAll(this.fileValue)
-        .then(() => this.$notify('Data import successful', 'confirmation'))
-        .catch(err => this.$notify(`ERROR: Unable to import: ${err}`, 'error'))
+        .then(() => this.$notify('Импорт данных успешен', 'confirmation'))
+        .catch(err => this.$notify(`ОШИБКА: Невозможно импортировать: ${err}`, 'error'))
         .finally(() => {
           this.fileValue = null
           this.loadBackupDialog = false
@@ -189,8 +181,8 @@ export default Vue.extend({
     },
     async deleteAll(cloud) {
       clearAllData(cloud)
-        .then(() => this.$notify('Data deleted', 'confirmation'))
-        .catch(err => this.$notify(`ERROR: Unable to import: ${err}`, 'error'))
+        .then(() => this.$notify('Данные удалены', 'confirmation'))
+        .catch(err => this.$notify(`ERROR: Невозможно импортировать: ${err}`, 'error'))
         .finally(() => {
           this.deleteCloud = false
           this.deleteCloudConfirm = false

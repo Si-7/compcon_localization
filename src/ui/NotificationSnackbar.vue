@@ -20,7 +20,7 @@
       &nbsp;
       <span v-html="notification.text" />
       <v-btn class="ml-auto" dark text @click.stop="$emit('dismiss-snackbar')">
-        Dismiss
+        ЗАКРЫТЬ
       </v-btn>
       <v-fade-transition>
         <v-progress-linear
