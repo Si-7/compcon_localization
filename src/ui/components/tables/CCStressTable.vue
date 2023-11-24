@@ -2,21 +2,21 @@
   <v-dialog v-model="dialog" :fullscreen="$vuetify.breakpoint.mdAndDown" width="60vw" persistent>
     <v-card flat tile>
       <v-toolbar color="title-bg clipped-large" dark flat>
-        <v-toolbar-title class="heading h1">OVERHEATING</v-toolbar-title>
+        <v-toolbar-title class="heading h1">ПЕРЕГРЕВ</v-toolbar-title>
       </v-toolbar>
       <v-window v-model="window">
         <v-window-item>
           <v-card-text class="text-center">
             <span class="flavor-text">
               <v-alert prominent dark dense icon="cci-reactor" color="error" border="left" tile>
-                <b class="heading h2">REACTOR STRESS CRITICAL</b>
+                <b class="heading h2">НАГРУЗКА РЕАКТОРА КРИТИЧЕСКАЯ</b>
               </v-alert>
-              Roll 1d6 per point of reactor stress
+              Бросьте 1d6 за каждый отмеченный пункт нагрузочного урона
             </span>
             <br />
             <span class="overline">
               <b>{{ totalRolls - rolls.length }}</b>
-              rolls remaining
+              бросков осталось
             </span>
             <br />
             <div v-for="n in rolls.length" :key="`rr${n}`" class="d-inline">
@@ -38,7 +38,7 @@
             <br />
             <v-scroll-y-transition group leave-absolute>
               <div v-if="rolls.length < totalRolls" key="tr01" class="d-inline">
-                <cc-tooltip inline content="Roll Die">
+                <cc-tooltip inline content="Сделать бросок">
                   <v-btn
                     icon
                     color="accent"
@@ -70,7 +70,7 @@
                     key="t01"
                     class="heading h3 error--text"
                   >
-                    // REACTOR INTEGRITY FAILING //
+                    // НАРУШЕНИЕ ЦЕЛОСТНОСТИ РЕАКТОРА //
                   </span>
                   <span v-else-if="rolls.length" key="t02" class="heading h3">
                     <b>{{ results[Math.min(...rolls) - 1] }}</b>
@@ -86,14 +86,14 @@
                   @click="rolls.splice(0, rolls.length)"
                 >
                   <v-icon small left>mdi-reload</v-icon>
-                  UNDO
+                  ОТМЕНИТЬ
                 </v-btn>
               </div>
             </v-scroll-y-transition>
           </v-card-text>
           <v-divider />
           <v-card-actions>
-            <v-btn color="warning" text @click="dialog = false">dismiss</v-btn>
+            <v-btn color="warning" text @click="dialog = false">закрыть</v-btn>
             <v-spacer />
             <v-btn
               color="primary"
@@ -101,7 +101,7 @@
               :disabled="totalRolls - rolls.length > 0"
               @click="window = resultWindow"
             >
-              continue
+              продолжить
             </v-btn>
           </v-card-actions>
         </v-window-item>
@@ -136,17 +136,17 @@
           <p
             v-html="
               mech.CurrentStress >= 3
-                ? 'Your mech is <b>exposed</b> until you take action to remove the condition.'
-                : 'Your mech must pass a engineering check or suffer a reactor meltdown at the end of 1d6 turns after this one (rolled by the GM). You can reverse it by taking a full action and repeating this check. Even on a successful check, your mech suffers from the <b>exposed</b> condition until you take action to remove it.'
+                ? 'Ваш мех становится Уязвимым.'
+                : 'Проведите проверку Инженерии. В случае успеха, ваш мех становится Уязвимым; в случае неудачи, он получает расплавление реактора через 1d6 ваших ходов (определяется ГМ). Плавление реактора можно предотвратить, повторив проверку Инженерии в качестве полного действия.'
             "
           />
           <div slot="confirm-button">
             <div v-if="mech.CurrentStress >= 3">
-              <v-btn color="success" large @click="applyPPD()">confirm</v-btn>
+              <v-btn color="success" large @click="applyPPD()">подтвердить</v-btn>
             </div>
             <div v-else>
-              <v-btn color="error" large @click="window = 4">fail check</v-btn>
-              <v-btn color="success" large @click="applyPPD">succeed check</v-btn>
+              <v-btn color="error" large @click="window = 4">проваленная проверка</v-btn>
+              <v-btn color="success" large @click="applyPPD">успешная проверка</v-btn>
             </div>
           </div>
           <cascade-check :mech="mech" />
@@ -196,12 +196,12 @@ export default class CCStressTable extends Vue {
   rolls = []
   resultData = ResultData
   results = [
-    'Meltdown',
-    'Power Plant Destabilize',
-    'Power Plant Destabilize',
-    'Power Plant Destabilize',
-    'Emergency Shunt',
-    'Emergency Shunt',
+    'Плавление',
+    'Разрушение Энерго-Установок',
+    'Разрушение Энерго-Установок',
+    'Разрушение Энерго-Установок',
+    'Аварийный шунт',
+    'Аварийный шунт',
   ]
 
   get totalRolls(): number {

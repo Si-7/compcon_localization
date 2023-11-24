@@ -270,7 +270,7 @@ class ActiveState {
     this.SetLog({
       id: 'start_combat',
       event: 'LOG.INIT',
-      detail: 'COMBAT MODE ACTIVATED',
+      detail: 'БОЕВОЙ РЕЖИМ АКТИВИРОВАН',
     })
     this.NextRound()
     this.InTurn = true
@@ -331,7 +331,7 @@ class ActiveState {
     this.SetLog({
       id: 'start_combat',
       event: 'LOG.ROUND',
-      detail: 'ROUND START',
+      detail: 'РАУНД НАЧАТ',
     })
     if (this.ActiveMech.Frame.CoreSystem.Duration === Duration.Round)
       this.ActiveMech.IsCoreActive = false
@@ -358,7 +358,7 @@ class ActiveState {
     this.SetLog({
       id: 'start_combat',
       event: 'LOG.END',
-      detail: 'ENCOUNTER COMPLETE. COMBAT MODE DEACTIVATED.',
+      detail: 'БОЙ ЗАКОНЧЕН. БОЕВОЙ РЕЖИМ ДЕАКТИВИРОВАН.',
     })
     if (this.ActiveMech.Frame.CoreSystem.Duration === Duration.Scene)
       this.ActiveMech.IsCoreActive = false
@@ -374,7 +374,7 @@ class ActiveState {
     this.SetLog({
       id: 'start_mission',
       event: 'MISSION.START',
-      detail: `STARTING MISSION//${this.timestamp}::${mission()}`,
+      detail: `НАЧИНАЮ МИССИЮ//${this.timestamp}::${mission()}`,
     })
     this._deployed.splice(0, this._deployed.length)
     this.InTurn = true
@@ -388,7 +388,7 @@ class ActiveState {
     this.SetLog({
       id: 'end_mission',
       event: 'MISSION.COMPLETE',
-      detail: `REC::MISSION COMPLETE @ ${this.timestamp}`,
+      detail: `ЗАП::МИССИЯ ЗАВЕРШЕНА В ${this.timestamp}`,
     })
     this._deployed.splice(0, this._deployed.length)
     this._stage = Stage.Narrative
@@ -651,9 +651,9 @@ class ActiveState {
       this.ActiveMech.CurrentMove = this.ActiveMech.MaxMove
     this.SetLog({
       id: `set_move`,
-      event: 'MOVE',
+      event: 'ПЕРЕМЕЩЕНИЕ',
       detail: `${
-        val > 0 ? `FRAME/COMMIT.TAC: ${val} SPACES` : `FRAME/RESCIND.TAC: ${Math.abs(val)} SPACES`
+        val > 0 ? `FRAME/COMMIT.TAC: ${val} ПРОСТРАНСТВ` : `FRAME/RESCIND.TAC: ${Math.abs(val)} ПРОСТРАНСТВ`
       }`,
     })
   }
@@ -664,8 +664,8 @@ class ActiveState {
       this.ActiveMech[scType] = statuses
       this.SetLog({
         id: `clear_status`,
-        event: 'STATUS',
-        detail: `FRAME/STATUS.CLEAR ++ALARM.OFF.ALL++`,
+        event: 'СТАТУС',
+        detail: `FRAME/СТАТУС.ОЧИЩЕН ++ТРЕВОГИ.ВЫКЛ.ВСЕ++`,
       })
       return
     }
@@ -675,9 +675,9 @@ class ActiveState {
     this.ActiveMech[scType] = statuses
     this.SetLog({
       id: `set_status`,
-      event: 'STATUS',
-      detail: `${added ? '' : '!ALERT! '}FRAME/STATUS.${sstr.toUpperCase()} ++ALARM.${
-        removed ? 'OFF' : 'ON'
+      event: 'СТАТУС',
+      detail: `${added ? '' : '!ТРЕВОГА! '}FRAME/СТАТУС.${sstr.toUpperCase()} ++ТРЕВОГА.${
+        removed ? 'ВЫКЛ' : 'ВКЛ'
       }++`,
     })
   }
@@ -687,8 +687,8 @@ class ActiveState {
       this.ActiveMech.Resistances = resistances
       this.SetLog({
         id: `clear_resist`,
-        event: 'RESISTANCE',
-        detail: `FRAME/DEF.RES ++RES.END.ALL++`,
+        event: 'СОПРОТИВЛЕНИЕ',
+        detail: `FRAME/ЗАЩ.СОПР ++СОПР.КОНЕЦ.ВСЕ++`,
       })
       return
     }
@@ -698,8 +698,8 @@ class ActiveState {
     this.ActiveMech.Resistances = resistances
     this.SetLog({
       id: `set_res`,
-      event: 'RESISTANCE',
-      detail: `FRAME/DEF.RES::${sstr.toUpperCase()}${removed ? '++RES.END++' : ''}`,
+      event: 'СОПРОТИВЛЕНИЕ',
+      detail: `FRAME/ЗАЩ.СОПР::${sstr.toUpperCase()}${removed ? '++СОПР.КОНЕЦ++' : ''}`,
     })
   }
 
@@ -707,12 +707,12 @@ class ActiveState {
     this.ActiveMech.Burn = val
     this.SetLog({
       id: `set_burn`,
-      event: 'BURN',
+      event: 'ГОРЕНИЕ',
       detail: `${
         val > 0
-          ? `!ALERT! FRAME/DMG.ONGOING: ${val} ++ALARM.ON++`
-          : `FRAME/DMG.MITIGATE: ${Math.abs(val)} ${
-              this.ActiveMech.Burn > 0 ? '++ALARM.ON++' : '++ALARM.OFF++'
+          ? `!ТРЕВОГА! FRAME/УРОН.ПРОДОЛЖАЮЩИЙСЯ: ${val} ++ТРЕВОГА.ВКЛ++`
+          : `FRAME/УРОН.СМЯГЧЕН: ${Math.abs(val)} ${
+              this.ActiveMech.Burn > 0 ? '++ТРЕВОГА.ВКЛ++' : '++ТРЕВОГА.ВЫКЛ++'
             }`
       }`,
     })
@@ -722,8 +722,8 @@ class ActiveState {
     this.RepairMech('full')
     this.SetLog({
       id: `full_repair`,
-      event: 'FULL REPAIR',
-      detail: `FRAME/ROOT::FULL REPAIR`,
+      event: 'ПОЛНЫЙ РЕМОНТ',
+      detail: `FRAME/КОРЕНЬ::ПОЛНЫЙ РЕМОНТ`,
     })
   }
 
@@ -733,8 +733,8 @@ class ActiveState {
     const pct = (this.ActiveMech.CurrentStructure / this.ActiveMech.MaxStructure).toFixed(2)
     this.SetLog({
       id: `set_str`,
-      event: 'STRUCTURE DAMAGE',
-      detail: `!CRITICAL! FRAME.STR::INTEGRITY COMPROMISED ++${pct}++`,
+      event: 'СТРУКТУРНЫЙ УРОН',
+      detail: `!КРИТИЧЕСКОЕ! FRAME.СТРУКТ::ЦЕЛОСТНОСТЬ НАРУШЕНА ++${pct}++`,
     })
   }
 
@@ -744,8 +744,8 @@ class ActiveState {
     const pct = (this.ActiveMech.CurrentStress / this.ActiveMech.MaxStress).toFixed(2)
     this.SetLog({
       id: `set_stress`,
-      event: 'REACTOR STRESS',
-      detail: `!CRITICAL! FRAME.REACTOR::INTEGRITY COMPROMISED ++${pct}++`,
+      event: 'НАГРУЗКА',
+      detail: `!КРИТИЧЕСКОЕ! FRAME.РЕАКТОР::ЦЕЛОСТНОСТЬ НАРУШЕНА ++${pct}++`,
     })
   }
 
@@ -765,23 +765,23 @@ class ActiveState {
       this.ActiveMech.CurrentHP = val
       this.SetLog({
         id: `rep_dmg`,
-        event: 'REPAIR',
-        detail: `FRAME/REP.PROCESS:: ${val} HP RESTORED`,
+        event: 'РЕМОНТ',
+        detail: `FRAME/РЕМ.ПРОЦЕСС:: ${val} ПЗ ВОССТАНОВЛЕНО`,
       })
     } else {
       const str = this.ActiveMech.CurrentStructure
       this.ActiveMech.CurrentHP = val
       this.SetLog({
         id: `add_dmg`,
-        event: 'DAMAGE',
-        detail: `!WARN! INC:: ${val} HP DAMAGE`,
+        event: 'УРОН',
+        detail: `!ПРЕДУПРЕЖДЕНИЕ! ВХОД:: ${val} ПЗ УРОНА`,
       })
       if (this.ActiveMech.CurrentStructure < str) {
         const pct = (this.ActiveMech.CurrentStructure / this.ActiveMech.MaxStructure).toFixed(2)
         this.SetLog({
           id: `set_str`,
-          event: 'STRUCTURE DAMAGE',
-          detail: `!CRITICAL! FRAME.STR::INTEGRITY COMPROMISED ++${pct}++`,
+          event: 'СТРУКТУРНЫЙ УРОН',
+          detail: `!КРИТИЧЕСКОЕ! FRAME.СТРУКТ::ЦЕЛОСТНОСТЬ НАРУШЕНА ++${pct}++`,
         })
       }
     }
@@ -794,14 +794,14 @@ class ActiveState {
       this.ActiveMech.CurrentHeat = val
       this.SetLog({
         id: `clear_heat`,
-        event: 'CLEAR HEAT',
-        detail: `FRAME/REACTOR.VENT:: ${val} HEAT CLEARED`,
+        event: 'СБРОС НАГРЕВА',
+        detail: `FRAME/РЕАКТОР.ВЕНТИЛЯЦИЯ:: ${val} НАГРЕВА СБРОШЕНО`,
       })
       if (dz && !this.ActiveMech.IsInDangerZone) {
         this.SetLog({
           id: `out_dangerzone`,
-          event: 'HEAT LEVELS NOMINAL',
-          detail: `FRAME/REACTOR:: ++TEMP.OK++`,
+          event: 'УРОВЕНЬ НАГРЕВА В НОРМЕ',
+          detail: `FRAME/РЕАКТОР:: ++ТЕМП.ОК++`,
         })
       }
     } else {
@@ -809,22 +809,22 @@ class ActiveState {
       this.ActiveMech.CurrentHeat = val
       this.SetLog({
         id: `add_heat`,
-        event: 'HEAT',
-        detail: `!WARN! FRAME/REACTOR.HEAT_LVL:: ${val} HEAT`,
+        event: 'НАГРЕВ',
+        detail: `!ПРЕДУПРЕЖДЕНИЕ! FRAME/РЕАКТОР.УРОВЕНЬ_НАГРЕВА:: ${val} НАГРЕВА`,
       })
       if (this.ActiveMech.IsInDangerZone) {
         this.SetLog({
           id: `dangerzone`,
-          event: 'HEAT ALERT',
-          detail: `!ALERT! FRAME/REACTOR:: ++TEMP.CRITICAL++`,
+          event: 'ТРЕВОГА НАГРЕВА',
+          detail: `!ALERT! FRAME/РЕАКТОР:: ++ТЕМП.КРИТИЧЕСКАЯ++`,
         })
       }
       if (this.ActiveMech.CurrentStress < str) {
         const pct = (this.ActiveMech.CurrentStress / this.ActiveMech.MaxStress).toFixed(2)
         this.SetLog({
           id: `set_stress`,
-          event: 'REACTOR STRESS',
-          detail: `!CRITICAL! FRAME.REACTOR::INTEGRITY COMPROMISED ++${pct}++`,
+          event: 'НАГРУЗКА',
+          detail: `!КРИТИЧЕСКОЕ! FRAME.РЕАКТОР::ЦЕЛОСТНОСТЬ НАРУШЕНА ++${pct}++`,
         })
       }
     }
@@ -834,9 +834,9 @@ class ActiveState {
     this.ActiveMech.CurrentRepairs = val
     this.SetLog({
       id: `set_rep`,
-      event: 'REPAIR CAPACITY',
+      event: 'ЛИМИТ РЕМОНТА',
       detail: `${
-        val < 0 ? `FRAME/COMMIT.REPAIR: ${val}` : `FRAME/RECOVER.REPAIR: ${Math.abs(val)}`
+        val < 0 ? `FRAME/ПОДТВЕРДИТЬ.РЕМОНТ: ${val}` : `FRAME/ВОССТАНОВИТЬ.РЕМОНТ: ${Math.abs(val)}`
       }`,
     })
   }
@@ -847,9 +847,9 @@ class ActiveState {
     this.ActiveMech.CurrentCoreEnergy = val
     this.SetLog({
       id: `set_core`,
-      event: 'CORE POWER',
+      event: 'МОЩЬ ЯДРА',
       detail: `${
-        val > 0 ? `FRAME/CORE:: CAPACITY RESTORED` : `!ALERT! FRAME CORE ACTIVATION !ALERT!`
+        val > 0 ? `FRAME/ЯДРО:: ВОЗМОЖНОСТИ ВОССТАНОВЛЕНЫ` : `!ТРЕВОГА! АКТИВАЦИЯ ЯДРА РАМЫ !ТРЕВОГА!`
       }`,
     })
   }
@@ -859,11 +859,11 @@ class ActiveState {
     this.ActiveMech.CurrentOvercharge = val
     this.SetLog({
       id: `set_oc`,
-      event: 'OVERCHARGE',
+      event: 'ПЕРЕГРУЗКА',
       detail: `${
         inc
-          ? `!WARN! FRAME/REACTOR.SYS::POWER REROUTE CONFIRM ++HEAT.ALARM.ON++`
-          : `FRAME/REACTOR.SYS::CHARGE PROTOCOL RECOVERY`
+          ? `!ПРЕДУПРЕЖДЕНИЕ! FRAME/РЕАКТОР.СИС::ПЕРЕНАПРАВЛЕНИЕ МОЩНОСТИ ПОДТВЕРЖДЕНО ++НАГРЕВ.ТРЕВОГА.ВКЛ++`
+          : `FRAME/РЕАКТОР.СИС::ПРОТОКОЛ ВОССТАНОВЛЕНИЯ ЗАРЯДА`
       }`,
     })
   }
@@ -876,34 +876,34 @@ class ActiveState {
         x => x.IsLoading && !x.Loaded
       ).map(w => w.ID),
       burn: this.ActiveMech.Burn,
-      exposed: this.ActiveMech.Statuses.includes('EXPOSED'),
+      exposed: this.ActiveMech.Statuses.includes('Уязвимость'),
     }
-    let str = 'FRAME.ROOT.DEF//STABILIZE'
+    let str = 'FRAME.КОРЕНЬ.ЗАЩ//СТАБИЛИЗАЦИЯ'
     if (this.StabilizeMajor === 'cool') {
-      str += ' ::REACTOR_VENT'
+      str += ' ::РЕАКТОР_ВЕНТИЛЯЦИЯ'
       this.ActiveMech.CurrentHeat = 0
-      const expIdx = this.ActiveMech.Statuses.indexOf('EXPOSED')
+      const expIdx = this.ActiveMech.Statuses.indexOf('Уязвимость')
       if (expIdx > -1) this.ActiveMech.Statuses.splice(expIdx, 1)
     } else if (this.StabilizeMajor === 'repair') {
-      str += ' ::REPAIR'
+      str += ' ::РЕМОНТ'
       this.ActiveMech.CurrentRepairs -= 1
       this.ActiveMech.CurrentHP = this.ActiveMech.MaxHP
     }
 
     if (this.StabilizeMinor === 'reload') {
-      str += ' ::RELOAD'
+      str += ' ::ПЕРЕЗАРЯДКА'
       this.ActiveMech.MechLoadoutController.ActiveLoadout.Weapons.filter(
         x => x.IsLoading && !x.Loaded
       ).forEach(w => (w.Loaded = true))
     } else if (this.StabilizeMinor === 'end_burn') {
-      str += ' ::END.BURN'
+      str += ' ::КОНЕЦ.ГОРЕНИЯ'
       this.ActiveMech.Burn = 0
-    } else if (this.StabilizeMinor === 'end_self_condition') str += ' ::SYS.RESTORE'
-    else if (this.StabilizeMinor === 'end_ally_condition') str += ' ::REMOTE.ASSIST'
+    } else if (this.StabilizeMinor === 'end_self_condition') str += ' ::СИС.ВОССТАНОВЛЕНИЕ'
+    else if (this.StabilizeMinor === 'end_ally_condition') str += ' ::УДАЛЕННАЯ.ПОДДЕРЖКА'
 
     this.SetLog({
       id: `stabilize`,
-      event: 'STABILIZE',
+      event: 'СТАБИЛИЗАЦИЯ',
       detail: str,
     })
 
@@ -1027,7 +1027,7 @@ class ActiveState {
       id: action,
       event: weapon.toUpperCase(),
       detail: `${action.toUpperCase()}//${weapon.toUpperCase()}::${damage} DMG ${
-        kill ? '++KILL CONFIRM++' : ''
+        kill ? '++УНИЧТОЖЕНИЕ ПОДТВЕРЖДЕНО++' : ''
       }`,
     })
   }
@@ -1048,8 +1048,8 @@ class ActiveState {
     this._deployed.push(new Deployable(d, this.ActiveMech, n))
     this.SetLog({
       id: `deploy`,
-      event: 'DEPLOY EQUIPMENT',
-      detail: `FRAME/REMOTE::${d.name.toUpperCase().replace(/\s/g, '.')}.${n} ++STATUS OK++`,
+      event: 'РАЗМЕЩЕНИЕ СНАРЯЖЕНИЯ',
+      detail: `FRAME/УДАЛЕННО::${d.name.toUpperCase().replace(/\s/g, '.')}.${n} ++СТАТУС ОК++`,
     })
     this.save()
   }
@@ -1076,8 +1076,8 @@ class ActiveState {
 
     this.SetLog({
       id: `recall_${d.ID}`,
-      event: 'RECALL EQUIPMENT',
-      detail: `DEPLOYABLE.RECALL//${d.Name}`,
+      event: 'ВОЗВРАТ СНАРЯЖЕНИЯ',
+      detail: `РАЗМЕЩЕННЫЙ.ВОЗВРАТ//${d.Name}`,
     })
 
     d.IsRecalled = true
@@ -1095,8 +1095,8 @@ class ActiveState {
 
     this.SetLog({
       id: `redeploy_${d.ID}`,
-      event: 'REDEPLOY EQUIPMENT',
-      detail: `DEPLOYABLE.REDEPLOY//${d.Name}`,
+      event: 'ПОВТОРНОЕ РАЗМЕЩЕНИЕ',
+      detail: `РАЗМЕЩЕНИЕ.ПОВТОРНОЕ//${d.Name}`,
     })
 
     d.IsRecalled = false
@@ -1126,14 +1126,14 @@ class ActiveState {
   }
 
   private get baseActionTypes() {
-    const exclude = ['Move', 'Invade', 'Quick Tech', 'Full Tech']
+    const exclude = ['Перемещение', 'Вторжение', 'Быстрая Технология', 'Полная Технология']
     return Object.keys(ActivationType)
       .map(k => ActivationType[k as string])
       .filter(x => !exclude.includes(x))
   }
 
   private get techActionTypes() {
-    const include = ['Invade', 'Quick Tech', 'Full Tech']
+    const include = ['Вторжение', 'Быстрая Технология', 'Полная Технология']
     return Object.keys(ActivationType)
       .map(k => ActivationType[k as string])
       .filter(x => include.includes(x))
@@ -1195,7 +1195,7 @@ class ActiveState {
   }
 
   public get TechActions(): Action[] {
-    const exclude = ['QUICK TECH', 'FULL TECH']
+    const exclude = ['БЫСТРАЯ ТЕХНОЛОГИЯ', 'ПОЛНАЯ ТЕХНОЛОГИЯ']
     const out = this.AllBaseTechActions.concat(this.AllItemTechActions)
     return out.filter(x => !exclude.some(y => y === x.Name.toUpperCase()))
   }

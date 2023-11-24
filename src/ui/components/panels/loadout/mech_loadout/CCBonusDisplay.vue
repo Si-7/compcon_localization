@@ -4,7 +4,7 @@
       v-for="(b, i) in item.Bonuses"
       :key="`${i}_${b.ID}`"
       inline
-      :title="`Bonus: ${b.Title}`"
+      :title="`Бонус: ${b.Title}`"
       :content="b.Detail"
     >
       <v-icon large color="accent">

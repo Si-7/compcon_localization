@@ -11,31 +11,31 @@
       style="width: calc(100% + 48px)"
     >
       <v-tab>
-        Protocols
+        Протоколы
         <v-icon>cci-protocol</v-icon>
       </v-tab>
       <v-tab>
-        Full Actions
+        Полные Действия
         <v-icon>mdi-hexagon-slice-6</v-icon>
       </v-tab>
       <v-tab>
-        Quick Actions
+        Быстрые Действия
         <v-icon>mdi-hexagon-slice-3</v-icon>
       </v-tab>
       <v-tab>
-        Reactions
+        Реакции
         <v-icon>cci-reaction</v-icon>
       </v-tab>
       <v-tab>
-        Free Actions
+        Свободные Действия
         <v-icon>cci-free-action</v-icon>
       </v-tab>
       <v-tab>
-        Combat Log
+        Боевой Журнал
         <v-icon>mdi-notebook</v-icon>
       </v-tab>
       <v-tab class="mr-12">
-        Other
+        Прочее
         <v-icon>mdi-dots-vertical</v-icon>
       </v-tab>
     </v-tabs>
@@ -44,7 +44,7 @@
         <v-card flat color="background">
           <v-list>
             <action-menu-item
-              v-for="(a, i) in pilot.State.ActionsByType('Protocol')"
+              v-for="(a, i) in pilot.State.ActionsByType('Протокол')"
               :key="`am_protocol_${i}`"
               :action="a"
               :available="pilot.State.IsProtocolAvailable"
@@ -57,7 +57,7 @@
         <v-card flat color="background">
           <v-list>
             <action-menu-item
-              v-for="(a, i) in pilot.State.ActionsByType('Full')"
+              v-for="(a, i) in pilot.State.ActionsByType('Полное')"
               :key="`am_protocol_${i}`"
               :action="a"
               :available="pilot.State.Actions > 1"
@@ -70,7 +70,7 @@
         <v-card flat color="background">
           <v-list>
             <action-menu-item
-              v-for="(a, i) in pilot.State.ActionsByType('Quick')"
+              v-for="(a, i) in pilot.State.ActionsByType('Быстрое')"
               :key="`am_protocol_${i}`"
               :action="a"
               :mech="pilot.ActiveMech"
@@ -83,7 +83,7 @@
         <v-card flat color="background">
           <v-list>
             <action-menu-item
-              v-for="(a, i) in pilot.State.ActionsByType('Reaction')"
+              v-for="(a, i) in pilot.State.ActionsByType('Реакция')"
               :key="`am_protocol_${i}`"
               :action="a"
               available
@@ -96,7 +96,7 @@
         <v-card flat color="background">
           <v-list>
             <action-menu-item
-              v-for="(a, i) in pilot.State.ActionsByType('Free')"
+              v-for="(a, i) in pilot.State.ActionsByType('Свободное')"
               :key="`am_protocol_${i}`"
               :action="a"
               available
@@ -147,14 +147,14 @@
 
             <div v-if="pilot.ReservesController.Reserves || pilot.ReservesController.Organizations">
               <v-divider class="my-4" />
-              <span class="overline">RESERVES AND RESOURCES</span>
+              <span class="overline">РЕЗЕРВЫ И РЕСУРСЫ</span>
               <v-row
                 v-if="pilot.ReservesController.Reserves || pilot.ReservesController.Organizations"
                 class="mt-n3"
               >
                 <cc-reserve-item
                   v-for="(r, i) in pilot.ReservesController.Reserves.filter(
-                    r => r.Type !== 'Bonus'
+                    r => r.Type !== 'Бонус'
                   )"
                   :key="`r_${i}`"
                   :reserve="r"

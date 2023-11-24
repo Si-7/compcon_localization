@@ -6,12 +6,12 @@
       <slot />
     </v-card-text>
     <v-card-actions>
-      <v-btn text color="warning" @click="$emit('dismiss')">dismiss</v-btn>
+      <v-btn text color="warning" @click="$emit('dismiss')">закрыть</v-btn>
       <v-spacer />
-      <v-btn v-if="!hidePrevious" text color="secondary" @click="$emit('previous')">previous</v-btn>
+      <v-btn v-if="!hidePrevious" text color="secondary" @click="$emit('previous')">назад</v-btn>
       <slot v-if="otherBtn" name="confirm-button" />
       <v-btn v-else color="primary" large :disabled="disabled" @click="$emit('confirm')">
-        confirm
+        подтвердить
       </v-btn>
     </v-card-actions>
   </v-window-item>

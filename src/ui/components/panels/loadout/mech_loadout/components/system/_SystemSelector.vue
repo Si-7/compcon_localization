@@ -49,7 +49,7 @@
               simple
               inline
               :content="
-                showUnlicensed ? 'Unlicensed equipment: SHOWN' : 'Unlicensed equipment: HIDDEN'
+                showUnlicensed ? 'Нелицензированное снаряжение: ПОКАЗАНО' : 'Нелицензированное снаряжение: СПРЯТАНО'
               "
             >
               <v-icon
@@ -75,8 +75,8 @@
               inline
               :content="
                 showOverSP
-                  ? 'Systems exceeding SP Capacity: SHOWN'
-                  : 'Systems exceeding SP Capacity: HIDDEN'
+                  ? 'Системы, превышающие оставшиеся СП: ПОКАЗАНЫ'
+                  : 'Системы, превышающие оставшиеся СП: СПРЯТАНЫ'
               "
             >
               <v-icon
@@ -116,10 +116,10 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Source', align: 'left', value: 'Source' },
-      { text: 'System', align: 'left', value: 'Name' },
-      { text: 'License', align: 'left', value: 'LicenseString' },
-      { text: 'SP Cost', align: 'left', value: 'SP' },
+      { text: 'Источник', align: 'left', value: 'Source' },
+      { text: 'Система', align: 'left', value: 'Name' },
+      { text: 'Лицензия', align: 'left', value: 'LicenseString' },
+      { text: 'СП', align: 'left', value: 'SP' },
       { text: '', align: 'center', value: 'Equip' },
     ],
     systems: [],

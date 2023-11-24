@@ -4,7 +4,7 @@
     <v-divider class="my-3" />
     <v-container style="max-width: 800px">
       <div class="text-center heading h3 text--text my-3">
-        Select two weapons or one Superheavy weapon
+        Выберите два оружия или одно Сверхтяжелое оружие
       </div>
       <div
         v-for="(m, i) in mech.MechLoadoutController.ActiveLoadout.Mounts.filter(x => !x.IsLocked)"
@@ -12,7 +12,7 @@
       >
         <item-selector-row
           v-for="(w, j) in m.Weapons.filter(
-            x => x.Size !== 'Superheavy' && !x.Destroyed && !x.NoAttack
+            x => x.Size !== 'Сверхтяжелый' && !x.Destroyed && !x.NoAttack
           )"
           :key="`weap_${j}`"
           :item="w"
@@ -22,12 +22,12 @@
           @click="setBarrage(w, m)"
         />
         <v-divider
-          v-if="m.Weapons.some(x => x.Size === 'Superheavy' && !x.Destroyed)"
+          v-if="m.Weapons.some(x => x.Size === 'Сверхтяжелый' && !x.Destroyed)"
           class="my-2"
         />
         <item-selector-row
           v-for="(w, j) in m.Weapons.filter(
-            x => x.Size === 'Superheavy' && !x.Destroyed && !x.NoAttack
+            x => x.Size === 'Сверхтяжелый' && !x.Destroyed && !x.NoAttack
           )"
           :key="`weap_${j}`"
           :item="w"

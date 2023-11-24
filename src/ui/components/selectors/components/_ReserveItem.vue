@@ -11,7 +11,7 @@
         >
           Add Resource
         </v-btn>
-        <cc-tooltip v-else simple inline content="Add Reserve">
+        <cc-tooltip v-else simple inline content="Добавить Резерв">
           <v-btn
             block
             icon

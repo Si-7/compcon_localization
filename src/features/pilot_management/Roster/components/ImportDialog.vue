@@ -1,10 +1,10 @@
 <template>
   <v-tabs fixed-tabs slider-color="secondary">
-    <v-tab ripple class="heading h3">Import from File</v-tab>
+    <v-tab ripple class="heading h3">Испортировать из файла</v-tab>
     <v-tab ripple class="heading h3" :disabled="!isAuthed">
       <span>
-        <div>Import from Share Code</div>
-        <div v-if="!isAuthed" class="overline" v-text="`Requires COMP/CON cloud account`" />
+        <div>Испортировать с помощью кода</div>
+        <div v-if="!isAuthed" class="overline" v-text="`Требует облачного аккаунта COMP/CON`" />
       </span>
     </v-tab>
     <v-tab-item>

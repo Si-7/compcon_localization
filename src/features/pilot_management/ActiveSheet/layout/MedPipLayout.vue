@@ -58,7 +58,7 @@
           hide-values
           @update="mech.Overshield = $event"
         >
-          <span class="heading h3">OVERSHIELD</span>
+          <span class="heading h3">УСИЛЕНИЕ ЩИТА</span>
         </cc-tick-bar>
       </v-col>
     </v-row>

@@ -16,7 +16,7 @@
     <v-card v-else flat tile class="panel clipped">
       <v-row justify="center" align="center">
         <v-col class="heading h3" style="opacity: 0.3" cols="auto">
-          / / NO ACTIONS AVAILABLE / /
+          / / НЕТ ДОСТУПНЫХ ДЕЙСТВИЙ / /
         </v-col>
       </v-row>
     </v-card>
@@ -60,7 +60,7 @@ export default Vue.extend({
     },
     actions() {
       const availableActions = this.state
-        .ItemActions('Full')
+        .ItemActions('Полное')
         .filter(x => this.state.AvailableActions.includes(x.ID))
       return _.groupBy(availableActions, 'Origin')
     },

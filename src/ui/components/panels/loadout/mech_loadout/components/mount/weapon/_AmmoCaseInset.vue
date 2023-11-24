@@ -1,8 +1,8 @@
 <template>
   <div v-show="level > 0" class="light-panel clipped" @click.stop>
     <div class="caption stark--text px-2 py-1">
-      WALKING ARMORY//
-      <b>SELECTED AMMUNITION</b>
+      ХОДЯЧАЯ ОРУЖЕЙНАЯ//
+      <b>ВЫБРАННЫЙ БОЕПРИПАС</b>
     </div>
     <v-row no-gutters class="px-2 mr-4">
       <v-col cols="3">
@@ -22,7 +22,7 @@
         />
       </v-col>
       <v-col v-if="selected.cost" class="ml-auto pl-4 pr-3 text-left">
-        <div class="overline my-n2">COST::AMMO CASE</div>
+        <div class="overline my-n2">ЦЕНА::ФУТЛЯР ДЛЯ БОЕПРИПАСОВ</div>
         <div>
           <v-icon v-for="n in selected.cost" :key="selected.name + '_ammo_' + n">
             mdi-hexagon-slice-6
@@ -31,7 +31,7 @@
       </v-col>
     </v-row>
     <div v-if="selected.effect" class="mb-1 py-1">
-      <div class="caption px-2 font-weight-bold">EFFECT</div>
+      <div class="caption px-2 font-weight-bold">ЭФФЕКТ</div>
       <div class="body-text px-4">{{ selected.effect }}</div>
     </div>
   </div>
@@ -50,48 +50,47 @@ export default Vue.extend({
     selected: null,
     allAmmo: [
       {
-        name: 'Standard',
+        name: 'Стандартные',
         cost: 0,
         damage: '',
         effect: '',
       },
       {
-        name: 'Thumper',
+        name: 'Громадина',
         cost: 1,
         damage: 'explosive',
-        effect: 'This weapon gains Knockback 1 and deals Explosive damage.',
+        effect: 'Атака приобретает эффект Толчок 1 и наносит взрывной урон.',
       },
       {
-        name: 'Shock',
+        name: 'Шок',
         cost: 1,
         damage: 'energy',
         effect:
-          'This weapon deals Energy damage. Choose one character targeted by your attack; adjacent characters take 1 Energy AP, whether the result is a hit or miss.',
+          'Атака наносит урон энергетический урон. Выберите одну цель, на которую направлена ваша атака; соседние персонажи получают 1 ББ энергетический урон, независимо от того, попали вы или промахнулись.',
       },
       {
-        name: 'Mag',
+        name: 'Дозатор Гранат',
         cost: 1,
         damage: 'kinetic',
-        effect: 'This weapon gains Arcing and deals Kinetic damage.',
+        effect: 'Атака становится Дуговой и наносит кинетический урон.',
       },
       {
-        name: 'Hellfire',
+        name: 'Хелфаер',
         cost: 2,
         damage: 'energy',
-        effect: 'This weapon deals Energy damage and deals any bonus damage as Burn.',
+        effect: 'Атака наносит энергетический урон и наносит бонусный урон как Горение.',
       },
       {
-        name: 'Jager',
+        name: 'Джагер',
         cost: 2,
         damage: 'explosive',
-        effect:
-          'This weapon gains Knockback 2, deals Explosive damage, and one character hit by this weapon – your choice – must succeed on a Hull save or be knocked Prone.',
+        effect: 'Атака получает значение Толчок 2, наносит взрывной урон, и один персонаж, пораженный атакой — на ваш выбор — должен успешно пройти спасбросок Корпуса или он будет Сбит с ног.',
       },
       {
-        name: 'Sabot',
+        name: 'Подкалиберный',
         cost: 2,
         damage: 'kinetic',
-        effect: 'This weapon gains AP and deals Kinetic damage.',
+        effect: 'Атака получает ББ и наносит кинетический урон.',
       },
     ],
   }),

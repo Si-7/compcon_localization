@@ -7,18 +7,18 @@
     </v-row>
 
     <div class="text-center heading h3 pb-0 mt-4 mb-2">
-      Overcharging will incur
+      Перегрузка нанесет
       <span class="red--text text--darken-2">
-        +{{ mech.OverchargeTrack[mech.CurrentOvercharge] }} Heat
+        +{{ mech.OverchargeTrack[mech.CurrentOvercharge] }} Нагрев
       </span>
     </div>
     <v-row dense justify="center">
       <v-col cols="auto">
-        <cc-tooltip content="Roll Overcharge">
+        <cc-tooltip content="Бросок Перегрузки">
           <cc-dice-menu
             v-if="resetRoll"
             :preset="mech.OverchargeTrack[mech.CurrentOvercharge]"
-            title="OVERCHARGE"
+            title="НАГРЕВ"
             autoroll
             @commit="registerOverchargeRoll($event.total)"
           />
@@ -28,7 +28,7 @@
         <v-text-field
           v-model="overcharge_heat"
           type="number"
-          label="Heat Roll Result"
+          label="Результат броска нагрева"
           outlined
           dense
           hide-details
@@ -52,7 +52,7 @@
           @click="select()"
         >
           <v-icon large left>cci-overcharge</v-icon>
-          Confirm
+          Подтвердить
         </v-btn>
       </v-col>
     </v-row>

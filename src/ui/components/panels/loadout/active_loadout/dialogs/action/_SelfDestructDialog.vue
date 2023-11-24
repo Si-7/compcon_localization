@@ -7,16 +7,16 @@
             cci-reactor
           </v-icon>
           <span v-if="state.SelfDestructCounter > 1" class="heading h1 pt-2">
-            SELF DESTRUCT IN {{ state.SelfDestructCounter }} ROUNDS
+            САМОУНИЧТОЖЕНИЕ ЧЕРЕЗ {{ state.SelfDestructCounter }} РАУНДА
           </span>
-          <span v-else class="heading h1">SELF DESTRUCT IMMINENT</span>
+          <span v-else class="heading h1">САМОУНИЧТОЖЕНИЕ НЕИЗБЕЖНО</span>
           <div class="heading subtle--text">
-            FRAME.PRIORITY.ALERT::REACTOR CRITICALITY EVENT
+            ПРИОРИТЕТНАЯ.ТРЕВОГА.РАМЫ::КРИТИЧЕСКОЕ СОБЫТИЕ РЕАКТОРА
           </div>
           <div class="px-5 my-1">
             <v-btn small block color="error" @click="selfDestruct()">
               <v-icon left>mdi-skull</v-icon>
-              DETONATE REACTOR
+              ДЕТОНИРОВАТЬ РЕАКТОР
               <v-icon right>mdi-skull</v-icon>
             </v-btn>
           </div>
@@ -24,31 +24,30 @@
         <div class="text-right mt-1">
           <v-btn x-small color="primary" class="fadeSelect" @click="reset()">
             <v-icon small left>mdi-reload</v-icon>
-            UNDO
+            ОТМЕНИТЬ
           </v-btn>
         </div>
       </v-col>
     </v-row>
     <div v-else>
       <div class="marquee">
-        <span v-html="'WARNING // '.repeat(400)" />
+        <span v-html="'ПРЕДУПРЕЖДЕНИЕ // '.repeat(400)" />
       </div>
       <div class="text-center mx-12">
         <div class="body-text stark--text">
           <b>
-            CONFIRMING THIS ACTION INITIATES A CRITICALITY EXCURSION EVENT THAT
-            <u>WILL</u>
-            RESULT IN CATASTROPIC REACTOR FAILURE AND EXPLOSIVE MELTDOWN.
+            ПОДТВЕРЖДЕНИЕ ЭТОГО ДЕЙСТВИЯ ИНИЦИИРУЕТ СОБЫТИЕ ПОВЫШЕНИЯ КРИТИЧЕСТВА, КОТОРОЕ 
+            <u>ПРИВЕДЕТ</u> К КАТАСТРОФИЧНОМУ ОТКАЗУ РЕАКТОРА И ВЗРЫВНОМУ РАСПЛАВЛЕНИЮ.
           </b>
         </div>
         <div class="flavor-text">
-          Occupant survival probability (monte_carlo//cc-n2@latest):
+          Вероятность выживания находящихся внутри (monte_carlo//cc-n2@latest):
           <b class="error--text">0.000%</b>
         </div>
       </div>
 
       <div class="marquee">
-        <span v-html="'WARNING // '.repeat(400)" />
+        <span v-html="'ПРЕДУПРЕЖДЕНИЕ // '.repeat(400)" />
       </div>
 
       <v-card-text class="pt-3">
@@ -80,11 +79,11 @@
               @click="actionFree = select(actionFree)"
             >
               <v-icon left small>cci-free-action</v-icon>
-              Free Action
+              Свободное Действие
               <cc-tooltip
                 inline
                 :content="
-                  `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+                  `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
                 "
               >
                 <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
@@ -103,7 +102,7 @@
                 COMP/CON:
               </span>
               ] :
-              <span>MANUAL OVERRIDE REQUIRED</span>
+              <span>ТРЕБУЕТСЯ РУЧНОЕ ПЕРЕОПРЕДЕЛЕНИЕ</span>
             </span>
           </p>
           <v-row justify="space-around">
@@ -115,7 +114,7 @@
                 :color="or1 ? 'error' : 'primary'"
                 @click="or1 = true"
                 v-html="
-                  or1 ? 'REACTOR SAFETY PROTOCOLS DISABLED' : 'DISABLE REACTOR SAFETY PROTOCOLS'
+                  or1 ? 'ПРОТОКОЛЫ БЕЗОПАСНОСТИ РЕАКТОРА ОТКЛЮЧЕНЫ' : 'ОТКЛЮЧИТЬ ПРОТОКОЛЫ БЕЗОПАСНОСТИ РЕАКТОРА'
                 "
               />
             </v-col>
@@ -127,7 +126,7 @@
                 :disabled="!or1"
                 :color="or2 ? 'error' : 'primary'"
                 @click="or2 = true"
-                v-html="or2 ? 'CORE EMERGENCY VENTS LOCKED' : 'LOCK CORE EMERGENCY VENTS'"
+                v-html="or2 ? 'АВАРИЙНЫЕ ВЕНТИЛЯЦИИ ЯДРА ЗАКРЫТЫ' : 'ЗАКРЫТЬ АВАРИЙНЫЕ ВЕНТИЛЯЦИИ ЯДРА'"
               />
             </v-col>
             <v-col cols="auto">
@@ -138,7 +137,7 @@
                 :disabled="!or2"
                 :color="or3 ? 'error' : 'primary'"
                 @click="or3 = true"
-                v-html="or3 ? 'COOLANT RESERVOIR EMPTY' : 'DISCHARGE COOLANT RESERVOIR'"
+                v-html="or3 ? 'БАЧОК ОХЛАЖДАЮЩЕЙ ЖИДКОСТИ ПУСТОЙ' : 'СЛИТЬ БАЧОК ОХЛАЖДАЮЩЕЙ ЖИДКОСТИ'"
               />
             </v-col>
           </v-row>
@@ -152,7 +151,7 @@
                 @click="start()"
               >
                 <v-icon style="position: absolute; left: 0" large>mdi-alert-rhombus-outline</v-icon>
-                {{ finished ? 'CRITICAL ALERT: REACTOR MELTDOWN IMMINENT' : 'OVERLOAD REACTOR' }}
+                {{ finished ? 'КРИТИЧЕСКАЯ ТРЕВОГА: ПЛАВЛЕНИЕ РЕАКТОРА НЕИЗБЕЖНО' : 'ПЕРЕГРУЗИТЬ РЕАКТОР' }}
                 <v-icon style="position: absolute; right: 0" large>
                   mdi-alert-rhombus-outline
                 </v-icon>
@@ -165,10 +164,10 @@
       <v-slide-x-reverse-transition>
         <v-row v-if="finished" no-gutters>
           <v-col cols="auto" class="ml-auto">
-            <cc-tooltip content="Undo this action, refunding any cost it may have had">
+            <cc-tooltip content="Отменить это действие, возвращая любые действия, затраченные на него">
               <v-btn x-small color="primary" class="fadeSelect" @click="reset">
                 <v-icon small left>mdi-reload</v-icon>
-                UNDO
+                ОТМЕНИТЬ
               </v-btn>
             </cc-tooltip>
           </v-col>
@@ -180,7 +179,7 @@
           <v-divider />
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" tile @click="$emit('hide')">DISMISS</v-btn>
+            <v-btn color="primary" tile @click="$emit('hide')">ЗАКРЫТЬ</v-btn>
           </v-card-actions>
         </div>
       </v-slide-y-reverse-transition>

@@ -16,7 +16,7 @@
             <v-col v-if="item" cols="auto">
               <equipment-options :item="item" readonly active />
               <span v-if="!item.Destroyed" class="ml-n2" :style="item.Used ? 'opacity: 0.6' : ''">
-                <cc-tooltip v-if="item.Used" inline content="Equipment has been marked as 'Used'">
+                <cc-tooltip v-if="item.Used" inline content="Снаряжение отмечено как Использованное">
                   <v-icon color="success">mdi-check</v-icon>
                 </cc-tooltip>
                 <span
@@ -40,7 +40,7 @@
                 //&nbsp;
               </span>
             </v-col>
-            <v-col v-else cols="auto">{{ weaponSlot.Size }} Weapon</v-col>
+            <v-col v-else cols="auto">{{ weaponSlot.Size }} Оружие</v-col>
             <v-col cols="auto" class="ml-auto heading h3">
               <cc-range-element v-if="item.Range" small :range="getRange" class="d-inline" dark />
               <cc-slashes v-if="item.Range && item.Damage" class="px-2" />
@@ -64,7 +64,7 @@
             <div class="underline-slide">
               <v-row no-gutters>
                 <v-col v-if="item.Profiles && item.Profiles.length > 1" cols="12">
-                  <div class="overline">WEAPON PROFILES</div>
+                  <div class="overline">ПРОФИЛИ ОРУЖИЯ</div>
                   <v-tabs v-model="tab" grow height="30px">
                     <v-tab v-for="p in item.Profiles" :key="p.ID">
                       <span class="accent--text font-weight-bold">{{ p.Name }}</span>
@@ -103,7 +103,7 @@
                     active
                     :activations="mech.Pilot.State.Actions"
                     :disabled="item.Destroyed || mech.IsStunned"
-                    :unusable="a.Activation === 'Protocol' && !mech.Pilot.State.IsProtocolAvailable"
+                    :unusable="a.Activation === 'Протокол' && !mech.Pilot.State.IsProtocolAvailable"
                     @use="item.Use(a.Cost, $event)"
                     @undo="item.Undo(a.Cost)"
                   />
@@ -122,7 +122,7 @@
                 <div v-if="item.ProfileOnAttack">
                   <div class="mb-n2 mt-1">
                     <v-icon class="mt-n1">cci-weapon</v-icon>
-                    <span class="overline stark--text">ON ATTACK</span>
+                    <span class="overline stark--text">ПРИ АТАКЕ</span>
                     <p
                       v-html-safe="item.ProfileOnAttack"
                       class="text--text body-text mb-1 mr-2 ml-6 mt-n2"
@@ -132,7 +132,7 @@
                 <div v-if="item.ProfileOnHit">
                   <div class="mb-n2 mt-1">
                     <v-icon class="mt-n1">cci-weapon</v-icon>
-                    <span class="overline stark--text">ON HIT</span>
+                    <span class="overline stark--text">ПРИ ПОПАДАНИИ</span>
                     <p
                       v-html-safe="item.ProfileOnHit"
                       class="text--text body-text mb-1 mr-2 ml-6 mt-n2"
@@ -142,7 +142,7 @@
                 <div v-if="item.ProfileOnCrit">
                   <div class="mb-n2 mt-1">
                     <v-icon class="mt-n1">cci-weapon</v-icon>
-                    <span class="overline stark--text">ON CRITICAL HIT</span>
+                    <span class="overline stark--text">ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ</span>
                     <p
                       v-html-safe="item.ProfileOnCrit"
                       class="text--text body-text mb-1 mr-2 ml-6 mt-n2"

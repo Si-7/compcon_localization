@@ -9,9 +9,9 @@
       <v-row class="text-center" style="height: 100%;" justify="center" align="center">
         <v-col class="panel">
           <div class="heading h1 subtle--text text--darken-1">
-            MOUNT LOCKED
+            СЛОТ БЛОКИРОВАН
           </div>
-          <div class="mt-2 mb-n4">SUPERHEAVY WEAPON BRACING</div>
+          <div class="mt-2 mb-n4">УКРЕПЛЕНИЕ СВЕРХТЯЖЕЛОГО УРОЖИЯ</div>
         </v-col>
       </v-row>
     </v-card>

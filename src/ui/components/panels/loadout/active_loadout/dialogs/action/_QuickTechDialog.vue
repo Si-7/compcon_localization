@@ -25,7 +25,7 @@
     <v-card v-else flat tile class="panel clipped">
       <v-row justify="center" align="center">
         <v-col class="heading h3" style="opacity: 0.3" cols="auto">
-          / / NO ACTIONS AVAILABLE / /
+          / / НЕТ ДОСТУПНЫХ ДЕЙСТВИЙ / /
         </v-col>
       </v-row>
     </v-card>

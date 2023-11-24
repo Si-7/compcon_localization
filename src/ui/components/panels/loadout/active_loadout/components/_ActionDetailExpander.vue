@@ -6,13 +6,13 @@
       class="text--text body-text mb-2"
     />
     <div v-else>
-      <div v-if="action.Frequency.ToString() !== 'Unlimited'">
-        <div class="overline mb-n3">Frequency</div>
+      <div v-if="action.Frequency.ToString() !== 'Неограничено'">
+        <div class="overline mb-n3">Частота</div>
         <div v-html-safe="action.Frequency.ToString()" class="ml-3 body-text stark--text" />
       </div>
-      <div class="overline mb-n3">Trigger</div>
+      <div class="overline mb-n3">Триггер</div>
       <div v-html-safe="action.Trigger" class="ml-3 body-text stark--text" />
-      <div class="overline mb-n3">Effect</div>
+      <div class="overline mb-n3">Эффект</div>
       <div v-html-safe="action.Detail" class="ml-3 body-text stark--text" />
     </div>
     <div

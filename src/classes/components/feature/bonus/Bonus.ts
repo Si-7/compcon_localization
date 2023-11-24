@@ -36,8 +36,8 @@ class Bonus {
     this.RangeTypes = data.range_types || []
     this.WeaponTypes = data.weapon_types || []
     this.WeaponSizes = data.weapon_sizes || []
-    this.Title = entry ? entry.title : 'UNKNOWN BONUS'
-    this.Detail = entry ? this.parseDetail(entry.detail) : 'UNKNOWN BONUS'
+    this.Title = entry ? entry.title : 'НЕИЗВЕСТНЫЙ БОНУС'
+    this.Detail = entry ? this.parseDetail(entry.detail) : 'НЕИЗВЕСТНЫЙ БОНУС'
     this.Overwrite = data.overwrite
     this.Replace = data.replace
   }
@@ -45,7 +45,7 @@ class Bonus {
   private parseDetail(detail): string {
     let str = detail.slice()
     str = str.replace(/{VAL}/g, this.Value)
-    str = str.replace(/{INC_DEC}/g, Number(this.Value) > -1 ? 'Increases' : 'Decreases')
+    str = str.replace(/{INC_DEC}/g, Number(this.Value) > -1 ? 'Увеличивает' : 'Уменьшает')
     str = str.replace(
       /{RANGE_TYPES}/g,
       ` ${this.RangeTypes.length ? this.RangeTypes.join('/').toUpperCase() : ''}`

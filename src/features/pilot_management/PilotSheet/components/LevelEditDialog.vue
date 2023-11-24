@@ -3,7 +3,7 @@
     ref="dialog"
     icon="cci-pilot"
     no-confirm
-    title="Edit Pilot level"
+    title="Редактировать УЛ пилота"
   >
     <v-card-text>
       <v-alert
@@ -16,14 +16,14 @@
         outlined
         prominent
       >
-        This tool skips the level up wizard. Pilot attributes gained through
-        levelling up, such as skill triggers, licenses, talents, mech skills,
-        and CORE bonuses will have to be updated manually
+      Этот инструмент пропускает визард повышения уровня. Атрибуты пилота, 
+      полученные при повышении уровня, такие как триггеры, лицензии, 
+      таланты, навыки механизмов и бонусы ядра, придется обновлять вручную.
       </v-alert>
 
       <v-row justify="center" align="center" class="text-center">
         <v-col cols="auto">
-          <span class="overline">Current Level:</span>
+          <span class="overline">Текущий УЛ:</span>
           <br />
           <span style="display: inline-block" class="level-input">
             {{ pilot.Level }}
@@ -37,7 +37,7 @@
         </v-col>
 
         <v-col cols="auto">
-          <span class="overline">New Level:</span>
+          <span class="overline">Новый УЛ:</span>
           <br />
           <v-select
             v-model="newLevel"
@@ -62,7 +62,7 @@
             :disabled="newLevel === '' || newLevel === pilot.Level"
             @click="setLevel"
           >
-            Set Pilot Level
+            Установить уровень пилота
           </v-btn>
         </v-col>
       </v-row>

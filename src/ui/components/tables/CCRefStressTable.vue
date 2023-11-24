@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="75vw">
     <v-card flat tile>
       <v-toolbar color="title-bg clipped-large" dark flat>
-        <v-toolbar-title class="heading h1">OVERHEATING</v-toolbar-title>
+        <v-toolbar-title class="heading h1">ПЕРЕГРЕВ</v-toolbar-title>
       </v-toolbar>
       <v-row justify="center">
         <v-col cols="11">
@@ -10,13 +10,13 @@
             <v-card-text>
               <v-row>
                 <v-col cols="2">
-                  <span class="heading h3">Roll</span>
+                  <span class="heading h3">Бросок</span>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Result</span>
+                  <span class="heading h3">Результат</span>
                 </v-col>
                 <v-col cols="7">
-                  <span class="heading h3">Effect</span>
+                  <span class="heading h3">Эффект</span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
@@ -27,14 +27,12 @@
                   <v-icon large>mdi-dice-6</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Emergency Shunt</span>
+                  <span class="heading h3">Аварийный шунт</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Cooling systems recover and manage to contain the peaking heat levels. However,
-                    your mech is
-                    <b>impaired</b>
-                    until the end of your next turn.
+                    Системам охлаждения вашего меха удается сдерживать растущий нагрев;
+                    однако ваш мех становится <b>Ослабленным</b> до конца вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
@@ -46,14 +44,12 @@
                   <v-icon large>mdi-dice-4</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Power Plant Destabilize</span>
+                  <span class="heading h3">Разрушение Энерго-Установок</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your mech’s power plant becomes unstable, ejecting jets of plasma. Your mech
-                    suffers from the
-                    <b>exposed</b>
-                    status (taking double damage) until it takes action to remove it.
+                    Энерго-установки становятся нестабильными и начинают выбрасывать струи плазмы.
+                    Ваш мех становится <b>Уязвимым</b>, получая двойной урон, пока статус не будет снят.
                   </span>
                 </v-col>
               </v-row>
@@ -63,21 +59,20 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Meltdown</span>
+                  <span class="heading h3">Плавление</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    This result has different outcomes depending on how much reactor stress your
-                    mech has remaining.
+                    Результат зависит от оставшейся Нагрузки у вашего меха:
                     <br />
-                    3+ - Your mech becomes EXPOSED
+                    3+ Нагрузки: Ваш мех становится Уязвимым
                     <br />
-                    2 - Roll an ENGINEERING check. On a success, your mech is EXPOSED; on a failure,
-                    it suffers a reactor meltdown after 1d6 of your turns (rolled by the GM). A
-                    reactor meltdown can be prevented by retrying the ENGINEERING check as a free
-                    action
+                    2 Нагрузки: Проведите проверку Инженерии. В случае успеха, ваш мех
+                    становится Уязвимым; в случае неудачи, он получает расплавление реактора
+                    через 1d6 ваших ходов (определяется ГМ). Плавление реактора можно
+                    предотвратить, повторив проверку Инженерии в качестве полного действия
                     <br />
-                    1 or lower - Your mech suffers a reactor meltdown at the end of your next turn.
+                    1 Нагрузка: У вашего меха расплавится реактор в конце вашего следующего хода
                   </span>
                 </v-col>
               </v-row>
@@ -88,24 +83,28 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Irreversible Meltdown</span>
+                  <span class="heading h3">Необратимое Плавление</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your reactor goes critical. Your mech will suffer a reactor meltdown at the end
-                    of your next turn.
+                    Реактор выходит из строя — реактор вашего меха будет расплавлен в конце
+                    вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
               <p class="ma-3 flavor-text">
-                Certain overheating results can cause a reactor meltdown. This can be immediate, or
-                involve a countdown (in which case update the countdown at the start of your turn.
-                The meltdown triggers when specified). When a mech suffers a reactor meltdown, any
-                pilot inside immediately dies, the mech is immediately vaporized in a catastrophic
-                eruption, annihilating the wreck, and any characters inside a burst 2 area centered
-                on the mech must pass an agility save or take 4d6 explosive damage, and half on a
-                successful save
+                Перегрев иногда приводит к плавлению реактора. Это
+                может произойти сразу или после обратного отсчета, и
+                в этом случае обратный отсчет обновляется в начале
+                вашего хода, а плавление срабатывает, когда указано.
+                Когда реактор расплавляется, любой пилот внутри
+                немедленно погибает, а мех исчезает в результате
+                катастрофического извержения с областью Взрыва 2.
+                Обломки уничтожаются, и все персонажи, находящиеся
+                в зоне поражения, должны преуспеть в спасброске
+                Маневренности или получить 4d6 урона. В случае
+                успеха они получают половину урона.
               </p>
             </v-card-text>
           </v-card>
@@ -113,7 +112,7 @@
       </v-row>
       <v-divider />
       <v-card-actions>
-        <v-btn text @click="dialog = false">Dismiss</v-btn>
+        <v-btn text @click="dialog = false">Закрыть</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

@@ -1,11 +1,11 @@
 <template>
   <v-menu offset-y>
     <template v-slot:activator="{ on }">
-      <v-btn outlined small color="secondary" v-on="on">Change Mech</v-btn>
+      <v-btn outlined small color="secondary" v-on="on">Поменять меха</v-btn>
     </template>
     <v-list two-line subheader>
       <v-subheader class="heading h2 white--text primary py-0 px-2">
-        Available Mechs
+        Доступные мехи
       </v-subheader>
       <v-list-item
         v-for="mech in mechs"

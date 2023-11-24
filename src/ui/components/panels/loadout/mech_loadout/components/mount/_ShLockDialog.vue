@@ -2,20 +2,19 @@
   <v-dialog v-model="dialog" width="50vw">
     <v-card tile>
       <cc-titlebar large icon="cci-role-striker" color="primary">
-        Select Bracing Mount
+        Выберите укрепляющий слот
         <v-btn slot="items" dark icon @click="dialog = false">
           <v-icon large left>close</v-icon>
         </v-btn>
       </cc-titlebar>
       <v-card-text class="text-center flavor-text mt-2">
-        <span class="overline">// PROCESS INTERRUPT: PILOT INPUT REQUIRED //</span>
+        <span class="overline">// ПРОЦЕСС ПРЕРВАН: НЕОБХОДИМ ВЫБОР ПИЛОТА //</span>
         <br />
         //[COMP/CON:
         <b class="stark--text">
-          Lancer, Superheavy-class armament requires two mounts. Please select a
-          <span class="accent--text">bracing mount.</span>
-          This bracing mount will be not be able to field armament until the Superheavy weapon is
-          removed.
+          Улан, Сверхтяжелое вооружение требует двух слотов. Пожалуйста, выберите 
+          <span class="accent--text">укрепляющий слот.</span>
+          Укрепляющий слот не может быть использован для установки вооружения, пока Сверхтяжелое оружие не убрано.
         </b>
         ]
         <br />
@@ -37,7 +36,7 @@
 
       <v-card-actions>
         <v-spacer />
-        <v-btn text @click="dialog = false">dismiss</v-btn>
+        <v-btn text @click="dialog = false">Закрыть</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

@@ -34,11 +34,11 @@
             <v-row no-gutters justify="center" class="mt-4 mb-n2">
               <v-col cols="auto" class="ml-auto" align="end">
                 <div class="body-text stark--text text-left">
-                  <b>Invasion Success</b>
+                  <b>Вторжение успешно</b>
                   <p>
-                    Your target takes
-                    <b>2 Heat</b>
-                    , and you choose one of the following Invasion Options:
+                    Ваша цель получает
+                    <b>2 Нагрева</b>
+                    , и вы выбираете одни из следующих вариантов Вторжения:
                   </p>
                 </div>
               </v-col>
@@ -94,7 +94,7 @@
               <cc-tooltip content="Undo this action, refunding any cost it may have had">
                 <v-btn x-small color="primary" class="fadeSelect" @click="reset">
                   <v-icon small left>mdi-reload</v-icon>
-                  UNDO
+                  ОТМЕНИТЬ
                 </v-btn>
               </cc-tooltip>
             </v-col>
@@ -107,7 +107,7 @@
           <v-divider />
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" tile @click="dialog = false">DISMISS</v-btn>
+            <v-btn color="primary" tile @click="dialog = false">ЗАКРЫТЬ</v-btn>
           </v-card-actions>
         </div>
       </v-slide-y-reverse-transition>
@@ -153,14 +153,15 @@ export default Vue.extend({
       return this.mech.Pilot.State
     },
     actions() {
+      console.log(this.state.TechActions.filter(x => x.Activation === ActivationType.Invade))
       return this.state.TechActions.filter(x => x.Activation === ActivationType.Invade)
     },
     skLog() {
-      let l = ['UPLINK ESTABLISHED. ATTEMPTING REMOTE ACCESS.']
+      let l = ['ВОСХОДЯЩАЯ ЛИНИЯ СВЯЗИ УСТАНОВЛЕНА. ПОПЫТКА УДАЛЕННОГО ДОСТУПА.']
       if (this.succeeded) {
-        l.push('SYSTEM INVASION SUCCESSFUL.')
+        l.push('СИСТЕМНОЕ ВТОРЖЕНИЕ УСПЕШНО.')
         l = l.concat(this.selected.Log)
-      } else l.push('ACCESS DENIED. INVASION FAILURE RECORDED.')
+      } else l.push('ДОСТУП ЗАПРЕЩЕН. ПРОВАЛ ВТОРЖЕНИЯ ЗАПИСАН.')
       return l
     },
     round() {

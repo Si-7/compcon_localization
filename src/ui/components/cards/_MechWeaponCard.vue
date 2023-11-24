@@ -98,7 +98,7 @@
       </div>
 
       <div v-if="item.Profiles.length > 1 && item.ProfileDeployables.length">
-        <div class="overline ml-n2 subtle--text">РАЗВЕРТЫВАЕМЫЕ ОБЪЕКТЫ ПРОФИЛЯ</div>
+        <div class="overline ml-n2 subtle--text">РАЗМЕЩАЕМЫЕ ОБЪЕКТЫ ПРОФИЛЯ</div>
         <v-row no-gutters justify="center">
           <v-col
             v-for="(d, i) in item.ProfileDeployables"

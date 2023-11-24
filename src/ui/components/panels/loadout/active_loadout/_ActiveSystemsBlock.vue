@@ -1,7 +1,7 @@
 <template>
   <v-card flat tile color="transparent">
     <fieldset>
-      <legend :style="`color: ${color}`" class="heading h3">Systems</legend>
+      <legend :style="`color: ${color}`" class="heading h3">Системы</legend>
       <v-row dense :class="$vuetify.breakpoint.mdAndUp ? 'mx-2' : 'my-2'">
         <active-system-card
           v-for="(s, i) in mech.MechLoadoutController.ActiveLoadout.IntegratedSystems"

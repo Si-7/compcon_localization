@@ -4,39 +4,38 @@
       v-model="fileValue"
       accept="text/json"
       outlined
-      label="Select Pilot Data File"
+      label="Выберите файл даных пилота"
       prepend-icon="mdi-paperclip"
       @change="stageImport"
       @click:clear="reset"
     />
     <v-card v-if="missingContent.length">
       <p v-if="oldBrewsWarning" class="heading h3 accent--text">
-        WARNING: The imported Pilot was created using an older version of COMP/CON. Lancer Content
-        Pack analysis may not be comprehensive and there is a chance COMP/CON will be unable to
-        correctly load this data. Export the original file in the latest version of COMP/CON to
-        guarantee LCP validation.
+        ВНИМАНИЕ: Импортированный пилот был создан с использованием более старой версии COMP/CON. 
+        Анализ Lancer Content Pack может быть неполным, и существует вероятность того, что COMP/CON 
+        не сможет правильно загрузить эти данные. Экспортируйте исходный файл в последнюю версию COMP/CON, 
+        чтобы гарантировать проверку LCP.
       </p>
       <v-card-text class="text-center">
         <p class="heading h4 accent--text">
-          The imported Pilot requires the following content packs that are not currently
-          installed/active, or have mismatching versions:
+          Импортированному пилоту требуются следующие пакеты LCP, 
+          которые в данный момент не установлены/активны или имеют несовпадающие версии:
         </p>
         <p class="effect-text text-center" v-html="missingContent" />
         <p class="text--text">
-          This Pilot cannot be imported until the missing content packs are installed and activated,
-          or the content pack versions are synchronized.
+          Этого пилота нельзя импортировать до тех пор, пока не будут 
+          установлены и активированы отсутствующие пакеты LCP или пока версии пакетов LCP не будут синхронизированы.
         </p>
       </v-card-text>
       <v-divider />
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" @click="reset">Abort Import</v-btn>
+        <v-btn text color="primary" @click="reset">Отменить импорт</v-btn>
       </v-card-actions>
     </v-card>
     <div class="mt-2">
       <p v-if="alreadyPresent" class="accent--text text-center">
-        A Pilot with this ID already exists in the roster. Importing will create a unique copy of
-        this pilot.
+        Пилот с таким идентификатором уже существует в списке. При импорте будет создана уникальная копия этого пилота.
       </p>
       <v-slide-x-reverse-transition>
         <v-row v-if="stagedData" align="center" justify="center">
@@ -48,7 +47,7 @@
               @click="importFile()"
             >
               <v-icon large left>cci-accuracy</v-icon>
-              Import {{ stagedData.callsign }} ({{ stagedData.name }})
+              Импортировать {{ stagedData.callsign }} ({{ stagedData.name }})
             </v-btn>
           </v-col>
         </v-row>
@@ -128,10 +127,10 @@ export default Vue.extend({
         this.$store.dispatch('addPilot', importPilot)
         this.reset()
         this.$emit('done')
-        this.$notify('Pilot successfully imported', 'success')
+        this.$notify('Пилот успешно импортирован', 'success')
       } catch (error) {
         this.$notify(
-          'An error occured during the import attempt. Please check the console log.',
+          'Во время попытки импорта произошла ошибка. Пожалуйста, проверьте журнал консоли.',
           'error'
         )
       }

@@ -29,12 +29,12 @@ interface IActionData {
 }
 
 enum ActivePeriod {
-  Turn = 'Turn',
-  Round = 'Round',
-  Scene = 'Scene',
-  Encounter = 'Encounter',
-  Mission = 'Mission',
-  Unlimited = 'Unlimited',
+  Turn = 'Ход',
+  Round = 'Раунд',
+  Scene = 'Сцена',
+  Encounter = 'Бой',
+  Mission = 'Миссия',
+  Unlimited = 'Неограничено',
 }
 
 class Frequency {
@@ -62,17 +62,17 @@ class Frequency {
       }
 
       switch (fArr[1].toLowerCase()) {
-        case 'turn':
+        case 'ход':
           this.Duration = ActivePeriod.Turn
           break
-        case 'round':
+        case 'раунд':
           this.Duration = ActivePeriod.Round
           break
-        case 'scene':
-        case 'encounter':
+        case 'сцена':
+        case 'бой':
           this.Duration = ActivePeriod.Scene
           break
-        case 'mission':
+        case 'миссия':
           this.Duration = ActivePeriod.Mission
           break
         default:
@@ -94,12 +94,12 @@ class Frequency {
     if (event == ActivePeriod.Unlimited) return false
 
     const order: Record<ActivePeriod, number> = {
-      Unlimited: 0,
-      Turn: 1,
-      Round: 2,
-      Scene: 3,
-      Encounter: 3,
-      Mission: 4,
+      Неограничено: 0,
+      Ход: 1,
+      Раунд: 2,
+      Сцена: 3,
+      Бой: 3,
+      Миссия: 4,
     }
     //This action is free to regain uses if the given event
     //meets the duration threshold
@@ -140,7 +140,7 @@ class Action {
 
   public constructor(data: IActionData, origin?: string, heat?: number) {
     if (data.name) this.Name = data.name
-    else this.Name = `Активировать ${origin}` || 'Unknown Action'
+    else this.Name = `Активировать ${origin}` || 'неизвестное действие'
     this.ID = data.id ? data.id : `act_${this.Name.toLowerCase().replace(/\s/g, '')}_${uuid()}`
     this.Origin = origin || ''
     this.IsItemAction = !!origin
@@ -257,14 +257,14 @@ class Action {
     const a = new Action(
       {
         id: `deploy_${d.name}_${uuid()}`,
-        name: `Развернуть ${d.name}`,
+        name: `Разместить ${d.name}`,
         activation: d.activation,
         cost: d.cost || 1,
         detail: '',
         synergy_locations:
           d.type.toLowerCase() === 'drone' ? ['deployable', 'drone'] : ['deployable'],
         pilot: d.pilot,
-        confirm: ['DEPLOYING EQUIPMENT.'],
+        confirm: ['РАЗМЕЩЕНИЕ СНАРЯЖЕНИЯ.'],
       },
       origin
     )

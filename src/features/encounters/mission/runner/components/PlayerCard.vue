@@ -4,7 +4,7 @@
       <v-col>
         <div v-if="mech.Pilot.PlayerName" class="mb-1">
           <span class="heading h3 stark--text">{{ mech.Pilot.PlayerName }}</span>
-          <span class="flavor-text">as</span>
+          <span class="flavor-text">-</span>
         </div>
         <span class="heading mech" style="line-height: 15px">
           {{ mech.Pilot.Callsign }}
@@ -27,7 +27,7 @@
                     :key="`tr_${i}`"
                     color="frame"
                     :header="trait.Name"
-                    subheader="FRAME TRAIT"
+                    subheader="ЧЕРТА РАМЫ"
                   >
                     <span v-html-safe="trait.Description" />
                   </cc-active-card>
@@ -36,16 +36,16 @@
                   <cc-active-card
                     color="corepower"
                     :header="mech.Frame.CoreSystem.Name"
-                    subheader="CORE SYSTEM"
+                    subheader="СИСТЕМА ЯДРА"
                     style="height: 100%"
                   >
                     <div v-if="mech.Frame.CoreSystem.Passive">
-                      <span class="heading h2">Passive</span>
+                      <span class="heading h2">Пассивная</span>
                       <p v-html-safe="mech.Frame.CoreSystem.Passive" class="mb-1" />
                     </div>
                     <span class="heading h2">
                       {{ mech.Frame.CoreSystem.ActiveName }}
-                      <span class="pt-2 ml-2 caption subtle--text">(ACTIVE)</span>
+                      <span class="pt-2 ml-2 caption subtle--text">(АКТИВИРУЕМАЯ)</span>
                     </span>
                     <p v-html-safe="mech.Frame.CoreSystem.ActiveEffect" class="mb-1" />
                     <cc-tags :tags="mech.Frame.CoreSystem.Tags" color="corepower" />
@@ -58,7 +58,7 @@
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn v-if="mech.Activations === 0" large color="secondary" @click="mech.Activations += 1">
-          Reactivate
+          Реактивировать
         </v-btn>
       </v-col>
     </v-row>
@@ -71,7 +71,7 @@
       icon="mdi-check"
       color="panel"
     >
-      <span class="heading h2">Turn Complete</span>
+      <span class="heading h2">Ход Завершен</span>
     </v-alert>
 
     <cc-mech-status-alert
@@ -88,7 +88,7 @@
         <v-row justify="space-around" dense>
           <v-col cols="3">
             <cc-status-select
-              label="Statuses"
+              label="Статусы"
               :items="statuses"
               :model="mech.Statuses"
               dark
@@ -98,7 +98,7 @@
           </v-col>
           <v-col cols="3">
             <cc-status-select
-              label="Conditions"
+              label="Состояния"
               :items="conditions"
               :model="mech.Conditions"
               dark
@@ -108,7 +108,7 @@
           </v-col>
           <v-col cols="3">
             <cc-status-select
-              label="Resistances"
+              label="Сопротивления"
               :items="resistances"
               :model="mech.Resistances"
               dark
@@ -126,7 +126,7 @@
               prepend-icon="mdi-minus-circle-outline"
               style="width: 115px"
               class="hide-input-spinners"
-              hint="BURN"
+              hint="ГОРЕНИЕ"
               persistent-hint
               dense
               @click:append-outer="mech.Burn += 1"
@@ -148,7 +148,7 @@
               :class="{ rolledOver: structRolledOver }"
               @update="mech.CurrentStructure = $event"
             >
-              <span class="heading h3">Struct</span>
+              <span class="heading h3">Структура</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="mech.Armor" cols="auto">
@@ -163,7 +163,7 @@
               number-only
               hide-max
             >
-              <span class="heading h3">Armor</span>
+              <span class="heading h3">Броня</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -178,7 +178,7 @@
               @update="mech.CurrentHP = $event"
               @rollover="onHpRollover"
             >
-              <span class="heading h3">HP</span>
+              <span class="heading h3">ПЗ</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -194,7 +194,7 @@
               clearable
               @update="mech.Overshield = $event"
             >
-              <span class="heading h3">OVERSHIELD</span>
+              <span class="heading h3">УСИЛЕНИЕ ЩИТА</span>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -211,7 +211,7 @@
               :class="{ rolledOver: stressRolledOver }"
               @update="mech.CurrentStress = $event"
             >
-              <span class="heading h3">Stress</span>
+              <span class="heading h3">Нагрузка</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -227,8 +227,8 @@
               @update="mech.CurrentHeat = $event"
               @rollover="onHeatRollover"
             >
-              <span v-if="mech.IsInDangerZone" class="dangerzone--text heading h3">HEAT</span>
-              <span v-else class="heading h3">HEAT</span>
+              <span v-if="mech.IsInDangerZone" class="dangerzone--text heading h3">НАГРЕВ</span>
+              <span v-else class="heading h3">НАГРЕВ</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -241,7 +241,7 @@
               full-icon="control_point"
               @update="mech.CurrentRepairs = $event"
             >
-              <span class="heading h3">REPAIR CAP</span>
+              <span class="heading h3">ЛИМИТ РЕМОНТА</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -259,7 +259,7 @@
               hide-values
               @update="mech.CurrentCoreEnergy = $event"
             >
-              <span class="heading h3">CORE</span>
+              <span class="heading h3">МОЩЬ ЯДРА</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -277,7 +277,7 @@
               @update="mech.CurrentOvercharge = $event"
             >
               <span class="heading h3">
-                Overcharge&nbsp;
+                Перегрузка&nbsp;
                 <span class="text-center overcharge--text font-weight-bold">
                   {{ mech.OverchargeTrack[mech.CurrentOvercharge] }}
                 </span>
@@ -290,22 +290,22 @@
           <v-col cols="auto" class="flavor-text mr-2 ml-2 mt-n2">
             <div>
               <span class="heading h2">{{ mech.Hull }}</span>
-              <span>//HULL</span>
+              <span>//КРП</span>
               <v-divider class="my-1" />
             </div>
             <div>
               <span class="heading h2">{{ mech.Agi }}</span>
-              <span>//AGI</span>
+              <span>//МНВР</span>
               <v-divider class="my-1" />
             </div>
             <div>
               <span class="heading h2">{{ mech.Sys }}</span>
-              <span>//SYS</span>
+              <span>//СИС</span>
               <v-divider class="my-1" />
             </div>
             <div>
               <span class="heading h2">{{ mech.Eng }}</span>
-              <span>//ENG</span>
+              <span>//ИНЖ</span>
               <v-divider class="my-1" />
             </div>
           </v-col>
@@ -315,13 +315,13 @@
               <cc-active-card
                 prominent
                 color="pilot"
-                header="Atk Bonus"
+                header="Бонус Атаки"
                 :content="`+${mech.AttackBonus}`"
               />
               <cc-active-card
                 prominent
                 color="pilot"
-                header="Tech Atk"
+                header="Тех. Атака"
                 :content="`${mech.TechAttack > 0 ? '+' : ''}${mech.TechAttack}`"
               />
             </v-row>
@@ -329,7 +329,7 @@
               <cc-active-card
                 prominent
                 color="pilot"
-                header="Evasion"
+                header="Уклонение"
                 :content="mech.IsStunned ? 5 : mech.Evasion"
               />
               <cc-active-card prominent color="pilot" header="E-Def" :content="mech.EDefense" />
@@ -337,7 +337,7 @@
               <cc-active-card
                 prominent
                 color="pilot"
-                header="Sensors"
+                header="Сенсоры"
                 :content="mech.SensorRange"
               />
             </v-row>
@@ -358,7 +358,7 @@
 
     <v-row dense class="mt-n2 mb-n1">
       <v-col cols="auto">
-        <div class="overline">TALENTS</div>
+        <div class="overline">ТАЛАНТЫ</div>
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn
@@ -368,7 +368,7 @@
           @click="expandAll(mech.Pilot.TalentsController.Talents.length, 'tal_', true)"
         >
           <v-icon small left>mdi-chevron-up</v-icon>
-          All
+          Все
         </v-btn>
         <v-btn
           x-small
@@ -377,7 +377,7 @@
           @click="expandAll(mech.Pilot.TalentsController.Talents.length, 'tal_', false)"
         >
           <v-icon small left>mdi-chevron-down</v-icon>
-          All
+          Все
         </v-btn>
       </v-col>
     </v-row>
@@ -391,7 +391,7 @@
         color="primary"
         :cols="$vuetify.breakpoint.lgAndUp ? 4 : 6"
         :header="`${t.Talent.Name} ${'I'.repeat(t.Rank)}`"
-        subheader="PILOT TALENT"
+        subheader="ТАЛАНТ ПИЛОТА"
       >
         <ul v-for="n in 3" :key="'t_' + n">
           <li v-if="t.Rank >= n">
@@ -401,10 +401,10 @@
       </cc-active-card>
     </v-row>
 
-    <div class="overline mt-2">COUNTERS</div>
+    <div class="overline mt-2">СЧЕТЧИКИ</div>
     <cc-counter-set :actor="[mech.Pilot]" />
 
-    <div class="overline mb-n1 mt-2">LOADOUT</div>
+    <div class="overline mb-n1 mt-2">ВЫГРУЗКА</div>
     <v-row dense>
       <player-equipment-item
         v-for="(i, idx) in mech.MechLoadoutController.ActiveLoadout.Equipment"
@@ -426,7 +426,7 @@
     <v-divider class="my-2" />
     <v-row v-if="mech.Reactions.length && !rest" dense justify="center">
       <v-col cols="10">
-        <div class="overline">STAGED REACTIONS</div>
+        <div class="overline">УСТАНОВЛЕННЫЕ РЕАКЦИИ</div>
         <v-chip
           v-for="(r, i) in mech.Reactions"
           :key="r + i"
@@ -482,11 +482,11 @@ export default Vue.extend({
   computed: {
     statuses() {
       const store = getModule(CompendiumStore, this.$store)
-      return store.Statuses.filter(x => x.type === 'Status')
+      return store.Statuses.filter(x => x.type === 'Статус')
     },
     conditions() {
       const store = getModule(CompendiumStore, this.$store)
-      return store.Statuses.filter(x => x.type === 'Condition')
+      return store.Statuses.filter(x => x.type === 'Состояние')
     },
   },
   methods: {

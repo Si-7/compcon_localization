@@ -65,7 +65,7 @@ class CoreSystem {
     return new Action(
       {
         id: `core_active_activate`,
-        name: 'Activate CORE System',
+        name: 'Активировать Систему Ядра',
         activation: this.Activation,
         detail: this.ActiveEffect,
         mech: true,

@@ -4,11 +4,11 @@
       <v-col cols="auto">
         <v-dialog v-model="rcDialog" :fullscreen="$vuetify.breakpoint.smAndDown" width="80vw">
           <template v-slot:activator="{ on }">
-            <v-btn small class="mr-5" color="warning darken-2" v-on="on">NEXT ENCOUNTER</v-btn>
+            <v-btn small class="mr-5" color="warning darken-2" v-on="on">СЛЕДУЮЩИЙ БОЙ</v-btn>
           </template>
           <v-card>
             <v-toolbar dense dark flat tile color="warning darken-3 heading h2">
-              NEXT ENCOUNTER
+              СЛЕДУЮЩИЙ БОЙ
               <v-spacer />
               <v-btn icon @click="rcDialog = false"><v-icon>mdi-close</v-icon></v-btn>
             </v-toolbar>
@@ -17,8 +17,8 @@
                 >//[
                 <span class="accent--text">COMP/CON</span>
                 :
-                <span class="stark-text--text">Confirmation Required.</span>
-                Continue?
+                <span class="stark-text--text">Необходимо подтверждение.</span>
+                Продолжить?
               </p>
               <v-row justify="center" class="mt-2">
                 <v-col cols="auto">
@@ -31,7 +31,7 @@
                       pilot.State.StartCombat()
                     "
                   >
-                    &nbsp;Reactivate Combat Mode
+                    &nbsp;Реактивировать боевой режим
                   </v-btn>
                 </v-col>
               </v-row>
@@ -42,11 +42,11 @@
       <v-col cols="auto">
         <v-dialog v-model="emDialog" :fullscreen="$vuetify.breakpoint.smAndDown" width="80vw">
           <template v-slot:activator="{ on }">
-            <v-btn small class="mr-5" color="error darken-2" v-on="on">END MISSION</v-btn>
+            <v-btn small class="mr-5" color="error darken-2" v-on="on">ЗАКОНЧИТЬ МИССИЮ</v-btn>
           </template>
           <v-card>
             <v-toolbar dense dark flat tile color="warning darken-3 heading h2">
-              END MISSION
+              ЗАКОНЧИТЬ МИССИЮ
               <v-spacer />
               <v-btn icon @click="emDialog = false"><v-icon>mdi-close</v-icon></v-btn>
             </v-toolbar>
@@ -58,9 +58,8 @@
                 >//[
                 <span class="accent--text">COMP/CON</span>
                 :
-                <span class="stark-text--text">Confirmation Required</span>
-                ] Pilot, proceeding will end the current mission and write all combat telemetry data
-                to your record. This cannot be undone. Continue?
+                <span class="stark-text--text">Необходимо подтверждение</span>
+                ] Пилот, продолжение завершает текущую миссию и записывает все данные боевой телеметрии в вашу запись. Это не может быть отменено. Продолжить?
               </p>
               <v-row justify="center" no-gutters class="mt-n2"></v-row>
               <v-alert
@@ -70,35 +69,35 @@
                 class="mt-4"
               >
                 <span v-show="saveCheckbox" class="text--text">
-                  The following mission data will be added to the Pilot Combat Telemetry Record:
+                  Следующие данные миссии будут добавлены в запись боевой телеметрии пилота:
                 </span>
                 <div class="pl-2 pr-4 flavor-text">
                   <div>
-                    MOVES:
+                    ПЕРЕМЕЩЕНИЙ:
                     <b class="stark--text">{{ pilot.State.Stats.moves }}</b>
                   </div>
                   <div>
-                    DAMAGE DEALT:
+                    УРОНА НАНЕСЕНО:
                     <b class="stark--text">{{ pilot.State.Stats.damage }}</b>
                   </div>
                   <div>
-                    ENEMIES DESTROYED:
+                    ПРОТИВНИКОВ УНИЧТОЖЕНО:
                     <b class="stark--text">{{ pilot.State.Stats.kills }}</b>
                   </div>
                   <div>
-                    DAMAGE TAKEN:
+                    УРОНА ПОЛУЧЕНО:
                     <b class="stark--text">{{ pilot.State.Stats.hp_damage }}</b>
                   </div>
                   <div>
-                    STRUCTURE LOST:
+                    СТРУКТУРЫ ПОТЕРЯНО:
                     <b class="stark--text">{{ pilot.State.Stats.structure_damage }}</b>
                   </div>
                   <div>
-                    HEAT TAKEN:
+                    НАГРЕВА ПОЛУЧЕНО:
                     <b class="stark--text">{{ pilot.State.Stats.heat_damage }}</b>
                   </div>
                   <div>
-                    REACTOR STRESS:
+                    НАГРУЗОК:
                     <b class="stark--text">{{ pilot.State.Stats.reactor_damage }}</b>
                   </div>
                 </div>
@@ -114,7 +113,7 @@
                       pilot.State.EndMission(!saveCheckbox)
                     "
                   >
-                    &nbsp;Complete Mission
+                    &nbsp;Завершить миссию
                   </v-btn>
                 </v-col>
               </v-row>
@@ -128,7 +127,7 @@
           >//[
           <span class="accent--text">COMP/CON</span>
           :
-          <span class="stark-text--text">Field Repair Protocols Active</span>
+          <span class="stark-text--text">Полевые протоколы починки активированы</span>
           ]
         </span>
       </v-col>

@@ -6,7 +6,7 @@
         <div class="flavor-text subtle--text">{{ pilot.Name }}</div>
       </v-col>
       <v-col cols="auto" class="ml-auto text-right mr-2 mt-n2">
-        <div class="heading h3 accent--text">HP</div>
+        <div class="heading h3 accent--text">ПЗ</div>
         <div class="font-weight-bold mr-n5">
           <v-btn icon x-small class="fadeSelect" @click="pilot.CurrentHP -= 1">
             <v-icon small color="primary">mdi-minus</v-icon>
@@ -22,7 +22,7 @@
           :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'"
           class="heading h3 accent--text"
         >
-          Armor
+          Броня
         </component>
         <component :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'" class="font-weight-bold">
           {{ pilot.Armor }}
@@ -33,7 +33,7 @@
           :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'"
           class="heading h3 accent--text"
         >
-          {{ $vuetify.breakpoint.mdAndUp ? 'E-DEFENSE' : 'E-DEF' }}
+          {{ $vuetify.breakpoint.mdAndUp ? 'Э-ЗАЩИТА' : 'Э-ЗАЩ' }}
         </component>
         <component :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'" class="font-weight-bold">
           {{ pilot.EDefense }}
@@ -44,7 +44,7 @@
           :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'"
           class="heading h3 accent--text"
         >
-          Evasion
+          Уклонение
         </component>
         <component :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'" class="font-weight-bold">
           {{ pilot.Evasion }}
@@ -55,7 +55,7 @@
           :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'"
           class="heading h3 accent--text"
         >
-          Grit
+          Стойкость
         </component>
         <component :is="$vuetify.breakpoint.mdAndUp ? 'div' : 'span'" class="font-weight-bold">
           +{{ pilot.Grit }}
@@ -76,16 +76,16 @@
         <v-alert dense outlined color="error" prominent>
           <v-icon slot="prepend" color="error" size="90" class="mr-3">cci-reactor</v-icon>
           <span v-if="pilot.State.SelfDestructCounter > 1" class="heading h1">
-            MECH WILL SELF DESTRUCT IN {{ pilot.State.SelfDestructCounter }} ROUNDS
+            САМОУНИЧТОЖЕНИЕ МЕХА ЧЕРЕЗ {{ pilot.State.SelfDestructCounter }} РАУНДА
           </span>
-          <span v-else class="heading h1">MECH SELF DESTRUCTION IMMINENT</span>
+          <span v-else class="heading h1">САМОУНИЧТОЖЕНИЕ МЕХА НЕИЗБЕЖНО</span>
           <div class="heading mt-n4 subtle--text">
-            FRAME.PRIORITY.ALERT::REACTOR CRITICALITY EVENT
+            ПРИОРИТЕТНАЯ.ТРЕВОГА.РАМЫ::КРИТИЧЕСКОЕ СОБЫТИЕ РЕАКТОРА
           </div>
           <div class="px-5 my-1">
             <v-btn small block color="error" @click="pilot.State.SelfDestruct()">
               <v-icon left>mdi-skull</v-icon>
-              DETONATE REACTOR
+              ДЕТОНИРОВАТЬ РЕАКТОР
               <v-icon right>mdi-skull</v-icon>
             </v-btn>
           </div>
@@ -97,7 +97,7 @@
               @click="pilot.State.CancelSelfDestruct()"
             >
               <v-icon small left>mdi-reload</v-icon>
-              UNDO
+              ОТМЕНИТЬ
             </v-btn>
           </div>
         </v-alert>
@@ -112,10 +112,11 @@
       outlined
       icon="mdi-account-alert"
     >
-      <div class="heading h2">DOWN AND OUT</div>
+      <div class="heading h2">НОКАУТ</div>
       <div class="body-text text--text">
-        This Pilot is unconscious and STUNNED – if they take any more damage, they die. They'll
-        regain consciousness and half of their HP when they rest.
+        Этот пилот Нокаутирован, находится без сознания и Ошеломлен — если он 
+        получит еще какой-либо урон, он умрет. Пилот вернется в сознание и 
+        восстановит половину от полного уровня ПЗ, когда отдохнут.
       </div>
       <div style="position: relative">
         <v-btn
@@ -127,19 +128,19 @@
           @click="pilot.Kill()"
         >
           <v-icon>mdi-skull</v-icon>
-          Mark as Killed
+          Отметить Убитым
         </v-btn>
       </div>
     </v-alert>
 
     <div :style="pilot.IsDead || pilot.IsDownAndOut ? 'opacity: 0.5' : ''">
-      <span class="overline">PILOT LOADOUT</span>
+      <span class="overline">ВЫГРУЗКА ПИЛОТА</span>
       <cc-pilot-loadout :pilot="pilot" readonly />
 
       <div v-if="pilot.State.Stage === 'Narrative'">
         <v-row dense>
           <v-col cols="auto">
-            <span class="overline">SKILL TRIGGERS</span>
+            <span class="overline">ТРИГГЕРЫ</span>
           </v-col>
           <v-col cols="auto" class="ml-auto">
             <v-btn
@@ -149,7 +150,7 @@
               @click="expandAll(pilot.SkillsController.Skills.length, 'sk_', true)"
             >
               <v-icon small left>mdi-chevron-up</v-icon>
-              All
+              Все
             </v-btn>
             <v-btn
               x-small
@@ -158,7 +159,7 @@
               @click="expandAll(pilot.SkillsController.Skills.length, 'sk_', false)"
             >
               <v-icon small left>mdi-chevron-down</v-icon>
-              All
+              Все
             </v-btn>
           </v-col>
         </v-row>
@@ -181,7 +182,7 @@
         v-if="pilot.ReservesController.Reserves || pilot.ReservesController.Organizations"
         class="overline"
       >
-        RESERVES AND RESOURCES
+        РЕЗЕРВЫ И РЕСУРСЫ
         <v-btn small right icon class="fadeSelect" @click="showReserves = !showReserves">
           <v-icon small v-html="showReserves ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
         </v-btn>
@@ -195,7 +196,7 @@
           class="mt-n3"
         >
           <cc-reserve-item
-            v-for="(r, i) in pilot.ReservesController.Reserves.filter(r => r.Type !== 'Bonus')"
+            v-for="(r, i) in pilot.ReservesController.Reserves.filter(r => r.Type !== 'Бонус')"
             :key="`r_${i}`"
             :reserve="r"
             @remove="pilot.ReservesController.RemoveReserve(i)"

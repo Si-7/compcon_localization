@@ -19,7 +19,7 @@
             slot="label"
             simple
             inline
-            :content="preventDnd ? 'System Reordering: OFF' : 'System Reordering: ON'"
+            :content="preventDnd ? 'Изменение порядка систем: ВЫКЛ' : 'Изменение порядка систем: ВКЛ'"
           >
             <v-icon
               class="ml-n2"

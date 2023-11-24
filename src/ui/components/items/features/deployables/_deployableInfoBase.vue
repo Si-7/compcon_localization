@@ -25,7 +25,7 @@
         name="ПЗ"
         :value="
           deployable.hp
-            ? deployable.hp.toString().replace(/[{}]/gim, '')
+            ? deployable.hp.toString().replace(/[{}]/gim, '').replace('grit', 'стойкость')
             : parseFloat(deployable.size || 0.5) * 10
         "
       />

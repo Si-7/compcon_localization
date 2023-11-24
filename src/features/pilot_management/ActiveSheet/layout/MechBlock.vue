@@ -5,7 +5,7 @@
     <div>
       <v-row dense>
         <v-col class="mt-n5">
-          <div v-show="$vuetify.breakpoint.mdAndUp" class="overline subtle--text">MOUNTED::</div>
+          <div v-show="$vuetify.breakpoint.mdAndUp" class="overline subtle--text">В СЕДЛЕ::</div>
           <div :class="$vuetify.breakpoint.mdAndUp ? 'heading h2 mt-n4' : 'font-weight-bold'">
             <span class="accent--text">{{ mech.Frame.Source }} {{ mech.Frame.Name }}</span>
             <cc-slashes />
@@ -13,7 +13,7 @@
           </div>
         </v-col>
         <v-col v-show="$vuetify.breakpoint.mdAndUp" cols="auto" class="ml-auto mr-2 mt-n3">
-          <div class="overline subtle--text mt-n2">PILOT::</div>
+          <div class="overline subtle--text mt-n2">ПИЛОТ::</div>
           <div class="heading h2 mt-n3 subtle--text">{{ pilot.Callsign }}</div>
         </v-col>
       </v-row>
@@ -28,23 +28,23 @@
               v-if="state.SelfDestructCounter > 1"
               :class="$vuetify.breakpoint.mdAndUp ? 'heading h1' : 'heading h3'"
             >
-              SELF DESTRUCT IN {{ state.SelfDestructCounter }} ROUNDS
+              САМОУНИЧТОЖЕНИЕ ЧЕРЕЗ {{ state.SelfDestructCounter }} РАУНДОВ
             </span>
-            <span v-else class="heading h1">SELF DESTRUCT IMMINENT</span>
+            <span v-else class="heading h1">САМОУНИЧТОЖЕНИЕ НЕИЗБЕЖНО</span>
             <div class="heading mt-n4 subtle--text">
-              FRAME.PRIORITY.ALERT::REACTOR CRITICALITY EVENT
+              ПРИОРИТЕТНАЯ.ТРЕВОГА.РАМЫ::КРИТИЧЕСКОЕ СОБЫТИЕ РЕАКТОРА
             </div>
             <div class="px-5 my-1">
               <v-btn small block color="error" @click="state.SelfDestruct()">
                 <v-icon left>mdi-skull</v-icon>
-                DETONATE REACTOR
+                ДЕТОНИРОВАТЬ РЕАКТОР
                 <v-icon right>mdi-skull</v-icon>
               </v-btn>
             </div>
             <div class="text-right mt-1">
               <v-btn x-small color="primary" class="fadeSelect" @click="state.CancelSelfDestruct()">
                 <v-icon small left>mdi-reload</v-icon>
-                UNDO
+                ОТМЕНИТЬ
               </v-btn>
             </div>
           </v-alert>
@@ -52,7 +52,7 @@
       </v-row>
 
       <v-alert
-        v-if="mech.Pilot.Status === 'KIA' || mech.Pilot.IsDead"
+        v-if="mech.Pilot.Status === 'УБИТ В БОЮ' || mech.Pilot.IsDead"
         prominent
         dense
         outlined
@@ -60,7 +60,7 @@
       >
         <v-icon slot="prepend" size="80" class="mr-2">mdi-skull</v-icon>
         <div :class="`heading ${$vuetify.breakpoint.mdAndUp ? 'h1' : 'h3'} pb-2 text-center`">
-          KILLED IN ACTION
+          УБИТ В БОЮ
         </div>
         <div style="position: relative">
           <v-menu offset-y offset-x>
@@ -75,11 +75,11 @@
                 style="bottom: 0; right: 0"
                 v-on="on"
               >
-                Revert
+                Вернуть
               </v-btn>
             </template>
             <cc-confirmation
-              content="This will restore the selected pilot and clear the KIA and Down and Out statuses."
+              content="Это восстановит выбранного пилота и очистит статусы Убит в бою и Нокаут."
               @confirm="mech.Pilot.Restore()"
             />
           </v-menu>
@@ -95,9 +95,9 @@
               cci-status-shut-down
             </v-icon>
             <span :class="$vuetify.breakpoint.mdAndUp ? 'heading h1' : 'heading h3'">
-              MECH SHUT DOWN
+              МЕХ ВЫКЛЮЧЕН
             </span>
-            <div class="heading mt-n4 subtle--text">FRAME.STATUS//ERR: NO RESPONSE</div>
+            <div class="heading mt-n4 subtle--text">МЕХ.СТАТУС//ОШИБКА: НЕТ ОТВЕТА</div>
           </v-alert>
         </v-col>
       </v-row>
@@ -106,7 +106,7 @@
         <v-row justify="space-between" align="center" dense class="mt-n3">
           <v-col cols="6" md="3" :style="mech.Destroyed ? 'opacity: 0.5' : ''">
             <cc-status-select
-              label="Statuses"
+              label="Статусы"
               :items="statuses"
               :model="mech.Statuses"
               dark
@@ -116,7 +116,7 @@
           </v-col>
           <v-col cols="6" md="3">
             <cc-status-select
-              label="Conditions"
+              label="Состояния"
               :items="conditions"
               :model="mech.Conditions"
               dark
@@ -126,7 +126,7 @@
           </v-col>
           <v-col cols="6" md="3">
             <cc-status-select
-              label="Resistances"
+              label="Сопротивления"
               :items="resistances"
               :model="mech.Resistances"
               dark
@@ -149,7 +149,7 @@
               prepend-icon="mdi-minus-circle-outline"
               :style="$vuetify.breakpoint.mdAndUp ? 'width: 115px' : ''"
               class="hide-input-spinners"
-              hint="BURN"
+              hint="Горение"
               persistent-hint
               dense
               @click:append-outer="state.SetBurn(mech.Burn + 1)"
@@ -171,7 +171,7 @@
             :stress-rollover="stressRolledOver"
             :hp-resistance="hpResistance"
           >
-            <cc-tooltip slot="repair" simple inline content="Full Repair">
+            <cc-tooltip slot="repair" simple inline content="Полный Ремонт">
               <v-menu v-model="repairMenu" offset-y offset-x bottom left>
                 <template v-slot:activator="{ on }">
                   <v-btn v-if="!mech.Destroyed" icon class="fadeSelect" v-on="on">
@@ -182,7 +182,7 @@
                   </v-btn>
                 </template>
                 <cc-confirmation
-                  content="Lancer, this will <span class='accent--text'>fully repair and recharge this mech.</span> Do you want to continue?"
+                  content="Улан, это <span class='accent--text'>полностью починит и перезарядит этот мех.</span> Вы хотите продолжить?"
                   @confirm="
                     repairMenu = false
                     state.CommitFullRepair()
@@ -202,9 +202,9 @@
                 <span class="heading h2 accent--text">
                   {{ pilot.MechSkillsController.MechSkills.Hull }}
                   <span v-if="$vuetify.breakpoint.smAndDown" class="heading h3 subtle--text">
-                    H
+                    К
                   </span>
-                  <span v-else class="flavor-text subtle--text">//HULL</span>
+                  <span v-else class="flavor-text subtle--text">//КРП</span>
                   <cc-synergy-display location="hull" :mech="mech" class="d-inline" />
                 </span>
               </div>
@@ -212,9 +212,9 @@
                 <span class="heading h2 accent--text">
                   {{ pilot.MechSkillsController.MechSkills.Agi }}
                   <span v-if="$vuetify.breakpoint.smAndDown" class="heading h3 subtle--text">
-                    A
+                    М
                   </span>
-                  <span v-else class="flavor-text subtle--text">//AGI</span>
+                  <span v-else class="flavor-text subtle--text">//МНВР</span>
                   <cc-synergy-display location="agility" :mech="mech" class="d-inline" />
                 </span>
               </div>
@@ -222,9 +222,9 @@
                 <span class="heading h2 accent--text">
                   {{ pilot.MechSkillsController.MechSkills.Sys }}
                   <span v-if="$vuetify.breakpoint.smAndDown" class="heading h3 subtle--text">
-                    S
+                    С
                   </span>
-                  <span v-else class="flavor-text subtle--text">//SYS</span>
+                  <span v-else class="flavor-text subtle--text">//СИС</span>
                   <cc-synergy-display location="systems" :mech="mech" class="d-inline" />
                 </span>
               </div>
@@ -232,9 +232,9 @@
                 <span class="heading h2 accent--text">
                   {{ pilot.MechSkillsController.MechSkills.Eng }}
                   <span v-if="$vuetify.breakpoint.smAndDown" class="heading h3 subtle--text">
-                    E
+                    И
                   </span>
-                  <span v-else class="flavor-text subtle--text">//ENG</span>
+                  <span v-else class="flavor-text subtle--text">//ИНЖ</span>
                   <cc-synergy-display location="engineering" :mech="mech" class="d-inline" />
                 </span>
               </div>
@@ -245,21 +245,21 @@
                   prominent
                   class="my-1"
                   color="frame"
-                  header="SPEED"
+                  header="СКОРОСТЬ"
                   :content="mech.Speed"
                 />
                 <cc-active-card
                   prominent
                   class="my-1"
                   color="frame"
-                  :header="$vuetify.breakpoint.lgAndUp ? 'Attack Bonus' : 'ATK'"
+                  :header="$vuetify.breakpoint.lgAndUp ? 'Бонус Атаки' : 'ATK'"
                   :content="`${mech.AttackBonus > 0 ? '+' : ''}${mech.AttackBonus}`"
                 />
                 <cc-active-card
                   prominent
                   class="my-1"
                   color="frame"
-                  :header="$vuetify.breakpoint.lgAndUp ? 'Tech Attack' : 'T.ATK'"
+                  :header="$vuetify.breakpoint.lgAndUp ? 'ТЕХ АТАКА' : 'T.ATK'"
                   :content="`${mech.TechAttack > 0 ? '+' : ''}${mech.TechAttack}`"
                 />
                 <cc-active-card
@@ -267,7 +267,7 @@
                   prominent
                   class="my-1"
                   color="frame"
-                  header="SIZE"
+                  header="РАЗМЕР"
                   :content="mech.Size"
                 />
               </v-row>
@@ -277,28 +277,28 @@
                   prominent
                   class="my-1"
                   color="frame"
-                  header="EVAS."
+                  header="УКЛ."
                   :content="mech.Evasion"
                 />
                 <cc-active-card
                   prominent
                   class="my-1"
                   color="frame"
-                  :header="$vuetify.breakpoint.lgAndUp ? 'E-Defense' : 'E-DEF'"
+                  :header="$vuetify.breakpoint.lgAndUp ? 'Э-Защита' : 'Э-ЗАЩ'"
                   :content="mech.EDefense"
                 />
                 <cc-active-card
                   prominent
                   class="my-1"
                   color="frame"
-                  :header="$vuetify.breakpoint.lgAndUp ? 'Save Target' : 'SAVE'"
+                  :header="$vuetify.breakpoint.lgAndUp ? 'Спасбросок Цели' : 'СПАСБРОСОК'"
                   :content="mech.SaveTarget"
                 />
                 <cc-active-card
                   prominent
                   class="my-1"
                   color="frame"
-                  :header="$vuetify.breakpoint.lgAndUp ? 'Sensor Range' : 'SENS.'"
+                  :header="$vuetify.breakpoint.lgAndUp ? 'Дальность Сенсоров' : 'СЕНС.'"
                   :content="mech.SensorRange"
                 />
               </v-row>
@@ -330,7 +330,7 @@
                 :key="`tr_${i}`"
                 color="frame"
                 :header="trait.Name"
-                subheader="FRAME TRAIT"
+                subheader="ЧЕРТА РАМЫ"
               >
                 <div v-html-safe="trait.Description" />
                 <v-row v-if="trait.Actions.length" dense>
@@ -345,7 +345,7 @@
                       active
                       :activations="pilot.State.Actions"
                       :disabled="mech.IsStunned"
-                      :unusable="a.Activation === 'Protocol' && !pilot.State.IsProtocolAvailable"
+                      :unusable="a.Activation === 'Протокол' && !pilot.State.IsProtocolAvailable"
                     />
                   </v-col>
                 </v-row>
@@ -355,13 +355,13 @@
               <cc-active-card
                 color="corepower"
                 :header="mech.Frame.CoreSystem.Name"
-                subheader="CORE SYSTEM"
+                subheader="СИСТЕМА ЯДРА"
                 style="height: 100%"
               >
                 <div v-if="mech.Frame.CoreSystem.PassiveName" class="mb-2">
                   <span class="heading h2">
                     {{ mech.Frame.CoreSystem.PassiveName }}
-                    <span class="pt-2 ml-2 caption subtle--text">(PASSIVE)</span>
+                    <span class="pt-2 ml-2 caption subtle--text">(ПАССИВНАЯ)</span>
                   </span>
                   <p v-html-safe="mech.Frame.CoreSystem.PassiveEffect" class="mb-1" />
                   <cc-action
@@ -371,7 +371,7 @@
                     active
                     :activations="mech.Pilot.State.Actions"
                     :disabled="mech.Destroyed || mech.IsStunned"
-                    :unusable="a.Activation === 'Protocol' && !mech.Pilot.State.IsProtocolAvailable"
+                    :unusable="a.Activation === 'Протокол' && !mech.Pilot.State.IsProtocolAvailable"
                     class="mx-8"
                   />
                 </div>
@@ -392,7 +392,7 @@
                 </v-row>
                 <span class="heading h2">
                   {{ mech.Frame.CoreSystem.ActiveName }}
-                  <span class="pt-2 ml-2 caption subtle--text">(ACTIVE)</span>
+                  <span class="pt-2 ml-2 caption subtle--text">(АКТИВНАЯ)</span>
                 </span>
                 <p
                   v-html-safe="mech.Frame.CoreSystem.ActiveEffect"
@@ -410,7 +410,7 @@
                     class="heading h3 text-center"
                     style="letter-spacing: 5px; opacity: 0.4"
                   >
-                    CORE ENERGY EXHAUSTED
+                    МОЩЬ ЯДРА ИЗРАСХОДОВАНА
                   </div>
                   <cc-action
                     v-for="(a, i) in mech.Frame.CoreSystem.ActiveActions"
@@ -419,7 +419,7 @@
                     active
                     :activations="mech.Pilot.State.Actions"
                     :disabled="mech.Destroyed || mech.IsStunned"
-                    :unusable="a.Activation === 'Protocol' && !mech.Pilot.State.IsProtocolAvailable"
+                    :unusable="a.Activation === 'Протокол' && !mech.Pilot.State.IsProtocolAvailable"
                     class="mx-8"
                   />
                 </div>
@@ -431,7 +431,7 @@
 
         <v-row v-if="pilot.CoreBonusController.CoreBonuses" dense>
           <v-col cols="auto" class="mb-n2">
-            <span class="overline">CORE BONUSES</span>
+            <span class="overline">БОНУСЫ ЯДРА</span>
             <v-btn small right icon class="fadeSelect" @click="showCBs = !showCBs">
               <v-icon small v-html="showCBs ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
             </v-btn>
@@ -445,7 +445,7 @@
                 @click="expandAll(pilot.CoreBonusController.CoreBonuses.length, 'cb_', true)"
               >
                 <v-icon small left>mdi-chevron-up</v-icon>
-                All
+                Все
               </v-btn>
               <v-btn
                 x-small
@@ -454,7 +454,7 @@
                 @click="expandAll(pilot.CoreBonusController.CoreBonuses.length, 'cb_', false)"
               >
                 <v-icon small left>mdi-chevron-down</v-icon>
-                All
+                Все
               </v-btn>
             </v-col>
           </v-scroll-x-transition>
@@ -478,7 +478,7 @@
 
         <v-row dense>
           <v-col cols="auto" class="mb-n2">
-            <span class="overline">PILOT TALENTS</span>
+            <span class="overline">ТАЛАНТЫ ПИЛОТА</span>
             <v-btn small right icon class="fadeSelect" @click="showTalents = !showTalents">
               <v-icon small v-html="showTalents ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
             </v-btn>
@@ -492,7 +492,7 @@
                 @click="expandAll(pilot.TalentsController.Talents.length, 'tal_', true)"
               >
                 <v-icon small left>mdi-chevron-up</v-icon>
-                All
+                Все
               </v-btn>
               <v-btn
                 x-small
@@ -501,7 +501,7 @@
                 @click="expandAll(pilot.TalentsController.Talents.length, 'tal_', false)"
               >
                 <v-icon small left>mdi-chevron-down</v-icon>
-                All
+                Все
               </v-btn>
             </v-col>
           </v-scroll-x-transition>
@@ -526,10 +526,10 @@
                       v-for="a in t.Talent.Ranks[n - 1].Actions"
                       :key="`t_a_${n}_${a.Name}`"
                       :action="a"
-                      :active="a.Activation !== 'Invade'"
+                      :active="a.Activation !== 'Вторжение'"
                       :activations="pilot.State.Actions"
                       :disabled="mech.IsStunned"
-                      :unusable="a.Activation === 'Protocol' && !pilot.State.IsProtocolAvailable"
+                      :unusable="a.Activation === 'Протокол' && !pilot.State.IsProtocolAvailable"
                     />
                   </div>
                 </li>
@@ -540,7 +540,7 @@
 
         <v-row dense>
           <v-col cols="12">
-            <span class="overline">COUNTERS</span>
+            <span class="overline">СЧЕТЧИКИ</span>
             <v-btn small right icon class="fadeSelect" @click="showCounters = !showCounters">
               <v-icon small v-html="showCounters ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
             </v-btn>
@@ -598,13 +598,13 @@ export default vueMixins(activePilot).extend({
     },
     resistances() {
       return [
-        { name: 'Kinetic', color: 'kinetic' },
-        { name: 'Energy', color: 'energy' },
-        { name: 'Explosive', color: 'explosive' },
-        { name: 'Heat', color: 'heat' },
-        { name: 'Burn', color: 'burn' },
-        { name: 'All', color: 'variable' },
-        { name: 'Next Attack', color: 'overcharge' },
+        { name: 'Кинетический', color: 'kinetic' },
+        { name: 'Энергетический', color: 'energy' },
+        { name: 'Взрывной', color: 'explosive' },
+        { name: 'Нагрев', color: 'heat' },
+        { name: 'Горение', color: 'burn' },
+        { name: 'Все', color: 'variable' },
+        { name: 'Следующая Атака', color: 'overcharge' },
       ]
     },
     coreActivator() {
@@ -614,10 +614,10 @@ export default vueMixins(activePilot).extend({
       return this.mech.MechLoadoutController.ActiveLoadout
     },
     statuses(): string[] {
-      return this.$store.getters.getItemCollection('Statuses').filter(x => x.type === 'Status')
+      return this.$store.getters.getItemCollection('Statuses').filter(x => x.type === 'Статус')
     },
     conditions(): string[] {
-      return this.$store.getters.getItemCollection('Statuses').filter(x => x.type === 'Condition')
+      return this.$store.getters.getItemCollection('Statuses').filter(x => x.type === 'Состояние')
     },
     hpResistance(): boolean {
       if (this.mech.Resistances.length === 1 && this.mech.Resistances[0] === 'Heat') return false

@@ -5,16 +5,16 @@
       <v-col cols="12" lg="">
         <v-row dense justify="space-around">
           <v-col cols="12" lg="auto">
-            <div class="heading h3 text-center">Choose one of the following:</div>
+            <div class="heading h3 text-center">Выберите один из следующих вариантов:</div>
             <v-radio-group v-model="state.StabilizeMajor" dense hide-details column>
               <v-radio
-                label="Cool Mech, resetting the heat gauge and ending the EXPOSED status"
+                label="Охладите своего меха, очистив его от нагрева и Уязвимости."
                 value="cool"
                 color="accent"
               />
               <v-radio
-                :label="`Spend 1 Repair to restore HP to maximum. ${
-                  !mech.CurrentRepairs ? ' // REPAIR CAPACITY EXHAUSTED //' : ''
+                :label="`Отметьте 1 Ремонт, чтобы восстановить все ПЗ. ${
+                  !mech.CurrentRepairs ? ' // ЛИМИТ РЕМОНТА ИСЧЕРПАН //' : ''
                 }`"
                 value="repair"
                 color="accent"
@@ -26,27 +26,27 @@
             <v-divider vertical />
           </v-col>
           <v-col cols="12" lg="auto">
-            <div class="heading h3 text-center">And one of the following:</div>
+            <div class="heading h3 text-center">Кроме того, выберите один из следующих вариантов:</div>
             <v-radio-group v-model="state.StabilizeMinor" color="accent" dense hide-details column>
               <v-radio
-                label="Reload all weapons with the LOADING Tag"
+                label="Зарядить все Заряжаемое оружие"
                 value="reload"
                 color="accent"
               />
               <v-radio
-                label="End all BURN currently affecting your mech"
+                label="Удалить все Горение, которое в настоящее время воздействует на вашего меха."
                 value="end_burn"
                 color="accent"
                 :disabled="mech.Burn === 0"
               />
               <v-radio
-                label="End a condition affecting your mech"
+                label="Устранить состояние"
                 value="end_self_condition"
                 color="accent"
                 :disabled="!mech.Conditions.length"
               />
               <v-radio
-                label="End a condition affecting an adjacent ally"
+                label="Снять состояние соседнего союзного персонажа"
                 value="end_ally_condition"
                 color="accent"
               />
@@ -68,7 +68,7 @@
           {{ action.Name }}
         </v-btn>
         <v-btn
-          v-if="action.Activation !== 'Free'"
+          v-if="action.Activation !== 'Свободное'"
           small
           dark
           tile
@@ -78,10 +78,10 @@
           @click="$emit('use', true)"
         >
           <v-icon left small>cci-free-action</v-icon>
-          Free Action
+          Свободное Действие
           <cc-tooltip
             inline
-            :content="`Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`"
+            :content="`Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`"
           >
             <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
           </cc-tooltip>

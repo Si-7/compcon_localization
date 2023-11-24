@@ -4,7 +4,7 @@
     {{ action.Name }}
     <span v-if="unusable" class="flavor-text">
       <cc-slashes />
-      Action Unavailable
+      Действие Недоступно
     </span>
     <span v-else-if="action.Origin" class="flavor-text white--text">
       <cc-slashes />

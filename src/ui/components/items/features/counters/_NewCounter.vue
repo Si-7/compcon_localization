@@ -18,7 +18,7 @@
         <v-text-field
           ref="nameField"
           v-model="name"
-          placeholder="Counter name"
+          placeholder="Название счетчика"
           dense
           @keypress.esc="cancel"
           @keypress.enter="create"
@@ -26,7 +26,7 @@
         <v-row class="mt-auto">
           <v-col class="py-0">
             <v-btn color="secondary" style="height: 100%" block tile elevation="0" @click="cancel">
-              CANCEL
+              ОТМЕНИТЬ
             </v-btn>
           </v-col>
           <v-col class="py-0">
@@ -39,7 +39,7 @@
               :disabled="!name"
               @click="create"
             >
-              Add
+              Добавить
             </v-btn>
           </v-col>
         </v-row>
@@ -54,7 +54,9 @@
         @click="startCreating"
       >
         <div class="py-1">
-          <div>Add Custom Counter</div>
+          <div>Добавить</div>
+          <div>пользовательский</div>
+          <div>счетчик</div>
           <v-icon :v-if="$vuetify.breakpoint.mdAndUp">add</v-icon>
         </div>
       </v-btn>

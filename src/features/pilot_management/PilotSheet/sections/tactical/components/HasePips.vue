@@ -26,22 +26,22 @@ export default Vue.extend({
     //TODO: move into rules util class
     tooltip(): string {
       switch (this.title) {
-        case 'hull':
-          return `MECH HP <b>+${this.skillPoints * 2}</b><br>REPAIR CAPACITY <b>+${Math.floor(
+        case 'корпус':
+          return `ПЗ меха <b>+${this.skillPoints * 2}</b><br>ЛИМИТ РЕМОНТА <b>+${Math.floor(
             this.skillPoints / 2
           )}</b>`
-        case 'agility':
-          return `EVASION <b>+${this.skillPoints}</b><br>SPEED <b>+${Math.floor(
+        case 'маневренность':
+          return `УКЛОНЕНИЕ <b>+${this.skillPoints}</b><br>СКОРОСТЬ <b>+${Math.floor(
             this.skillPoints / 2
           )}</b>`
-        case 'systems':
-          return `E-DEFENSE <b>+${this.skillPoints}</b><br>TECH ATTACK <b>+${
+        case 'системы':
+          return `Э-ЗАЩИТА <b>+${this.skillPoints}</b><br>ТЕХНИЧЕСКАЯ АТАКА <b>+${
             this.skillPoints
-          }</b><br>SP <b>+${Math.floor(this.skillPoints / 2)}</b>`
-        case 'engineering':
-          return `HEAT CAPACITY <b>+${
+          }</b><br>СП <b>+${Math.floor(this.skillPoints / 2)}</b>`
+        case 'инженерия':
+          return `ТЕПЛОВОЙ МАКСИМУМ <b>+${
             this.skillPoints
-          }</b><br>LIMITED SYSTEMS BONUS <b>+${Math.floor(this.skillPoints / 2)}</b>`
+          }</b><br>БОНУС ОГРАНИЧЕННЫХ СИСТЕМ <b>+${Math.floor(this.skillPoints / 2)}</b>`
         default:
           return ''
       }

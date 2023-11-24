@@ -1,12 +1,12 @@
 enum Duration {
-  Free = 'Free',
-  Turn = 'Turn',
-  NextTurn = 'Next Turn',
-  Round = 'Round',
-  NextRound = 'Next Round',
-  Scene = 'Scene',
-  Encounter = 'Encounter',
-  Mission = 'Mission',
+  Free = 'Свободное Действие',
+  Turn = 'Ход',
+  NextTurn = 'Следующий Ход',
+  Round = 'Раунд',
+  NextRound = 'Следующий Раунд',
+  Scene = 'Сцена',
+  Encounter = 'Бой',
+  Mission = 'Миссия',
 }
 
 enum ActivationType {
@@ -32,7 +32,7 @@ enum MountType {
   Aux = 'Вспомогательный',
   MainAux = 'Осн./Втор.',
   Flex = 'Гибкий',
-  Integrated = 'Integrated',
+  Integrated = 'Интегрированный',
 }
 
 // governs what can be added to a mount (weapon slot)
@@ -41,7 +41,7 @@ enum FittingSize {
   Main = 'Основной',
   Flex = 'Гибкий',
   Heavy = 'Тяжелый',
-  Integrated = 'Integrated',
+  Integrated = 'Интегрированный',
 }
 
 enum WeaponSize {
@@ -83,7 +83,7 @@ enum SystemType {
   System = 'Система',
   AI = 'ИИ',
   Shield = 'Щит',
-  Deployable = 'Развертываемый объект',
+  Deployable = 'Размещаемый объект',
   Drone = 'Дрон',
   Tech = 'Технология',
   Armor = 'Броня',

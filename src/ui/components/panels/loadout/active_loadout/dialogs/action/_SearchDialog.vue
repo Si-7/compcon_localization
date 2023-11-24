@@ -18,7 +18,7 @@
           {{ action.Name }}
         </v-btn>
         <v-btn
-          v-if="action.Activation !== 'Free'"
+          v-if="action.Activation !== 'Свободное'"
           small
           tile
           dark
@@ -28,11 +28,11 @@
           @click="actionFree = !actionFree"
         >
           <v-icon left small>cci-free-action</v-icon>
-          Free Action
+          Свободное Действие
           <cc-tooltip
             inline
             :content="
-              `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+              `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
             "
           >
             <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
@@ -56,7 +56,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-4 mr-n4">Contested AGI</div>
+              <div class="overline pl-4 mr-n4">МНВР противника</div>
               <v-text-field
                 v-model="sys"
                 type="number"
@@ -83,7 +83,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Accuracy</div>
+              <div class="overline pl-1">Точность</div>
               <v-text-field
                 v-model="accuracy"
                 type="number"
@@ -105,7 +105,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Difficulty</div>
+              <div class="overline pl-1">Сложность</div>
               <v-text-field
                 v-model="difficulty"
                 type="number"
@@ -127,13 +127,13 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">SYS Roll</div>
+              <div class="overline pl-1">Бросок СИС</div>
               <v-row dense>
                 <v-col class="ml-n2">
                   <cc-dice-menu
                     :preset="`1d20+${mech.Sys}`"
                     :preset-accuracy="accuracy - difficulty"
-                    title="SKILL CHECK"
+                    title="ПРОВЕРКА НАВЫКА"
                     autoroll
                     @commit="registerSysRoll($event.total)"
                   />
@@ -154,7 +154,7 @@
             </v-col>
             <v-col cols="auto" class="text-center mt-3 mr-6">
               <div class="heading h1" v-html="`+${mech.Sys}`" />
-              <div class="mt-2">SYSTEMS</div>
+              <div class="mt-2">СИСТЕМЫ</div>
             </v-col>
           </v-row>
         </v-col>
@@ -171,7 +171,7 @@
             :disabled="used"
             @click="complete()"
           >
-            CONFIRM
+            ПОДТВЕРДИТЬ
           </v-btn>
         </v-col>
       </v-row>

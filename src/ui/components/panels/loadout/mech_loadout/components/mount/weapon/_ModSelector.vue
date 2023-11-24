@@ -11,25 +11,25 @@
     >
       <div v-if="weapon.Mod">
         <span class="overline">
-          UNION ARMORY PRINTID: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
-          <span class="success--text text--darken-1">[ EQUIPMENT MODIFICATION REGISTERED ]</span>
+          PRINTID ОРУЖЕЙНОЙ СОЮЗА: {{ fID('ANN-NNN-NNN::AA//AA') }} &mdash;
+          <span class="success--text text--darken-1">[ МОДИФИКАЦИЯ СНАРЯЖЕНИЯ ЗАРЕГИСТРИРОВАНА ]</span>
         </span>
         <br />
         <span class="heading h1 accent--text" style="line-height: 20px">
           {{ weapon.Mod.Name }}
         </span>
-        <span class="flavor-text overline mt-n1" style="display: block">CURRENTLY INSTALLED</span>
+        <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС УСТОАНОВЛЕНО</span>
       </div>
       <div v-else>
         <span class="overline">
-          UNION ARMORY EQUIPMENT AUGMENTATION AUTHORIZATION: FRAME ARMAMENT//MODIFICATION
+          АВТОРИЗАЦИЯ АУГМЕНТАЦИИ СНАРЯЖЕНИЯ ОРУЖЕЙНОЙ СОЮЗА: ВООРУЖЕНИЕ РАМЫ//МОДИФИКАЦИЯ
         </span>
         <br />
         <span class="heading h1 subtle--text text--lighten-1" style="line-height: 20px">
           НИЧЕГО НЕ ВЫБРАНО
         </span>
         <span class="flavor-text overline mt-n1 error--text" style="display: block">
-          [ MODIFICATION DATA INVALID OR MISSING ]
+          [ ДАННЫЕ МОДИФИКАЦИИ НЕВЕРНЫ ИЛИ ОТСУТСТВУЮТ ]
         </span>
       </div>
       <div slot="extra-item" class="mt-2 mb-n2">
@@ -47,7 +47,7 @@
               simple
               inline
               :content="
-                showUnlicensed ? 'Unlicensed equipment: SHOWN' : 'Unlicensed equipment: HIDDEN'
+                showUnlicensed ? 'Нелицензированное снаряжение: ПОКАЗАНО' : 'Нелицензированное снаряжение: СПРЯТАНО'
               "
             >
               <v-icon
@@ -73,8 +73,8 @@
               inline
               :content="
                 showOverSP
-                  ? 'Systems exceeding SP Capacity: SHOWN'
-                  : 'Systems exceeding SP Capacity: HIDDEN'
+                  ? 'Системы, превышающие оставшиеся СП: ПОКАЗАНЫ'
+                  : 'Системы, превышающие оставшиеся СП: СПРЯТАНЫ'
               "
             >
               <v-icon
@@ -112,10 +112,10 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Source', align: 'left', value: 'Source' },
-      { text: 'Mod', align: 'left', value: 'Name' },
-      { text: 'License', align: 'left', value: 'LicenseString' },
-      { text: 'SP', align: 'left', value: 'SP' },
+      { text: 'Источник', align: 'left', value: 'Source' },
+      { text: 'Мод', align: 'left', value: 'Name' },
+      { text: 'Лицензия', align: 'left', value: 'LicenseString' },
+      { text: 'СП', align: 'left', value: 'SP' },
       { text: '', align: 'center', value: 'Equip' },
     ],
     mods: [],

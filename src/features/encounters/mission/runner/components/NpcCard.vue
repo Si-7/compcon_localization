@@ -143,7 +143,7 @@
               :full-icon="'mdi-octagram'"
               @update="npc.Overshield = $event"
             >
-              <span class="heading h3">Overshield</span>
+              <span class="heading h3">Усиление Щита</span>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -395,11 +395,11 @@ export default Vue.extend({
   computed: {
     statuses() {
       const store = getModule(CompendiumStore, this.$store)
-      return store.Statuses.filter(x => x.type === 'Status')
+      return store.Statuses.filter(x => x.type === 'Статус')
     },
     conditions() {
       const store = getModule(CompendiumStore, this.$store)
-      return store.Statuses.filter(x => x.type === 'Condition')
+      return store.Statuses.filter(x => x.type === 'Состояние')
     },
     reactions() {
       return this.npc.Reactions

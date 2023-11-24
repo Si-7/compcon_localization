@@ -72,7 +72,7 @@
         >
           <v-col cols="12" md="">
             <v-alert v-if="q === 'invade-fail'" dense outlined class="text-center">
-              <span class="heading h3 text-disabled">INVASION ATTEMPT FAILED</span>
+              <span class="heading h3 text-disabled">ПОПЫТКА ВТОРЖЕНИЯ ПРОВАЛЕНА</span>
             </v-alert>
             <v-alert
               v-else-if="typeof q === 'string' && q.startsWith('attack-fail-')"
@@ -80,7 +80,7 @@
               outlined
               class="text-center"
             >
-              <span class="heading h3 text-disabled">{{ systemFromFailure(q) }} FAILED</span>
+              <span class="heading h3 text-disabled">{{ systemFromFailure(q) }}: ПРОВАЛ</span>
             </v-alert>
             <cc-action v-else panel :action="q" />
           </v-col>
@@ -90,7 +90,7 @@
             </v-btn>
             <v-btn v-else small block @click="removeQuick(i)">
               <v-icon small left>mdi-close</v-icon>
-              Cancel {{ q.Name }}
+              Отменить {{ q.Name }}
             </v-btn>
           </v-col>
         </v-row>
@@ -111,7 +111,7 @@
               outlined
               class="text-center"
             >
-              <span class="heading h3 text-disabled">{{ systemFromFailure(f) }} FAILED</span>
+              <span class="heading h3 text-disabled">{{ systemFromFailure(f) }}: ПРОВАЛ</span>
             </v-alert>
             <cc-action v-else panel :action="f" />
           </v-col>
@@ -121,7 +121,7 @@
             </v-btn>
             <v-btn v-else small block @click="removeFull()">
               <v-icon small left>mdi-close</v-icon>
-              Cancel {{ f.Name }}
+              Отменить {{ f.Name }}
             </v-btn>
           </v-col>
         </v-row>
@@ -131,7 +131,7 @@
         <v-row v-if="quick.length === MAX_QUICK || full.length > 0" dense justify="center">
           <v-col lg="6" md="10" xs="12">
             <v-btn block x-large color="primary" :disabled="used" @click="$emit('use')">
-              {{ !used ? 'CONFIRM' : 'ACTION CONFIRMED' }}
+              {{ !used ? 'ПОДТВЕРЖИТЬ' : 'ДЕЙСТВИЕ ПОДТВЕРЖДЕНО' }}
             </v-btn>
           </v-col>
         </v-row>

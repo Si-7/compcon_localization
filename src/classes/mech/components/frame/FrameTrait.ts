@@ -38,9 +38,9 @@ class FrameTrait {
     this.Use = data.use ? (data.use as Duration) : Duration.Mission
     this.Actions = data.actions ? data.actions.map(x => new Action(x)) : []
     this.Bonuses = data.bonuses
-      ? data.bonuses.map(x => new Bonus(x, `${this.Name} (Frame Trait)`))
+      ? data.bonuses.map(x => new Bonus(x, `${this.Name} (Черта Рамы)`))
       : []
-    this.Synergies = data.synergies ? data.synergies.map(x => new Synergy(x, 'Frame Trait')) : []
+    this.Synergies = data.synergies ? data.synergies.map(x => new Synergy(x, 'Черта Рамы')) : []
     this.Deployables = data.deployables ? data.deployables : []
     this.Counters = data.counters ? data.counters : []
     this._integrated = data.integrated ? data.integrated : []

@@ -90,9 +90,9 @@ class Deployable extends CompendiumItem {
       this.Actions.push(
         new Action(
           {
-            name: "Redeploy",
+            name: "Разместить заново",
             activation: this.Redeploy,
-            detail: `Redeploy this ${this.Type}.`
+            detail: `Разместить заново этот ${this.Type}.`
           }
         )
       )

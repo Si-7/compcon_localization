@@ -11,7 +11,7 @@
           @click="$refs.sk_dialog.show()"
         >
           <v-icon left>mdi-hexagon-slice-3</v-icon>
-          skirmish
+          Перестрелка
           <v-menu offset-y max-width="700px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn style="position: absolute; right: 0" icon v-bind="attrs" v-on="on">
@@ -19,7 +19,7 @@
               </v-btn>
             </template>
             <v-card>
-              <div class="heading h3 ma-1 pl-3">SKIRMISH &mdash; QUICK ACTION</div>
+              <div class="heading h3 ma-1 pl-3">Перестрелка &mdash; Быстрое Действие</div>
               <v-divider />
               <v-card-text class="body-text text--text mt-0 pt-1" v-html="skirmishHelp" />
             </v-card>
@@ -43,7 +43,7 @@
           @click="setBarrage(item, mount)"
         >
           <v-icon left>mdi-hexagon-slice-6</v-icon>
-          barrage
+          Заградительный огонь
           <v-menu offset-y max-width="700px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn style="position: absolute; right: 0" icon v-bind="attrs" v-on="on">
@@ -51,7 +51,7 @@
               </v-btn>
             </template>
             <v-card>
-              <div class="heading h3 ma-1 pl-3">BARRAGE &mdash; FULL ACTION</div>
+              <div class="heading h3 ma-1 pl-3">Заградительный огонь &mdash; Полное Действие</div>
               <v-divider />
               <v-card-text class="body-text text--text mt-0 pt-1" v-html="barrageHelp" />
             </v-card>
@@ -73,7 +73,7 @@
           @click="$refs.sk_dialog.show()"
         >
           <v-icon left>mdi-hexagon-slice-3</v-icon>
-          skirmish
+          Перестрелка
           <v-menu offset-y max-width="700px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn style="position: absolute; right: 0" icon v-bind="attrs" v-on="on">
@@ -81,7 +81,7 @@
               </v-btn>
             </template>
             <v-card>
-              <div class="heading h3 ma-1 pl-3">SKIRMISH &mdash; QUICK ACTION</div>
+              <div class="heading h3 ma-1 pl-3">Перестрелка &mdash; Быстрое Действие</div>
               <v-divider />
               <v-card-text class="body-text text--text mt-0 pt-1" v-html="skirmishHelp" />
             </v-card>
@@ -105,7 +105,7 @@
           @click="setBarrage(item, mount)"
         >
           <v-icon left>mdi-hexagon-slice-6</v-icon>
-          barrage
+          Заградительный огонь
           <span v-if="barrageToggle">({{ barrageCount }}/2)</span>
           <v-menu offset-y max-width="700px">
             <template v-slot:activator="{ on, attrs }">
@@ -114,7 +114,7 @@
               </v-btn>
             </template>
             <v-card>
-              <div class="heading h3 ma-1 pl-3">BARRAGE &mdash; FULL ACTION</div>
+              <div class="heading h3 ma-1 pl-3">Заградительный огонь &mdash; Полное Действие</div>
               <v-divider />
               <v-card-text class="body-text text--text mt-0 pt-1" v-html="barrageHelp" />
             </v-card>

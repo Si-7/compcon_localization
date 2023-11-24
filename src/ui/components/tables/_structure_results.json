@@ -1,21 +1,21 @@
 [
   {
     "id": "glancing_blow",
-    "name": "Glancing Blow",
-    "description": "Emergency systems kick in and stabilize your mech. However, your mech is <strong>impaired</strong> until the end of your next turn."
+    "name": "Скользящий Удар",
+    "description": "Аварийные системы срабатывают и стабилизируют вашего меха, но он будет Ослаблен до конца вашего следующего хода."
   },
   {
     "id": "system_trauma",
-    "name": "System Trauma",
-    "description": "Parts of your mech have been torn off by the damage. Roll a d6."
+    "name": "Системная Травма",
+    "description": "Части вашего меха оторваны в результате урона. Бросьте 1d6."
   },
   {
-    "id": "system_trauma",
-    "name": "Direct Hit"
+    "id": "direct_hit",
+    "name": "Прямое Попадание"
   },
   {
     "id": "crushing_hit",
-    "name": "Crushing Hit",
-    "description": "<b class='heading h2 error--text'>// MECH DESTROYED //</b>"
+    "name": "Сокрушительный Удар",
+    "description": "<b class='heading h2 error--text'>// МЕХ УНИЧТОЖЕН //</b>"
   }
 ]

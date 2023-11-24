@@ -9,12 +9,12 @@
           :disabled="pilot.IsDead || pilot.IsDownAndOut"
           v-on="on"
         >
-          START MISSION
+          НАЧАТЬ МИССИЮ
         </v-btn>
       </template>
       <v-card>
         <v-toolbar dense dark flat tile color="warning darken-3 heading h2">
-          START MISSION
+          НАЧАТЬ МИССИЮ
           <v-spacer />
           <v-btn large dark icon @click="scDialog = false"><v-icon>mdi-close</v-icon></v-btn>
         </v-toolbar>
@@ -23,9 +23,8 @@
             >//[
             <span class="accent--text">COMP/CON</span>
             :
-            <span class="stark--text">Active Protocols Standing By</span>
-            ] Pilot, proceeding will engage COMP/CON ACTIVE MODE, which will assist with running
-            LANCER Missions and Encounters.
+            <span class="stark--text">Активные протоколы в режиме ожидания</span>
+            ] Пилот, при продвижении включится активный режим COMP/CON, который поможет в выполнении миссий и встреч ЛАНСЕР.
             <!-- First-time users are encouraged to enable the Active Mode Tutorial. -->
           </p>
           <!-- <v-row justify="center" no-gutters class="mt-n2">
@@ -41,7 +40,7 @@
           >
             <v-row justify="start" no-gutters>
               <v-col>
-                <div class="overline text--text pb-1">ACTIVE MECH</div>
+                <div class="overline text--text pb-1">АКТИВНЫЙ МЕХ</div>
                 <div :class="$vuetify.breakpoint.mdAndDown ? 'heading h3' : 'heading h1'">
                   <cc-logo
                     v-if="pilot.ActiveMech"
@@ -55,7 +54,7 @@
                   >
                     {{ pilot.ActiveMech.Name }}
                   </span>
-                  <div v-else class="pb-3">NO ACTIVE MECH</div>
+                  <div v-else class="pb-3">НЕТ АКТИВНОГО МЕХА</div>
                 </div>
                 <div v-if="pilot.ActiveMech" class="overline text--text ml-4">
                   {{ pilot.ActiveMech.Frame.Source }} {{ pilot.ActiveMech.Frame.Name }}
@@ -78,10 +77,10 @@
               >//[
               <span class="accent--text">COMP/CON</span>
               :
-              <span class="stark--text">Frame Issues Detected</span>
-              ] Pilot, COMP/CON has detected one ore more issues with the selected mech. If these
-              issues are not addressed, your mech may operate at reduced combat efficacy. Caution is
-              advised.
+              <span class="stark--text">Зафиксированы проблемы с мехом</span>
+              ] Пилот, COMP/CON обнаружил одну или несколько проблем с выбранным мехом. 
+              Если эти проблемы не решить, ваш мех может работать с пониженной боевой эффективностью. 
+              Рекомендуется соблюдать осторожность.
             </p>
             <v-row dense justify="center">
               <v-col v-for="s in pilot.ActiveMech.StatusString" :key="`status-${s}`" cols="12">
@@ -107,7 +106,7 @@
                   "
                 >
                   <v-icon large left>cci-activate</v-icon>
-                  &nbsp;Engage Combat Mode
+                  &nbsp;Включить боевой режим
                 </v-btn>
               </v-col>
             </v-row>
@@ -120,19 +119,19 @@
       >//[
       <span class="accent--text">COMP/CON</span>
       :
-      <span class="stark-text--text">Downtime Mode Active</span>
+      <span class="stark-text--text">Режим отдыха активирован</span>
       ]
     </span>
 
     <v-spacer />
 
-    <cc-tooltip inline content="Downtime Actions" delayed>
+    <cc-tooltip inline content="Действия отдыха" delayed>
       <downtime-menu-button
         :actions="pilot.State.DowntimeActions"
         :pilot="pilot"
         available
         color="action--downtime"
-        title="DOWNTIME ACTIONS"
+        title="Действия отдыха"
         @open-menu="$refs.dialog.show()"
         @open-dialog="openDialog($event)"
       >
@@ -150,7 +149,7 @@
 
     <cc-solo-dialog
       ref="dialog"
-      title="Downtime Actions"
+      title="Действия отдыха"
       icon="cci-downtime"
       color="action--downtime"
       no-actions

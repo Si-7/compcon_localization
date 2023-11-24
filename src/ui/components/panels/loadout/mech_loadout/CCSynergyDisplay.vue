@@ -1,7 +1,7 @@
 <template>
   <div v-show="!item || (item && !item.NoSynergies)" :class="inline ? 'd-inline-block' : ''">
     <div v-if="!synergies.length && showNone" class="text-center" style="opacity: 0.5">
-      <i>None</i>
+      <i>Нет</i>
     </div>
     <cc-tooltip
       v-for="(s, i) in synergies"

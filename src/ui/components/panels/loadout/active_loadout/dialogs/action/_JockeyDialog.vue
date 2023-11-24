@@ -29,7 +29,7 @@
               {{ action.Name }}
             </v-btn>
             <v-btn
-              v-if="action.Activation !== 'Free'"
+              v-if="action.Activation !== 'Свободное'"
               small
               tile
               dark
@@ -39,11 +39,11 @@
               @click="actionFree = !actionFree"
             >
               <v-icon left small>cci-free-action</v-icon>
-              Free Action
+              Свободное Действие
               <cc-tooltip
                 inline
                 :content="
-                  `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+                  `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
                 "
               >
                 <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
@@ -354,12 +354,6 @@ export default Vue.extend({
       this.actionCost = false
       this.actionFree = false
       this.timer = 0
-    },
-    show(): void {
-      this.dialog = true
-    },
-    hide(): void {
-      this.dialog = false
     },
   },
 })

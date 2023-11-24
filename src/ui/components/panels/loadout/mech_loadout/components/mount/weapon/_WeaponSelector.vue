@@ -50,7 +50,7 @@
               simple
               inline
               :content="
-                showUnlicensed ? 'Unlicensed equipment: SHOWN' : 'Unlicensed equipment: HIDDEN'
+                showUnlicensed ? 'Нелицензированное снаряжение: ПОКАЗАНО' : 'Нелицензированное снаряжение: СПРЯТАНО'
               "
             >
               <v-icon
@@ -76,8 +76,8 @@
               inline
               :content="
                 showOverSP
-                  ? 'Systems exceeding SP Capacity: SHOWN'
-                  : 'Systems exceeding SP Capacity: HIDDEN'
+                  ? 'Системы, превышающие оставшиеся СП: ПОКАЗАНЫ'
+                  : 'Системы, превышающие оставшиеся СП: СПРЯТАНЫ'
               "
             >
               <v-icon
@@ -116,14 +116,14 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Source', align: 'left', value: 'Source' },
-      { text: 'Weapon', align: 'left', value: 'Name' },
-      { text: 'License', align: 'left', value: 'LicenseString' },
-      { text: 'Size', align: 'left', value: 'SizeInt' },
-      { text: 'Type', align: 'left', value: 'WeaponType' },
-      { text: 'Range', align: 'left', value: 'Range[0].Max' },
-      { text: 'Damage', align: 'left', value: 'Damage[0].Max' },
-      { text: 'SP', align: 'left', value: 'SP' },
+      { text: 'Источник', align: 'left', value: 'Source' },
+      { text: 'Оружие', align: 'left', value: 'Name' },
+      { text: 'Лицензия', align: 'left', value: 'LicenseString' },
+      { text: 'Размер', align: 'left', value: 'SizeInt' },
+      { text: 'Тип', align: 'left', value: 'WeaponType' },
+      { text: 'Дальность', align: 'left', value: 'Range[0].Max' },
+      { text: 'Урон', align: 'left', value: 'Damage[0].Max' },
+      { text: 'СП', align: 'left', value: 'SP' },
       { text: '', align: 'center', value: 'Equip' },
     ],
     weapons: [],

@@ -23,6 +23,7 @@
           :fulltech="fulltech"
           :used="action.Used"
           :mech="mech"
+          :pilot="pilot"
           :action="action"
           @use="use($event)"
           @hide="hide()"
@@ -75,6 +76,10 @@ export default Vue.extend({
       type: Object,
       required: true,
     },
+    pilot: {
+      type: Object,
+      required: true,
+    },
     noAction: { type: Boolean },
     fulltech: { type: Boolean, default: false },
   },
@@ -92,7 +97,17 @@ export default Vue.extend({
       if (!this.action) {
         return null
       }
-      const name = toTitleCase(this.action.Name)
+      const name = toTitleCase(this.action.ID.replace('act_', '').replace('_', ' '))
+      var filename : string
+      switch (this.action.ID) {
+        case 'act_activate_full':
+          console.log(`./dialogs/action/_FullActivationDialog.vue`)
+          return () => import(`./dialogs/action/_FullActivationDialog.vue`)
+        case 'act_jockey':
+          console.log(`./dialogs/action/_JockeyDialog.vue`)
+          return () => import(`./dialogs/action/_NewJockeyDialog.vue`)
+      }
+      console.log(`./dialogs/action/_${name}Dialog.vue`)
       return () => import(`./dialogs/action/_${name}Dialog.vue`)
     },
     itemLoader() {

@@ -22,18 +22,18 @@
       @click="select(true)"
     >
       <v-icon left small>cci-free-action</v-icon>
-      Free Action
+      Свободное Действие
       <cc-tooltip
         inline
         :content="
-          `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+          `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
         "
       >
         <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
       </cc-tooltip>
     </v-btn>
     <div v-if="action.HeatCost" class="overline error--text text-center">
-      ALERT: This action will incur {{ action.HeatCost }} heat
+      ПРЕДУПРЕЖДЕНИЕ: Это действие нанесет {{ action.HeatCost }} Нагрева
     </div>
   </v-col>
 </template>

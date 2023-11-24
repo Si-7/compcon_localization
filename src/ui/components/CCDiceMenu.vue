@@ -22,8 +22,8 @@
         class="white--text heading h3"
       >
         {{ title }}
-        <span v-if="critical" class="flavor-text white--text text--secondary">// CRITICAL</span>
-        <span v-if="overkill" class="flavor-text white--text text--secondary">// OVERKILL</span>
+        <span v-if="critical" class="flavor-text white--text text--secondary">// КРИТИЧЕСКИЙ</span>
+        <span v-if="overkill" class="flavor-text white--text text--secondary">// ИЗБЫТОЧНЫЙ УРОН</span>
       </v-toolbar>
       <v-row no-gutters align="center" justify="center">
         <v-col>
@@ -34,49 +34,49 @@
               style="border: 1px solid var(--v-primary-base); border-radius: 2px"
             >
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add coin flip (d2)">
+                <cc-tooltip content="Добавить бросок монеты (d2)">
                   <v-btn icon color="accent" @click="addDice(2)">
                     <v-icon large>mdi-numeric-2-circle-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d4 roll">
+                <cc-tooltip content="Добавить бросок d4">
                   <v-btn icon color="accent" @click="addDice(4)">
                     <v-icon large>mdi-dice-d4-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add d6 roll">
+                <cc-tooltip content="Добавить бросок d6">
                   <v-btn icon color="accent" @click="addDice(6)">
                     <v-icon large>mdi-dice-d6-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d8 roll">
+                <cc-tooltip content="Добавить бросок d8">
                   <v-btn icon color="accent" @click="addDice(8)">
                     <v-icon large>mdi-dice-d8-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d10 roll">
+                <cc-tooltip content="Добавить бросок d10">
                   <v-btn icon color="accent" @click="addDice(10)">
                     <v-icon large>mdi-dice-d10-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d12 roll">
+                <cc-tooltip content="Добавить бросок d12">
                   <v-btn icon color="accent" @click="addDice(12)">
                     <v-icon large>mdi-dice-d12-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add d20 roll">
+                <cc-tooltip content="Добавить бросок d20">
                   <v-btn icon color="accent" @click="addDice(20)">
                     <v-icon large>mdi-dice-d20-outline</v-icon>
                   </v-btn>
@@ -89,14 +89,14 @@
                 </v-btn>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add Accuracy">
+                <cc-tooltip content="Добавить Точность">
                   <v-btn icon color="accent" @click="accuracy++">
                     <v-icon large>cci-accuracy</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add Difficulty">
+                <cc-tooltip content="Добавить Сложность">
                   <v-btn icon color="accent" @click="accuracy--">
                     <v-icon large>cci-difficulty</v-icon>
                   </v-btn>
@@ -105,7 +105,7 @@
             </v-row>
             <v-row dense align="center" justify="center">
               <v-col cols="auto">
-                <v-chip v-if="!dice.length" outlined style="opacity: 0.5">No Roll</v-chip>
+                <v-chip v-if="!dice.length" outlined style="opacity: 0.5">Нет броска</v-chip>
               </v-col>
               <v-col v-for="(d, i) in dice" :key="`${i}_dice_${d.sides}`" cols="auto">
                 <v-chip
@@ -149,12 +149,12 @@
                 </v-col>
               </v-row>
             </v-slide-y-reverse-transition>
-            <v-btn block outlined color="secondary" class="my-3" @click="roll">Roll</v-btn>
+            <v-btn block outlined color="secondary" class="my-3" @click="roll">Бросить</v-btn>
             <v-divider v-if="result" />
             <div style="min-height: 20px">
               <div v-if="result">
                 <div v-for="(r, j) in result" :key="`${j}_res_${r.sides}`">
-                  <div class="caption">ROLLING {{ r.rolls.length }}D{{ r.sides }}</div>
+                  <div class="caption">БРОСАЮ {{ r.rolls.length }}D{{ r.sides }}</div>
                   <v-row no-gutters>
                     <v-col
                       v-for="(val, i) in r.rolls"
@@ -186,7 +186,7 @@
                   </v-row>
                 </div>
                 <div v-if="flat">
-                  <div class="caption">FLAT MODIFIER</div>
+                  <div class="caption">МОДИФИКАТОР</div>
                   <v-row no-gutters>
                     <v-col cols="auto">
                       <v-chip x-small label>
@@ -199,7 +199,7 @@
                   </v-row>
                 </div>
                 <div v-if="accuracy">
-                  <div class="caption">{{ accuracy > 0 ? 'ACCURACY' : 'DIFFICULTY' }}</div>
+                  <div class="caption">{{ accuracy > 0 ? 'ТОЧНОСТЬ' : 'СЛОЖНОСТЬ' }}</div>
                   <v-row no-gutters>
                     <v-col v-for="(a, i) in accRolls" :key="`acc_${a}_${i}`" cols="auto">
                       <v-chip
@@ -223,7 +223,7 @@
                   style="border: 1px solid var(--v-secondary-base); border-radius: 2px"
                 >
                   <v-col cols="auto" class="ml-auto stark--text text-right">
-                    <div class="caption">TOTAL</div>
+                    <div class="caption">СУММА</div>
                     <div class="heading h2">{{ total }}</div>
                   </v-col>
                 </v-row>
@@ -234,7 +234,7 @@
                   style="border: 1px solid var(--v-heat-base); border-radius: 2px"
                 >
                   <v-col cols="auto" class="ml-auto stark--text text-right">
-                    <div class="caption">// OVERKILL //</div>
+                    <div class="caption">// ИЗБЫТОЧНЫЙ УРОН //</div>
                     <v-chip v-for="n in overkillRolls" :key="`overkill_${n}`" x-small color="heat">
                       <v-icon small>cci-heat</v-icon>
                     </v-chip>
@@ -246,11 +246,11 @@
             <v-card-actions>
               <v-row dense justify="center" align="center" class="text-center">
                 <v-col cols="12" md="auto">
-                  <v-btn small text class="mr-3" @click="menu = false">Cancel</v-btn>
+                  <v-btn small text class="mr-3" @click="menu = false">Отмена</v-btn>
                 </v-col>
                 <v-col cols="12" md="auto">
-                  <v-btn small outlined color="accent" @click="clear">Clear All</v-btn>
-                  <v-btn small outlined color="accent" @click="reset">Reset All</v-btn>
+                  <v-btn small outlined color="accent" @click="clear">Очистить все</v-btn>
+                  <v-btn small outlined color="accent" @click="reset">Сбросить все</v-btn>
                 </v-col>
 
                 <v-col cols="12" md="auto">
@@ -261,7 +261,7 @@
                     :disabled="!result && !flat"
                     @click="commit"
                   >
-                    Commit Result
+                    Готово
                   </v-btn>
                 </v-col>
               </v-row>

@@ -27,11 +27,11 @@
           @click="actionFree = !actionFree"
         >
           <v-icon left small>cci-free-action</v-icon>
-          Free Action
+          Свободное Действие
           <cc-tooltip
             inline
             :content="
-              `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+              `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
             "
           >
             <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
@@ -50,16 +50,16 @@
             align="start"
           >
             <v-col cols="auto" :class="$vuetify.breakpoint.mdAndUp ? 'mx-8' : ''">
-              <div class="overline mb-n2">Attack Roll</div>
+              <div class="overline mb-n2">Бросок атаки</div>
               <div class="heading text--text" style="font-size: 24pt">
                 <v-icon x-large class="mr-n1">mdi-dice-d20-outline</v-icon>
                 + {{ mech.AttackBonus }}
               </div>
             </v-col>
             <v-col cols="auto" :class="$vuetify.breakpoint.mdAndUp ? 'mx-8' : ''">
-              <div class="overline mb-n3">vs. Target</div>
+              <div class="overline mb-n3">против</div>
               <v-icon x-large v-html="'cci-evasion'" />
-              <div class="overline font-weight-bold mt-n2" v-html="'Evasion'" />
+              <div class="overline font-weight-bold mt-n2" v-html="'Уклонения цели'" />
             </v-col>
           </v-row>
         </v-col>
@@ -74,7 +74,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Accuracy</div>
+              <div class="overline pl-1">Точность</div>
               <v-text-field
                 v-model="accuracy"
                 type="number"
@@ -96,7 +96,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Difficulty</div>
+              <div class="overline pl-1">Сложность</div>
               <v-text-field
                 v-model="difficulty"
                 type="number"
@@ -118,13 +118,13 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Melee Attack Roll</div>
+              <div class="overline pl-1">Бросок атаки</div>
               <v-row no-gutters>
                 <v-col class="mr-n2 ml-n2">
                   <cc-dice-menu
                     :preset="`1d20+${mech.AttackBonus}`"
                     :preset-accuracy="accuracy - difficulty"
-                    title="SKILL CHECK"
+                    title="Бросок ближней атаки"
                     autoroll
                     @commit="registerAttackRoll($event.total)"
                   />
@@ -159,7 +159,7 @@
             :disabled="failed"
             @click="succeeded = select(succeeded)"
           >
-            SUCCESS
+            УСПЕХ
           </v-btn>
         </v-col>
         <v-col md="6" lg="3" xl="2">
@@ -170,7 +170,7 @@
             :color="failed ? 'error' : ''"
             @click="failed = select(failed)"
           >
-            FAILURE
+            ПРОВАЛ
           </v-btn>
         </v-col>
       </v-row>
@@ -179,8 +179,7 @@
       <v-row v-if="succeeded" no-gutters class="mt-2">
         <v-col cols="auto" class="ml-auto" align="end">
           <div class="body-text stark--text font-weight-bold">
-            Your target is knocked PRONE and you may also choose to knock them back by one space,
-            directly away from you
+            Ваша цель Сбита, и вы также можете отбросить ее на одно пространство прямо от себя.
           </div>
         </v-col>
       </v-row>

@@ -2,16 +2,16 @@
   <v-dialog v-model="dialog" :fullscreen="$vuetify.breakpoint.mdAndDown" width="60vw" persistent>
     <v-card flat tile>
       <v-toolbar color="title-bg clipped-large" dark flat>
-        <v-toolbar-title class="heading h1">STRUCTURE DAMAGE</v-toolbar-title>
+        <v-toolbar-title class="heading h1">СТРУКТУРНЫЙ УРОН</v-toolbar-title>
       </v-toolbar>
       <v-window v-model="window">
         <v-window-item>
           <v-card-text class="text-center">
-            <span class="flavor-text">Roll 1d6 per point of structure damage</span>
+            <span class="flavor-text">Бросьте 1d6 за каждый отмеченный пункт структурного урона</span>
             <br />
             <span class="overline">
               <b>{{ totalRolls - rolls.length }}</b>
-              rolls remaining
+              бросков осталось
             </span>
             <br />
             <div v-for="n in rolls.length" :key="`rr${n}`" class="d-inline">
@@ -33,7 +33,7 @@
             <br />
             <v-scroll-y-transition group leave-absolute>
               <div v-if="rolls.length < totalRolls" key="tr01" class="d-inline">
-                <cc-tooltip inline content="Roll Die">
+                <cc-tooltip inline content="Сделать бросок">
                   <v-btn
                     icon
                     color="accent"
@@ -65,7 +65,7 @@
                     key="t01"
                     class="heading h3 error--text"
                   >
-                    // CRITICAL STRUCTURAL DAMAGE //
+                    // КРИТИЧНЫЙ СТРУКТУРНЫЙ УРОН //
                   </span>
                   <span v-else-if="rolls.length" key="t02" class="heading h3">
                     <b>{{ results[Math.min(...rolls) - 1] }}</b>
@@ -81,14 +81,14 @@
                   @click="rolls.splice(0, rolls.length)"
                 >
                   <v-icon small left>mdi-reload</v-icon>
-                  UNDO
+                  ОТМЕНИТЬ
                 </v-btn>
               </div>
             </v-scroll-y-transition>
           </v-card-text>
           <v-divider />
           <v-card-actions>
-            <v-btn text small color="warning" @click="close()">dismiss</v-btn>
+            <v-btn text small color="warning" @click="close()">закрыть</v-btn>
             <v-spacer />
             <v-btn
               color="primary"
@@ -97,7 +97,7 @@
               :disabled="totalRolls - rolls.length > 0"
               @click="window = resultWindow"
             >
-              continue
+              продолжить
             </v-btn>
           </v-card-actions>
         </v-window-item>
@@ -120,8 +120,8 @@
           @previous="window = 0"
           @confirm="applySystemTrauma()"
         >
-          <p class="fluff-text">Parts of your mech have been torn off by the damage. Roll a d6.</p>
-          <cc-tooltip inline content="Roll Die">
+          <p class="fluff-text">Части вашего меха оторваны в результате урона. Бросьте 1d6.</p>
+          <cc-tooltip inline content="Сделать бросок">
             <v-btn
               icon
               color="accent"
@@ -149,29 +149,29 @@
             <v-select
               v-model="destroyedMount"
               style="margin-left: 30%; margin-right: 30%"
-              label="Mounts"
+              label="Слоты"
               outlined
-              placeholder="Select Destroyed Mount"
+              placeholder="Выберите уничтоженный слот"
               :items="destroyableMounts"
               item-text="name"
               item-value="index"
               color="accent"
             />
-            <span class="effect-text">All weapons on this mount are destroyed</span>
+            <span class="effect-text">Все оружие в слоте уничтожено</span>
           </div>
           <div v-else-if="systemTraumaRoll && systemTraumaRoll >= 4">
             <v-select
               v-model="destroyedSystem"
               style="margin-left: 30%; margin-right: 30%"
-              label="Systems"
+              label="Системы"
               outlined
-              placeholder="Select Destroyed System"
+              placeholder="Выберите уничтоженную систему"
               :items="destroyableSystems"
               item-text="Name"
               item-value="ID"
               color="accent"
             />
-            <span class="effect-text">This system is destroyed</span>
+            <span class="effect-text">Эта система уничтожена</span>
           </div>
           <cascade-check :mech="mech" />
         </table-window-item>
@@ -184,19 +184,19 @@
           <p
             v-html="
               mech.CurrentStructure >= 3
-                ? 'Your mech is <b>stunned</b> until the end of your next turn.'
-                : 'Your mech must pass a <b>hull</b> check or be <b>destroyed</b>. Even on a successful check, your mech is <b>stunned</b> until the end of your next turn.'
+                ? 'Ваш мех <b>Ошеломлен</b> до конца вашего следующего хода.'
+                : 'Сделайте проверку Корпуса. При успехе ваш мех Ошеломлен до конца вашего следующего хода. В случае неудачи ваш мех уничтожается.'
             "
           />
           <cascade-check :mech="mech" />
           <div slot="confirm-button">
             <div v-if="mech.CurrentStructure >= 3">
-              <v-btn color="success" large @click="applyDirectHit">confirm</v-btn>
+              <v-btn color="success" large @click="applyDirectHit">подтвердить</v-btn>
             </div>
             <div v-else>
-              <v-btn color="error" tile large @click="window = 4">fail hull check</v-btn>
+              <v-btn color="error" tile large @click="window = 4">проваленная проверка</v-btn>
               <v-btn color="success darken-1" tile large @click="applyDirectHit()">
-                pass hull check
+                успешная проверка
               </v-btn>
             </div>
           </div>
@@ -250,12 +250,12 @@ export default class CCSidebarView extends Vue {
   destroyedSystem = null
   destroyedMount = null
   results = [
-    'Direct Hit',
-    'System Trauma',
-    'System Trauma',
-    'System Trauma',
-    'Glancing Blow',
-    'Glancing Blow',
+    'Прямое Попадание',
+    'Системная Травма',
+    'Системная Травма',
+    'Системная Травма',
+    'Скользящий Удар',
+    'Скользящий Удар',
   ]
 
   get loadout(): MechLoadout {

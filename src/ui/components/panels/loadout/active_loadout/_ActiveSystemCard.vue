@@ -64,7 +64,7 @@
                     active
                     :activations="mech.Pilot.State.Actions"
                     :disabled="actionDisabled(a)"
-                    :unusable="a.Activation === 'Protocol' && !mech.Pilot.State.IsProtocolAvailable"
+                    :unusable="a.Activation === 'Протокол' && !mech.Pilot.State.IsProtocolAvailable"
                     @use="item.Use(a.Cost, $event)"
                     @undo="item.Undo(a.Cost)"
                   />
@@ -84,7 +84,7 @@
                 class="text-center white--text stat-text"
                 style="letter-spacing: 3px"
               >
-                / / AI IN CASCADE / /
+                / / ИИ В КАСКАДЕ / /
               </v-alert>
               <div v-if="item && item.Effect">
                 <div class="overline mt-2">

@@ -18,7 +18,7 @@
           {{ action.Name }}
         </v-btn>
         <v-btn
-          v-if="action.Activation !== 'Free'"
+          v-if="action.Activation !== 'Свободное'"
           small
           tile
           block
@@ -28,11 +28,11 @@
           @click="actionFree = !actionFree"
         >
           <v-icon left small>cci-free-action</v-icon>
-          Free Action
+          Свободное Действие
           <cc-tooltip
             inline
             :content="
-              `Special rules or equipment may allow you to ${action.Name} as a Free Action. Using this button will commit the action without spending a ${action.Activation} Action this turn`
+              `Специальные правила или снаряжение могут позволить использовать ${action.Name} свободным действием. Нажатие на эту кнопку совершит действие, не используя ${action.Activation} действие`
             "
           >
             <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
@@ -50,7 +50,7 @@
             :class="'text-center ' + $vuetify.breakpoint.mdAndUp ? '' : 'panel'"
           >
             <v-col cols="auto">
-              <div class="heading h3">hull</div>
+              <div class="heading h3">корпус</div>
               <div class="heading h2 accent--text">
                 {{ mech.Hull }}
                 <cc-synergy-display inline :mech="mech" location="hull" />
@@ -58,7 +58,7 @@
             </v-col>
             <v-divider vertical />
             <v-col cols="auto">
-              <div class="heading h3">agility</div>
+              <div class="heading h3">маневренность</div>
               <div class="heading h2 accent--text">
                 {{ mech.Agi }}
                 <cc-synergy-display inline :mech="mech" location="agility" />
@@ -66,7 +66,7 @@
             </v-col>
             <v-divider vertical />
             <v-col cols="auto">
-              <div class="heading h3">systems</div>
+              <div class="heading h3">системы</div>
               <div class="heading h2 accent--text">
                 {{ mech.Sys }}
                 <cc-synergy-display inline :mech="mech" location="systems" />
@@ -74,7 +74,7 @@
             </v-col>
             <v-divider vertical />
             <v-col cols="auto">
-              <div class="heading h3">engineering</div>
+              <div class="heading h3">инженерия</div>
               <div class="heading h2 accent--text">
                 {{ mech.Eng }}
                 <cc-synergy-display inline :mech="mech" location="engineering" />
@@ -93,7 +93,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Accuracy</div>
+              <div class="overline pl-1">Точность</div>
               <v-text-field
                 v-model="accuracy"
                 type="number"
@@ -115,7 +115,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Difficulty</div>
+              <div class="overline pl-1">Сложность</div>
               <v-text-field
                 v-model="difficulty"
                 type="number"
@@ -137,13 +137,13 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Skill Roll</div>
+              <div class="overline pl-1">Проверка навыка</div>
               <v-row no-gutters>
                 <v-col class="mr-n2 ml-n2">
                   <cc-dice-menu
                     :preset="`1d20`"
                     :preset-accuracy="accuracy - difficulty"
-                    title="SKILL CHECK"
+                    title="ПРОВЕРКА НАВЫКА"
                     autoroll
                     @commit="registerSkillRoll($event.total)"
                   />
@@ -178,7 +178,7 @@
             :disabled="used"
             @click="$emit('use', actionFree)"
           >
-            SUCCESS
+            УСПЕХ
           </v-btn>
         </v-col>
         <v-col md="6" lg="3" xl="2">
@@ -189,7 +189,7 @@
             :color="failed ? 'error' : ''"
             @click="$emit('use', actionFree)"
           >
-            FAILURE
+            ПРОВАЛ
           </v-btn>
         </v-col>
       </v-row>

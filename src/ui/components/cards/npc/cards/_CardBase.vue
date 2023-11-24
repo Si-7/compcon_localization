@@ -46,7 +46,7 @@
             />
           </v-col>
           <v-col v-if="item.MaxUses" class="ml-2 mt-n1">
-            <span class="caption">USES:</span>
+            <span class="caption">ИСПОЛЬЗОВАНИЙ:</span>
             <cc-item-uses class="d-inline" :item="item" />
           </v-col>
           <v-col v-if="destructable" cols="auto" class="ml-auto mr-2 mt-n2">

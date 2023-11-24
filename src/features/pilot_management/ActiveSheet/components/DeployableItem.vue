@@ -31,7 +31,7 @@
             @click="recall"
           >
             <v-icon v-if="recallIcon" left>{{ recallIcon }}</v-icon>
-            Recall
+            Отозвать
           </v-btn>
           <v-btn
             v-if="deployable.Redeploy && recallState"
@@ -43,14 +43,14 @@
             @click="redeploy"
           >
             <v-icon v-if="redeployIcon" left>{{ redeployIcon }}</v-icon>
-            Redeploy
+            Разместить заново
           </v-btn>
           <v-menu v-model="removeMenu" offset-y offset-x top left>
             <template v-slot:activator="{ on }">
-              <v-btn small text color="error" class="fadeSelect" v-on="on">Remove</v-btn>
+              <v-btn small text color="error" class="fadeSelect" v-on="on">Убрать</v-btn>
             </template>
             <cc-confirmation
-              content="Lancer, this will remove this deployable from the Deployed Equipment list. <span class='accent--text'>This cannot be undone.</span> Do you want to continue?"
+              content="Улан, это уберет размещаемый объект из списка. <span class='accent--text'>Это не может быть отменено.</span> Вы хотите продолжить?"
               @confirm="
                 removeMenu = false
                 pilot.State.RemoveDeployable(deployable.ID)
@@ -60,27 +60,27 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-card-text v-if="deployable.Destroyed">
-        <div class="heading h3 error--text text-center">EQUIPMENT DESTROYED</div>
+        <div class="heading h3 error--text text-center">СНАРЯЖЕНИЕ УНИЧТОЖЕНО</div>
         <div class="text-right mr-3 mb-n3">
           <v-btn x-small color="primary" class="fadeSelect" @click="deployable.Repair()">
             <cc-tooltip
-              content="Restore this deployable to working order. This does not consume an action and should be used to correct an error or in special cases, such as GM fiat"
+              content="Востановите этот размещаемый объект до рабочего состояния. Это не требует действия и должно использоваться для исправления ошибки или в особых случаях, например, по распоряжению ГМа."
             >
               <v-icon small left>mdi-reload</v-icon>
-              RESTORE
+              ВОССТАНОВИТЬ
             </cc-tooltip>
           </v-btn>
         </div>
       </v-card-text>
       <v-card-text v-else-if="recallState">
-        <div class="heading h3 subtle--text text-center">EQUIPMENT RECALLED</div>
+        <div class="heading h3 subtle--text text-center">СНАРЯЖЕНИЕ ОТОЗВАНО</div>
         <div class="text-right mr-3 mb-n3">
           <v-btn x-small color="primary" class="fadeSelect" @click="freeRecall()">
             <cc-tooltip
-              content="Return this deployable to the battlefield. This does not consume an action and should be used to correct an error or in special cases, such as GM fiat"
+              content="Верните этот размещаемый объект на поле боя. Это не требует действия и должно использоваться для исправления ошибки или в особых случаях, например, по распоряжению ГМа."
             >
               <v-icon small left>mdi-reload</v-icon>
-              RESTORE
+              ВОССТАНОВИТЬ
             </cc-tooltip>
           </v-btn>
         </div>
@@ -98,7 +98,7 @@
               hide-max
               readonly
             >
-              <span class="heading">Armor: {{ deployable.Armor }}</span>
+              <span class="heading">Броня: {{ deployable.Armor }}</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="deployable.MaxHP" cols="12" md="auto">
@@ -111,7 +111,7 @@
               :max-length="15"
               @update="deployable.CurrentHP = $event"
             >
-              <span class="heading">HP</span>
+              <span class="heading">ПЗ</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="deployable.MaxHP" cols="12" md="auto">
@@ -125,7 +125,7 @@
               hide-max
               @update="deployable.Overshield = $event"
             >
-              <span class="heading">OVERSHIELD: {{ deployable.Overshield }}</span>
+              <span class="heading">УСИЛЕНИЕ ЩИТА: {{ deployable.Overshield }}</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="deployable.Heatcap" cols="12" md="auto">
@@ -138,7 +138,7 @@
               clearable
               @update="deployable.CurrentHeat = $event"
             >
-              <span class="heading">HEAT</span>
+              <span class="heading">НАГРЕВ</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="deployable.Repcap" cols="12" md="auto">
@@ -150,7 +150,7 @@
               full-icon="cci-repair"
               @update="deployable.CurrentRepairs = $event"
             >
-              <span class="heading">REPAIR CAPACITY</span>
+              <span class="heading">ЛИМИТ РЕМОНТА</span>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -164,7 +164,7 @@
                 ? ''
                 : `cci-size-${deployable.Size === 0.5 ? 'half' : deployable.Size}`
             "
-            name="Size"
+            name="Размер"
             :value="`${deployable.Size === 0.5 ? '½' : deployable.Size}`"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -173,7 +173,7 @@
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.evasion'"
             inline
             class="mx-1"
-            name="Evasion"
+            name="Уклонение"
             :value="deployable.Evasion"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -182,7 +182,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.edef'"
-            name="E-Defense"
+            name="Э-Защита"
             :value="deployable.EDefense"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -191,7 +191,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.heat'"
-            name="Heat Capacity"
+            name="Тепловой Максимум"
             :value="deployable.Heatcap"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -200,7 +200,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.sensor'"
-            name="Sensor Range"
+            name="Сенсоры"
             :value="deployable.Sensor"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -209,7 +209,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.tech'"
-            name="Tech Attack"
+            name="Тех. Атака"
             :value="deployable.TechAttack"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -218,7 +218,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.repair'"
-            name="Repair Capacity"
+            name="Лимит Ремонта"
             :value="deployable.Repcap"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -227,7 +227,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.save'"
-            name="Save Target"
+            name="Спасбросок Цели"
             :value="deployable.Save"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -236,7 +236,7 @@
             inline
             class="mx-1"
             :icon="$vuetify.breakpoint.smAndDown ? '' : '$vuetify.icons.speed'"
-            name="Speed"
+            name="Скорость"
             :value="deployable.Speed"
             :cols="$vuetify.breakpoint.smAndDown ? 'auto' : ''"
           />
@@ -259,7 +259,7 @@
               active
               :activations="pilot.State.Actions"
               :unusable="
-                a.Used || (a.Activation === 'Protocol' && !pilot.State.IsProtocolAvailable)
+                a.Used || (a.Activation === 'Протокол' && !pilot.State.IsProtocolAvailable)
               "
             />
           </v-col>

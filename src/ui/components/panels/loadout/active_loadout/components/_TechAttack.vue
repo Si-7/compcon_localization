@@ -10,16 +10,16 @@
         <v-col lg="auto" cols="12" class="mt-n5">
           <v-row dense class="text-center mb-n3" justify="start" align="start">
             <v-col cols="auto" :class="$vuetify.breakpoint.smAndDown ? '' : 'mx-8'">
-              <div class="overline">Tech Attack Roll</div>
+              <div class="overline">БРОСОК ТЕХ АТАКИ</div>
               <div class="heading text--text" style="font-size: 24pt">
                 <v-icon x-large class="mr-n1">mdi-dice-d20-outline</v-icon>
                 {{ `${mech.TechAttack >= 0 ? '+' : ''}${mech.TechAttack}` }}
               </div>
             </v-col>
             <v-col cols="auto" :class="$vuetify.breakpoint.smAndDown ? '' : 'mx-8'">
-              <div class="overline">vs. Target</div>
+              <div class="overline">против</div>
               <v-icon x-large v-html="'cci-edef'" />
-              <div class="overline font-weight-bold mt-n2" v-html="'E-Defense'" />
+              <div class="overline font-weight-bold mt-n2" v-html="'Э-Защиты цели'" />
             </v-col>
           </v-row>
         </v-col>
@@ -34,7 +34,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Accuracy</div>
+              <div class="overline pl-1">Точность</div>
               <v-text-field
                 v-model="accuracy"
                 type="number"
@@ -56,7 +56,7 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline pl-1">Difficulty</div>
+              <div class="overline pl-1">Сложность</div>
               <v-text-field
                 v-model="difficulty"
                 type="number"
@@ -78,14 +78,14 @@
               :class="$vuetify.breakpoint.mdAndUp ? 'px-12 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline mr-n6 pl-3">Tech Attack Roll</div>
+              <div class="overline mr-n6 pl-3">Бросок Тех Атаки</div>
               <v-row no-gutters>
                 <v-col class="mr-n2 ml-n2">
                   <cc-dice-menu
                     v-if="resetAttackRoll"
                     :preset="`1d20+${mech.TechAttack}`"
                     :preset-accuracy="accuracy - difficulty"
-                    title="Tech Attack"
+                    title="Тех Атака"
                     autoroll
                     @commit="registerTechRoll($event.total)"
                   />
@@ -119,7 +119,7 @@
             :disabled="failed"
             @click="complete(true)"
           >
-            SUCCESS
+            УСПЕХ
           </v-btn>
         </v-col>
         <v-col md="6" lg="3" xl="2">
@@ -130,7 +130,7 @@
             :color="failed ? 'error' : ''"
             @click="complete(false)"
           >
-            FAILURE
+            ПРОВАЛ
           </v-btn>
         </v-col>
       </v-row>

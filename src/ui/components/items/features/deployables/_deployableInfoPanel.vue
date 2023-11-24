@@ -12,7 +12,7 @@
         </v-col>
         <v-col cols="auto" class="ml-auto">
           <v-chip slot="title-items" color="stark" small class="stat-text mr-2 pr-0" outlined label>
-            РАЗВЕРНУТЬ&nbsp;
+            РАЗМЕСТИТЬ&nbsp;
             <v-chip small label dark :color="`${color}`" class="text-uppercase">
               {{ activation }}
             </v-chip>

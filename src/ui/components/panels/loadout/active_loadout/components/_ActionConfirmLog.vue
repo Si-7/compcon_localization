@@ -20,9 +20,9 @@
       <v-slide-x-reverse-transition>
         <div v-if="finished" class="text-right">
           <v-btn x-small color="primary" class="fadeSelect" @click="undo()">
-            <cc-tooltip content="Undo this action, refunding any cost it may have had">
+            <cc-tooltip content="Отменить это действие, возвращая любые действия, затраченные на него">
               <v-icon small left>mdi-reload</v-icon>
-              UNDO
+              ОТМЕНИТЬ
             </cc-tooltip>
           </v-btn>
         </div>
@@ -33,7 +33,7 @@
         <v-divider />
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" tile @click="$emit('hide')">DISMISS</v-btn>
+          <v-btn color="primary" tile @click="$emit('hide')">ЗАКРЫТЬ</v-btn>
         </v-card-actions>
       </div>
     </v-slide-y-reverse-transition>
@@ -73,7 +73,7 @@ export default Vue.extend({
     finalLog() {
       const out =
         this.logOverride && this.logOverride.length ? this.logOverride : this.action.Confirm
-      if (this.action.HeatCost) out.push('ALERT: REACTOR HEAT LEVELS INCREASING')
+      if (this.action.HeatCost) out.push('ВНИМАНИЕ: УРОВЕНЬ НАГРЕВА РЕАКТОРА УВЕЛИЧИВАЕТСЯ')
       return out
     },
     finished() {

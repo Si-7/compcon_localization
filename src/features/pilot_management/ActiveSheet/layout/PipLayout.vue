@@ -8,7 +8,7 @@
         class="ml-auto text-center"
       >
         <fieldset class="ma-0 py-0 px-3" style="height: 100%">
-          <legend class="overline px-1 mb-n1" style="line-height: 0">Active Effects</legend>
+          <legend class="overline px-1 mb-n1" style="line-height: 0">Активные Эффекты</legend>
           <cc-synergy-display large location="active_effects" :mech="mech" show-none />
         </fieldset>
       </v-col>
@@ -23,7 +23,7 @@
           clearable
           @update="state.SetMove($event)"
         >
-          <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Movement</div>
+          <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Перемещение</div>
         </cc-tick-bar>
       </v-col>
       <v-col cols="12" md="auto">
@@ -40,7 +40,7 @@
             no-input
             @update="state.SetBoost($event)"
           >
-            <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Boost</div>
+            <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Ускорение</div>
           </cc-tick-bar>
         </v-fade-transition>
       </v-col>
@@ -54,7 +54,7 @@
         class="ml-auto text-center"
       >
         <fieldset class="ma-0 py-0 px-3" style="height: 100%">
-          <legend class="overline px-1 mb-n1" style="line-height: 0">Active Effects</legend>
+          <legend class="overline px-1 mb-n1" style="line-height: 0">Активные Эффекты</legend>
           <cc-synergy-display large location="active_effects" :mech="mech" show-none />
         </fieldset>
       </v-col>
@@ -87,7 +87,7 @@
               :class="{ rolledOver: structRollover }"
               @update="state.SetStructure($event)"
             >
-              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Structure</div>
+              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Структура</div>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -109,7 +109,7 @@
           readonly
           justify="center"
         >
-          <div class="heading h3">Armor: {{ mech.Armor }}</div>
+          <div class="heading h3">Броня: {{ mech.Armor }}</div>
         </cc-tick-bar>
       </v-col>
       <v-col>
@@ -134,7 +134,7 @@
               readonly
               justify="center"
             >
-              <div class="heading h3">Armor: {{ mech.Armor }}</div>
+              <div class="heading h3">Броня: {{ mech.Armor }}</div>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="auto" align-self="end" class="ma-0 pa-0">
@@ -155,7 +155,7 @@
               justify="start"
               @update="state.SetHp($event)"
             >
-              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">HP</div>
+              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">ПЗ</div>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -179,7 +179,7 @@
               @update="state.SetOvershield($event)"
             >
               <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">
-                OVERSHIELD: {{ mech.Overshield }}
+                УСИЛЕНИЕ ЩИТА: {{ mech.Overshield }}
               </div>
             </cc-tick-bar>
           </v-col>
@@ -211,7 +211,7 @@
               :class="{ rolledOver: stressRollover }"
               @update="state.SetStress($event)"
             >
-              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Stress</div>
+              <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">Нагрузка</div>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -235,16 +235,16 @@
           hide-buttons
           @update="state.SetCorePower($event)"
         >
-          <span :class="`heading h3`">CORE</span>
+          <span :class="`heading h3`">МОЩЬ ЯДРА</span>
         </cc-tick-bar>
         <div v-if="$vuetify.breakpoint.mdAndUp">
           <div
             v-if="mech.CurrentCoreEnergy"
             class="text-center caption font-weight-bold corepower--text"
           >
-            AVAILABLE
+            ДОСТУПНА
           </div>
-          <div v-else class="text-center caption subtle--text">EXHAUSTED</div>
+          <div v-else class="text-center caption subtle--text">ПОТРАЧЕНА</div>
         </div>
       </v-col>
       <v-col>
@@ -271,22 +271,22 @@
               clearable
               @update="state.SetHeat($event)"
             >
-              <span v-if="mech.IsInDangerZone" class="dangerzone--text heading h3">HEAT</span>
+              <span v-if="mech.IsInDangerZone" class="dangerzone--text heading h3">НАГРЕВ</span>
               <span v-else :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">
-                HEAT
+                НАГРЕВ
               </span>
             </cc-tick-bar>
             <div
               v-if="!$vuetify.breakpoint.smAndDown && mech.IsInDangerZone"
               class="caption font-weight-bold dangerzone--text text-center"
             >
-              // HEAT::DANGER ZONE //
+              // НАГРЕВ::ОПАСНАЯ ЗОНА //
             </div>
             <div
               v-else-if="!$vuetify.breakpoint.smAndDown"
               class="caption subtle--text text-center"
             >
-              HEAT LEVELS NOMINAL
+              УРОВЕНЬ НАГРЕВА В НОРМЕ
             </div>
           </v-col>
           <v-col cols="auto">
@@ -309,10 +309,10 @@
                 v-if="$vuetify.breakpoint.mdAndDown"
                 :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`"
               >
-                REPAIR
+                РЕМОНТ
               </span>
               <span v-else :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">
-                REPAIR CAPACITY
+                ЛИМИТ РЕМОНТА
               </span>
             </cc-tick-bar>
           </v-col>
@@ -334,7 +334,7 @@
               @update="state.SetOvercharge($event)"
             >
               <div :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">
-                Overcharge
+                Перегрузка
               </div>
             </cc-tick-bar>
             <div class="text-center caption overcharge--text font-weight-bold">
@@ -364,19 +364,19 @@
                 v-if="$vuetify.breakpoint.mdAndDown"
                 :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`"
               >
-                CP
+                МЯ
               </span>
               <span v-else :class="`heading ${$vuetify.breakpoint.smAndDown ? 'h4' : 'h3'}`">
-                CORE POWER
+                МОЩЬ ЯДРА
               </span>
             </cc-tick-bar>
             <div
               v-if="mech.CurrentCoreEnergy"
               class="text-center caption font-weight-bold corepower--text"
             >
-              AVAILABLE
+              ДОСТУПНА
             </div>
-            <div v-else class="text-center caption subtle--text">EXHAUSTED</div>
+            <div v-else class="text-center caption subtle--text">ПОТРАЧЕНА</div>
           </v-col>
         </v-row>
       </v-col>

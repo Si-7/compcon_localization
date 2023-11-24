@@ -25,7 +25,7 @@
     </v-row>
     <v-row no-gutters class="mt-2">
       <v-col v-if="item.Profiles && item.Profiles.length > 1" cols="12">
-        <div class="overline">WEAPON PROFILES</div>
+        <div class="overline">ПРОФИЛИ ОРУЖИЯ</div>
         <v-tabs v-model="tab" grow height="30px">
           <v-tab v-for="p in item.Profiles" :key="p.ID">
             <span class="accent--text font-weight-bold">{{ p.Name }}</span>
@@ -37,7 +37,7 @@
       <v-col md="12" lg="10">
         <v-alert v-if="item.ProfileEffect" dense outlined color="active" class="mt-2">
           <div class="mb-n2 mt-n2">
-            <div class="overline stark--text my-n2">EFFECT</div>
+            <div class="overline stark--text my-n2">ЭФФЕКТ</div>
             <p v-html-safe="item.ProfileEffect" class="text--text body-text mb-1 mr-2 ml-3" />
           </div>
         </v-alert>
@@ -50,7 +50,7 @@
           :style="`opacity: ${!attackRoll ? '0.4' : '1'}`"
         >
           <div class="my-n2">
-            <div class="overline stark--text my-n2">ON ATTACK</div>
+            <div class="overline stark--text my-n2">ПРИ АТАКЕ</div>
             <p v-html-safe="item.ProfileOnAttack" class="text--text body-text mb-1" />
           </div>
         </v-alert>
@@ -85,7 +85,7 @@
           :style="`opacity: ${!hit ? '0.4' : '1'}`"
         >
           <div class="mb-n2">
-            <div class="overline stark--text my-n2">ON HIT</div>
+            <div class="overline stark--text my-n2">ПРИ ПОПАДАНИИ</div>
             <p v-html-safe="item.ProfileOnHit" class="text--text body-text mb-1" />
           </div>
         </v-alert>
@@ -101,7 +101,7 @@
             cci-mech-weapon
           </v-icon>
           <div class="mb-n2">
-            <div class="overline stark--text my-n2">ON CRITICAL HIT</div>
+            <div class="overline stark--text my-n2">ПРИ КРИТИЧЕСКОМ ПОПАДАНИИ</div>
             <p v-html-safe="item.ProfileOnCrit" class="text--text body-text mb-1" />
           </div>
         </v-alert>
@@ -123,22 +123,22 @@
                 cols="auto"
                 :class="$vuetify.breakpoint.mdAndUp ? 'mr-8' : ''"
               >
-                <div class="overline">Range</div>
+                <div class="overline">Дальность</div>
                 <cc-range-element :range="getRange" class="d-inline" />
               </v-col>
               <v-col cols="auto" :class="$vuetify.breakpoint.mdAndUp ? 'mx-8' : ''">
-                <div class="overline mb-n2">Attack Roll</div>
+                <div class="overline mb-n2">Бросок Атаки</div>
                 <div class="heading text--text" style="font-size: 24pt">
                   <v-icon x-large class="mr-n1">mdi-dice-d20-outline</v-icon>
                   + {{ mech.AttackBonus }}
                 </div>
               </v-col>
               <v-col cols="auto" :class="$vuetify.breakpoint.mdAndUp ? 'mx-8' : ''">
-                <div class="overline mb-n3">vs. Target</div>
+                <div class="overline mb-n3">против</div>
                 <v-icon x-large v-html="isSmart ? 'cci-edef' : 'cci-evasion'" />
                 <div
                   class="overline font-weight-bold mt-n2"
-                  v-html="isSmart ? 'E-Defense' : 'Evasion'"
+                  v-html="isSmart ? 'Э-Защиты цели' : 'Уклонения цели'"
                 />
               </v-col>
               <v-col
@@ -147,7 +147,7 @@
                 md="auto"
                 :class="$vuetify.breakpoint.mdAndUp ? 'ml-8' : ''"
               >
-                <div class="overline">Damage</div>
+                <div class="overline">Урон</div>
                 <cc-damage-element
                   :damage="getDamage"
                   :type-override="ammoDamage"
@@ -167,7 +167,7 @@
                 :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
                 style="height: 70px"
               >
-                <div class="overline pl-1">Accuracy</div>
+                <div class="overline pl-1">Точность</div>
                 <v-text-field
                   v-model="accuracy"
                   type="number"
@@ -189,7 +189,7 @@
                 :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
                 style="height: 70px"
               >
-                <div class="overline pl-1">Difficulty</div>
+                <div class="overline pl-1">Сложность</div>
                 <v-text-field
                   v-model="difficulty"
                   type="number"
@@ -211,7 +211,7 @@
                 :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 panel dual-sliced' : ''"
                 style="height: 70px"
               >
-                <div class="overline pl-1">Attack Roll</div>
+                <div class="overline pl-1">Бросок Атаки</div>
                 <v-row no-gutters>
                   <v-col class="mr-n2 ml-n2">
                     <cc-dice-menu
@@ -219,7 +219,7 @@
                       :preset="`1d20+${mech.AttackBonus}`"
                       :preset-accuracy="accuracy - difficulty"
                       autoroll
-                      title="ATTACK ROLL"
+                      title="Бросок Атаки"
                       @commit="attackRoll = $event.total"
                     />
                   </v-col>
@@ -236,7 +236,7 @@
                   </v-col>
                 </v-row>
                 <div v-if="crit" class="caption secondary--text font-weight-bold ml-8 my-n1">
-                  CRITICAL
+                  КРИТИЧЕСКОЕ
                 </div>
               </v-col>
               <v-col v-if="aux" cols="auto" align-self="center">
@@ -249,7 +249,7 @@
                   @click="attackFree = !attackFree"
                 >
                   <v-icon left>cci-free-action</v-icon>
-                  Attack
+                  Атаковать
                 </v-btn>
               </v-col>
               <v-col v-else-if="overwatch" cols="auto" align-self="center">
@@ -264,7 +264,7 @@
                   @click="attackFree = !attackFree"
                 >
                   <v-icon left>cci-reaction</v-icon>
-                  Attack
+                  Атаковать
                 </v-btn>
               </v-col>
               <v-col v-else cols="auto" class="ml-2 mt-n1">
@@ -281,7 +281,7 @@
                 >
                   <v-icon v-if="improv" left>mdi-hexagon-slice-6</v-icon>
                   <v-icon v-else left>mdi-hexagon-slice-3</v-icon>
-                  Attack
+                  Атаковать
                 </v-btn>
                 <v-btn
                   small
@@ -293,16 +293,16 @@
                   @click="attackFree = !attackFree"
                 >
                   <v-icon left small>cci-free-action</v-icon>
-                  Free Action
+                  Бесплатное действие
                   <cc-tooltip
                     inline
-                    content="Special rules or equipment may allow you to Skirmish as a Free Action. Using this button will commit the attack without spending a Quick Action this turn"
+                    content="Специальные правила или снаряжение могут позволить использовать Перестрелку свободным действием. Нажатие на эту кнопку совершит атаку, не используя Быстрое Действие."
                   >
                     <v-icon right small class="fadeSelect">mdi-information-outline</v-icon>
                   </cc-tooltip>
                 </v-btn>
                 <div v-if="item.ProfileHeatCost" class="overline error--text text-center">
-                  ALERT: This action will incur {{ item.ProfileHeatCost }} heat
+                  ПРЕДУПРЕЖДЕНИЕ: Это действие нанесет {{ item.ProfileHeatCost }} Нагрева
                 </div>
               </v-col>
             </v-row>
@@ -319,7 +319,7 @@
                 :disabled="missed"
                 @click="hit = !hit"
               >
-                HIT
+                ПОПАДАНИЕ
               </v-btn>
             </v-col>
             <v-col md="6" lg="3" xl="2">
@@ -330,7 +330,7 @@
                 :color="missed ? 'error' : ''"
                 @click="missed = !missed"
               >
-                MISSED
+                ПРОМАХ
               </v-btn>
             </v-col>
           </v-row>
@@ -345,12 +345,11 @@
             <v-col cols="auto" class="ml-auto" />
             <v-col v-if="hit && crit" cols="auto" class="text-center">
               <cc-tooltip
-                :content="`On a critical hit, all damage dice are rolled twice
-(including bonus damage) and the highest result from
-each source of damage is used.`"
+                :content="`При критическом попадании все кубики урона бросаются дважды (включая
+                дополнительный урон) и используется наибольший результат от каждого источника урона.`"
               >
                 <v-icon x-large color="secondary">mdi-progress-alert</v-icon>
-                <div class="secondary--text">CRITICAL HIT</div>
+                <div class="secondary--text">КРИТИЧЕСКОЕ ПОПАДАНИЕ</div>
               </cc-tooltip>
             </v-col>
             <v-col
@@ -360,7 +359,7 @@ each source of damage is used.`"
               style="height: 70px"
             >
               <div class="overline mt-n2 pl-1">
-                {{ getDamage.length > 1 ? 'Damage Rolls' : 'Damage Roll' }}
+                {{ getDamage.length > 1 ? 'Бросков урона' : 'Бросок урона' }}
               </div>
               <v-row no-gutters>
                 <v-col v-for="(d, i) in getDamage" :key="`rolled_damage_${i}`" class="mr-n2 ml-n2">
@@ -368,7 +367,7 @@ each source of damage is used.`"
                     <v-col>
                       <cc-dice-menu
                         :preset="d.Value"
-                        :title="`${d.Type} DAMAGE ROLL`"
+                        :title="`${d.Type} БРОСОК УРОНА`"
                         :overkill="overkill"
                         :critical="crit"
                         autoroll
@@ -397,11 +396,11 @@ each source of damage is used.`"
               :class="$vuetify.breakpoint.mdAndUp ? 'ml-auto px-12 mr-n10 panel dual-sliced' : ''"
               style="height: 70px"
             >
-              <div class="overline mt-n2 pl-1">Bonus Damage</div>
+              <div class="overline mt-n2 pl-1">Дополнительный Урон</div>
               <v-row no-gutters>
                 <v-col cols="auto">
                   <cc-dice-menu
-                    title="BONUS DAMAGE"
+                    title="Дополнительный Урон"
                     :overkill="overkill"
                     :critical="crit"
                     @commit="setBonusDamage($event)"
@@ -428,7 +427,7 @@ each source of damage is used.`"
                 :class="$vuetify.breakpoint.mdAndUp ? 'px-12 panel dual-sliced' : ''"
                 style="height: 70px"
               >
-                <div class="overline mt-n2 pl-1">Total Damage</div>
+                <div class="overline mt-n2 pl-1">Суммарный Урон</div>
                 <v-row no-gutters justify="end">
                   <v-col v-for="(d, i) in getDamage" :key="`dm_result_${i}`" cols="auto">
                     <div class="heading h2 stark--text">
@@ -468,19 +467,19 @@ each source of damage is used.`"
               >
                 <cc-tooltip :content="`This attack deals a minimum of ${reliable} damage`">
                   <v-icon x-large>mdi-progress-alert</v-icon>
-                  <div>RELIABLE {{ reliable }}</div>
+                  <div>НАДЕЖНОЕ {{ reliable }}</div>
                 </cc-tooltip>
               </v-col>
             </v-slide-x-reverse-transition>
             <v-slide-x-reverse-transition>
               <v-col v-if="overkill" cols="12">
                 <div class="text-right overline stark--text mt-n2">
-                  <b>OVERKILL</b>
+                  <b>ИЗБЫТОЧНЫЙ УРОН</b>
                 </div>
                 <v-row no-gutters justify="end" align="center">
                   <v-col cols="auto">
                     <cc-tooltip
-                      :content="`When rolling for damage with this weapon, any damage dice that land on a 1 cause the attacker to take 1 Heat, and are then rerolled. Additional 1s continue to trigger this effect. ${autoOverkillString}`"
+                      :content="`При броске на урон этим оружием все кубики урона, выпавшие на 1, заставляют атакующего получить 1 Нагрев, а затем перебрасываются повторно. Дополнительные 1 продолжают вызывать этот эффект. ${autoOverkillString}`"
                     >
                       <v-icon x-large>mdi-progress-alert</v-icon>
                     </cc-tooltip>
@@ -499,7 +498,7 @@ each source of damage is used.`"
                     </div>
                   </v-col>
                   <v-col cols="auto">
-                    <cc-tooltip content="Add Overkill Heat">
+                    <cc-tooltip content="Добавить Нагрев Избыточного Урона">
                       <v-btn large icon @click="overkillHeat++">
                         <v-icon large>mdi-plus-circle-outline</v-icon>
                       </v-btn>
@@ -507,7 +506,7 @@ each source of damage is used.`"
                   </v-col>
                 </v-row>
                 <div v-if="overkillHeat" class="overline error--text text-right">
-                  ALERT: This action will incur an additional {{ overkillHeat }} heat
+                  ПРЕДУПРЕЖДЕНИЕ: Это действие также нанесет {{ overkillHeat }} Нагрева
                 </div>
               </v-col>
             </v-slide-x-reverse-transition>
@@ -525,7 +524,7 @@ each source of damage is used.`"
                       @click="confirm()"
                     >
                       <v-icon left>mdi-check</v-icon>
-                      Confirm
+                      Подтвердить
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -538,7 +537,7 @@ each source of damage is used.`"
                       dense
                       :disabled="hit && !summedDamage"
                     >
-                      <span slot="label" class="caption">TARGET DESTROYED</span>
+                      <span slot="label" class="caption">ЦЕЛЬ УНИЧТОЖЕНА</span>
                     </v-checkbox>
                   </v-col>
                 </v-row>
@@ -556,38 +555,38 @@ each source of damage is used.`"
             <span class="accent--text">COMP/CON</span>
             ] :
             <span v-if="missed">
-              {{ improv ? 'Improvised attack' : 'Weapon activation' }} registered. {{ missText }}.
+              {{ improv ? 'Импровизированная атака' : 'Активация оружия' }} зарегистрирована. {{ missText }}.
             </span>
             <span v-if="hit">
-              {{ improv ? 'Improvised attack' : 'Weapon activation' }} registered.
-              {{ crit ? 'Direct hit' : 'Hit' }} confirmed.
+              {{ improv ? 'Импровизированная атака' : 'Активация оружия' }} зарегистрирована.
+              {{ crit ? 'Прямое попадание' : 'Попадание' }} подтверждено.
             </span>
-            <span v-if="kill">Target destroyed.</span>
+            <span v-if="kill">Цель уничтожена.</span>
           </p>
           <p v-if="confirmed" class="flavor-text stark--text ma-0">
             >//[
-            <span class="accent--text">COMP/CON::COMBAT TELEMETRY LOG</span>
+            <span class="accent--text">COMP/CON::ЖУРНАЛ БОЕВОЙ ТЕЛЕМЕТРИИ</span>
             ] :
-            <span>ATK {{ attackRoll }}</span>
+            <span>АТАКА {{ attackRoll }}</span>
             <cc-slashes />
-            <span v-if="hit && !crit">HIT</span>
-            <span v-else-if="crit">CRITICAL HIT</span>
-            <span v-else>MISS</span>
+            <span v-if="hit && !crit">ПОПАДАНИЕ</span>
+            <span v-else-if="crit">КРИТИЧЕСКОЕ ПОПАДАНИЕ</span>
+            <span v-else>ПРОМАХ</span>
             <cc-slashes />
-            <span v-if="finalDamage">{{ finalDamage }} DMG</span>
-            <span v-if="kill">KILL CONFIRM</span>
+            <span v-if="finalDamage">{{ finalDamage }} УРОНА</span>
+            <span v-if="kill">УНИЧТОЖЕНИЕ ПОДТВЕРЖДЕНО</span>
             <span v-if="item.ProfileHeatCost || overkillHeat">
               <br />
-              ALERT: REACTOR HEAT LEVELS INCREASING
+              ВНИМАНИЕ: УРОВЕНЬ НАГРЕВА РЕАКТОРА УВЕЛИЧИВАЕТСЯ
             </span>
             <cc-tooltip
               v-if="!improv"
               inline
-              content="Undo this attack, refunding any actions it may have cost"
+              content="Отменить эту атаку, возвращая любые действия, затраченные на нее"
             >
               <v-btn x-small color="primary" class="fadeSelect" @click="reset">
                 <v-icon small left>mdi-reload</v-icon>
-                UNDO
+                ОТМЕНИТЬ
               </v-btn>
             </cc-tooltip>
           </p>
@@ -657,13 +656,13 @@ export default Vue.extend({
       return !this.item.Damage.length
     },
     missText() {
-      if (this.reliable) return 'Glancing hit'
+      if (this.reliable) return 'Удар по касательной'
       switch (this.item.WeaponType) {
-        case 'Rifle':
-        case 'Cannon':
-          return 'Shot wide'
+        case 'Винтовка':
+        case 'Пушка':
+          return 'Выстрел мимо'
         default:
-          return 'No effect'
+          return 'Никакого эффекта'
       }
     },
     overkill() {

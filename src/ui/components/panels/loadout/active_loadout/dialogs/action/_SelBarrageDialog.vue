@@ -33,9 +33,9 @@
           <v-container v-if="hasAux(mounts[i], item)">
             <div class="my-3">
               <div class="body-text text-center font-weight-bold">
-                You may make an additional attack with the following mounted Auxiliary weapon:
+                Вы можете выполнить дополнительную атаку следующим Вспомогательным оружием:
                 <div class="text-center overline my-n2">
-                  This weapon cannot deal bonus damage.
+                  Это оружие не может нанести дополнительный урон.
                 </div>
               </div>
               <v-alert dense outlined class="my-1" colored-border color="primary">

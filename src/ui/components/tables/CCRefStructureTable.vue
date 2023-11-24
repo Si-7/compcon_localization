@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="75vw">
     <v-card flat tile>
       <v-toolbar color="title-bg clipped-large" dark flat>
-        <v-toolbar-title class="heading h1">STRUCTURE DAMAGE</v-toolbar-title>
+        <v-toolbar-title class="heading h1">СТРУКТУРНЫЙ УРОН</v-toolbar-title>
       </v-toolbar>
       <v-row justify="center">
         <v-col cols="11">
@@ -10,13 +10,13 @@
             <v-card-text>
               <v-row>
                 <v-col cols="2">
-                  <span class="heading h3">Roll</span>
+                  <span class="heading h3">Бросок</span>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Result</span>
+                  <span class="heading h3">Результат</span>
                 </v-col>
                 <v-col cols="7">
-                  <span class="heading h3">Effect</span>
+                  <span class="heading h3">Эффект</span>
                 </v-col>
               </v-row>
               <v-divider class="ma-2" />
@@ -27,13 +27,11 @@
                   <v-icon large>mdi-dice-6</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Glancing Blow</span>
+                  <span class="heading h3">Скользящий Удар</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Emergency systems kick in and stabilize your mech. However, your mech is
-                    <b>impaired</b>
-                    until the end of your next turn.
+                    Аварийные системы срабатывают и стабилизируют вашего меха, но он будет Ослаблен до конца вашего следующего хода.
                   </span>
                 </v-col>
               </v-row>
@@ -45,16 +43,16 @@
                   <v-icon large>mdi-dice-4</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">System Trauma</span>
+                  <span class="heading h3">Системная Травма</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Parts of your mech are torn off by the damage. Roll a d6. On a 1-3, all the
-                    weapons on one mount are destroyed. On a 4-6, a system is destroyed. You choose
-                    what’s destroyed, but systems or weapons with the limited tag and no charges
-                    left are not valid. If there’s nothing left of one result, it becomes the other.
-                    If there’s absolutely nothing left to destroy, this result becomes DIRECT HIT
-                    instead.
+                    Части вашего меха оторваны в результате урона. Бросьте 1d6. При выпадении 1–3
+                    уничтожается все оружие в одном слоте по вашему выбору; при 4-6 уничтожается
+                    система по вашему выбору. Ограниченные системы и оружие, у которых
+                    закончились заряды, не являются доступными вариантами. Если не осталось ни
+                    одного доступного варианта, результат меняется. Если не осталось действующих
+                    систем или оружия, этот результат становится Прямым Попаданием.
                   </span>
                 </v-col>
               </v-row>
@@ -64,28 +62,18 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Direct Hit</span>
+                  <span class="heading h3">Прямое Попадание</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    This result has different outcomes depending on how much structure your mech has
-                    remaining.
+                    Результат зависит от оставшейся Структуры вашего меха:
                     <br />
-                    3+ - Your mech is
-                    <b>stunned</b>
-                    until the end of your next turn.
+                    3+ Структуры: Ваш мех Ошеломлен до конца вашего следующего хода.
                     <br />
-                    2 - Your mech must pass a
-                    <b>hull</b>
-                    check or be
-                    <b>destroyed.</b>
-                    Even on a successful check, your mech is
-                    <b>stunned</b>
-                    until the end of your next turn.
+                    2 Структуры: Сделайте проверку Корпуса. При успехе ваш мех Ошеломлен до
+                    конца вашего следующего хода. В случае неудачи ваш мех уничтожается.
                     <br />
-                    1 or lower - Your mech is
-                    <b>destroyed</b>
-                    .
+                    1 Структура: Ваш мех уничтожен.
                   </span>
                 </v-col>
               </v-row>
@@ -96,13 +84,12 @@
                   <v-icon large>mdi-dice-1</v-icon>
                 </v-col>
                 <v-col cols="3">
-                  <span class="heading h3">Crushing Hit</span>
+                  <span class="heading h3">Сокрушительный Удар</span>
                 </v-col>
                 <v-col cols="7">
                   <span class="body-text text--text">
-                    Your mech is damaged beyond repair and is
-                    <b>destroyed</b>
-                    . You can still exit it as normal.
+                    Ваш мех поврежден и не подлежит ремонту — он уничтожен. Вы по-прежнему
+                    можете выйти из него как обычно.
                   </span>
                 </v-col>
               </v-row>

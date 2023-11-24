@@ -36,7 +36,7 @@
     </div>
 
     <div v-if="item.Deployables && item.Deployables.length">
-      <div class="overline ml-n2 subtle--text">РАЗВЕРТЫВАЕМЫЕ ОБЪЕКТЫ СНАРЯЖЕНИЯ</div>
+      <div class="overline ml-n2 subtle--text">РАЗМЕЩАЕМЫЕ ОБЪЕКТЫ СНАРЯЖЕНИЯ</div>
       <v-row no-gutters justify="center">
         <v-col v-for="(d, i) in item.Deployables" :key="`${item.Name}_deployable_${i}`" cols="auto">
           <cc-deployable-info
@@ -50,7 +50,7 @@
     </div>
 
     <div v-if="item.IntegratedEquipment && item.IntegratedEquipment.length">
-      <div class="overline ml-n2 subtle--text">EQUIPMENT INTEGRATIONS</div>
+      <div class="overline ml-n2 subtle--text">ИНТЕГРАЦИИ СНАРЯЖЕНИЯ</div>
       <v-row no-gutters justify="center">
         <v-col
           v-for="(x, i) in item.IntegratedEquipment"

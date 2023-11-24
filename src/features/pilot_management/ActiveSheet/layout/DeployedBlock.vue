@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="overline mb-2">
-      DEPLOYED EQUIPMENT
+      РАЗМЕЩАЕМОЕ СНАРЯЖЕНИЕ
       <v-btn small right icon class="fadeSelect" @click="showDeployed = !showDeployed">
         <v-icon small v-html="showDeployed ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
       </v-btn>
@@ -22,7 +22,7 @@
             <v-col class="panel">
               <div class="heading h2 subtle--text" style="opacity: 0.4">
                 <cc-slashes />
-                NO EQUIPMENT DEPLOYED
+                НЕТ РАЗМЕЩАЕМОГО СНАРЯЖЕНИЯ
                 <cc-slashes />
               </div>
             </v-col>

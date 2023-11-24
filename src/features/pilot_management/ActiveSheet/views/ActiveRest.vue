@@ -6,7 +6,7 @@
         <div class="flavor-text subtle--text">{{ pilot.Name }}</div>
       </v-col>
       <v-col cols="auto" class="ml-auto text-right mr-2 mt-n2">
-        <div class="heading h3 accent--text">HP</div>
+        <div class="heading h3 accent--text">ПЗ</div>
         <div class="font-weight-bold mr-n5">
           <v-btn icon x-small class="fadeSelect" @click="pilot.CurrentHP -= 1">
             <v-icon small color="primary">mdi-minus</v-icon>
@@ -18,19 +18,19 @@
         </div>
       </v-col>
       <v-col cols="auto" class="text-right mx-2 mt-n2">
-        <div class="heading h3 accent--text">Armor</div>
+        <div class="heading h3 accent--text">Броня</div>
         <div class="font-weight-bold">{{ pilot.Armor }}</div>
       </v-col>
       <v-col cols="auto" class="text-right mx-2 mt-n2">
-        <div class="heading h3 accent--text">E-Defense</div>
+        <div class="heading h3 accent--text">Э-Защита</div>
         <div class="font-weight-bold">{{ pilot.EDefense }}</div>
       </v-col>
       <v-col cols="auto" class="text-right mx-2 mt-n2">
-        <div class="heading h3 accent--text">Evasion</div>
+        <div class="heading h3 accent--text">Уклонение</div>
         <div class="font-weight-bold">{{ pilot.Evasion }}</div>
       </v-col>
       <v-col cols="auto" class="text-right mx-2 mt-n2">
-        <div class="heading h3 accent--text">Grit</div>
+        <div class="heading h3 accent--text">Стойкость</div>
         <div class="font-weight-bold">+{{ pilot.Grit }}</div>
       </v-col>
     </v-row>
@@ -40,27 +40,26 @@
         <v-col cols="auto">
           <v-alert dense outlined color="error" prominent>
             <v-icon slot="prepend" color="error" size="70" class="mr-3">cci-eclipse</v-icon>
-            <span class="heading h1">MECH DESTROYED</span>
-            <div class="heading mt-n4 subtle--text">FRAME.CRITICAL//: CATASTROPHIC DAMAGE</div>
+            <span class="heading h1">МЕХ УНИЧТОЖЕН</span>
+            <div class="heading mt-n4 subtle--text">FRAME.КРИТИЧЕСКОЕ//: КАТАСТРОФИЧЕСКИЙ УРОН</div>
           </v-alert>
         </v-col>
       </v-row>
       <div v-if="mech.ReactorDestroyed">
         <p class="heading h2 stark--text text-center pt-4">
-          This mech cannot be repaired and must be reprinted.
+          Этот мех не может быть отремонтирован и должен быть распечатан заново.
         </p>
       </div>
       <div v-else class="ma-3 panel clipped pt-3 px-6 text-center">
         <v-alert color="warning" outlined border="bottom" class="mb-2">
           <div class="body-text text--text">
-            This mech can be repaired to working order by spending
+            Этот мех может быть отремонтирован до рабочего состояния при использовании
             <b class="accent--text">4</b>
-            repair points. These repairs can be spent from this mech’s own pool or the pools of any
-            pilots that wish to contribute, in any combination.
+            Ремонта. Любой может пожертвовать свои Ремонты на это, что означает, что разрушенный мех может быть восстановлен, даже если у него недостаточно Ремонтов.
           </div>
         </v-alert>
         <div class="subtle--text mt-2">
-          REPAIR CAPACITY REMAINING:
+          ОСТАВШИЕСЯ РЕМОНТЫ:
           <b class="accent--text">{{ mech.CurrentRepairs }}</b>
         </div>
         <div>
@@ -74,7 +73,7 @@
             mdi-circle-outline
           </v-icon>
         </div>
-        <div class="heading h3 mt-2 text-left">REPAIR POINTS</div>
+        <div class="heading h3 mt-2 text-left">РЕМОНТЫ</div>
         <v-slider
           v-model="selfRepair"
           :max="Math.min(mech.CurrentRepairs, 4)"
@@ -85,7 +84,7 @@
           track-color="active"
           track-fill-color="success"
         />
-        <div class="heading h3 mt-2 text-left">ALLY REPAIR POINTS</div>
+        <div class="heading h3 mt-2 text-left">РЕМОНТЫ СОЮЗНИКОВ</div>
         <v-slider
           v-model="allyRepair"
           step="1"
@@ -106,7 +105,7 @@
           @click="pilot.State.RepairDestroyed(selfRepair)"
         >
           <v-icon x-large left>cci-repair</v-icon>
-          &nbsp; Repair Mech
+          &nbsp; Ремонтировать меха
         </v-btn>
       </div>
     </div>
@@ -116,7 +115,7 @@
         <cc-active-synergy :locations="['rest']" :mech="mech" />
       </div>
       <span v-if="!mech.Destroyed && !mech.ReactorDestroyed" class="overline">
-        FIELD REPAIR INTERFACE
+        ИНТЕРФЕЙС ПОЛЕВОГО РЕМОНТА
         <v-btn small right icon class="fadeSelect" @click="showRepair = !showRepair">
           <v-icon small v-html="showRepair ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
         </v-btn>
@@ -128,25 +127,25 @@
         <v-row dense class="px-3">
           <v-col v-if="$vuetify.breakpoint.mdAndUp">
             <p class="caption flavor-text subtle--text pb-0 mb-0">
-              //[COMP/CON: COMBAT OPERATIONS COMPLETE
+              //[COMP/CON: БОЕВЫЕ ОПЕРАЦИИ ЗАВЕРШЕНЫ
               <br />
-              DISCONNECTING PILOT SENSORIUM ... done
+              ОТКЛЮЧЕНИЕ СЕНСОРИУМА ПИЛОТА ... успешно
               <br />
-              UPLOADING BATTLEFIELD TELEMETRY ... done
+              ОТПРАВКА БОЕВОЙ ТЕЛЕМЕТРИИ ... успешно
               <br />
-              RUNNING FRAME DIAGNOSTIC SUITE ... done ]
+              ПРОВЕДЕНИЕ КОМПЛЕКТА ДИАГНОСТИКИ РАМЫ ... успешно ]
               <br />
               <span class="overline stark--text">
-                {{ mech.Frame.Source }} {{ mech.Frame.Name }} DIAGNOSTICS COMPLETE
+                ДИАГНОСТИКА {{ mech.Frame.Source }} {{ mech.Frame.Name }} ЗАВЕРШЕНА
               </span>
             </p>
             <p class="flavor-text subtle--text mb-0">
               >//[
               <span class="accent--text">COMP/CON</span>
               <span class="text--text">
-                Lancer, I have detected
+                Улан, замечен{{ issues === 0 ? 'о' : ( issues === 1 ? 'а' : 'ы' ) }}
                 <b class="accent--text">{{ issues }}</b>
-                issue{{ issues === 1 ? '' : 's' }} requiring your attention:
+                проблем{{ issues === 0 ? '' : ( issues === 1 ? 'а' : 'ы' ) }}, требующ{{ issues === 0 ? 'их' : ( issues === 1 ? 'ая' : 'ие' ) }} вашего внимания:
               </span>
               ]
             </p>
@@ -154,7 +153,7 @@
           <v-col>
             <div class="text-center mb-1">
               <span class="heading h3">
-                REPAIR CAPACITY REMAINING:
+                ОСТАВШИЕСЯ РЕМОНТЫ:
                 <b class="accent--text heading h2">{{ mech.CurrentRepairs }}</b>
               </span>
               <br />
@@ -190,9 +189,9 @@
         <v-row dense class="px-3">
           <v-col class="text-center flavor-text background">
             <span v-if="mech.CurrentHP === mech.MaxHP" class="stark--text">
-              > NO DAMAGE DETECTED
+              > УРОН НЕ ОБНАРУЖЕН
             </span>
-            <b v-else class="warning--text">WARNING: DAMAGE DETECTED</b>
+            <b v-else class="warning--text">ПРЕДУПРЕЖДЕНИЕ: ОБНАРУЖЕН УРОН</b>
             <br />
             <v-btn
               v-if="mech.CurrentHP !== mech.MaxHP"
@@ -204,16 +203,16 @@
               :disabled="!mech.CurrentRepairs"
               @click="pilot.State.RepairHP()"
             >
-              Repair
+              Ремонт
               <v-icon right>control_point</v-icon>
             </v-btn>
           </v-col>
 
           <v-col class="text-center flavor-text background">
             <span v-if="mech.CurrentStructure === mech.MaxStructure" class="stark--text">
-              > STRUCTURAL INTEGRITY NOMINAL
+              > СТРУКТУРНАЯ ЦЕЛОСТНОСТЬ В НОРМЕ
             </span>
-            <b v-else class="error--text">CRITICAL: STRUCTURE COMPROMISED</b>
+            <b v-else class="error--text">КРИТИЧЕСКОЕ: СТРУКТУРА НАРУШЕНА</b>
             <br />
             <v-btn
               v-if="mech.CurrentStructure !== mech.MaxStructure"
@@ -225,7 +224,7 @@
               :disabled="cheapStruct ? !mech.CurrentRepairs : mech.CurrentRepairs < 2"
               @click="pilot.State.RepairStructure()"
             >
-              Repair
+              Ремонт
               <v-icon right>control_point</v-icon>
               <v-icon v-if="!cheapStruct" right>control_point</v-icon>
             </v-btn>
@@ -233,9 +232,9 @@
 
           <v-col class="text-center flavor-text background">
             <span v-if="mech.CurrentStress === mech.MaxStress" class="stark--text">
-              > REACTOR INTEGRITY NOMINAL
+              > РЕАКТОРНАЯ ЦЕЛОСТНОСТЬ В НОРМЕ
             </span>
-            <b v-else class="error--text">CRITICAL: REACTOR COMPROMISED</b>
+            <b v-else class="error--text">КРИТИЧЕСКОЕ: ЦЕЛОСТНОСТЬ РЕАКТОРА НАРУШЕНА</b>
             <br />
             <v-btn
               v-if="mech.CurrentStress !== mech.MaxStress"
@@ -247,7 +246,7 @@
               :disabled="cheapStress ? !mech.CurrentRepairs : mech.CurrentRepairs < 2"
               @click="pilot.State.RepairStress()"
             >
-              Repair
+              Ремонт
               <v-icon v-if="!cheapStress" right>control_point</v-icon>
               <v-icon right>control_point</v-icon>
             </v-btn>
@@ -256,8 +255,8 @@
 
         <v-row class="px-5">
           <v-col class="text-center flavor-text background">
-            <span v-if="!destroyedWeapons.length" class="stark--text">> ARMAMENT NOMINAL</span>
-            <b v-else class="warning--text">WARNING: ARMAMENT DAMAGED</b>
+            <span v-if="!destroyedWeapons.length" class="stark--text">> ВООРУЖЕНИЕ В НОРМЕ</span>
+            <b v-else class="warning--text">ПРЕДУПРЕЖДЕНИЕ: ВООРУЖЕНИЕ ПОВРЕЖДЕНО</b>
             <br />
             <v-btn
               v-for="w in destroyedWeapons"
@@ -271,14 +270,14 @@
               :disabled="!mech.CurrentRepairs"
               @click="pilot.State.RepairSystem(w)"
             >
-              Repair {{ w.Name }}
+              Ремонтировать {{ w.Name }}
               <v-icon right>control_point</v-icon>
             </v-btn>
           </v-col>
 
           <v-col class="text-center flavor-text background">
-            <span v-if="!destroyedSystems.length" class="stark--text">> SYSTEMS NOMINAL</span>
-            <b v-else class="warning--text">WARNING: SYSTEMS DAMAGED</b>
+            <span v-if="!destroyedSystems.length" class="stark--text">> СИСТЕМЫ В НОРМЕ</span>
+            <b v-else class="warning--text">ПРЕДУПРЕЖДЕНИЕ: СИСТЕМЫ ПОВРЕЖДЕНЫ</b>
             <br />
             <v-btn
               v-for="s in destroyedSystems"
@@ -292,7 +291,7 @@
               :disabled="!mech.CurrentRepairs"
               @click="pilot.State.RepairSystem(s)"
             >
-              Repair {{ s.Name }}
+              Ремонтировать {{ s.Name }}
               <v-icon right>control_point</v-icon>
             </v-btn>
           </v-col>
@@ -314,7 +313,7 @@
               full-icon="cci-structure"
               @update="mech.CurrentStructure = $event"
             >
-              <span class="heading h3">Structure</span>
+              <span class="heading h3">Структура</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -330,7 +329,7 @@
               full-icon="cci-reactor"
               @update="mech.CurrentStress = $event"
             >
-              <span class="heading h3">Stress</span>
+              <span class="heading h3">Нагрузка</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -347,7 +346,7 @@
               max-length="25"
               @update="mech.CurrentHP = $event"
             >
-              <span class="heading h3">HP</span>
+              <span class="heading h3">ПЗ</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto">
@@ -363,8 +362,8 @@
               full-icon="cci-repair"
               @update="mech.CurrentRepairs = $event"
             >
-              <span v-if="$vuetify.breakpoint.mdAndUp" class="heading h3">REPAIR CAPACITY</span>
-              <span v-else class="heading h3">REP. CAP.</span>
+              <span v-if="$vuetify.breakpoint.mdAndUp" class="heading h3">ЛИМИТ РЕМОНТА</span>
+              <span v-else class="heading h3">ЛИМ. РЕМ.</span>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -375,12 +374,12 @@
       <div v-show="pilot.State.IsMounted">
         <v-divider class="my-5" />
         <div :style="pilot.IsDead || pilot.IsDownAndOut ? 'opacity: 0.5' : ''">
-          <span class="overline">PILOT LOADOUT</span>
+          <span class="overline">ВЫГРУЗКА ПИЛОТА</span>
           <cc-pilot-loadout :pilot="pilot" readonly />
 
           <v-row dense>
             <v-col cols="auto">
-              <span class="overline">SKILL TRIGGERS</span>
+              <span class="overline">ТРИГГЕРЫ</span>
             </v-col>
             <v-col cols="12" md="auto" class="ml-auto">
               <v-btn
@@ -390,7 +389,7 @@
                 @click="expandAll(pilot.SkillsController.Skills.length, 'sk_', true)"
               >
                 <v-icon small left>mdi-chevron-up</v-icon>
-                All
+                Все
               </v-btn>
               <v-btn
                 x-small
@@ -399,7 +398,7 @@
                 @click="expandAll(pilot.SkillsController.Skills.length, 'sk_', false)"
               >
                 <v-icon small left>mdi-chevron-down</v-icon>
-                All
+                Все
               </v-btn>
             </v-col>
           </v-row>
@@ -422,7 +421,7 @@
           v-if="pilot.ReservesController.Reserves || pilot.ReservesController.Organizations"
           class="overline"
         >
-          RESERVES AND RESOURCES
+          РЕЗЕРВЫ И РЕСУРСЫ
           <v-btn small right icon class="fadeSelect" @click="showReserves = !showReserves">
             <v-icon small v-html="showReserves ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" />
           </v-btn>
@@ -436,7 +435,7 @@
             class="mt-n3"
           >
             <cc-reserve-item
-              v-for="(r, i) in pilot.ReservesController.Reserves.filter(r => r.Type !== 'Bonus')"
+              v-for="(r, i) in pilot.ReservesController.Reserves.filter(r => r.Type !== 'Бонус')"
               :key="`r_${i}`"
               :reserve="r"
               @remove="pilot.ReservesController.RemoveReserve(i)"

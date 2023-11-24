@@ -13,7 +13,7 @@
               <v-icon>mdi-swap-vertical-variant</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Change Item</v-list-item-title>
+              <v-list-item-title>Поменять предмет</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-divider />
@@ -23,7 +23,7 @@
             <v-icon color="success">mdi-check</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Mark as Used</v-list-item-title>
+            <v-list-item-title>Отметить как использованное</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-else-if="item.Used" @click="item.Used = false">
@@ -31,7 +31,7 @@
             <v-icon>mdi-redo</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Mark as Unused</v-list-item-title>
+            <v-list-item-title>Отметить как неиспользованное</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="item.CanSetDamage" @click="$refs.damageTypeDialog.show()">
@@ -39,7 +39,7 @@
             <v-icon>cci-variable</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Select Damage Type</v-list-item-title>
+            <v-list-item-title>Выбрать тип урона</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="item.CanSetUses" @click="$refs.maxUseDialog.show()">
@@ -47,7 +47,7 @@
             <v-icon>mdi-dice-6</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Set Max Uses</v-list-item-title>
+            <v-list-item-title>Установить максимальные использования</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="!item.Destroyed && !item.IsIndestructible" @click="item.Destroy()">
@@ -55,7 +55,7 @@
             <v-icon color="error">mdi-image-broken-variant</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Mark as Destroyed</v-list-item-title>
+            <v-list-item-title>Отметить как уничтоженное</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-else-if="!item.IsIndestructible" @click="item.Repair()">
@@ -63,7 +63,7 @@
             <v-icon>mdi-wrench</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Mark as Repaired</v-list-item-title>
+            <v-list-item-title>Отметить как отремонтированное</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <div v-if="item.IsLoading">
@@ -72,7 +72,7 @@
               <v-icon>mdi-progress-download</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Mark as Unloaded</v-list-item-title>
+              <v-list-item-title>Отметить как незаряженное</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item v-else @click="item.Loaded = true">
@@ -80,7 +80,7 @@
               <v-icon>mdi-progress-upload</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Mark as Loaded</v-list-item-title>
+              <v-list-item-title>Отметить как заряженное</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -90,7 +90,7 @@
               <v-icon>mdi-link-variant</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Mark as Cascading</v-list-item-title>
+              <v-list-item-title>Отметить как в каскаде</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item v-else @click="item.Shackle()">
@@ -98,7 +98,7 @@
               <v-icon>mdi-link-variant-off</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Clear Cascading Status</v-list-item-title>
+              <v-list-item-title>Снять статус каскада</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -108,7 +108,7 @@
             <v-icon>mdi-circle-edit-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Set Custom Name</v-list-item-title>
+            <v-list-item-title>Установить пользовательское название</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="!active" @click="$refs.cDesc.show()">
@@ -116,7 +116,7 @@
             <v-icon>mdi-circle-edit-outline</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Set Custom Description</v-list-item-title>
+            <v-list-item-title>Установить пользовательское описание</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <div v-if="!item.IsIntegrated && !readonly">
@@ -126,7 +126,7 @@
               <v-icon color="error">mdi-delete</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Remove Item</v-list-item-title>
+              <v-list-item-title>Убрать предмет</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -136,7 +136,7 @@
       v-if="item"
       ref="cName"
       :placeholder="item.Name"
-      label="Custom Item Name"
+      label="Пользовательское название предмета"
       @save="save('Name', $event)"
       @reset="save('Name', '')"
     />
@@ -144,7 +144,7 @@
       v-if="item"
       ref="cDesc"
       :placeholder="item.Description"
-      label="Custom Item Description"
+      label="Пользовательское описание предмета"
       @save="save('Description', $event)"
       @reset="save('Description', '')"
     />
@@ -158,7 +158,7 @@
       v-if="item"
       ref="maxUseDialog"
       number
-      label="Set Maximum Uses"
+      label="Установите максимальные использования"
       @save="item.MaxUseOverride = $event"
     />
   </span>

@@ -54,7 +54,7 @@
       <v-row v-if="item" slot="header-items" justify="end" no-gutters>
         <div v-if="item" class="heading" style="display: inline-block">
           <span :class="small ? 'h3' : 'h2'">{{ item.SP }}</span>
-          <span class="h3">SP</span>
+          <span class="h3">СП</span>
         </div>
         <div v-if="!readonly" class="d-inline pl-3 ml-3" style="border-left: 1px solid #616161">
           <v-icon

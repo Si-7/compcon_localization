@@ -15,7 +15,7 @@
       </cc-titlebar>
       <cc-titlebar v-else large color="action--quick">
         <v-icon x-large color="white">mdi-hexagon-slice-3</v-icon>
-        Skirmish
+        Перестрелка
         <v-btn slot="items" dark icon @click="hide">
           <v-icon large left>close</v-icon>
         </v-btn>
@@ -40,8 +40,8 @@
         <v-container>
           <div v-if="hasAux(mount, item)" class="my-3">
             <div class="body-text text-center font-weight-bold">
-              You may make an additional attack with the following mounted Auxiliary weapon:
-              <div class="text-center overline my-n2">This weapon cannot deal bonus damage.</div>
+              Вы можете выполнить дополнительную атаку следующим Вспомогательным оружием:
+              <div class="text-center overline my-n2">Это оружие не может нанести дополнительный урон.</div>
             </div>
             <v-alert dense outlined class="my-1" colored-border color="primary">
               <weapon-attack

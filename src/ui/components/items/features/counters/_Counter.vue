@@ -13,13 +13,13 @@
         {{ counter.Name }}
       </div>
       <v-spacer />
-      <cc-tooltip simple content="Reset Counter">
+      <cc-tooltip simple content="Обнулить счетчик">
         <v-btn class="fadeSelect" dark icon x-small @click="counter.Reset()">
           <v-icon small>mdi-reload</v-icon>
         </v-btn>
       </cc-tooltip>
 
-      <cc-tooltip v-if="counterData.custom" simple content="Delete Counter">
+      <cc-tooltip v-if="counterData.custom" simple content="Удалить счетчик">
         <v-btn class="fadeSelect ml-1" dark icon x-small @click="$emit('delete')">
           <v-icon small>delete</v-icon>
         </v-btn>

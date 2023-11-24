@@ -12,7 +12,7 @@
         v-on="on"
       >
         <v-icon color="white" size="30">mdi-arrow-right-bold-hexagon-outline</v-icon>
-        <span v-if="$vuetify.breakpoint.md" class="pl-2" v-html="'MOVEMENT'" />
+        <span v-if="$vuetify.breakpoint.md" class="pl-2" v-html="'ПЕРЕМЕЩЕНИЕ'" />
       </v-btn>
     </template>
     <div>
@@ -28,7 +28,7 @@
           empty-icon="mdi-hexagon-outline"
           @update="mech.Pilot.State.SetMove($event)"
         >
-          <span class="heading h3">Movement</span>
+          <span class="heading h3">Перемещение</span>
         </cc-tick-bar>
         <v-fade-transition>
           <cc-tick-bar
