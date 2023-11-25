@@ -4,27 +4,27 @@
       <v-col cols="4">
         <v-btn
           target="_blank"
-          href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
+          href="https://github.com/massif-press/wiki/Frequently-Asked-Questions"
           x-large
           block
           color="secondary"
           class="white--text"
           tabindex="0"
         >
-          Frequently Asked Questions
+          Часто Задаваемые Вопросы
         </v-btn>
       </v-col>
       <v-col cols="4">
         <v-btn
           target="_blank"
-          href="https://github.com/massif-press/compcon/wiki/Troubleshooting-Issues"
+          href="https://github.com/massif-press/wiki/Troubleshooting-Issues"
           x-large
           block
           color="secondary"
           class="white--text"
           tabindex="0"
         >
-          Troubleshooting
+        Поиск неисправностей
         </v-btn>
       </v-col>
     </v-row>
@@ -32,14 +32,14 @@
       <v-col>
         <v-btn
           target="_blank"
-          href="https://github.com/massif-press/compcon/issues/new/choose"
+          href="https://github.com/Si-7/compcon_rus/issues/new/choose"
           x-large
           block
           color="error"
           class="white--text"
           tabindex="0"
         >
-          Report a Bug / Suggest a Feature
+        Сообщить об ошибке/предложить функцию
         </v-btn>
       </v-col>
       <v-col>
@@ -51,7 +51,7 @@
           color="error"
           class="white--text"
         >
-          Discussion Forum
+          Форум обсуждения
         </v-btn>
       </v-col>
       <v-col>
@@ -63,17 +63,14 @@
           color="error"
           class="white--text"
         >
-          Project Wiki
+          Вики проекта
         </v-btn>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="auto" class="text-center">
-        Adding an issue directly to the GitHub repository is strongly encouraged to allow us to ask
-        questions and for you to be able to track issue progress. However, if this isn't possible,
-        the old bug reporting form (which does not require a GitHub account) can be found
-        <a target="_blank" href="https://forms.gle/pj6o8BzxCe4xGQ5M7">here</a>
-        .
+        Настоятельно рекомендуется добавлять проблему непосредственно в репозиторий GitHub, 
+        чтобы мы могли задавать вопросы, а вы могли отслеживать прогресс проблемы.
       </v-col>
     </v-row>
     <!-- <h3 class="heading accent--text">Tutorial Mode</h3>
@@ -82,40 +79,20 @@
       <br />
       // FEATURE IN DEVELOPMENT //
     </p> -->
-    <h3 class="heading accent--text mt-4">Quick FAQ</h3>
+    <h3 class="heading accent--text mt-4">Быстрое FAQ</h3>
     <div class="body-text text--text">
-      <b>Where are the NPCs?</b>
+      <b>Где НПС?</b>
       <p>
-        Now that LANCER is offically released, COMP/CON mirrors the Core Book structure in terms of
-        paid/free content. If you bought the LANCER Core Book, you'll find a downloadble data
-        package that contains all Core NPC data on the LANCER Core Book's itch.io page, which you
-        can access by going to the Content Manager in the main page or in the nav bar options menu
-        and selecting the Core Book item from the LCP Directory tab. You can use the Content
-        Manager's Install LCP tab to import the package and start building and running encounters.
+        Теперь, когда LANCER официально выпущен, COMP/CON отражает структуру Core Book с точки 
+        зрения платного/бесплатного контента. Если вы купили LANCER Core Book, вы найдете загружаемый 
+        пакет данных, содержащий все основные данные NPC, на странице itch.io LANCER Core Book, доступ 
+        к которой вы можете получить, перейдя в Менеджер контента на главной странице или в навигационной панели и 
+        выберите элемент «Основная книга» на вкладке «Каталог LCP». Вы можете использовать вкладку «Установка LCP» 
+        в Content Manager, чтобы импортировать пакет и начать создавать и запускать встречи.
       </p>
-      <b>Can I import my COMP/CON pilot to Roll20?</b>
-      <p>Roll20 does not support imports from COMP/CON at this time.</p>
+      <b>Могу ли я импортировать пилота COMP/CON в Roll20?</b>
+      <p>В настоящее время Roll20 не поддерживает импорт из COMP/CON.</p>
     </div>
-
-    <h3 class="heading accent--text">Additional Help</h3>
-    <p class="body-text">
-      The
-      <a
-        target="_blank"
-        href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
-        v-html="`COMP/CON FAQ`"
-        tabindex="0"
-      />
-      may have an answer to your question! If you still can't find what you're looking for, please
-      stop by
-      <a
-        target="_blank"
-        href="https://discord.gg/rwcpzsU"
-        v-html="`the unofficial LANCER discord`"
-        tabindex="0"
-      />
-      (and specifically the #comp-con channel) with your questions or comments for the developers.
-    </p>
 
     <!-- <h3 class="heading accent--text">Video Guide</h3>
     <p class="panel py-3 text-center subtle--text">

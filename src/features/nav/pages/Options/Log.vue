@@ -1,6 +1,6 @@
 <template>
   <div style="max-height: 550px; overflow-y: scroll">
-    <h2 class="heading accent--text mb-3">Recent Errors</h2>
+    <h2 class="heading accent--text mb-3">Недавние ошибки</h2>
     <v-expansion-panels>
       <v-expansion-panel v-for="(error, i) in errors" :key="i">
         <v-expansion-panel-header>
@@ -14,7 +14,7 @@
           </div>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <h5 class="error--text">STACK TRACE</h5>
+          <h5 class="error--text">ТРАССИРОВКА СТЭКА</h5>
           <pre class="flavor-text error--text stack" @copy="onCopy($event, error)">{{
             error.stack
           }}</pre>

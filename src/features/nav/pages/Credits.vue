@@ -10,7 +10,7 @@
     </div>
     <div v-else>
       <div class="heading h2 accent--text text-center mt-2 mb-1">
-        LANCER by:
+        LANCER:
       </div>
       <v-row justify="center">
         <dev-badge
@@ -21,7 +21,7 @@
         />
       </v-row>
       <div class="heading h2 accent--text text-center mt-2 mb-1">
-        COMP/CON by:
+        COMP/CON:
       </div>
       <v-row justify="center">
         <dev-badge
@@ -31,7 +31,7 @@
           :cols="12"
         />
       </v-row>
-      <div class="heading h2 accent--text text-center mt-2 mb-1">With:</div>
+      <div class="heading h2 accent--text text-center mt-2 mb-1">С помощью от:</div>
       <v-row dense justify="center">
         <dev-badge
           v-for="c in credits.devs"
@@ -41,7 +41,7 @@
         />
       </v-row>
       <div class="heading h2 accent--text text-center mt-2 mb-1">
-        Graphic design by:
+        Графический дизайн:
       </div>
       <v-row dense justify="center">
         <dev-badge
@@ -52,7 +52,7 @@
         />
       </v-row>
       <div class="heading h2 accent--text text-center mt-2 mb-1">
-        Additional art by:
+        Дополнительные материалы:
       </div>
       <v-row dense justify="center">
         <dev-badge v-for="c in credits.art" :key="c.name" :info="c" :cols="4" />
@@ -60,14 +60,13 @@
       <v-divider class="my-3" />
       <div class="text-center mt-6 mb-2">
         <span class="heading h2 text--text">
-          The continued development of COMP/CON would not be possible without
-          the generous
+          Дальнейшее развитие COMP/CON было бы невозможно без щедрой
           <a
             target="_blank"
             href="https://www.patreon.com/compcon"
-            v-html="'support'"
+            v-html="'поддержки'"
           />
-          of:
+          :
         </span>
       </div>
       <v-row v-for="(t, i) in tiers" :key="`tier_${t}`">
@@ -97,22 +96,22 @@
             <v-col v-if="isActive(p)">
               <div class="heading h2 accent--text">{{ p.Name }}</div>
               <div class="flavor-text font-weight-bold">
-                STATUS//[
-                <span class="success--text">ACTIVE</span>
+                СТАТУС//[
+                <span class="success--text">АКТИВЕН</span>
                 ]
               </div>
               <div v-if="p['Patronage Since Date']" class="flavor--text">
-                Since {{ p['Patronage Since Date'].substring(0, 10) }}
+                С {{ p['Patronage Since Date'].substring(0, 10) }}
               </div>
             </v-col>
             <v-col v-else>
               <div class="heading h3">{{ p.Name }}</div>
-              <div>Former Patron</div>
+              <div>Бывший покровитель</div>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
-      <span class="heading h2 text--text mt-4">Special Thanks to:</span>
+      <span class="heading h2 text--text mt-4">Особая благодарность:</span>
       <div class="my-2">
         <special-thanks
           v-for="c in credits.special_thanks"

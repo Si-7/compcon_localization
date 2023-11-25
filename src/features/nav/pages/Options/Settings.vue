@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 class="heading accent--text">User Options</h3>
+    <h3 class="heading accent--text">Опции пользователя</h3>
     <v-row dense>
       <v-col md="12" lg="6" class="mr-3">
         <div class="flavor-text">
-          <b>USER ID:</b>
+          <b>ID пользователя:</b>
           <span class="accent--text">
             {{ userID }}
           </span>
@@ -13,20 +13,20 @@
         <div class="text-center">
           <div>
             <v-btn large block color="info" class="my-1" @click="reload">
-              Download Updates and Reload
+              Установить обновления и перезагрузить
             </v-btn>
             <v-btn block color="accent" class="my-1" @click="showMessage()">
-              Show Latest Update Message
+              Показать последние сообщения обновления
             </v-btn>
             <v-divider class="my-2" />
           </div>
           <div class="text-center my-2">
             <v-btn block large color="primary" @click="bulkExport">
               <v-icon left>mdi-database</v-icon>
-              Create Data Backup
+              Создать бэкап данных
               <cc-tooltip
                 inline
-                content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+                content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. <b>Настоятельно</b> рекомендуется часто выполнять резервное копирование данных."
               >
                 <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
               </cc-tooltip>
@@ -37,10 +37,10 @@
               <template v-slot:activator="{ on }">
                 <v-btn block large color="primary" v-on="on">
                   <v-icon left>mdi-database-refresh</v-icon>
-                  Load Data Backup
+                  Загрузить бэкап данных
                   <cc-tooltip
                     inline
-                    content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+                    content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. <b>Настоятельно</b> рекомендуется часто выполнять резервное копирование данных."
                   >
                     <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
                   </cc-tooltip>
@@ -49,13 +49,13 @@
               <v-card>
                 <v-card-text class="pa-6">
                   <p class="text-center heading h3 text--text">
-                    This will OVERWRITE
-                    <b class="accent--text">ALL</b>
-                    local COMP/CON data.
-                    <br />
-                    This
-                    <b class="accent--text">cannot</b>
-                    be undone.
+                    Это ПЕРЕПИШЕТ
+                  <b class="accent--text">ВСЕ</b>
+                  локальные данные COMP/CON.
+                  <br />
+                  Это
+                  <b class="accent--text">нельзя</b>
+                  отменить.
                   </p>
                   <v-file-input
                     v-model="fileValue"
@@ -64,7 +64,7 @@
                     dense
                     hide-details
                     autofocus
-                    placeholder="Select COMP/CON Bulk Export File"
+                    placeholder="Выберите файл массового экспорта COMP/CON"
                     prepend-icon="mdi-paperclip"
                     @change="bulkImport"
                   />
@@ -77,7 +77,7 @@
             <template v-slot:activator="{ on }">
               <v-btn small block color="error" class="my-1" v-on="on">
                 <v-icon left v-html="'mdi-alert'" />
-                Delete All User Data
+                Удалить все пользовательские данные
                 <v-icon right v-html="'mdi-alert'" />
               </v-btn>
             </template>
@@ -91,28 +91,28 @@
                   border="bottom"
                   class="my-3"
                 >
-                  <span class="heading h2">WARNING // WARNING // WARNING</span>
+                  <span class="heading h2">ПРЕДУПРЕЖДЕНИЕ // ПРЕДУПРЕЖДЕНИЕ // ПРЕДУПРЕЖДЕНИЕ</span>
                 </v-alert>
                 <p class="text-center heading h2 text--text">
-                  This will delete
-                  <b class="accent--text">ALL</b>
-                  local COMP/CON data.
+                  Это УДАЛИТ
+                  <b class="accent--text">ВСЕ</b>
+                  локальные данные COMP/CON.
                   <br />
-                  This
-                  <b class="accent--text">cannot</b>
-                  be undone.
+                  Это
+                  <b class="accent--text">нельзя</b>
+                  отменить.
                   <br />
                   <br />
-                  <b class="accent--text">Are you sure you want to continue?</b>
+                  <b class="accent--text">Вы уверены, что хотите продолжить?</b>
                 </p>
               </v-card-text>
               <v-divider />
               <v-card-actions>
-                <v-btn color="secondary" text large @click="deleteDialog = false">Dismiss</v-btn>
+                <v-btn color="secondary" text large @click="deleteDialog = false">Закрыть</v-btn>
                 <v-spacer />
                 <v-btn color="error" text @click="deleteAll">
                   <v-icon left v-html="'mdi-alert'" />
-                  Delete All User Data
+                  Удалить все пользовательские данные
                   <v-icon right v-html="'mdi-alert'" />
                 </v-btn>
               </v-card-actions>
@@ -121,13 +121,13 @@
         </div>
       </v-col>
       <v-col>
-        <h3 class="heading accent--text mb-n2">Advanced Options</h3>
+        <h3 class="heading accent--text mb-n2">Расширенные настройки</h3>
         <v-switch v-model="userSaveStrategy" color="secondary" inset dense hide-details>
           <span slot="label">
-            Enable Performant Saving
+            Включить производительное сохранение
             <cc-tooltip
-              title="Save Strategy"
-              :content="`COMP/CON tries to write changes to your save data every time a value changes. On some systems this can cause poor app performance. Enabling Performant Saving restricts saving data to page navigation and browser exit events, increasing performance at a cost of save reliablity. This option works best on Chrome browsers.`"
+              title="Стратегия сохранения"
+              :content="`COMP/CON пытается записать изменения в ваши данные сохранения каждый раз, когда изменяется значение. В некоторых системах это может привести к снижению производительности приложения. Включение производительного сохранения ограничивает сохранение данных событиями навигации по страницам и выхода из браузера, повышая производительность за счет надежности сохранения. Этот вариант лучше всего работает в браузерах Chrome.`"
               inline
             >
               <v-icon>mdi-information-outline</v-icon>
@@ -136,11 +136,10 @@
         </v-switch>
         <v-switch v-model="userViewExotics" color="exotic" inset dense hide-details>
           <span slot="label">
-            Show Exotic items in the Compendium
+            Показывать экзотические предметы в компендиуме
             <cc-tooltip
-              title="SPOILER ALERT"
-              content="Enabling this option may reveal campaign spoilers and it is recommended to leave this setting DISABLED
-              if you are not the GM"
+              title="ОСТОРОЖНО, СПОЙЛЕРЫ"
+              content="Включение этой опции может раскрыть спойлеры кампании, поэтому рекомендуется оставить эту настройку ВЫКЛЮЧЕННОЙ, если вы не являетесь ГМом."
               inline
             >
               <v-icon color="warning">mdi-alert</v-icon>
@@ -148,25 +147,25 @@
           </span>
         </v-switch>
         <v-switch v-model="userAllowQuickstart" color="exotic" inset dense hide-details>
-          <span slot="label">Enable quick pilot creation and level-up</span>
+          <span slot="label">Включить быстрое создание пилотов и повышение уровня</span>
         </v-switch>
-        <h3 class="heading accent--text mt-2">Theme</h3>
+        <h3 class="heading accent--text mt-2">Тема</h3>
         <v-select v-model="theme" dense outlined :items="themes" item-text="name" />
       </v-col>
     </v-row>
 
     <v-divider class="my-4" />
 
-    <h3 class="heading accent--text">Deleted Items (local data only)</h3>
+    <h3 class="heading accent--text">Удаленные элементы (только локальные данные)</h3>
     <deleted-items />
 
     <v-divider class="my-4" />
 
-    <h3 class="heading accent--text">Achievements</h3>
+    <h3 class="heading accent--text">Достижения</h3>
     <p class="panel py-3 text-center subtle--text">
       <v-icon color="grey">mdi-lock</v-icon>
       <br />
-      // FEATURE IN DEVELOPMENT //
+      // ФУНКЦИОНАЛ В РАЗРАБОТКЕ //
     </p>
 
     <div class="text-right">

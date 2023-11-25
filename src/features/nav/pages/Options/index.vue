@@ -1,7 +1,7 @@
 <template>
   <v-tabs v-model="tab" dark background-color="primary" style="min-height: 640px;">
-    <v-tab>Settings</v-tab>
-    <v-tab>Log</v-tab>
+    <v-tab>Настройки</v-tab>
+    <v-tab>Журнал</v-tab>
     <v-tab-item>
       <v-card-text><settings /></v-card-text>
     </v-tab-item>

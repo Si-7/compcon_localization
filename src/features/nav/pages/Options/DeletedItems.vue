@@ -2,30 +2,30 @@
   <div>
     <v-alert outlined class="text-center" color="subtle" dense>
       <span v-if="items.length">
-        Deleted items are preserved for 30 days, after which they are automatically removed
+        Удаленные элементы сохраняются в течение 30 дней, после чего автоматически удаляются
       </span>
-      <span v-else>No items found</span>
+      <span v-else>Ничего не найдено</span>
     </v-alert>
     <v-simple-table v-if="items.length" class="text-left pa-2">
       <thead>
-        <th>Item Type</th>
-        <th>Item Name</th>
-        <th>Deleted On</th>
-        <th>Expires On</th>
+        <th>Тип объекта</th>
+        <th>Название объекта</th>
+        <th>Удален</th>
+        <th>Восстанавливаем до</th>
         <th />
         <th />
       </thead>
       <tbody>
         <tr v-for="item in items" :key="item.ID">
-          <td>{{ item.ItemType.toUpperCase() }}</td>
+          <td>{{ displayTypes(item.ItemType).toUpperCase() }}</td>
           <td>{{ item.Name }}{{ item.Callsign ? ` (${item.Callsign})` : '' }}</td>
           <td>{{ item.SaveController.DeleteTime }}</td>
           <td>{{ item.SaveController.ExpireTime }}</td>
           <td class="text-right">
-            <v-btn small color="primary" @click="item.SaveController.restore()">Restore</v-btn>
+            <v-btn small color="primary" @click="item.SaveController.restore()">Восстановить</v-btn>
           </td>
           <td class="text-right">
-            <v-btn small color="primary" @click="permanentlyDelete(item)">Permanently Delete</v-btn>
+            <v-btn small color="primary" @click="permanentlyDelete(item)">Удалить Навсегда</v-btn>
           </td>
         </tr>
       </tbody>
@@ -33,9 +33,9 @@
       <tfoot class="light-panel">
         <tr>
           <td colspan="4" />
-          <td><v-btn small color="error" @click="restoreAll()">Restore All</v-btn></td>
+          <td><v-btn small color="error" @click="restoreAll()">Восстановить Все</v-btn></td>
           <td>
-            <v-btn small color="error" @click="deleteAll()">Permanently Delete All</v-btn>
+            <v-btn small color="error" @click="deleteAll()">Удалить Навсегда Все</v-btn>
           </td>
         </tr>
       </tfoot>
@@ -68,6 +68,21 @@ export default Vue.extend({
     },
   },
   methods: {
+    displayTypes(type) {
+      switch (type) {
+        case 'Active Mission':
+          return 'Активная Миссия'
+        case 'Mission':
+          return 'Миссия'
+        case 'Encounter':
+          return 'Бой'
+        case 'NPC':
+          return 'НИП'
+        case 'Pilot':
+        default:
+          return 'Пилот'
+      }
+    },
     permanentlyDelete(item) {
       switch (item.ItemType) {
         case 'mission':
