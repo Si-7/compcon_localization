@@ -1,29 +1,28 @@
 <template>
   <div class="packsList" style="min-height: 300px">
-    <div class="heading h2 stark--text mt-3 px-2">Official Massif LANCER Content</div>
+    <div class="heading h2 stark--text mt-3 px-2">Оффициальный контент Massif LANCER</div>
     <directory-table :items="massifPacks" :loading="loading" no-author />
     <v-divider class="my-6" />
     <div class="heading h2 stark--text mt-3 px-2">
-      LANCER Community Content
+      Контент сообщества LANCER
       <v-menu bottom open-on-hover>
         <template v-slot:activator="{ on }">
           <v-icon class="fadeSelect" v-on="on">mdi-information-outline</v-icon>
         </template>
         <v-card max-width="500px">
-          <v-card-title>LANCER Community Content Packs</v-card-title>
+          <v-card-title>Пакеты контента сообщества LANCER</v-card-title>
           <v-card-text>
             <span v-if="communityPacks.length">
-              COMP/CON is proud to collborate with the LANCER community in making these unofficial
-              content packs available. They are offered as-is at the discretion of the author.
+              COMP/CON гордится сотрудничеством с сообществом LANCER в предоставлении доступа к этим неофициальным пакетам контента. 
+              Они предлагаются «как есть» на усмотрение автора.
             </span>
             <br />
-            If you are interested in creating your own homebrew LANCER content, or submitting your
-            content to be featured in this directory, please
+            Если вы заинтересованы в создании собственного хоумбрю контента LANCER или в размещении вашего контента в этом каталоге, пожалуйста,
             <a
               href="https://github.com/massif-press/lancer-data-rus#lancer-community-content-packs"
               target="_blank"
             >
-              click here
+              нажмите здесь
             </a>
             .
           </v-card-text>
@@ -56,7 +55,7 @@ export default class PacksDirectory extends Vue {
         this.loading = false
       })
       .catch(err => {
-        console.error('There was an issue downloading the community content packs.', err)
+        console.error('Возникла проблема при загрузке пакетов контента сообщества.', err)
         this.loading = false
       })
   }

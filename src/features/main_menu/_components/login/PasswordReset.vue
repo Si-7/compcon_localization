@@ -76,7 +76,7 @@ export default Vue.extend({
     resetpass: null,
     code: null,
     rules: {
-      passLength: v => (v && v.length >= 6) || 'Minimum 6 characters',
+      passLength: v => (v && v.length >= 6) || 'Минимум 6 символов',
     },
   }),
   methods: {
@@ -100,7 +100,7 @@ export default Vue.extend({
               console.error(err)
               this.loading = false
               this.sent = false
-              this.$notify(`Unable to send reset e-mail: ${err.message}`, 'error')
+              this.$notify(`Не получается отправить письмо сброса: ${err.message}`, 'error')
             })
         })
     },
@@ -110,12 +110,12 @@ export default Vue.extend({
         .then(data => {
           console.log(data)
           this.loading = false
-          this.$notify('Password changed successfully. Please log in again')
+          this.$notify('Пароль успешно сменен. Пожалуйста, войдите заново')
           this.$emit('set-state', 'sign-in')
         })
         .catch(err => {
           console.log(err)
-          this.$notify(`Unable to change password: ${err.message}`, 'error')
+          this.$notify(`Не получилось сменить пароль: ${err.message}`, 'error')
           this.loading = false
         })
     },

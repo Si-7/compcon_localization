@@ -2,17 +2,17 @@
   <v-data-table
     hide-default-footer
     disable-pagination
-    no-data-text="No content packs available."
+    no-data-text="Нет доступных пакетов контента."
     :headers="tableHeaders"
     :items="items"
     show-expand
     item-key="name"
     :loading="loading"
-    loading-text="Loading Content Pack Data..."
+    loading-text="Загружаю данные пакета контента..."
   >
     <!-- Download -->
     <template v-slot:[`item.website`]="{ item }">
-      <cc-tooltip content="Download">
+      <cc-tooltip content="Скачать">
         <v-btn target="_blank" :href="item.link" fab small color="secondary">
           <v-icon color="anti">open_in_new</v-icon>
         </v-btn>
@@ -32,12 +32,12 @@
           <cc-tooltip
             v-if="packOutdated(item)"
             inline
-            title="Pack Outdated"
-            content="This content pack is installed but out of date, and may cause errors with the latest version of COMP/CON. Click this pack's Download button to get the latest version."
+            title="Пакет устарел"
+            content="Этот пакет содержимого установлен, но устарел и может вызвать ошибки в последней версии COMP/CON. Нажмите кнопку Скачать этого пакета, чтобы получить последнюю версию."
           >
             <v-icon color="accent">mdi-alert</v-icon>
           </cc-tooltip>
-          <cc-tooltip v-else inline content="This content pack is installed and up-to-date">
+          <cc-tooltip v-else inline content="Этот пакет контента установлен и обновлен.">
             <v-icon color="success">mdi-check</v-icon>
           </cc-tooltip>
         </span>
@@ -57,7 +57,7 @@
             <p class="body-text text--text pa-2 mb-1">
               <span v-if="item.description" v-html-safe="item.description" />
               <span v-else>
-                No description given.
+                Нет описания.
               </span>
             </p>
 
@@ -65,7 +65,7 @@
               <v-divider class="ma-1" />
               <v-btn target="_blank" :href="item.website" text color="secondary">
                 <v-icon prepend left>open_in_new</v-icon>
-                Author's Website
+                Сайт автора
               </v-btn>
             </div>
           </v-col>
@@ -98,18 +98,18 @@ export default Vue.extend({
       if (this.noAuthor)
         return [
           { text: '', value: 'data-table-expand' },
-          { text: 'Download', value: 'website', sortable: false, align: 'center' },
-          { text: 'Name', value: 'name' },
-          { text: 'Version', value: 'version' },
-          { text: 'Cost', value: 'cost' },
+          { text: 'Скачать', value: 'website', sortable: false, align: 'center' },
+          { text: 'Название', value: 'name' },
+          { text: 'Версия', value: 'version' },
+          { text: 'Цена', value: 'cost' },
         ]
       return [
         { text: '', value: 'data-table-expand' },
-        { text: 'Download', value: 'website', sortable: false, align: 'center' },
-        { text: 'Name', value: 'name' },
-        { text: 'Author', value: 'author' },
-        { text: 'Version', value: 'version' },
-        { text: 'Cost', value: 'cost' },
+        { text: 'Скачать', value: 'website', sortable: false, align: 'center' },
+        { text: 'Название', value: 'name' },
+        { text: 'Автор', value: 'author' },
+        { text: 'Версия', value: 'version' },
+        { text: 'Цена', value: 'cost' },
       ]
     },
     contentPacks() {

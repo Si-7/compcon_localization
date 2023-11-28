@@ -4,7 +4,7 @@
     <v-row no-gutters align="end" justify="end">
       <v-col cols="auto">
         <v-checkbox v-model="noshow" color="secondary" hide-details dense>
-          <span slot="label">Don't show this message again</span>
+          <span slot="label">Не показывать это сообщение снова</span>
         </v-checkbox>
       </v-col>
     </v-row>

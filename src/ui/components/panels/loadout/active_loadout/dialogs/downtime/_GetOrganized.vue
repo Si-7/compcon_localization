@@ -47,7 +47,7 @@
                     />
                   </v-col>
                 </v-row>
-                <div class="heading h2 text-center mb-2">Start with:</div>
+                <div class="heading h2 text-center mb-2">Начать с:</div>
                 <v-row dense justify="space-around">
                   <v-col cols="5">
                     <cc-tooltip
@@ -331,7 +331,7 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отмена</v-btn>
       <v-spacer />
       <v-btn
         large

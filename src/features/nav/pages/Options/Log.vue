@@ -8,7 +8,7 @@
             <span class="flavor-text error--text font-big">{{ error.message }}</span>
             - {{ dateFormat(error.time) }}
             <span v-if="error.component">
-              at
+              в
               <span class="secondary--text">[{{ error.component }}]</span>
             </span>
           </div>

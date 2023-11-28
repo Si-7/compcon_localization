@@ -4,7 +4,7 @@
     <div v-if="$vuetify.breakpoint.mdAndUp" class="d-inline">
       <router-link to="../sheet/0">
         <cc-nav-item :selected="selected === '0'">
-          <cc-tooltip inline delayed content="Pilot IDENT, Status, and Biographical Information">
+          <cc-tooltip inline delayed content="IDENT, Статус и биографическая информация пилота">
             ДОСЬЕ
           </cc-tooltip>
         </cc-nav-item>
@@ -14,7 +14,7 @@
           <cc-tooltip
             inline
             delayed
-            content="Pilot Skill Triggers, Reserves, and Pilot Gear Loadout"
+            content="Триггеры, Резервы и выгрузка снаряжения пилота"
           >
             НАРРАТИВНЫЙ ПРОФИЛЬ
           </cc-tooltip>
@@ -22,7 +22,7 @@
       </router-link>
       <router-link to="../sheet/4">
         <cc-nav-item v-show="hasBondData" :selected="selected === '4'">
-          <cc-tooltip inline delayed content="Pilot Bonds">СВЯЗИ</cc-tooltip>
+          <cc-tooltip inline delayed content="Связи Пилота">СВЯЗИ</cc-tooltip>
         </cc-nav-item>
       </router-link>
       <router-link to="../sheet/2">
@@ -30,7 +30,7 @@
           <cc-tooltip
             inline
             delayed
-            content="Pilot Licenses, Mech Skills, CORE Bonuses, and Talents"
+            content="Лицензии, Навыки Мехов, Бонусы Ядра и Таланты пилота"
           >
             ТАКТИЧЕСКИЙ ПРОФИЛЬ
           </cc-tooltip>
@@ -38,7 +38,7 @@
       </router-link>
       <router-link to="../sheet/3">
         <cc-nav-item :selected="selected === '3'">
-          <cc-tooltip inline delayed content="Create and Modify Mechs and their Loadouts">
+          <cc-tooltip inline delayed content="Создавайте и модифицируйте мехов и их выгрузки">
             АНГАР МЕХОВ
           </cc-tooltip>
         </cc-nav-item>
@@ -86,11 +86,11 @@
       v-if="pilot.CloudController.IsRemoteResource"
       inline
       delayed
-      title="Download Latest Data"
+      title="Загрузить последние данные"
       :content="
         isAuthed
-          ? 'Download all remote changes to this pilot, overwriting local data.'
-          : 'Requires Cloud Account'
+          ? 'Загрузите все удаленные изменения в этого пилота, переписав локальные данные.'
+          : 'Требует облачного аккаунта'
       "
     >
       <v-btn
@@ -107,7 +107,7 @@
       v-else
       inline
       delayed
-      :content="isAuthed ? 'Share Pilot Data' : 'Requires Cloud Account'"
+      :content="isAuthed ? 'Поделитесь данными пилота' : 'Требует облачного аккаунта'"
     >
       <v-btn icon class="unskew ml-6" :disabled="!isAuthed" @click="$refs.share.show()">
         <v-icon color="white">mdi-code-json</v-icon>
@@ -146,7 +146,7 @@
         </v-list-item-group>
       </v-list>
     </v-menu>
-    <cc-solo-dialog title="Share Code Management" ref="share" no-confirm>
+    <cc-solo-dialog title="Управление кодом пилота" ref="share" no-confirm>
       <share-dialog :pilot="pilot" />
     </cc-solo-dialog>
   </div>

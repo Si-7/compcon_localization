@@ -13,7 +13,7 @@
           @update="mech.CurrentStructure = $event"
         >
           <span class="heading h3">
-            Structure
+            Структура
           </span>
         </cc-tick-bar>
       </v-col>
@@ -29,7 +29,7 @@
           number-only
           hide-values
         >
-          <span class="heading h3">Armor</span>
+          <span class="heading h3">Броня</span>
         </cc-tick-bar>
       </v-col>
       <v-col cols="auto">
@@ -43,7 +43,7 @@
           max-length="16"
           @update="mech.CurrentHP = $event"
         >
-          <span class="heading h3">HP</span>
+          <span class="heading h3">ПЗ</span>
         </cc-tick-bar>
       </v-col>
       <v-col cols="auto">
@@ -75,7 +75,7 @@
           :class="{ rolledOver: stressRollover }"
           @update="mech.CurrentStress = $event"
         >
-          <span class="heading h3">Stress</span>
+          <span class="heading h3">Нагрузка</span>
         </cc-tick-bar>
       </v-col>
       <v-col cols="auto">
@@ -91,17 +91,17 @@
           @update="mech.CurrentHeat = $event"
         >
           <span v-if="mech.IsInDangerZone" class="dangerzone--text heading h3">
-            HEAT
+            НАГРЕВ
           </span>
           <span v-else class="heading h3">
-            HEAT
+            НАГРЕВ
           </span>
         </cc-tick-bar>
         <div v-if="mech.IsInDangerZone" class="caption font-weight-bold dangerzone--text">
-          // HEAT::DANGER ZONE //
+          // НАГРЕВ::ОПАСНАЯ ЗОНА //
         </div>
         <div v-else class="caption subtle--text">
-          HEAT LEVELS NOMINAL
+          УРОВНИ НАГРЕВА В НОРМЕ
         </div>
       </v-col>
       <v-col cols="auto">
@@ -115,7 +115,7 @@
           @update="mech.CurrentRepairs = $event"
         >
           <span class="heading h3">
-            REPAIR CAPACITY
+            ЛИМИТ РЕМОНТА
           </span>
         </cc-tick-bar>
       </v-col>
@@ -137,17 +137,17 @@
           hide-values
           @update="mech.CurrentCoreEnergy = $event"
         >
-          <span class="heading h3">CORE POWER</span>
+          <span class="heading h3">МОЩЬ ЯДРА</span>
         </cc-tick-bar>
         <div
           v-if="mech.CurrentCoreEnergy > 0"
           :key="mech.CurrentCoreEnergy"
           class="caption font-weight-bold corepower--text"
         >
-          AVAILABLE
+          ДОСТУПНА
         </div>
         <div v-else class="caption subtle--text">
-          EXHAUSTED
+          ПОТРАЧЕНА
         </div>
       </v-col>
 
@@ -165,7 +165,7 @@
           @update="mech.CurrentOvercharge = $event"
         >
           <span class="heading h3">
-            Overcharge
+            Перегрузка
           </span>
         </cc-tick-bar>
         <div class="caption overcharge--text font-weight-bold">

@@ -7,7 +7,7 @@
     </template>
     <template v-else>
       <h1 style="margin-top: 50px; text-align: center">
-        ERROR // INVALID PILOT
+        ОШИБКА // НЕДЕЙСТВИТЕЛЬНЫЙ ПИЛОТ
       </h1>
     </template>
   </v-container>

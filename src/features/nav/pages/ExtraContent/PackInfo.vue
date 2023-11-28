@@ -10,7 +10,7 @@
           <v-chip outlined dark label>{{ pack.manifest.version }}</v-chip>
         </v-list-item-title>
         <v-list-item-subtitle class="white--text text--darken-1">
-          by {{ pack.manifest.author }}
+          от {{ pack.manifest.author }}
         </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
@@ -20,11 +20,11 @@
           <p class="body-text text--text light-panel pa-2 mb-1">
             <span v-if="pack.manifest.description" v-html-safe="pack.manifest.description" />
             <span v-else>
-              No description given.
+              Нет описания.
             </span>
           </p>
           <div>
-            <h4>Content</h4>
+            <h4>Содержимое</h4>
             <div>
               <v-chip
                 v-for="item in packContents"
@@ -44,7 +44,7 @@
             <v-divider class="ma-1" />
             <v-btn target="_blank" :href="pack.manifest.website" text color="secondary">
               <v-icon prepend class="mr-1">open_in_new</v-icon>
-              &nbsp;Website
+              &nbsp;Сайт
             </v-btn>
           </div>
         </v-col>
@@ -73,27 +73,27 @@ import _ from 'lodash'
 })
 export default class PackInfo extends Vue {
   private humanReadableMap = {
-    manufacturers: ['manufacturer', 'manufacturers'],
-    coreBonuses: ['core bonus', 'core bonuses'],
-    frames: ['frame', 'frames'],
-    weapons: ['weapon', 'weapons'],
-    systems: ['system', 'systems'],
-    mods: ['weapon mod', 'weapon mods'],
-    pilotGear: ['pilot gear item', 'pilot gear items'],
-    backgrounds: ['background', 'backgrounds'],
-    bonds: ['bond', 'bonds'],
-    reserves: ['reserve', 'reserves'],
-    talents: ['pilot talent', 'pilot talents'],
-    tags: ['equipment tag', 'equipment tags'],
-    npcClasses: ['NPC class', 'NPC classes'],
-    npcFeatures: ['NPC feature', 'NPC features'],
-    npcTemplates: ['NPC template', 'NPC templates'],
-    actions: ['Player action', 'Player actions'],
-    statuses: ['Status/Condition', 'Statuses/Conditions'],
-    environments: ['Combat Environment', 'Combat Environments'],
-    factions: ['faction', 'factions'],
-    sitreps: ['SITREP', 'SITREPs'],
-    tables: ['Data Table', 'Data Tables'],
+    manufacturers: ['manufacturer', 'производителей'],
+    coreBonuses: ['core bonus', 'бонусов ядра'],
+    frames: ['frame', 'рам'],
+    weapons: ['weapon', 'оружия'],
+    systems: ['system', 'систем'],
+    mods: ['weapon mod', 'модов оружия'],
+    pilotGear: ['pilot gear item', 'снаряжения пилота'],
+    backgrounds: ['background', 'предысторий'],
+    bonds: ['bond', 'связей'],
+    reserves: ['reserve', 'резервов'],
+    talents: ['pilot talent', 'талантов пилота'],
+    tags: ['equipment tag', 'меток снаряжения'],
+    npcClasses: ['NPC class', 'классов НИП'],
+    npcFeatures: ['NPC feature', 'систем НИП'],
+    npcTemplates: ['NPC template', 'шаблонов НИП'],
+    actions: ['Player action', 'действий игрока'],
+    statuses: ['Status/Condition', 'Статусов/Состояний'],
+    environments: ['Combat Environment', 'Боевых Окружений'],
+    factions: ['faction', 'фракций'],
+    sitreps: ['SITREP', 'СИТРЕПов'],
+    tables: ['Data Table', 'таблиц данных'],
   }
 
   get packContents() {

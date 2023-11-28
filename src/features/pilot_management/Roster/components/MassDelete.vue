@@ -11,9 +11,9 @@
     />
     <v-divider class="my-4" />
     <v-row justify="end" align="center">
-      <v-col cols="auto">{{ selected.length }} items selected</v-col>
+      <v-col cols="auto">{{ selected.length }} объектов выбрано</v-col>
       <v-col cols="auto">
-        <v-btn small color="error" @click="commit()">Delete</v-btn>
+        <v-btn small color="error" @click="commit()">Удалить</v-btn>
       </v-col>
     </v-row>
   </div>
@@ -31,14 +31,14 @@ export default Vue.extend({
     selected: [],
     headers: [
       {
-        text: 'Callsign',
+        text: 'Позывной',
         align: 'start',
         value: 'Callsign',
       },
-      { text: 'LL', value: 'Level' },
-      { text: 'Name', value: 'Name' },
-      { text: 'Active Mech', value: 'State.ActiveMech.Name' },
-      { text: 'Group', value: 'GroupController.Group' },
+      { text: 'УЛ', value: 'Level' },
+      { text: 'Имя', value: 'Name' },
+      { text: 'Активный Мех', value: 'State.ActiveMech.Name' },
+      { text: 'Группа', value: 'GroupController.Group' },
     ],
   }),
   methods: {

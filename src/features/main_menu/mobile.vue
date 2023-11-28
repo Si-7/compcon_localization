@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <cc-solo-dialog ref="loginModal" large no-confirm title="CLOUD ACCOUNT">
+    <cc-solo-dialog ref="loginModal" large no-confirm title="ОБЛАЧНЫЙ АККАУНТ">
       <sign-in />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -9,17 +9,17 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      title="Опции & Профиль пользователя"
     >
       <options-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="aboutModal" large no-confirm title="About">
+    <cc-solo-dialog ref="aboutModal" large no-confirm title="О сайте">
       <about-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" large no-confirm title="Credits">
+    <cc-solo-dialog ref="creditsModal" large no-confirm title="Авторы">
       <credits-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="helpModal" large no-confirm title="Help"
+    <cc-solo-dialog ref="helpModal" large no-confirm title="Помощь"
       ><help-page
     /></cc-solo-dialog>
     <cc-solo-dialog
@@ -28,7 +28,7 @@
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      title="Управление пакетами материалов"
     >
       <content-page />
     </cc-solo-dialog>
@@ -88,8 +88,8 @@
               ? 'mdi-account-check'
               : 'mdi-account-off-outline'
           "
-          :title="userstore.IsLoggedIn ? 'Connected' : 'Log In'"
-          text="COMP/CON Account"
+          :title="userstore.IsLoggedIn ? 'Подключено' : 'Войти'"
+          text="Аккаунт COMP/CON"
           @clicked="$refs.loginModal.show()"
         />
       </v-row>
@@ -97,19 +97,19 @@
 
       <v-footer color="primary" fixed style="padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px))">
         <v-btn x-small dark outlined @click="$refs.optionsModal.show()"
-          >Options</v-btn
+          >Опции</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.aboutModal.show()"
-          >About</v-btn
+          >О сайте</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.creditsModal.show()"
-          >Credits</v-btn
+          >Авторы</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.helpModal.show()"
-          >Help</v-btn
+          >Помощь</v-btn
         >
         <v-spacer />
         <v-btn
@@ -120,7 +120,7 @@
           dark
           outlined
         >
-          Support
+          Поддержать
         </v-btn>
       </v-footer>
     </v-container>

@@ -1,26 +1,26 @@
 <template>
   <div>
     <router-link to="/gm/npc-roster">
-      <v-btn text color="white" tile>NPC Roster</v-btn>
+      <v-btn text color="white" tile>Список НИП</v-btn>
     </router-link>
     <v-divider vertical dark class="ml-2 mr-2" />
     <router-link to="/gm/encounter-builder">
-      <v-btn text color="white" tile>Encounters</v-btn>
+      <v-btn text color="white" tile>Сцены</v-btn>
     </router-link>
     <v-divider vertical dark class="ml-2 mr-2" />
     <router-link to="/gm/mission/builder">
       <v-btn v-if="$vuetify.breakpoint.lgAndUp" text color="white" tile>
-        Mission Builder
+        Создание миссий
       </v-btn>
     </router-link>
     <router-link to="/gm/mission/selector">
       <v-btn v-if="$vuetify.breakpoint.lgAndUp" text color="white" tile>
-        Mission Runner
+        Запуск миссий
       </v-btn>
     </router-link>
     <router-link to="/gm/mission">
       <v-btn v-if="!$vuetify.breakpoint.lgAndUp" text color="white" tile>
-        Missions
+        Миссии
       </v-btn>
     </router-link>
     <v-divider vertical dark class="ml-2 mr-2" />

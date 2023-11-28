@@ -3,7 +3,7 @@
     <v-col style="height: 100%" cols="12" md="3" class="px-3 py-4">
       <v-file-input
         v-model="value"
-        placeholder="Select an .LCP file"
+        placeholder="Выберите файл .LCP"
         outlined
         mr2
         accept=".lcp"
@@ -34,7 +34,7 @@
             />
           </svg>
         </v-fade-transition>
-        <span v-show="!done">{{ packAlreadyInstalled ? 'Replace' : 'Install' }}</span>
+        <span v-show="!done">{{ packAlreadyInstalled ? 'Заменить' : 'Установить' }}</span>
       </v-btn>
       <p v-if="error" style="color: red">{{ error }}</p>
       <v-alert
@@ -43,8 +43,7 @@
         class="transition-swing"
         transition="slide-y-reverse-transition"
       >
-        A pack with this same name and author is already installed. It will be replaced by this
-        copy.
+      Пакет с таким же названием и автором уже установлен. Он будет заменен этой копией.
       </v-alert>
     </v-col>
     <v-divider vertical class="mx-3" />
@@ -65,7 +64,7 @@
           "
         >
           <div class="heading h3 font-italic subtle--text text--darken-1">
-            No content pack selected.
+            Нет выбранных пакетов контента.
           </div>
         </div>
       </v-fade-transition>

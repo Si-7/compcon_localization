@@ -1,17 +1,18 @@
 <template>
   <div v-show="versionAnalysis !== 'err'" class="ma-1 py-1 px-2 panel rounded">
     <span v-if="versionAnalysis === 'brew outdated'">
-      COMP/CON has detected a newer version of this LCP than the one present in this item's data.
-      C/C can attempt to force an update. If item IDs have remained consistent accross LCP versions,
-      this process will be successful.
+      COMP/CON обнаружил более новую версию этого LCP, чем та, которая присутствует в 
+      данных этого элемента. C/C может попытаться принудительно выполнить обновление. 
+      Если идентификаторы элементов остались одинаковыми во всех версиях LCP, этот процесс 
+      будет успешным.
     </span>
     <span v-else-if="versionAnalysis === 'pack outdated'">
-      COMP/CON has detected that this item has been created with a LCP that is newer than the one
-      currently installed. Updating the local LCP is recommended, but C/C can attempt to force a
-      downgrade of this data. This may cause errors if it contains LCP content not found in earlier
-      versions.
+      COMP/CON обнаружил, что этот элемент был создан с помощью LCP, более нового, чем тот, 
+      который установлен в данный момент. Рекомендуется обновить локальный LCP, но C/C может 
+      попытаться принудительно понизить версию этих данных. Это может вызвать ошибки, если оно 
+      содержит содержимое LCP, которого нет в более ранних версиях.
     </span>
-    <v-btn color="secondary" x-small @click="$emit('update')">Force Data Update</v-btn>
+    <v-btn color="secondary" x-small @click="$emit('update')">Принудительно обновить данные</v-btn>
   </div>
 </template>
 

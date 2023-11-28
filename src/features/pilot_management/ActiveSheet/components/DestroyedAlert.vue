@@ -4,45 +4,45 @@
       {{ mech.ReactorDestroyed ? 'mdi-nuke' : 'cci-eclipse' }}
     </v-icon>
     <span class="heading h1">
-      MECH DESTROYED
+      МЕХ УНИЧТОЖЕН
       <span v-if="mech.ReactorDestroyed">
         <cc-slashes />
-        REACTOR DESTROYED
+        РЕАКТОР УНИЧТОЖЕН
       </span>
     </span>
     <div class="heading mt-n4 subtle--text">
       {{
         mech.ReactorDestroyed
-          ? 'ERR ERR ERR ERR ERR ERR ERR'
-          : 'FRAME.CRITICAL//: CATASTROPHIC DAMAGE'
+          ? 'ОШИБКА ОШИБКА ОШИБКА ОШИБКА ОШИБКА ОШИБКА ОШИБКА'
+          : 'РАМА.КРИТИЧЕСКОЕ//: КАТАСТРОФИЧЕСКИЙ УРОН'
       }}
     </div>
     <div class="flavor-text text--text">
-      The currently active mech ({{ mech.Name }}
+      Текущий активный мех ({{ mech.Name }}
       <cc-slashes />
-      {{ mech.Frame.Source }} {{ mech.Frame.Name }}) has been destroyed.
+      {{ mech.Frame.Source }} {{ mech.Frame.Name }}) был уничтожен.
       <span v-if="!mech.ReactorDestroyed"></span>
       <span v-if="mech.ReactorDestroyed">
-        The reactor has gone critical and the frame is unrecoverable. This mech must be reprinted.
+        Реактор вышел из строя, и каркас не подлежит восстановлению. Этот мех необходимо распечатать заново.
       </span>
     </div>
     <div style="position: relative">
       <cc-tooltip
         v-if="!mech.ReactorDestroyed"
-        content="Certain actions and equipment allow for battlefield repairs. Clicking here will restore your mech to 1 Structure Point and 1 HP."
+        content="Определенные действия и оборудование позволяют выполнять ремонт на поле боя. Нажав здесь, вы восстановите для своего меха 1 очко Структуры и 1 ПЗ."
       >
         <v-btn x-small color="primary" class="fadeSelect" @click="restore(false)">
           <v-icon small left>cci-repair</v-icon>
-          REPAIR
+          РЕМОНТИРОВАТЬ
         </v-btn>
       </cc-tooltip>
       <cc-tooltip
         v-else-if="mech.ReactorDestroyed"
-        content="Revert this state and restore your mech to 1 Structure Point and 1 HP."
+        content="Отмените это состояние и восстановите для своего меха 1 очко Структуры и 1 ПЗ."
       >
         <v-btn x-small color="primary" class="fadeSelect" @click="restore(true)">
           <v-icon small left>mdi-reload</v-icon>
-          RESTORE
+          ОТМЕНИТЬ
         </v-btn>
       </cc-tooltip>
     </div>

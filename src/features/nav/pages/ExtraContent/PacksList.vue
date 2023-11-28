@@ -3,7 +3,7 @@
     <v-data-table
       hide-default-footer
       disable-pagination
-      no-data-text="No content packs installed."
+      no-data-text="Нет установленных пакетов контента."
       :headers="headers"
       :items="contentPacks"
       show-expand
@@ -40,15 +40,15 @@
           <v-card>
             <v-card-text class="text-center body-text">
               <p>
-                This will remove this pack and all of its contents from COMP/CON. User data that
-                relies on this content will be unavailable and may cause errors. Are you sure you
-                want to continue?
+                Это приведет к удалению этого пакета и всего его содержимого из COMP/CON. 
+                Пользовательские данные, основанные на этом контенте, будут недоступны и 
+                могут вызвать ошибки. Вы уверены что хотите продолжить?
               </p>
               <v-divider class="my-2" />
               <v-row dense>
-                <v-btn small text>CANCEL</v-btn>
+                <v-btn small text>ОТМЕНА</v-btn>
                 <v-btn small color="error" class="ml-auto" @click="deletePack(item.ID)">
-                  CONFIRM
+                  ПОДТВЕРДИТЬ
                 </v-btn>
               </v-row>
             </v-card-text>
@@ -64,14 +64,14 @@
                 <span v-if="item.Description">
                   {{ item.Description }}
                 </span>
-                <span v-else>No description given.</span>
+                <span v-else>Нет описания.</span>
               </p>
 
               <div v-if="item.Website" class="mt-2">
                 <v-divider class="ma-1" />
                 <v-btn target="_blank" :href="item.Website" text color="secondary">
                   <v-icon prepend class="mr-1">open_in_new</v-icon>
-                  &nbsp;Website
+                  &nbsp;Сайт
                 </v-btn>
               </div>
             </v-col>
@@ -129,10 +129,10 @@ export default class PacksList extends Vue {
   }
 
   public headers = [
-    { text: 'Active', value: 'toggleActive', sortable: false },
-    { text: 'Name', value: 'Name' },
-    { text: 'Author', value: 'Author' },
-    { text: 'Version', value: 'Version' },
+    { text: 'Активирован', value: 'toggleActive', sortable: false },
+    { text: 'Название', value: 'Name' },
+    { text: 'Автор', value: 'Author' },
+    { text: 'Версия', value: 'Version' },
     { text: '', value: 'deleteAction', sortable: false },
   ]
 }

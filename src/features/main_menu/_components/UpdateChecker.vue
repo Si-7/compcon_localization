@@ -15,9 +15,9 @@
   </v-btn>
   <v-btn v-else dark outlined small :disabled="checking" @click="checkUpdates">
     <v-icon left small :class="{ 'spin-anim': checking }">
-      sync
+      Сонхронизировать
     </v-icon>
-    {{ checking ? 'Checking for Updates...' : 'Check for Updates' }}
+    {{ checking ? 'Проверяю обновления...' : 'Проверить обновления' }}
   </v-btn>
 </template>
 
@@ -48,7 +48,7 @@ export default class UpdatesTracker extends Vue {
   }
 
   get updateText(): string {
-    return 'Update and Reload'
+    return 'Обновить и Перезагрузить'
   }
   updateClick() {
     updateChecker.getUpdate()

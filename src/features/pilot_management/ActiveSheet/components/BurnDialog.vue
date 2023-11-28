@@ -1,24 +1,24 @@
 <template>
   <v-dialog v-model="dialog" width="60vw">
     <v-card>
-      <v-toolbar flat dense dark color="damage--burn" class="heading h2">Burn</v-toolbar>
+      <v-toolbar flat dense dark color="damage--burn" class="heading h2">Горение</v-toolbar>
       <v-card-text class="text-center">
         <div class="heading h3 font-weight-bold stark--text mt-2">
-          <span class="subtle--text">FRAME.ALERT::</span>
-          mech has been inflicted with
-          <span class="damage--burn--text">{{ mech.Burn }} Burn</span>
+          <span class="subtle--text">ТРЕВОГА.РАМЫ::</span>
+          меху было нанесено
+          <span class="damage--burn--text">{{ mech.Burn }} Горения</span>
         </div>
         <p class="my-2 body-text text--text">
-          Make an
-          <b>ENGINEERING</b>
-          check to clear the current Burn , or suffer
-          <span class="damage--burn--text">{{ mech.Burn }} Damage</span>
+          Сделайте проверку
+          <b>ИНЖЕНЕРИИ</b>,
+          чтобы убрать текущее Горение, или получите
+          <span class="damage--burn--text">{{ mech.Burn }} урона</span>
         </p>
         <v-row justify="center" class="text-center mt-4">
           <v-col lg="auto" md="12" class="mt-n5">
             <v-row dense class="text-center mb-n3" justify="start" align="start">
               <v-col cols="auto" class="mx-8">
-                <div class="overline mb-n2">Engineering Roll</div>
+                <div class="overline mb-n2">Проверка Инженерии</div>
                 <div class="heading text--text" style="font-size: 24pt">
                   <v-icon x-large class="mr-n1">mdi-dice-d20-outline</v-icon>
                   + {{ mech.Eng }}
@@ -28,7 +28,7 @@
             </v-row>
           </v-col>
           <v-col cols="auto" class="mr-2">
-            <cc-tooltip title="Roll Engineering Check" :content="rollTooltip">
+            <cc-tooltip title="Бросок проверки Инженерии" :content="rollTooltip">
               <v-btn icon small color="accent" class="mt-1 mr-n3" @click="rollCheck">
                 <v-icon large>mdi-dice-multiple</v-icon>
               </v-btn>
@@ -38,7 +38,7 @@
             <v-text-field
               v-model="roll"
               type="number"
-              label="Engineering Check Result"
+              label="Результат проверки Инженерии"
               outlined
               dense
               hide-details
@@ -59,7 +59,7 @@
               :disabled="!roll"
               @click="complete()"
             >
-              FAILURE
+              ПРОВАЛ
             </v-btn>
             <v-btn
               v-else
@@ -71,7 +71,7 @@
               :disabled="!roll"
               @click="complete(true)"
             >
-              SUCCESS
+              УСПЕХ
             </v-btn>
           </v-col>
         </v-row>

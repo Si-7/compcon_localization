@@ -68,7 +68,8 @@ export default Vue.extend({
       if (!this.action) {
         return null
       }
-      const name = toTitleCase(this.action.Name)
+      const name = toTitleCase(this.action.ID.replace('act_', '').replaceAll('_', ' '))
+      console.log(`./dialogs/downtime/_${name}.vue`)
       return () => import(`./dialogs/downtime/_${name}.vue`)
     },
     itemLoader() {

@@ -1,20 +1,21 @@
 <template>
   <div>
     <v-alert outlined dense prominent icon="mdi-information-outline" class="body-text mt-2">
-      Generating a share code for this pilot will allow other users with COMP/CON cloud accounts to
-      download a copy and subscribe to updates you make to this pilot. Regenerating a share code
-      will prevent subscribers from downloading future updates under the old share code.
+      Создание кода для этого пилота позволит другим пользователям 
+      с облачными учетными записями COMP/CON загрузить копию и подписаться на обновления, 
+      которые вы вносите в этот пилотный проект. Повторное создание общего кода не позволит 
+      подписчикам загружать будущие обновления под старым общим кодом.
     </v-alert>
     <div v-if="pilot.CloudController.ShareCode">
       <v-row justify="center">
         <v-col cols="auto" class="py-12">
-          <div class="overline mb-4">PILOT SHARE CODE</div>
+          <div class="overline mb-4">КОД ПИЛОТА</div>
           <b
             class="accent--text"
             style="font-size: 80px; letter-spacing: 15px"
             v-text="pilot.CloudController.ShareCode"
           />
-          <cc-tooltip simple inline content="Copy share code to clipboard">
+          <cc-tooltip simple inline content="Копировать код в буфер обмена">
             <v-btn icon small class="ml-n3" @click="copy()">
               <v-icon small>mdi-clipboard-text-outline</v-icon>
             </v-btn>
@@ -23,10 +24,8 @@
       </v-row>
       <div class="text-center px-6">
         <b class="accent--text">
-          Share codes are valid for 90 days, after which the code will expire. This pilot's code
-          will expire on
-          {{ pilot.CloudController.ShareCodeExpiration }}. This can be extended by clicking the
-          button below
+          Коды действительны в течение 90 дней, после чего срок действия кода истечет. Срок действия этого пилотного кода истечет 
+          {{ pilot.CloudController.ShareCodeExpiration }}. Его можно продлить, нажав кнопку ниже.
         </b>
         <br />
         <v-btn
@@ -37,8 +36,8 @@
           :disabled="isSameDate"
           v-text="
             isSameDate
-              ? 'Already at maximum'
-              : `Extend to
+              ? 'Уже на максимуме'
+              : `Продлить до
           ${extendedDate}`
           "
           @click="refresh(pilot)"
@@ -48,10 +47,10 @@
       <v-row justify="end" class="mt-12">
         <v-col cols="auto">
           <cc-tooltip
-            content="Regenerating this item's share code will prevent any other users from updating their copies of this Pilot until they re-import with the new code."
+            content="Повторное создание кода этого элемента не позволит другим пользователям обновлять свои копии этого пилота до тех пор, пока они не будут повторно импортированы с новым кодом."
           >
             <v-btn x-small color="error" @click="generate()">
-              Delete and Regenerate Share Code
+              Удалить и сгенерировать заново код
             </v-btn>
           </cc-tooltip>
         </v-col>
@@ -61,11 +60,10 @@
       <v-row justify="center">
         <v-col cols="auto" class="py-12 text-center">
           <v-btn x-large class="primary" :loading="loading" @click="generate()">
-            Generate Pilot Share Code
+            Сгенерировать код пилота
           </v-btn>
           <div v-show="!pilot.CloudController.LastUpdateCloud" class="overline text-disabled">
-            Generating a Share Code will upload this pilot to your cloud account. This process may
-            take several seconds.
+            При создании кода этот пилот будет загружен в вашу облачную учетную запись. Этот процесс может занять несколько секунд.
           </div>
         </v-col>
       </v-row>

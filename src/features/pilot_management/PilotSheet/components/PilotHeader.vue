@@ -26,8 +26,8 @@
                   inline
                   v-if="pilot.CloudController.IsRemoteResource"
                   bottom
-                  title="Remote Resource"
-                  :content="`The instance of this item is linked to data in another user's account. Local changes will not persist, and when synced this item will be updated to the latest version of the data published to the author's cloud account.`"
+                  title="Удаленный ресурс"
+                  :content="`Экземпляр этого элемента связан с данными в учетной записи другого пользователя. Локальные изменения не сохранятся, а при синхронизации этот элемент будет обновлен до последней версии данных, опубликованных в облачной учетной записи автора.`"
                 >
                   <v-icon dark class="mb-n2 ml-n5 fadeSelect">mdi-cloud-braces</v-icon>
                 </cc-tooltip>

@@ -195,9 +195,9 @@ export default vueMixins(activePilot).extend({
     syncTooltip(): string {
       if (!this.unsaved.length) return 'Pilot data synced'
       return (
-        '<div class="text-center"><b>LOCAL CHANGES<br></b>' +
-        this.unsaved.map(p => `Pilot::${p.Callsign}`).join('<br>') +
-        '<br><span class="caption">Click to save changes to your cloud account</span></div>'
+        '<div class="text-center"><b>ЛОКАЛЬНЫЕ ИЗМЕНЕНИЯ<br></b>' +
+        this.unsaved.map(p => `Пилот::${p.Callsign}`).join('<br>') +
+        '<br><span class="caption">Нажмите для сохранения в облачный аккаунт</span></div>'
       )
     },
   },

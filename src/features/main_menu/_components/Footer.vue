@@ -13,10 +13,10 @@
       <v-col cols="auto" class="text-center mr-3">
         <v-btn small dark outlined @click="bulkExport">
           <v-icon left>mdi-database</v-icon>
-          Create Data Backup
+          Создать бэкап данных
           <cc-tooltip
             inline
-            content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+            content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. Настоятельно рекомендуется часто выполнять резервное копирование данных."
           >
             <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
           </cc-tooltip>
@@ -27,10 +27,10 @@
           <template v-slot:activator="{ on }">
             <v-btn small dark outlined v-on="on">
               <v-icon left>mdi-database-refresh</v-icon>
-              Load Data Backup
+              Загрузить бэкап данных
               <cc-tooltip
                 inline
-                content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+                content="COMP/CON использует ваш браузер для сохранения и загрузки своих данных. Настройки, утилиты и другие приложения могут стереть локальный кэш вашего браузера, что приведет к потере ваших данных COMP/CON. Настоятельно рекомендуется часто выполнять резервное копирование данных."
               >
                 <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
               </cc-tooltip>
@@ -39,13 +39,13 @@
           <v-card>
             <v-card-text class="pa-6">
               <p class="text-center heading h3 text--text">
-                This will OVERWRITE
-                <b class="accent--text">ALL</b>
-                local COMP/CON data.
-                <br />
-                This
-                <b class="accent--text">cannot</b>
-                be undone.
+                Это ПЕРЕПИШЕТ
+                  <b class="accent--text">ВСЕ</b>
+                  локальные данные COMP/CON.
+                  <br />
+                  Это
+                  <b class="accent--text">нельзя</b>
+                  отменить.
               </p>
               <v-file-input
                 v-model="fileValue"
@@ -73,7 +73,7 @@
               @mouseenter="$emit('log', 'options')"
               @click="$refs.optionsModal.show()"
             >
-              Options
+            Опции
             </v-btn>
           </v-col>
 
@@ -85,7 +85,7 @@
               @mouseenter="$emit('log', 'about')"
               @click="$refs.aboutModal.show()"
             >
-              About
+            О сайте
             </v-btn>
           </v-col>
 
@@ -97,7 +97,7 @@
               @mouseenter="$emit('log', 'about')"
               @click="$refs.creditsModal.show()"
             >
-              Credits
+            Авторы
             </v-btn>
           </v-col>
 
@@ -109,7 +109,7 @@
               @mouseenter="$emit('log', 'help')"
               @click="$refs.helpModal.show()"
             >
-              Help
+            Помощь
             </v-btn>
           </v-col>
 
@@ -122,7 +122,7 @@
               text
               href="https://www.patreon.com/compcon"
             >
-              Support This Project
+            Поддержать этот проект
             </v-btn>
           </v-col>
         </v-row>
@@ -137,7 +137,7 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      title="Опции & Профиль пользователя"
     >
       <options-page />
     </cc-solo-dialog>
@@ -152,7 +152,7 @@
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      title="Управлять паками контента"
     >
       <content-page />
     </cc-solo-dialog>

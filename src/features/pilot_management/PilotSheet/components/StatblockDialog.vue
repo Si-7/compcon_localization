@@ -7,21 +7,21 @@
         placeholder="N/A"
         item-text="Name"
         item-value="ID"
-        label="Select Mech"
+        label="Выберите меха"
         outlined
         hide-details
       />
-      <v-radio-group v-model="genRadios" row mandatory label="Generate:">
-        <v-radio label="Mech Build" value="mechBuild"></v-radio>
-        <v-radio label="Pilot" value="pilotBuild"></v-radio>
-        <v-radio label="Full" value="full"></v-radio>
+      <v-radio-group v-model="genRadios" row mandatory label="Сгенерировать:">
+        <v-radio label="Меха" value="mechBuild"></v-radio>
+        <v-radio label="Пилота" value="pilotBuild"></v-radio>
+        <v-radio label="Полностью" value="full"></v-radio>
       </v-radio-group>
-      <v-checkbox v-model="discordEmoji" label="Include Pilot NET Discord damage type Emoji (Doesn't work in code block format)" />
+      <v-checkbox v-model="discordEmoji" label="Включить смайлики типа повреждения Pilot NET Discord (не работает в формате блока кода)" />
       <v-textarea :value="statblock" auto-grow readonly outlined filled class="flavor-text" />
-      <cc-tooltip simple inline content="Copy stat block to clipboard">
+      <cc-tooltip simple inline content="Скопировать блок статистики в буфер обмена">
         <v-btn class="mt-n4" color="accent" @click="copy()">
           <v-icon>mdi-clipboard-text-outline</v-icon>
-          Copy to Clipboard
+          Копировать в буфер обмена
         </v-btn>
       </cc-tooltip>
     </v-card-text>

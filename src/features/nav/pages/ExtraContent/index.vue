@@ -2,15 +2,15 @@
   <v-card flat tile class="containerCard">
     <v-tabs v-model="tabs" background-color="panel" color="accent" icons-and-text>
       <v-tab>
-        Content Packs
+        Контент Паки
         <v-icon>list_alt</v-icon>
       </v-tab>
       <v-tab>
-        Install Content
+        Установить контент
         <v-icon>open_in_browser</v-icon>
       </v-tab>
       <v-tab>
-        LCP Directory
+        Директория LCP
         <v-icon>mdi-format-list-text</v-icon>
       </v-tab>
     </v-tabs>

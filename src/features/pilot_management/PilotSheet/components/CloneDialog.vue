@@ -4,8 +4,7 @@
       <v-row>
         <v-col>
           <div class="text-center body-text light-panel pa-2" style="border-radius: 3px">
-            Duplicating or Cloning a pilot will remove any Vault links, saving the copied Pilot as a
-            new character on your account
+            Дублирование или клонирование пилота уберет любые ссылки, сохраняя копию Пилота как нового персонажа на вашем аккаунте
           </div>
         </v-col>
       </v-row>
@@ -13,8 +12,8 @@
         <v-col cols="5" class="text-center">
           <cc-tooltip
             inline
-            title="Duplication"
-            content="This will create a copy of this pilot data, registered to your pilot roster."
+            title="Дублирование"
+            content="Это создаст копию данных пилота, зарегистрированную в вашем списке пилотов."
           >
             <v-btn large block color="primary" @click="copyPilot">Duplicate Pilot</v-btn>
           </cc-tooltip>
@@ -22,11 +21,11 @@
         <v-col cols="5" class="text-center">
           <cc-tooltip
             inline
-            title="Clone"
-            content="This will clone the selected pilot. Cloned characters can’t join a mission in progress, and cloned characters receive a random quirk. Additional cloning and subjectivity imprinting adds further quirks."
+            title="Клонировать"
+            content="Это склонирует выбранного пилота. Клонированные персонажи не могут присоединиться к миссии в процессе и получают случайную причуду. Дополнительное клонирование или перепись субъективности добавляет дополнительные причуды."
           >
             <v-btn large block color="primary" :disabled="!!quirk" @click="rollQuirk">
-              Flash Clone Pilot
+              Флэш-клонировать пилота
             </v-btn>
           </cc-tooltip>
         </v-col>
@@ -35,13 +34,13 @@
         <div v-if="quirk">
           <v-row align="center">
             <v-col>
-              <div class="overline">CLONE QUIRK</div>
+              <div class="overline">ПРИЧУДА КЛОНА</div>
               <v-alert dense color="primary" outlined left>
                 <div class="body-text stark--text font-weight-bold">{{ quirk }}</div>
               </v-alert>
             </v-col>
             <v-col cols="auto">
-              <cc-tooltip simple content="Reroll quirk">
+              <cc-tooltip simple content="Перебросить причуду">
                 <v-btn icon large @click="rollQuirk">
                   <v-icon color="secondary" large>mdi-dice-6</v-icon>
                 </v-btn>
@@ -51,7 +50,7 @@
           <v-row v-if="quirk" align="center" justify="center">
             <v-col cols="6">
               <v-btn large block tile color="secondary darken-2" @click="clonePilot">
-                Decant Flash Clone
+                Декантация флэш-клона
               </v-btn>
             </v-col>
           </v-row>
@@ -113,7 +112,7 @@ export default Vue.extend({
       newPilot.CloudController.reset()
       newPilot.RenewID()
       newPilot.Callsign += '″'
-      newPilot.Name += ' (COPY)'
+      newPilot.Name += ' (КОПИЯ)'
       newPilot.Status = 'АКТИВЕН'
       for (const mech of newPilot.Mechs) {
         mech.RenewID()

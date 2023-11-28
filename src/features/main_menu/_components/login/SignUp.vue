@@ -1,18 +1,18 @@
 <template>
   <v-container>
     <v-alert outlined prominent icon="mdi-information-outline" class="my-2">
-      <div><b>Cloud Account</b></div>
+      <div><b>Облачный аккаунт</b></div>
       <div>
-        The e-mail address input below will be used to send you a confirmation code to finalize the
-        creation of your account. From there, your e-mail will only be used to log in to your
-        COMP/CON account. We are committed to keeping your e-mail address confidential. We do not
-        sell, rent, or lease our contact data or lists to third parties, and we will not provide
-        your personal information to any third party individual, government agency, or company at
-        any time.
+        Введенный ниже адрес электронной почты будет использоваться для отправки вам кода подтверждения 
+        для завершения создания вашей учетной записи. После этого ваш адрес электронной почты будет использоваться 
+        только для входа в вашу учетную запись COMP/CON. Мы обязуемся сохранять конфиденциальность вашего адреса 
+        электронной почты. Мы не продаем и не сдаем в аренду наши контактные данные или списки 
+        третьим лицам, и мы не будем предоставлять вашу личную информацию каким-либо третьим лицам, государственным 
+        учреждениям или компаниям в любое время.
       </div>
     </v-alert>
     <v-row dense class="panel" justify="center" align="center">
-      <v-col cols="auto" style="letter-spacing: 5px">CREATE ACCOUNT</v-col>
+      <v-col cols="auto" style="letter-spacing: 5px">СОЗДАТЬ АККАУНТ</v-col>
     </v-row>
     <!-- <div v-if="isPatron" class="mt-2 heading h3 accent--text text-center">
       <v-icon large color="success">mdi-patreon</v-icon>
@@ -39,7 +39,7 @@
           <v-col lg="4" cols="12">
             <v-text-field
               v-model="email"
-              label="E-Mail Address"
+              label="Адрес электронной почты"
               :rules="[rules.required, rules.emailMatch]"
               solo
             />
@@ -47,7 +47,7 @@
           <v-col lg="4" cols="12">
             <v-text-field
               v-model="password"
-              label="Password"
+              label="Пароль"
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show ? 'text' : 'password'"
               solo
@@ -65,11 +65,11 @@
               :loading="loading"
               :disabled="!submitOk"
             >
-              submit
+              Отправить
             </v-btn>
             <br />
             <v-btn text color="accent" class="mt-1" @click="$emit('set-state', 'sign-in')">
-              Cancel
+              Отмена
             </v-btn>
           </v-col>
         </v-row>
@@ -86,7 +86,7 @@
         icon="mdi-alert"
         dismissible
       >
-        <div class="font-weight-bold">ERROR</div>
+        <div class="font-weight-bold">ОШИБКА</div>
         <div v-html="error" />
       </v-alert>
     </v-scroll-y-transition>
@@ -113,10 +113,10 @@ export default Vue.extend({
     password: '',
     // patreonAuthCode: '',
     rules: {
-      required: value => !!value || 'Required.',
-      min: v => v.length >= 6 || 'Min 6 characters',
+      required: value => !!value || 'Необходио.',
+      min: v => v.length >= 6 || 'Минимум 6 символов',
       emailMatch: v =>
-        !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,6})+$/.test(v) || 'E-mail must be valid',
+        !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,6})+$/.test(v) || 'Адрес должен быть действительным',
     },
   }),
   computed: {

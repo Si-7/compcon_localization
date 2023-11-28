@@ -73,7 +73,7 @@
           @click="$refs.imageSelector.open()"
         >
           <v-icon left>mdi-circle-edit-outline</v-icon>
-          Set Mech Image
+          Установить изображение меха
         </v-btn>
       </div>
 
@@ -113,7 +113,7 @@
               @click="$refs.imageSelector.open()"
             >
               <v-icon left>mdi-circle-edit-outline</v-icon>
-              Set Mech Image
+              Установить изображение меха
             </v-btn>
           </div>
 

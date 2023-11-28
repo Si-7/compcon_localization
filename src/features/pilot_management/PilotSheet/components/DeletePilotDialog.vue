@@ -2,9 +2,9 @@
   <v-dialog v-model="dialog" width="75vw">
     <cc-confirmation
       :content="
-        `Lancer, please confirm deletion of Pilot Registration Information for:
+        `Улан, пожалуйста подтвердите удаление регистрационной информации пилота для:
           <span class='accent--text'>
-            ${pilot.Callsign} (${pilot.Name}, LL${pilot.Level})
+            ${pilot.Callsign} (${pilot.Name}, УЛ${pilot.Level})
           </span>`
       "
       @confirm="remove()"

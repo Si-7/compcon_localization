@@ -6,7 +6,7 @@
           simple
           inline
           delay
-          :content="`Structure: ${mech.CurrentStructure}/${mech.MaxStructure}`"
+          :content="`Структура: ${mech.CurrentStructure}/${mech.MaxStructure}`"
         >
           <v-icon>cci-structure</v-icon>
         </cc-tooltip>
@@ -16,7 +16,7 @@
         </span>
       </v-col>
       <v-col cols="2" class="unskew">
-        <cc-tooltip simple inline delay :content="`HP: ${mech.CurrentHP}/${mech.MaxHP}`">
+        <cc-tooltip simple inline delay :content="`ПЗ: ${mech.CurrentHP}/${mech.MaxHP}`">
           <v-icon>mdi-heart-outline</v-icon>
         </cc-tooltip>
         <span class="stat-text">{{ mech.CurrentHP }}</span>
@@ -27,7 +27,7 @@
           simple
           inline
           delay
-          :content="`Reactor Stress: ${mech.CurrentStress}/${mech.MaxStress}`"
+          :content="`Нагрузка: ${mech.CurrentStress}/${mech.MaxStress}`"
         >
           <v-icon>cci-reactor</v-icon>
         </cc-tooltip>
@@ -35,7 +35,7 @@
         <span class="flavor-text subtle--text" style="font-size:14px">/{{ mech.MaxStress }}</span>
       </v-col>
       <v-col cols="2" class="unskew">
-        <cc-tooltip simple inline delay :content="`Heat: ${mech.CurrentHeat}/${mech.HeatCapacity}`">
+        <cc-tooltip simple inline delay :content="`Нагрев: ${mech.CurrentHeat}/${mech.HeatCapacity}`">
           <v-icon>mdi-fire</v-icon>
         </cc-tooltip>
         <span class="stat-text">{{ mech.CurrentHeat }}</span>
@@ -48,7 +48,7 @@
           simple
           inline
           delay
-          :content="`Repair Capacity: ${mech.CurrentRepairs}/${mech.RepairCapacity}`"
+          :content="`Лимит Ремонта: ${mech.CurrentRepairs}/${mech.RepairCapacity}`"
         >
           <v-icon>cci-repair</v-icon>
         </cc-tooltip>

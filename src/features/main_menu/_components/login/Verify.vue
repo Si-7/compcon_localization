@@ -1,16 +1,16 @@
 <template>
   <div>
     <v-row dense class="panel" justify="center" align="center">
-      <v-col cols="auto" style="letter-spacing: 5px">VERIFY E-MAIL ADDRESS</v-col>
+      <v-col cols="auto" style="letter-spacing: 5px">ПОДТВЕРЖДЕНИЕ АДРЕСА ЭЛЕКТРОННОЙ ПОЧТЫ</v-col>
     </v-row>
     <p class="body-text text-center mt-2">
-      A verification code was sent to
+      Код подтверждения отправлен на
       <b>{{ email }}</b>
-      . Input the code below to finalize your account
+      . Введите код снизу, чтобы закончить регистрацию
     </p>
     <div class="text-center">
       <v-btn small text color="accent" style="fadeSelect" @click="resend()">
-        Re-send Verification Code
+        Отправить код заново
       </v-btn>
     </div>
     <v-row class="mt-2" justify="center">
@@ -21,11 +21,11 @@
     <v-row dense justify="center" align="start" class="mt-n2 text-center">
       <v-col cols="auto">
         <v-btn large color="success" :loading="loading" :disabled="!verify" @click="confirm">
-          Confirm Verification Code
+          Подтвердить код подтверждения
         </v-btn>
         <br />
         <v-btn text color="accent" class="mt-1" @click="$emit('set-state', 'sign-in')">
-          Cancel
+          Отмена
         </v-btn>
       </v-col>
     </v-row>
@@ -39,7 +39,7 @@
         icon="mdi-alert"
         dismissible
       >
-        <div class="font-weight-bold">ERROR</div>
+        <div class="font-weight-bold">ОШИБКА</div>
         <div v-html="error" />
       </v-alert>
     </v-scroll-y-transition>
@@ -75,7 +75,7 @@ export default Vue.extend({
       })
         .then(data => {
           this.loading = false
-          this.$notify('User Account created successfully. Redirecting to Sign-In.')
+          this.$notify('Аккаунт пользователя успешно создан. Перенаправляю на вход.')
           console.log(data)
           this.$emit('set-state', 'sign-in')
         })
@@ -88,9 +88,9 @@ export default Vue.extend({
     resend() {
       Auth.resendSignUp(this.email).then(res => {
         console.log(res)
-        this.$notify(`New verification e-mail sent to ${this.email.toLowerCase()}`).catch(err => {
+        this.$notify(`Новый код подтверждения отправлен на ${this.email.toLowerCase()}`).catch(err => {
           console.error(err)
-          this.$notify(`Error sending verification e-mail: ${err}`)
+          this.$notify(`Ошибка при отправке кода подтверждения: ${err}`)
         })
       })
     },

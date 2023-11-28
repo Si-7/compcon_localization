@@ -15,7 +15,7 @@
             </div>
             <a v-if="info.website" target="_blank" :href="`${info.website}`">
               <v-icon color="primary">mdi-web</v-icon>
-              <span>Website</span>
+              <span>Сайт</span>
             </a>
             <span v-if="info.website" class="mx-3">|</span>
             <a v-if="info.twitter" target="_blank" :href="`https://twitter.com/${info.twitter}`">

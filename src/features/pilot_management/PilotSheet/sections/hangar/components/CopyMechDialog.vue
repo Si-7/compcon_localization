@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="75vw">
     <cc-confirmation
       :content="
-        `Lancer, please confirm intention to create a duplicate of Mech Configuration:
+        `Улан, пожалуйста, подтвердите сохдание дубликата Конфигурации Меха:
           <span class='accent--text'>
             ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
           </span>`

@@ -24,20 +24,20 @@
           @click="search()"
         >
           <v-icon large left>mdi-account-search</v-icon>
-          Search
+          Поиск
         </v-btn>
       </v-col>
     </v-row>
     <div v-if="searchResults !== null" class="my-2">
       <v-card outlined>
         <v-card-text class="text-center">
-          <i v-if="!searchResults.Item">No record found with share code {{ shareCode }}</i>
+          <i v-if="!searchResults.Item">Не найдено записей с кодом {{ shareCode }}</i>
           <div v-else>
-            <div>Record found! Attempting to load data...</div>
+            <div>Запись найдена! Попытка загрузить данные...</div>
             <v-progress-linear v-show="loading" indeterminate />
             <v-fade-transition>
               <div v-if="pilotData">
-                Loaded {{ pilotData.callsign }} ({{ pilotData.name }}). Staging for import...
+                Загружен {{ pilotData.callsign }} ({{ pilotData.name }}). Подготовка к импортированию...
               </div>
             </v-fade-transition>
           </div>
@@ -46,39 +46,37 @@
     </div>
     <v-card v-if="missingContent.length">
       <p v-if="oldBrewsWarning" class="heading h3 accent--text">
-        WARNING: The imported Pilot was created using an older version of COMP/CON. Lancer Content
-        Pack analysis may not be comprehensive and there is a chance COMP/CON will be unable to
-        correctly load this data. Export the original file in the latest version of COMP/CON to
-        guarantee LCP validation.
+        ВНИМАНИЕ: Импортированный пилот был создан с использованием более старой 
+        версии COMP/CON. Анализ пакета контента Lancer может быть неполным, и существует 
+        вероятность того, что COMP/CON не сможет правильно загрузить эти данные. Экспортируйте 
+        исходный файл в последнюю версию COMP/CON, чтобы гарантировать проверку LCP.
       </p>
       <v-card-text class="text-center">
         <p class="heading h4 accent--text">
-          The imported Pilot requires the following content packs that are not currently
-          installed/active, or have mismatching versions:
+          Импортированному пилоту требуются следующие пакеты контента, которые в данный момент не установлены/активны или имеют несовпадающие версии:
         </p>
         <p class="effect-text text-center" v-html="missingContent" />
         <p class="text--text">
-          This Pilot cannot be imported until the missing content packs are installed and activated,
-          or the content pack versions are synchronized.
+          Этот пилот нельзя импортировать до тех пор, пока не будут 
+          установлены и активированы отсутствующие пакеты содержимого или пока версии пакетов содержимого не будут синхронизированы.
         </p>
       </v-card-text>
       <v-divider />
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary" @click="reset">Abort Import</v-btn>
+        <v-btn text color="primary" @click="reset">Прервать импорт</v-btn>
       </v-card-actions>
     </v-card>
     <div class="mt-2">
       <p v-if="alreadyPresentItem" class="accent--text text-center">
-        A Pilot with this ID already exists in the roster. Unable to set this pilot as a remote
-        resource. You may
-        <b class="accent--text">permanently delete</b>
-        the existing pilot to continue this import.
-        <v-btn x-small color="error" @click="deleteAP()">Permanenty delete local item</v-btn>
+        Пилот с таким идентификатором уже существует в списке. Невозможно установить этот пилот в качестве удаленного ресурса. Вы можете
+        <b class="accent--text">навсегда удалить</b>
+        существующего пилота, чтобы продолжить импорт.
+        <v-btn x-small color="error" @click="deleteAP()">Удалить локальный элемент навсегда</v-btn>
       </p>
       <p v-if="isSameUser" class="accent--text text-center">
-        The cloud account ID associated with this item is the same as the currently logged-in user.
-        Unable to set this pilot as a remote resource.
+        Идентификатор облачной учетной записи, связанный с этим элементом, такой же, как у текущего 
+        вошедшего в систему пользователя. Невозможно установить этого пилота в качестве удаленного ресурса.
       </p>
       <v-slide-x-reverse-transition>
         <v-row v-if="stagedData" align="center" justify="space-around">
@@ -90,8 +88,8 @@
               @click="importAsCopy()"
             >
               <v-icon large left>cci-accuracy</v-icon>
-              Import {{ stagedData.callsign }} ({{ stagedData.name }}) as&nbsp;
-              <b>a copy</b>
+              Импортировать {{ stagedData.callsign }} ({{ stagedData.name }}) как&nbsp;
+              <b>копию</b>
             </v-btn>
           </v-col>
           <v-col cols="auto">
@@ -102,15 +100,15 @@
               @click="importAsRemote()"
             >
               <v-icon large left>cci-accuracy</v-icon>
-              Import {{ stagedData.callsign }} ({{ stagedData.name }}) as&nbsp;
-              <b>a remote resource</b>
+              Импортировать {{ stagedData.callsign }} ({{ stagedData.name }}) как&nbsp;
+              <b>удаленный проект</b>
               <cc-tooltip
-                title="Remote Resource"
-                content="Importing this Pilot as a remote resource
-              will create a
-              <b>read-only</b>
-              version of this pilot in your roster that can be updated when the owner of this data
-              publishes changes to their cloud account. Remote data cannot be saved to your own cloud account. An editable local copy of a remote resource pilot can be made by duplicating the pilot (Pilot Options > Clone > Duplicate)"
+                title="Удаленный ресурс"
+                content="Импорт этого пилота в качестве удаленного ресурса приведет к созданию в 
+                вашем списке версии этого пилота, доступной <b>только для чтения</b>, которую можно будет обновить, 
+                когда владелец этих данных опубликует изменения в своей облачной учетной записи. Удаленные данные не могут 
+                быть сохранены в вашей собственной облачной учетной записи. Редактируемую локальную копию пилота 
+                удаленного ресурса можно создать путем дублирования пилота (Параметры пилотного проекта > Клонировать > Дублировать)."
               >
                 <v-icon right>mdi-information-outline</v-icon>
               </cc-tooltip>
@@ -182,7 +180,7 @@ export default Vue.extend({
         })
         .catch(err => {
           console.error(err)
-          this.$notify('An error occurred when searching for the share code.', err)
+          this.$notify('Произошла ошибка при поиске кода.', err)
           this.loading = false
         })
     },
@@ -195,7 +193,7 @@ export default Vue.extend({
         .then(() => this.stageImport())
         .catch(err => {
           console.error(err)
-          this.$notify('An error occurred while downloading remote data.', err)
+          this.$notify('Произошла ошибка при загрузке удаленных данных.', err)
         })
         .finally(() => {
           this.loading = false
@@ -242,10 +240,10 @@ export default Vue.extend({
         this.$store.dispatch('addPilot', importPilot)
         this.reset()
         this.$emit('done')
-        this.$notify('Pilot successfully imported', 'success')
+        this.$notify('Пилот успешно импортирован', 'success')
       } catch (error) {
         this.$notify(
-          'An error occured during the import attempt. Please check the console log.',
+          'Во время попытки импорта произошла ошибка. Пожалуйста, проверьте журнал консоли.',
           'error'
         )
       }
@@ -260,10 +258,10 @@ export default Vue.extend({
         this.$store.dispatch('addPilot', importPilot)
         this.reset()
         this.$emit('done')
-        this.$notify('Pilot successfully imported', 'success')
+        this.$notify('Пилот успешно импортирован', 'success')
       } catch (error) {
         this.$notify(
-          'An error occured during the import attempt. Please check the console log.',
+          'Во время попытки импорта произошла ошибка. Пожалуйста, проверьте журнал консоли.',
           'error'
         )
       }

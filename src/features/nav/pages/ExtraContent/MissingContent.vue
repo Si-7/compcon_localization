@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row dense class="panel" justify="center" align="center">
-      <v-col cols="auto" style="letter-spacing: 5px">DATA ANALYSIS</v-col>
+      <v-col cols="auto" style="letter-spacing: 5px">АНАЛИЗ ДАННЫХ</v-col>
     </v-row>
     <v-slide-x-reverse-transition>
       <v-expansion-panels v-if="!loading" class="mt-2">
@@ -9,24 +9,23 @@
           <v-expansion-panel-header v-if="!missingLength" class="heading h4">
             <span>
               <v-icon color="success" class="mt-n1">mdi-check-bold</v-icon>
-              No Issues Detected
+              Проблем не замечено
             </span>
           </v-expansion-panel-header>
           <v-expansion-panel-header v-else class="heading h3 stark--text">
             <span>
               <span class="error--text">{{ missingLength }}</span>
-              {{ missingLength > 1 ? 'issues' : 'issue' }} detected
+              {{ missingLength > 1 ? 'проблем' : 'проблема' }} замечена
             </span>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <p class="body-text" v-if="missingLength > 1">
-              COMP/CON has determined the following items cannot be loaded, and require Lancer
-              Content Packs that are not installed or not activated:
+              COMP/CON определил, что следующие элементы не могут быть загружены и требуют пакетов LCP, которые не установлены или не активированы:
             </p>
             <div v-for="key in Object.keys(missing)" :key="key">
               <v-card outlined v-for="(item, n) in missing[key]" :key="`mp_${n}`">
                 <v-card-title v-if="key === 'pilots'" class="heading h3 mb-n4">
-                  Pilot Data:
+                  Данные Пилота:
                   <span class="primary--text">
                     {{ item.callsign }}
                     <cc-slashes />
@@ -34,7 +33,7 @@
                   </span>
                 </v-card-title>
                 <v-card-title v-if="key === 'npcs'" class="heading h3 mb-n4">
-                  NPC Data:
+                  Данные НИП:
                   <span class="primary--text">
                     {{ item.class }}
                     <cc-slashes />
@@ -45,18 +44,18 @@
                   <v-row>
                     <v-col>
                       <div v-if="notActive(item.brews).length">
-                        <div class="caption">DEACTIVATED LCPS</div>
+                        <div class="caption">ДЕАКТИВИРОВАННЫЕ LCP</div>
                         <div v-for="pack in notActive(item.brews)" :key="pack" class="ml-2">
                           <span class="body-text">
                             LCP
                             <b v-text="pack" />
-                            is installed but deactivated.
+                            установлен, но деактивирован.
                           </span>
                         </div>
                       </div>
                       <div v-if="notInstalled(item.brews).length">
                         <div v-if="item.brews[0].LcpName">
-                          <div class="caption mt-2">MISSING LCPS</div>
+                          <div class="caption mt-2">ОТСУТСТВУЮЩИЕ LCP</div>
                           <div
                             v-for="brew in notInstalled(item.brews)"
                             :key="brew.LcpId"
@@ -65,10 +64,10 @@
                             <span class="body-text">
                               LCP
                               <b v-text="`${brew.LcpName} @ ${brew.LcpVersion}`" />
-                              is missing.
+                              отсутствует.
                             </span>
                             <div v-if="brew.Website">
-                              It may be possible to download this pack at:
+                              Может быть возможно скачать этот пакет в:
                               <a target="_blank" :href="brew.Website" v-text="brew.Website" />
                             </div>
                             <auto-updater :brew="brew" @update="forceUpdate(item, key)" />
@@ -83,9 +82,9 @@
                             <span class="body-text">
                               LCP
                               <b v-text="brew" />
-                              is missing.
+                              отсутствует.
                             </span>
-                            <div>This data was saved with an older version of COMP/CON.</div>
+                            <div>Эти данные были сохранены в более старой версии COMP/CON.</div>
                             <auto-updater :brew="brew" @update="forceUpdate(item, key)" />
                           </div>
                         </div>
@@ -94,8 +93,8 @@
                     <v-col cols="auto" align-self="center">
                       <cc-tooltip
                         inline
-                        title="Delete Item"
-                        content="Delete this item from local data"
+                        title="Удалить объект"
+                        content="Удалить объект из локальных данных"
                       >
                         <v-btn icon color="error" @click="deleteItem(item, key)">
                           <v-icon>mdi-delete</v-icon>
@@ -103,8 +102,8 @@
                       </cc-tooltip>
                       <cc-tooltip
                         inline
-                        title="Force Load"
-                        content="Force COMP/CON to load this data. This is useful if you have outdated (but loadable) data, or COMP/CON has made a mistake in analyzing LCP content."
+                        title="Загрузить принудительно"
+                        content="Заставьте COMP/CON загрузить эти данные. Это полезно, если у вас есть устаревшие (но загружаемые) данные или COMP/CON допустил ошибку при анализе содержимого LCP."
                       >
                         <v-btn icon color="secondary" @click="forceItem(item, key)">
                           <v-icon>mdi-download-box</v-icon>
