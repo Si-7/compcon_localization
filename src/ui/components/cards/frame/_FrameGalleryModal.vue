@@ -2,7 +2,7 @@
   <div>
     <v-dialog v-model="dialog" fullscreen>
       <template v-slot:activator="{ on }">
-        <v-btn small outlined block v-on="on">View {{ frame.Name }} Gallery</v-btn>
+        <v-btn small outlined block v-on="on">Смотреть галерею {{ frame.Name }}</v-btn>
       </template>
       <v-card color="background">
         <v-btn icon fixed top right @click="dialog = false">
@@ -38,7 +38,7 @@
                       style="text-decoration: none"
                     >
                       <v-icon color="primary">mdi-web</v-icon>
-                      <span>Website</span>
+                      <span>Сайт</span>
                     </a>
                     <span v-if="artist.website && artist.twitter" class="ml-4 mr-2">|</span>
                     <a

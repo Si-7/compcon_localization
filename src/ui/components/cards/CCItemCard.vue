@@ -20,7 +20,7 @@ export default class CCItemCard extends Vue {
       try {
         return import(`./_${this.item.ItemType}Card.vue`)
       } catch (error) {
-        console.error(`Unable to load component ${this.item.ItemType}`)
+        console.error(`Невозможно загрузить компонент ${this.item.ItemType}`)
         return null
       }
     }

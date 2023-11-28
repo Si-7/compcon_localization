@@ -8,7 +8,7 @@
         <v-row class="mt-n1" no-gutters>
           <equipment-options v-if="!action" slot="options" :item="mod" />
           <span v-if="mod.Destroyed" class="error" style="text-decoration: line-through">
-            DESTROYED
+            УНИЧТОЖЕНО
           </span>
           <span v-else>
             {{ mod.Name }}
@@ -32,7 +32,7 @@
           class="text-center white--text stat-text"
           style="letter-spacing: 3px;"
         >
-          / / NHP IN CASCADE / /
+          / / НЧЛ В КАСКАДЕ / /
         </v-alert>
         <div>
           <div class="overline">
@@ -45,7 +45,7 @@
           <v-col>
             <v-row justify="space-around" dense>
               <v-col v-if="mod.Actions.length" cols="auto">
-                <div class="overline ml-n2 ">EQUIPMENT ACTIONS</div>
+                <div class="overline ml-n2 ">ДЕЙСТВИЯ СНАРЯЖЕНИЯ</div>
                 <v-row no-gutters justify="center">
                   <v-col v-for="(a, i) in mod.Actions" :key="`${mod.Name}_action_${i}`" cols="auto">
                     <cc-action :action="a" :panel="$vuetify.breakpoint.lgAndUp" class="ma-2" />
@@ -53,7 +53,7 @@
                 </v-row>
               </v-col>
               <v-col v-if="mod.Deployables.length" cols="auto">
-                <div class="overline ml-n2 ">EQUIPMENT DEPLOYABLES</div>
+                <div class="overline ml-n2 ">РАЗМЕЩАЕМЫЕ ОБЪЕКТЫ СНАРЯЖЕНИЯ</div>
                 <v-row no-gutters justify="center">
                   <v-col
                     v-for="(d, i) in mod.Deployables"

@@ -10,7 +10,7 @@
             <v-icon>mdi-arrow-up-thick</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Upgrade Tier</v-list-item-title>
+            <v-list-item-title>Повысить градацию</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item :disabled="item.Tier === 1" @click="downgradeTier()">
@@ -18,7 +18,7 @@
             <v-icon>mdi-arrow-down-thick</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Downgrade Tier</v-list-item-title>
+            <v-list-item-title>Уменьшить градацию</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item @click="$refs.cName.show()">
@@ -53,14 +53,14 @@
     <cc-string-edit-dialog
       ref="cName"
       :placeholder="item.Name"
-      label="Custom Item Name"
+      label="Пользовательское Название объекта"
       @save="save('Name', $event)"
       @reset="save('Name', '')"
     />
     <cc-string-edit-dialog
       ref="cDesc"
       :placeholder="item.Description"
-      label="Custom Item Description"
+      label="Пользовательское Описание объекта"
       @save="save('Description', $event)"
       @reset="save('Description', '')"
     />

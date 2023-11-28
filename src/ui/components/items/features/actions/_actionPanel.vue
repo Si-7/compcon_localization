@@ -9,7 +9,7 @@
       </v-col>
       <v-col cols="auto" class="ml-auto pl-5">
         <v-chip
-          v-if="action.Frequency.ToString() !== 'Unlimited'"
+          v-if="action.Frequency.ToString() !== 'Неограничено'"
           slot="title-items"
           color="stark"
           :small="!$vuetify.breakpoint.smAndDown"

@@ -14,7 +14,7 @@
         style="height: 100%"
       >
         <div slot="items">
-          <cc-tooltip simple inline content="Delete Organization">
+          <cc-tooltip simple inline content="Удалить организацию">
             <v-btn icon color="error" @click="remove()">
               <v-icon>delete</v-icon>
             </v-btn>
@@ -25,12 +25,12 @@
         </div>
         <v-row>
           <v-col cols="6">
-            <v-text-field v-model="org.Name" label="Organization Name" outlined hide-details />
+            <v-text-field v-model="org.Name" label="Название организации" outlined hide-details />
           </v-col>
           <v-col cols="6">
             <v-select
               v-model="org.Purpose"
-              label="Organization Type"
+              label="Тип организации"
               :items="orgTypes"
               outlined
               hide-details
@@ -39,7 +39,7 @@
         </v-row>
         <v-textarea
           v-model="org.Description"
-          label="Purpose, goal, and organization details"
+          label="Цель и детали организации"
           auto-grow
           rows="2"
           filled
@@ -57,15 +57,13 @@
               <span class="heading h2 accent--text">+ {{ org.Efficiency }}</span>
               <br />
               <span>
-                Organization Efficiency
+                Эффективность организации
                 <cc-tooltip
                   simple
                   inline
-                  content="How directly effective your organization is at what it does (a military
-                organization with high efficiency would be good at combat, for example).
-                <br />Efficiency can be used to perform activities related to your organization’s
-                purpose (science, military, etc). You can use these advantages as
-                <strong>reserves.</strong>"
+                  content="Эффективность определяет, насколько эффективно ваша организация ведет деятельность в рамках своей сферы
+                (например, военная организация с высокой эффективностью будет хороша в бою). Преимущества, полученные с помощью 
+                вашей организации, могут быть использованы как <strong>Резервы</strong>."
                 >
                   <v-icon small right>mdi-help-circle-outline</v-icon>
                 </cc-tooltip>
@@ -88,13 +86,16 @@
               <span class="heading h2 accent--text">+ {{ org.Influence }}</span>
               <br />
               <span>
-                Organization Influence
+                Влияние организации
                 <cc-tooltip
                   simple
                   inline
-                  content="Influence is your organization’s size, reach, wealth, and reputation.
-                Influence be used to acquire assets, create opportunities, or sway public
-                opinion."
+                  content="Влияние — это размер,
+                охват, богатство и репутация организации. Влияние
+                используется при приобретении активов, создании
+                возможностей или влиянии на общественное мнение.
+                Преимущества, полученные с помощью вашей организации, 
+                могут быть использованы как <strong>Резервы</strong>."
                 >
                   <v-icon small right>mdi-help-circle-outline</v-icon>
                 </cc-tooltip>

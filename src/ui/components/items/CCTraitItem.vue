@@ -4,7 +4,7 @@
       <v-col cols="auto">
         <h3 class="heading" :style="`color: ${color}`">{{ trait.Name }}</h3>
       </v-col>
-      <v-col v-if="trait.Use !== 'Mission'" cols="auto" class="ml-auto">
+      <v-col v-if="trait.Use !== 'Миссия'" cols="auto" class="ml-auto">
         <div class="subtle--text overline mt-n2">{{ trait.Use }}</div>
       </v-col>
     </v-row>

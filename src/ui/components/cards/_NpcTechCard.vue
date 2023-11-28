@@ -9,7 +9,7 @@
           +{{ item.AttackBonus(1) }}/+{{ item.AttackBonus(2) }}/+{{ item.AttackBonus(3) }}
           <br />
           <div class="overline mt-n1">
-            Attack Bonus
+            Бонус Атаки
           </div>
         </span>
       </div>
@@ -25,7 +25,7 @@
           +{{ item.Accuracy(1) }}/+{{ item.Accuracy(2) }}/+{{ item.Accuracy(3) }}
           <br />
           <div class="overline mt-n1">
-            Accuracy
+            Точность
           </div>
         </span>
       </div>
@@ -39,13 +39,13 @@
           }}
           <br />
           <div class="overline mt-n1">
-            Difficulty
+            Сложность
           </div>
         </span>
       </div>
     </v-col>
     <v-col cols="auto" class="ml-auto text-right">
-      <div class="heading h2">{{ item.TechType }} Tech</div>
+      <div class="heading h2">{{ item.TechType }} Технология</div>
       <span class="flavor-text subtle--text">// {{ item.Origin }}</span>
       <div v-if="item.InLcp" class="flavor-text subtle--text">{{ item.LcpName }}</div>
     </v-col>

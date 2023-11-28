@@ -25,7 +25,7 @@
         icon
         @click="$refs.dialog.confirm()"
       >
-        <v-icon large left>закрыть</v-icon>
+        <v-icon large left>close</v-icon>
       </v-btn>
 
       <v-chip

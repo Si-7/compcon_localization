@@ -99,7 +99,7 @@ export default Vue.extend({
       if (mount_type in mount_tooltips) {
         return mount_tooltips[mount_type]
       }
-      return "Error: Unknown Mount Type"
+      return "Ошибка: Неизвестный тип слота"
     },
   },
 })

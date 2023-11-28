@@ -34,7 +34,7 @@ export default Vue.extend({
   },
   computed: {
     activation() {
-      return this.deployable.activation ? this.deployable.activation.toLowerCase() : 'quick'
+      return this.deployable.activation ? this.deployable.activation.toLowerCase() : 'быстрое'
     },
   },
 })

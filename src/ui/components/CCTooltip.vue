@@ -13,8 +13,7 @@
       </div>
     </template>
     <span v-if="err">
-      Unable to load tooltip information. This may be due to malformed data or an unloaded content
-      package.
+      Не удалось загрузить информацию всплывающей подсказки. Это может быть связано с некорректными данными или выгруженным пакетом.
     </span>
     <div v-else>
       <div v-if="simple">

@@ -28,7 +28,7 @@
         <v-card-actions v-else-if="!noDismiss">
           <v-btn text @click="dialog = false">cancel</v-btn>
           <v-spacer />
-          <cc-btn @click="confirm">confirm</cc-btn>
+          <cc-btn @click="confirm">подтвердить</cc-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

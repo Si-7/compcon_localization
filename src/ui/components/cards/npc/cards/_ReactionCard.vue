@@ -12,7 +12,7 @@
     <p v-if="item.Tier" v-html-safe="item.Feature.EffectByTier(item.Tier)" class="body-1 mb-0" />
     <p v-else v-html-safe="item.Feature.Effect" class="body-1 mb-0" />
     <v-col slot="extra-action" cols="auto" class="mx-2">
-      <cc-tooltip simple :content="`Stage Reaction: ${item.Name}`">
+      <cc-tooltip simple :content="`Подготовить реакцию: ${item.Name}`">
         <v-btn outlined small color="action--reaction" @click="$emit('add-reaction', item.Name)">
           <v-icon>mdi-plus</v-icon>
           <v-icon>cci-reaction</v-icon>

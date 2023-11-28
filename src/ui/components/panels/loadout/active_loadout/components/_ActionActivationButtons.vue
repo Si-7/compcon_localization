@@ -13,7 +13,7 @@
       {{ action.Name }}
     </v-btn>
     <v-btn
-      v-if="!fulltech && action.Activation !== 'Free' && action.Activation !== 'Protocol'"
+      v-if="!fulltech && action.Activation !== 'Свободное' && action.Activation !== 'Протокол'"
       small
       tile
       block

@@ -81,7 +81,7 @@ export default vueMixins(activePilot).extend({
       return this.unusable || this.action.Used || this.activations < this.cost
     },
     displayFreq() {
-      return this.action.Frequency.ToString() !== 'Unlimited'
+      return this.action.Frequency.ToString() !== 'Неограничено'
     }
   },
 })

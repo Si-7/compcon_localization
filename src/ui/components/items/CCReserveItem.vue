@@ -26,7 +26,7 @@
         style="height: 100%"
       >
         <div slot="items">
-          <cc-tooltip simple inline content="Delete Reserve">
+          <cc-tooltip simple inline content="Удалить резерв">
             <v-btn icon color="error" @click="remove()">
               <v-icon>delete</v-icon>
             </v-btn>
@@ -40,14 +40,14 @@
           <v-card-text>
             <v-row>
               <v-col cols="9">
-                <div v-if="reserve.Type === 'Resources'">
+                <div v-if="reserve.Type === 'Ресурс'">
                   <v-text-field
                     v-model.lazy="reserve.ResourceName"
                     :label="reserve.ResourceLabel"
                     outlined
                   />
                 </div>
-                <div v-else-if="reserve.Type === 'Mech'">
+                <div v-else-if="reserve.Type === 'Мех'">
                   <span class="effect-text">{{ reserve.Description }}</span>
                 </div>
                 <div v-else>
@@ -71,11 +71,11 @@
               <v-col v-if="reserve.Type !== 'Project'" cols="3" class="text-center">
                 <v-switch v-model="reserve.Used" dense inset hide-details color="secondary">
                   <span slot="label" class="stat-text text--text">
-                    Used
+                    Использован
                     <cc-tooltip
                       simple
                       inline
-                      content="Mark this resource as used or unavailable (but not consumed, destroyed or lost)"
+                      content="Отметить этот ресурс как использованный или недоступный (но не израсходованный, уничтоженный или потерянный)"
                     >
                       <v-icon small>mdi-help-circle-outline</v-icon>
                     </cc-tooltip>
@@ -90,7 +90,7 @@
               auto-grow
               filled
               rows="2"
-              label="Cost/Complications"
+              label="Стоимость/Осложнения"
               clearable
             />
           </v-card-text>
@@ -98,7 +98,7 @@
         <v-divider />
         <v-card-actions>
           <v-spacer />
-          <v-btn text @click="dialog = false">Dismiss</v-btn>
+          <v-btn text @click="dialog = false">Закрыть</v-btn>
         </v-card-actions>
       </cc-titled-panel>
     </v-dialog>

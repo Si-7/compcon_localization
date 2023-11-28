@@ -2,7 +2,7 @@
   <div>
     <v-card v-if="skill.err" flat outlined>
       <v-card-text class="text-center pa-1">
-        <span class="flavor-text subtle--text">// MISSING DATA //</span>
+        <span class="flavor-text subtle--text">// ОТСУТСТВУЮТ ДАННЫЕ //</span>
       </v-card-text>
     </v-card>
     <v-expansion-panels v-else focusable accordion style="border-radius: 0px">

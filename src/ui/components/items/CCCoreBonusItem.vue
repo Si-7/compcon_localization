@@ -26,7 +26,7 @@
     </div>
 
     <div v-if="bonus.Deployables.length">
-      <div class="overline ml-n2 mb-n2 subtle--text">CORE BONUS DEPLOYABLES</div>
+      <div class="overline ml-n2 mb-n2 subtle--text">РАЗМЕЩАЕМЫЕ ОБЪЕКТЫ БОНУСА ЯДРА</div>
       <v-row no-gutters justify="center">
         <v-col
           v-for="(d, i) in bonus.Deployables"
@@ -44,7 +44,7 @@
     </div>
 
     <div v-if="bonus.IntegratedEquipment.length">
-      <div class="overline ml-n2 mb-n2 subtle--text">CORE BONUS INTEGRATED EQUIPMENT</div>
+      <div class="overline ml-n2 mb-n2 subtle--text">ИНТЕГРИРОВАННОЕ СНАРЯЖЕНИЕ БОНУСА ЯДРА</div>
       <v-row no-gutters justify="center">
         <v-col
           v-for="(x, i) in bonus.IntegratedEquipment"
@@ -57,7 +57,7 @@
     </div>
 
     <div v-if="bonus.SpecialEquipment.length">
-      <div class="overline ml-n2 mb-n2 subtle--text">CORE BONUS ADDITIONAL EQUIPMENT</div>
+      <div class="overline ml-n2 mb-n2 subtle--text">ДОПОЛНИТЕЛЬНОЕ СНАРЯЖЕНИЕ БОНУСА ЯДРА</div>
       <v-row no-gutters justify="center">
         <v-col
           v-for="(x, i) in bonus.SpecialEquipment"

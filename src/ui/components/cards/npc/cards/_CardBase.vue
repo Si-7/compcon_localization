@@ -14,7 +14,7 @@
           {{ item.Feature.Name }}
         </span>
         <span v-else :style="item.Destroyed ? 'text-decoration: line-through' : ''">
-          {{ item.Name }} (T{{ item.Tier }})
+          {{ item.Name }} (Г{{ item.Tier }})
         </span>
         <span v-if="!item.Destroyed && !active" class="caption">//{{ item.Feature.Origin }}</span>
         &emsp;
@@ -37,7 +37,7 @@
           <v-col v-if="item.Feature.IsRecharging" class="ml-2 mt-n1">
             <v-switch
               v-model="item.IsCharged"
-              :label="item.IsCharged ? 'Charged' : `Recharges on ${item.Feature.ChargeRoll}+`"
+              :label="item.IsCharged ? 'Заряжено' : `Заряжается на ${item.Feature.ChargeRoll}+`"
               inset
               dense
               hide-details
@@ -50,7 +50,7 @@
             <cc-item-uses class="d-inline" :item="item" />
           </v-col>
           <v-col v-if="destructable" cols="auto" class="ml-auto mr-2 mt-n2">
-            <cc-tooltip simple :content="`Mark ${item.Destroyed ? 'Repaired' : 'Destroyed'}`">
+            <cc-tooltip simple :content="`Mark ${item.Destroyed ? 'Отремонтировано' : 'Уничтожен'}`">
               <v-btn
                 icon
                 :color="item.Destroyed ? 'secondary' : 'error'"

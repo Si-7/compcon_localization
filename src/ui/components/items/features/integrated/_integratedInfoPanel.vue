@@ -11,7 +11,7 @@
         <span class="heading h3">{{ item.Name }}</span>
       </v-col>
       <v-col cols="auto" class="ml-auto">
-        <span class="overline">INTEGRATED MECH WEAPON</span>
+        <span class="overline">ИНТЕГРИРОВАННОЕ ОРУЖИЕ МЕХА</span>
       </v-col>
     </v-row>
     <integrated-info-base :item="item" />

@@ -16,7 +16,7 @@
           <v-icon v-if="tag.err" small>label_off</v-icon>
           <v-icon v-else small>label</v-icon>
         </v-avatar>
-        <span v-if="tag.err">MISSING DATA</span>
+        <span v-if="tag.err">ОТСУТСТВУЮТ ДАННЫЕ</span>
         <span v-else>{{ tag.GetName(bonus).toUpperCase() }}</span>
       </v-chip>
     </cc-tooltip>

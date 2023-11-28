@@ -48,7 +48,7 @@ export default class CCStatblockPanel extends Vue {
 
   glossary(name: string): string {
     const n = glossary.find(x => x.name.toLowerCase() === name.toLowerCase())
-    return n ? n.description : 'MISSING'
+    return n ? n.description : 'НЕ НАЙДЕНО'
   }
 }
 </script>

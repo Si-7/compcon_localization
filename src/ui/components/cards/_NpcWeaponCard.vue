@@ -23,7 +23,7 @@
           +{{ item.AttackBonus(1) }}/+{{ item.AttackBonus(2) }}/+{{ item.AttackBonus(3) }}
           <br />
           <div class="overline mt-n1">
-            Attack Bonus
+            Бонус Атаки
           </div>
         </span>
       </div>
@@ -42,7 +42,7 @@
           +{{ item.Accuracy(1) }}/+{{ item.Accuracy(2) }}/+{{ item.Accuracy(3) }}
           <br />
           <div class="overline mt-n1">
-            Accuracy
+            Точность
           </div>
         </span>
       </div>
@@ -60,7 +60,7 @@
           }}
           <br />
           <div class="overline mt-n1">
-            Difficulty
+            Сложность
           </div>
         </span>
       </div>
@@ -73,7 +73,7 @@
     <p
       v-if="item.OnHit"
       slot="statblock"
-      v-html-safe="`<b>On Hit:&nbsp;</b>${item.OnHit}`"
+      v-html-safe="`<b>При попадании:&nbsp;</b>${item.OnHit}`"
       class="panel text--text"
       style="font-size: 20px"
     />

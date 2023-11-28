@@ -16,7 +16,7 @@
             <v-col v-if="item" cols="auto">
               <equipment-options :item="item" readonly active />
               <span v-if="!item.Destroyed" class="ml-n2" :style="item.Used ? 'opacity: 0.6' : ''">
-                <cc-tooltip v-if="item.Used" inline content="Equipment has been marked as 'Used'">
+                <cc-tooltip v-if="item.Used" inline content="Снаряжение было помечено как 'Использованное'">
                   <v-icon color="success">mdi-check</v-icon>
                 </cc-tooltip>
                 <span

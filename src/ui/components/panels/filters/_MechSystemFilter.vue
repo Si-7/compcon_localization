@@ -135,7 +135,7 @@ export default Vue.extend({
     systemTypes(): SystemType[] {
       return Object.keys(SystemType)
         .map(k => SystemType[k as any])
-        .filter(k => k !== 'Integrated')
+        .filter(k => k !== 'Интегрированная')
         .sort() as SystemType[]
     },
     tags(): Tag[] {

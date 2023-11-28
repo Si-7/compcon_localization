@@ -167,11 +167,11 @@ export default Vue.extend({
 
         this.hide()
       } else {
-        this.logOverride = ['UPLINK ESTABLISHED. ATTEMPTING REMOTE ACCESS.']
+        this.logOverride = ['ВОСХОДЯЩАЯ ЛИНИЯ СВЯЗИ УСТАНОВЛЕНА. ПОПЫТКА УДАЛЕННОГО ДОСТУПА.']
         if (success) {
-          this.logOverride.push('SYSTEM ACCESS OBTAINED.')
+          this.logOverride.push('ДОСТУП К СИСТЕМЕ ПОЛУЧЕН.')
           this.logOverride = this.logOverride.concat(this.action.Confirm)
-        } else this.logOverride.push('ACCESS DENIED. SYSTEM FAILURE.')
+        } else this.logOverride.push('ДОСТУП ЗАПРЕЩЕН. СИСТЕМНАЯ ОШИБКА.')
         this.displayLog = true
       }
 

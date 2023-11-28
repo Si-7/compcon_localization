@@ -32,7 +32,7 @@
       <div v-if="item.InLcp" class="flavor-text subtle--text">{{ item.LcpName }}</div>
       <div v-if="item.Restricted">
         <span class="stat-text error--text">
-          ОГРАНИЧЕНО: {{ item.Restricted.join('/').toUpperCase() }} MOUNTS
+          ОГРАНИЧЕНО: {{ item.Restricted.join('/').toUpperCase() }} СЛОТЫ
         </span>
       </div>
     </v-col>

@@ -20,7 +20,7 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer />
-        <v-btn text @click="dialog = false">dismiss</v-btn>
+        <v-btn text @click="dialog = false">закрыть</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

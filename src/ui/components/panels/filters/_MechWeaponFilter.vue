@@ -189,7 +189,7 @@ export default Vue.extend({
     weaponTypes(): WeaponType[] {
       return Object.keys(WeaponType)
         .map(k => WeaponType[k as any])
-        .filter(k => k !== 'Integrated')
+        .filter(k => k !== 'Интегрированный')
         .sort() as WeaponType[]
     },
     weaponSizes(): WeaponSize[] {

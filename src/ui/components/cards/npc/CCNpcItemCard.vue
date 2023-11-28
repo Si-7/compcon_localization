@@ -41,7 +41,7 @@ export default {
         this.component = () => this.loader()
       })
       .catch(() => {
-        console.error(`Unable to load component ${this.item.Feature.FeatureType}`)
+        console.error(`Невозможно загрузить компонент ${this.item.Feature.FeatureType}`)
       })
   },
 }

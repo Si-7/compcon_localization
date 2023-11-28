@@ -30,7 +30,7 @@ export default {
         this.component = () => this.loader()
       })
       .catch(() => {
-        console.error(`Unable to load component ${this.itemType}`)
+        console.error(`Неудалось загрузить компонент ${this.itemType}`)
       })
   },
   methods: {
