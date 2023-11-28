@@ -39,7 +39,7 @@
             </v-dialog>
           </v-col>
           <v-col cols="auto">
-            <cc-tooltip simple :content="`Mark ${item.Destroyed ? 'Repaired' : 'Destroyed'}`">
+            <cc-tooltip simple :content="`Отметить как ${item.Destroyed ? 'отремонтрованное' : 'уничтоженное'}`">
               <v-icon
                 :color="item.Destroyed ? 'secondary' : 'error'"
                 class="fadeSelect"

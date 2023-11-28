@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row v-if="!encounter" align="center" justify="center" style="width: 100%; height: 100%">
       <v-col cols="auto">
-        <span class="heading h1 subtle--text text--lighten-2">no encounter selected</span>
+        <span class="heading h1 subtle--text text--lighten-2">нет выбранных сцен</span>
       </v-col>
     </v-row>
     <div v-else>
@@ -32,7 +32,7 @@
             outlined
             dense
             multiple
-            label="User Labels"
+            label="Пользовательские ярлыки"
             :items="labels"
           />
         </v-col>
@@ -41,24 +41,24 @@
             v-model="encounter.Campaign"
             outlined
             dense
-            label="Campaign"
+            label="Кампания"
             :items="campaigns"
           />
         </v-col>
       </v-row>
       <cc-title small class="mb-3">
-        Narrative Description
+        Нарративное описание
         <cc-text-editor
-          label="Edit Narrative Description"
+          label="Редактировать нарративное описание"
           :original="encounter.NarrativeNotes"
           @save="encounter.NarrativeNotes = $event"
         />
       </cc-title>
       <p v-html-safe="encounter.NarrativeNotes" />
       <cc-title small class="mb-3">
-        Location
+        Расположение
         <cc-text-editor
-          label="Edit Location Description"
+          label="Редактировать описание расположения"
           :original="encounter.Location"
           @save="encounter.Location = $event"
         />
@@ -71,15 +71,15 @@
             v-model="encounter.Environment"
             outlined
             dense
-            label="Environment"
+            label="Окружение"
             :items="environments"
             @change="setEnvironment()"
           />
           <v-textarea
-            v-if="encounter.Environment !== 'Nominal'"
+            v-if="encounter.Environment !== 'Нормальное'"
             v-model="encounter.EnvironmentDetails"
             filled
-            label="Environment Detail"
+            label="Подробности окружения"
             auto-grow
             hide-details
             rows="2"
@@ -98,11 +98,11 @@
               <v-btn outlined small block color="secondary" @click="$refs.imageSelector.open()">
                 <span v-if="!encounter.Map">
                   <v-icon left>mdi-plus</v-icon>
-                  Add Encounter Map
+                  Добавить карту сцены
                 </span>
                 <span v-else>
                   <v-icon left>mdi-circle-edit-outline</v-icon>
-                  Edit Encounter Map
+                  Редактировать карту сцены
                 </span>
               </v-btn>
               <cc-image-selector-web ref="imageSelector" :item="encounter" type="map" />
@@ -110,20 +110,20 @@
           </v-card>
         </v-col>
       </v-row>
-      <cc-title small class="mb-3">SITREP</cc-title>
+      <cc-title small class="mb-3">СИТРЕП</cc-title>
       <v-select
         v-model="selRep"
         item-text="name"
         outlined
         dense
-        label="Engagement Type"
+        label="Тип столкновения"
         :items="sitreps"
         @change="encounter.Sitrep = sitreps.find(x => x.name === selRep)"
       />
       <v-textarea
         v-model="encounter.Sitrep.description"
         filled
-        label="Description"
+        label="Описание"
         auto-grow
         hide-details
         rows="1"
@@ -132,12 +132,12 @@
       <v-divider class="mt-2" />
       <v-row dense justify="center">
         <v-col class="text-center">
-          <span class="heading h3 accent--text">PC victory</span>
+          <span class="heading h3 accent--text">Победа ПИ</span>
           <v-textarea
             v-model="encounter.Sitrep.pcVictory"
             filled
             dense
-            label="Victory Conditions"
+            label="Условия победы"
             auto-grow
             hide-details
             rows="2"
@@ -146,12 +146,12 @@
         </v-col>
         <v-divider vertical class="mx-2" />
         <v-col class="text-center">
-          <span class="heading h3 accent--text">enemy victory</span>
+          <span class="heading h3 accent--text">Победа врага</span>
           <v-textarea
             v-model="encounter.Sitrep.enemyVictory"
             filled
             dense
-            label="Victory Conditions"
+            label="Условия победы"
             auto-grow
             hide-details
             rows="2"
@@ -160,12 +160,12 @@
         </v-col>
         <v-divider vertical class="mx-2" />
         <v-col class="text-center">
-          <span class="heading h3 accent--text">no victor</span>
+          <span class="heading h3 accent--text">Нет победителя</span>
           <v-textarea
             v-model="encounter.Sitrep.noVictory"
             filled
             dense
-            label="Stalemate Conditions"
+            label="Условия ничьей"
             auto-grow
             hide-details
             rows="2"
@@ -176,7 +176,7 @@
       <v-divider />
       <v-row dense justify="center">
         <v-col class="text-center">
-          <span class="heading h3 accent--text">Deployment</span>
+          <span class="heading h3 accent--text">Размещение</span>
           <v-textarea
             v-model="encounter.Sitrep.deployment"
             filled
@@ -189,7 +189,7 @@
         </v-col>
         <v-divider vertical class="mx-2" />
         <v-col class="text-center">
-          <span class="heading h3 accent--text">Extraction</span>
+          <span class="heading h3 accent--text">Эксфильтрация</span>
           <v-textarea
             v-model="encounter.Sitrep.extraction"
             filled
@@ -204,7 +204,7 @@
       <v-divider />
       <v-row dense justify="center">
         <v-col class="text-center">
-          <span class="heading h3 accent--text">Control Zones</span>
+          <span class="heading h3 accent--text">Зоны контроля</span>
           <v-textarea
             v-model="encounter.Sitrep.controlZone"
             filled
@@ -217,7 +217,7 @@
         </v-col>
         <v-divider vertical class="mx-2" />
         <v-col class="text-center">
-          <span class="heading h3 accent--text">Objective</span>
+          <span class="heading h3 accent--text">Цель</span>
           <v-textarea
             v-model="encounter.Sitrep.objective"
             filled
@@ -229,37 +229,37 @@
           />
         </v-col>
       </v-row>
-      <cc-title small class="mt-3">COMBATANTS</cc-title>
+      <cc-title small class="mt-3">КОМБАТАНТЫ</cc-title>
       <v-row dense>
         <v-col cols="8">
           <fieldset>
-            <legend class="heading h3 accent--text mx-2">FORCES</legend>
-            <div v-if="forces.enemy.length" class="caption ml-2">ENEMY</div>
+            <legend class="heading h3 accent--text mx-2">СИЛЫ</legend>
+            <div v-if="forces.enemy.length" class="caption ml-2">ПРОТИВНИКА</div>
             <v-divider v-if="forces.enemy.length" />
             <npc-chip
               v-for="(n, i) in forces.enemy"
               :key="`fe_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveNpc(n, 'Enemy')"
-              @clone="encounter.AddNpc(n, 'Enemy')"
+              @remove="encounter.RemoveNpc(n, 'Противник')"
+              @clone="encounter.AddNpc(n, 'Противник')"
             />
-            <div v-if="forces.allied.length" class="caption ml-2">ALLIED</div>
+            <div v-if="forces.allied.length" class="caption ml-2">СОЮЗНЫЕ</div>
             <v-divider v-if="forces.allied.length" />
             <npc-chip
               v-for="(n, i) in forces.allied"
               :key="`fa_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveNpc(n, 'Ally')"
-              @clone="encounter.AddNpc(n, 'Ally')"
+              @remove="encounter.RemoveNpc(n, 'Союзник')"
+              @clone="encounter.AddNpc(n, 'Союзник')"
             />
-            <div v-if="forces.neutral.length" class="caption ml-2">NEUTRAL</div>
+            <div v-if="forces.neutral.length" class="caption ml-2">НЕЙТРАЛЬНЫЕ</div>
             <v-divider v-if="forces.neutral.length" />
             <npc-chip
               v-for="(n, i) in forces.neutral"
               :key="`fn_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveNpc(n, 'Neutral')"
-              @clone="encounter.AddNpc(n, 'Neutral')"
+              @remove="encounter.RemoveNpc(n, 'Нейтральный')"
+              @clone="encounter.AddNpc(n, 'Нейтральный')"
             />
             <div class="mx-6">
               <v-btn
@@ -271,40 +271,40 @@
                 @click="$refs.npcDialog.show()"
               >
                 <v-icon left>mdi-plus</v-icon>
-                Add NPC
+                Добавить НИП
               </v-btn>
             </div>
           </fieldset>
         </v-col>
         <v-col cols="4">
           <fieldset>
-            <legend class="heading h3 accent--text mx-2">REINFORCEMENTS</legend>
-            <div v-if="reinforcements.enemy.length" class="caption ml-2">ENEMY</div>
+            <legend class="heading h3 accent--text mx-2">ПОДКРЕПЛЕНИЯ</legend>
+            <div v-if="reinforcements.enemy.length" class="caption ml-2">ПРОТИВНИКА</div>
             <v-divider v-if="forces.enemy.length" />
             <npc-chip
               v-for="(n, i) in reinforcements.enemy"
               :key="`re_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveReinforcement(n, 'Enemy')"
-              @clone="encounter.AddReinforcement(n, 'Enemy')"
+              @remove="encounter.RemoveReinforcement(n, 'Противник')"
+              @clone="encounter.AddReinforcement(n, 'Противник')"
             />
-            <div v-if="reinforcements.allied.length" class="caption ml-2">ALLIED</div>
+            <div v-if="reinforcements.allied.length" class="caption ml-2">СОЮЗНЫЕ</div>
             <v-divider v-if="forces.allied.length" />
             <npc-chip
               v-for="(n, i) in reinforcements.allied"
               :key="`ra_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveReinforcement(n, 'Ally')"
-              @clone="encounter.AddReinforcement(n, 'Ally')"
+              @remove="encounter.RemoveReinforcement(n, 'Союзник')"
+              @clone="encounter.AddReinforcement(n, 'Союзник')"
             />
-            <div v-if="reinforcements.neutral.length" class="caption ml-2">NEUTRAL</div>
+            <div v-if="reinforcements.neutral.length" class="caption ml-2">НЕЙТРАЛЬНЫЕ</div>
             <v-divider v-if="forces.neutral.length" />
             <npc-chip
               v-for="(n, i) in reinforcements.neutral"
               :key="`rn_${n.ID}_${i}`"
               :npc="n"
-              @remove="encounter.RemoveReinforcement(n, 'Neutral')"
-              @clone="encounter.AddReinforcement(n, 'Neutral')"
+              @remove="encounter.RemoveReinforcement(n, 'Нейтральный')"
+              @clone="encounter.AddReinforcement(n, 'Нейтральный')"
             />
             <div class="mx-6">
               <v-btn
@@ -316,7 +316,7 @@
                 @click="$refs.reinforcementDialog.show()"
               >
                 <v-icon left>mdi-plus</v-icon>
-                Add NPC
+                Добавить НИП
               </v-btn>
             </div>
           </fieldset>
@@ -324,22 +324,22 @@
       </v-row>
       <v-divider class="my-3" />
       <cc-title small class="mb-3">
-        GM Notes
+        Заметки ГМа
         <cc-text-editor
-          label="Edit GM Notes"
+          label="Редактировать Заметки ГМа"
           :original="encounter.Note"
           @save="encounter.Note = $event"
         />
       </cc-title>
       <p :key="encounter.Note.length" v-html-safe="encounter.Note" />
       <br />
-      <cc-solo-dialog ref="npcDialog" no-confirm title="ADD NPC" fullscreen no-pad>
+      <cc-solo-dialog ref="npcDialog" no-confirm title="ДОБАВИТЬ НИП" fullscreen no-pad>
         <npc-selector @select="addNpc($event)" />
       </cc-solo-dialog>
       <cc-solo-dialog
         ref="reinforcementDialog"
         no-confirm
-        title="ADD NPC REINFORCEMENT"
+        title="ДОБАВИТЬ НИП ПОДКРЕПЛЕНИЯ"
         fullscreen
         no-pad
       >
@@ -367,7 +367,7 @@ export default Vue.extend({
     },
   },
   data: () => ({
-    selRep: 'Standard Combat',
+    selRep: 'Стандартный бой',
     ctest: ['a', 'b', 'c'],
   }),
   mounted() {
@@ -393,22 +393,22 @@ export default Vue.extend({
     },
     forces() {
       return {
-        enemy: this.encounter.Npcs('Enemy'),
-        allied: this.encounter.Npcs('Ally'),
-        neutral: this.encounter.Npcs('Neutral'),
+        enemy: this.encounter.Npcs('Противник'),
+        allied: this.encounter.Npcs('Союзник'),
+        neutral: this.encounter.Npcs('Нейтральный'),
       }
     },
     reinforcements() {
       return {
-        enemy: this.encounter.Reinforcements('Enemy'),
-        allied: this.encounter.Reinforcements('Ally'),
-        neutral: this.encounter.Reinforcements('Neutral'),
+        enemy: this.encounter.Reinforcements('Противник'),
+        allied: this.encounter.Reinforcements('Союзник'),
+        neutral: this.encounter.Reinforcements('Нейтральный'),
       }
     },
   },
   methods: {
     setEnvironment() {
-      if (this.encounter.Environment === 'Nominal') this.encounter.EnvironmentDetails = ''
+      if (this.encounter.Environment === 'Нормальное') this.encounter.EnvironmentDetails = ''
       else if (this.environmentData.some(x => x.name === this.encounter.Environment))
         this.encounter.EnvironmentDetails = this.environmentData.find(
           x => x.name === this.encounter.Environment

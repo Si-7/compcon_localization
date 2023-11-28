@@ -15,7 +15,7 @@
       </v-col>
     </v-row>
     <p v-html-safe="npcc.Flavor" class="flavor-text panel pa-2 stark--text" />
-    <span class="heading h3 accent--text">Tactics</span>
+    <span class="heading h3 accent--text">Тактика</span>
     <p v-html-safe="npcc.Tactics" class="body-1" />
     <v-divider class="mb-3" />
     <v-row dense align="center">
@@ -29,31 +29,31 @@
         >
           <v-btn :value="1">
             <v-icon left>cci-rank-1</v-icon>
-            Tier 1
+            Градация 1
           </v-btn>
           <v-btn :value="2">
             <v-icon left>cci-rank-2</v-icon>
-            Tier 2
+            Градация 2
           </v-btn>
           <v-btn :value="3">
             <v-icon left>cci-rank-3</v-icon>
-            Tier 3
+            Градация 3
           </v-btn>
         </v-btn-toggle>
         <v-row dense no-gutters>
-          <editable-attribute attr="HULL" :val="npcc.Stats.Hull(tierPreview)" :color="npcc.Color" />
+          <editable-attribute attr="КРП" :val="npcc.Stats.Hull(tierPreview)" :color="npcc.Color" />
           <editable-attribute
-            attr="AGI"
+            attr="МНВР"
             :val="npcc.Stats.Agility(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            attr="SYS"
+            attr="СИС"
             :val="npcc.Stats.Systems(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            attr="ENG"
+            attr="ИНЖ"
             :val="npcc.Stats.Engineering(tierPreview)"
             :color="npcc.Color"
           />
@@ -61,56 +61,56 @@
         <v-divider class="my-2" />
         <v-row dense no-gutters>
           <editable-attribute
-            attr="STRUCTURE"
+            attr="СТРУКТУРА"
             :val="npcc.Stats.Structure(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            attr="ARMOR"
+            attr="БРОНЯ"
             :val="npcc.Stats.Armor(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute attr="HP" :val="npcc.Stats.HP(tierPreview)" :color="npcc.Color" />
           <editable-attribute
-            attr="REACTOR"
+            attr="НАГРУЗКА"
             :val="npcc.Stats.Stress(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            v-if="npcc.Role.toLowerCase() !== 'biological'"
-            attr="HEAT CAPACITY"
+            v-if="npcc.Role.toLowerCase() !== 'биологический'"
+            attr="ТЕПЛ. МАКС."
             :val="npcc.Stats.HeatCapacity(tierPreview)"
             :color="npcc.Color"
           />
         </v-row>
         <v-row dense no-gutters>
           <editable-attribute
-            attr="SPEED"
+            attr="СКОРОСТЬ"
             :val="npcc.Stats.Speed(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute attr="SAVE" :val="npcc.Stats.Save(tierPreview)" :color="npcc.Color" />
           <editable-attribute
-            attr="EVADE"
+            attr="УКЛОНЕНИЕ"
             :val="npcc.Stats.Evade(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            attr="E-DEFENSE"
+            attr="Э-ЗАЩИТА"
             :val="npcc.Stats.EDefense(tierPreview)"
             :color="npcc.Color"
           />
           <editable-attribute
-            attr="SENSOR"
+            attr="СЕНСОРЫ"
             :val="npcc.Stats.Sensor(tierPreview)"
             :color="npcc.Color"
           />
         </v-row>
         <v-divider class="my-2" />
         <v-row dense no-gutters>
-          <editable-attribute attr="ACTIVATIONS" :val="1" :color="npcc.Color" />
+          <editable-attribute attr="АКТИВАЦИИ" :val="1" :color="npcc.Color" />
           <editable-attribute
-            attr="SIZE"
+            attr="РАЗМЕР"
             :val="
               npcc.Stats.Sizes(tierPreview)
                 .join(' or ')
@@ -122,7 +122,7 @@
       </v-col>
     </v-row>
     <cc-title small :color="npcc.Color" class="mt-2">
-      Base Features
+      Основные Системы
     </cc-title>
     <v-row dense>
       <v-col v-for="f in npcc.BaseFeatures" :key="f.ID" cols="12">
@@ -130,7 +130,7 @@
       </v-col>
     </v-row>
     <cc-title v-if="npcc.OptionalFeatures.length" small :color="npcc.Color" class="mt-2">
-      Optional Features
+      Дополнительные Системы
     </cc-title>
     <v-row dense>
       <v-col v-for="f in npcc.OptionalFeatures" :key="f.ID" cols="12">

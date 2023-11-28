@@ -3,15 +3,15 @@
     <template v-slot:activator="{ on }">
       <v-btn small outlined :disabled="!chargables.length" v-on="on">
         <v-icon left>mdi-dice-6</v-icon>
-        Recharge
+        Перезарядить
       </v-btn>
     </template>
     <v-card>
       <v-card-text class="text-center text--text">
         <div class="body-text">
-          At the start of this NPC's turn,
-          <v-btn small text color="primary" @click="rollDie">roll 1d6</v-btn>
-          to determine which features are recharged
+          В начале хода НИП 
+          <v-btn small text color="primary" @click="rollDie">бросьте 1d6</v-btn>
+          для определения, какие системы перезаряжены
         </div>
         <v-btn
           v-for="n in 6"
@@ -26,7 +26,7 @@
           <v-icon class="die-hover" size="55px" v-html="`mdi-dice-${n}`" />
         </v-btn>
         <div v-if="recharged.length" class="light-panel body-text">
-          The following features will be recharged:
+          Следующие системы перезаряжены:
           <div v-for="r in recharged" :key="r.ID" class="heading h3">
             {{ r.Name }} ({{ r.ChargeRoll }}+)
           </div>
@@ -35,7 +35,7 @@
       <v-divider />
       <v-card-actions>
         <v-spacer />
-        <v-btn tile color="primary" @click="commit">Confirm</v-btn>
+        <v-btn tile color="primary" @click="commit">Подтвердить</v-btn>
       </v-card-actions>
     </v-card>
   </v-menu>

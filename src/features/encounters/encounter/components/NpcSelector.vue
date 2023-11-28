@@ -23,8 +23,8 @@
         :headers="headers"
         :group-by="grouping"
         :search="search"
-        no-results-text="No NPCs Found"
-        no-data-text="No Saved NPCs"
+        no-results-text="Не найдено НИПов"
+        no-data-text="Нет сохраненных НИПов"
         disable-pagination
         hide-default-footer
         hide-default-header
@@ -39,7 +39,7 @@
               <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
               <span v-else v-html="h.group" />
             </span>
-            <span v-else>NONE</span>
+            <span v-else>НЕТ</span>
           </div>
         </template>
         <template v-slot:item.Name="{ item }">
@@ -63,7 +63,7 @@
     </div>
     <br />
     <div v-if="!npcs.length" class="subtle--text heading h2 text-center">
-      // NO NPCS AVAILABLE //
+      // НЕТ ДОСТУПНЫХ НИП //
     </div>
     <v-row v-for="(npc, i) in npcs" :id="generateNpcElementId(npc)" :key="`${npc.ID}_${i}`">
       <v-col class="pl-0 mb-2">
@@ -82,16 +82,16 @@
                   @click="$emit('select', { npc, side })"
                 >
                   <v-icon large left>mdi-plus</v-icon>
-                  Add NPC
+                  Добавить НИП
                 </v-btn>
               </v-col>
               <v-col>
                 <v-select
                   v-model="side"
-                  label="As..."
+                  label="Как..."
                   outlined
                   dense
-                  :items="['Enemy', 'Ally', 'Neutral']"
+                  :items="['Противник', 'Союзник', 'Нейтральный']"
                 />
               </v-col>
             </v-row>
@@ -114,7 +114,7 @@ export default Vue.extend({
   components: { NpcPanel, RosterGroup },
   data: () => ({
     npcs: [],
-    side: 'Enemy',
+    side: 'Противник',
     grouping: null,
     headers: [{ text: 'Name', value: 'Name', align: 'left' }],
     search: '',

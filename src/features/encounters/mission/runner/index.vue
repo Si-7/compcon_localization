@@ -2,11 +2,11 @@
   <v-container fluid style="margin-top: 50px; min-height: calc(100vh - 50px)">
     <v-row justify="center">
       <v-col>
-        <cc-title class="mt-3 ml-n12" color="primary">&emsp;ACTIVE MISSIONS</cc-title>
+        <cc-title class="mt-3 ml-n12" color="primary">&emsp;АКТИВНЫЕ МИССИИ</cc-title>
         <v-data-table
           :items="activeMissions"
           :headers="headers"
-          no-data-text="No Active Missions"
+          no-data-text="Нет активных миссий"
           disable-pagination
           hide-default-footer
           class="transparent heading h3"
@@ -16,7 +16,7 @@
             {{ item.Mission.Name }}
             <span class="overline">
               {{
-                item.Mission.Campaign && item.Mission.Campaign !== 'None'
+                item.Mission.Campaign && item.Mission.Campaign !== 'Нет'
                   ? `//${item.Mission.Campaign}`
                   : ''
               }}
@@ -26,7 +26,7 @@
             <span v-if="item.Mission.Steps[item.Step].Name">
               {{ item.Mission.Steps[item.Step].Name }}
             </span>
-            <span v-else>{{ item.Mission.Steps[item.Step].IsLong ? 'Full' : 'Short' }} Rest</span>
+            <span v-else>{{ item.Mission.Steps[item.Step].IsLong ? 'Полный' : 'Короткий' }} отдых</span>
           </template>
           <template v-slot:item.Continue="{ item }">
             <v-menu offset-y offset-x top nudge-left="30px">
@@ -37,16 +37,16 @@
               </template>
               <v-card>
                 <v-card-text class="text-center">
-                  This will delete the active mission
+                  Это удалит активную миссию 
                   <b>({{ item.Mission.Name }} - {{ item.StartDate }})</b>
-                  and all progress will be lost.
+                  и весь прогресс будет утерян.
                   <br />
-                  Are you sure?
+                  Вы уверены?
                   <v-divider class="my-2" />
                   <v-row dense>
-                    <v-btn small text>CANCEL</v-btn>
+                    <v-btn small text>ОТМЕНА</v-btn>
                     <v-btn small color="error" class="ml-auto" @click="deleteActiveMission(item)">
-                      CONFIRM
+                      ПОДТВЕРДИТЬ
                     </v-btn>
                   </v-row>
                 </v-card-text>
@@ -54,7 +54,7 @@
             </v-menu>
             <router-link :to="`runner/${item.ID}`">
               <v-btn small tile color="primary" class="white--text">
-                CONTINUE MISSION
+                ПРОДОЛЖИТЬ МИССИЮ
                 <v-icon right>mdi-chevron-double-right</v-icon>
               </v-btn>
             </router-link>
@@ -64,12 +64,12 @@
     </v-row>
     <v-row justify="center">
       <v-col>
-        <cc-title class="mt-3 ml-n12" color="secondary">&emsp;AVAILABLE MISSIONS</cc-title>
+        <cc-title class="mt-3 ml-n12" color="secondary">&emsp;ДОСТУПНЫЕ МИССИИ</cc-title>
         <v-data-table
           :items="availableMissions"
           :headers="availableHeaders"
           group-by="Campaign"
-          no-data-text="No Saved Missions"
+          no-data-text="Нет сохраненных миссий"
           class="transparent heading"
           style="min-width: 100%"
         >
@@ -79,7 +79,7 @@
                 <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
                 <span v-else v-html="h.group" />
               </span>
-              <span v-else>NONE</span>
+              <span v-else>НЕТ</span>
             </div>
           </template>
           <template v-slot:item.Name="{ item }">
@@ -90,7 +90,7 @@
           <template v-slot:item.Encounters="{ item }">
             <span class="heading h3">
               {{ item.Encounters.length }}
-              <span class="overline">// {{ item.Rests.length }} Rests</span>
+              <span class="overline">// {{ item.Rests.length }} отдыхов</span>
             </span>
           </template>
           <template v-slot:item.Labels="{ item }">
@@ -98,7 +98,7 @@
           </template>
           <template v-slot:item.Start="{ item }">
             <v-btn small tile color="primary" class="white--text" :to="`briefing/${item.ID}`">
-              START MISSION
+              НАЧАТЬ МИССИЮ
               <v-icon right>mdi-chevron-double-right</v-icon>
             </v-btn>
           </template>
@@ -107,12 +107,12 @@
     </v-row>
     <v-row justify="center">
       <v-col>
-        <cc-title class="mt-3 ml-n12" color="pilot">&emsp;COMPLETED MISSIONS</cc-title>
+        <cc-title class="mt-3 ml-n12" color="pilot">&emsp;ЗАВЕРШЕННЫЕ МИССИИ</cc-title>
         <v-data-table
           :items="completedMissions"
           :headers="completedHeaders"
           group-by="Campaign"
-          no-data-text="No Completed Missions"
+          no-data-text="Нет завершенных миссий"
           class="transparent heading h3"
           style="min-width: 100%"
         >
@@ -122,7 +122,7 @@
                 <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
                 <span v-else v-html="h.group" />
               </span>
-              <span v-else>NONE</span>
+              <span v-else>НЕТ</span>
             </div>
           </template>
           <template v-slot:item.Remove="{ item }">
@@ -134,16 +134,16 @@
               </template>
               <v-card>
                 <v-card-text class="text-center">
-                  This will delete the saved mission data for
+                  Это удалит сохраненные данные миссии
                   <b>{{ item.Mission.Name }}</b>
                   .
                   <br />
-                  Are you sure?
+                  Вы уверены?
                   <v-divider class="my-2" />
                   <v-row dense>
-                    <v-btn small text>CANCEL</v-btn>
+                    <v-btn small text>ОТМЕНА</v-btn>
                     <v-btn small color="error" class="ml-auto" @click="deleteActiveMission(item)">
-                      CONFIRM
+                      ПОДТВЕРДИТЬ
                     </v-btn>
                   </v-row>
                 </v-card-text>
@@ -166,23 +166,23 @@ export default Vue.extend({
   name: 'active-mission-landing',
   data: () => ({
     headers: [
-      { text: 'Name', value: 'Mission.Name', align: 'left' },
-      { text: 'Encounter', value: 'Encounter' },
-      { text: 'Round', value: 'Round' },
-      { text: 'Date Started', value: 'StartDate' },
+      { text: 'Название', value: 'Mission.Name', align: 'left' },
+      { text: 'Сцена', value: 'Encounter' },
+      { text: 'Раунд', value: 'Round' },
+      { text: 'Дата начала', value: 'StartDate' },
       { text: '', value: 'Continue', align: 'right', sortable: false },
     ],
     availableHeaders: [
-      { text: 'Name', value: 'Name', align: 'left' },
-      { text: 'Encounters', value: 'Encounters' },
-      { text: 'Labels', value: 'Labels' },
+      { text: 'Название', value: 'Name', align: 'left' },
+      { text: 'Сцены', value: 'Encounters' },
+      { text: 'Ярлыки', value: 'Labels' },
       { text: '', value: 'Start', align: 'right', sortable: false },
     ],
     completedHeaders: [
-      { text: 'Name', value: 'Mission.Name', align: 'left' },
-      { text: 'Date Started', value: 'StartDate' },
-      { text: 'Date Finished', value: 'EndDate' },
-      { text: 'Result', value: 'Result' },
+      { text: 'Название', value: 'Mission.Name', align: 'left' },
+      { text: 'Дата начала', value: 'StartDate' },
+      { text: 'Дата конца', value: 'EndDate' },
+      { text: 'Результат', value: 'Result' },
       { text: '', value: 'Remove', align: 'right', sortable: false },
     ],
   }),

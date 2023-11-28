@@ -19,7 +19,7 @@
     </v-list-item>
     <br />
     <div v-if="!availableTemplates.length" class="subtle--text heading h2 text-center">
-      // NO TEMPLATES AVAILABLE //
+      // НЕТ ДОСТУПНЫХ ШАБЛОНОВ //
     </div>
     <v-row v-for="(e, i) in availableTemplates" :id="`e_${e.ID}`" :key="`${e.ID}_${i}`">
       <v-col>
@@ -28,8 +28,8 @@
           <p v-html-safe="e.Description" class="flavor-text mb-0" />
           <v-divider class="my-2" />
           <span class="heading">
-            <b class="accent--text">Base</b>
-            Features
+            <b class="accent--text">Основные</b>
+            Системы
           </span>
           <v-row dense class="mr-2 mt-n1">
             <v-col v-for="f in e.BaseFeatures" :key="f.ID" cols="auto">
@@ -37,8 +37,8 @@
             </v-col>
           </v-row>
           <span v-if="e.OptionalFeatures.length" class="heading">
-            <b class="accent--text">Optional</b>
-            Features
+            <b class="accent--text">Дополнительные</b>
+            Системы
           </span>
           <v-row dense class="mr-2 mt-n1 pb-2">
             <v-col v-for="f in e.OptionalFeatures" :key="f.ID" cols="auto">
@@ -49,7 +49,7 @@
             <v-col cols="10">
               <v-btn block tile outlined color="secondary" @click="$emit('select', e)">
                 <v-icon left>mdi-plus</v-icon>
-                Assign {{ e.Name }} Template
+                Установить {{ e.Name }} шаблон
               </v-btn>
             </v-col>
           </v-row>

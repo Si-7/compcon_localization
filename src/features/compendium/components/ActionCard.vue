@@ -22,7 +22,7 @@
     >
       <v-container>
         <p v-html-safe="action.Detail" class="body-text text--text mb-1 mt-2" />
-        <div class="overline subtle--text">OPTIONS</div>
+        <div class="overline subtle--text">ОПЦИИ</div>
         <v-row no-gutters justify="center">
           <v-col
             v-for="(a, i) in action.SubActions"
@@ -53,7 +53,7 @@ export default Vue.extend({
   },
   computed: {
     exclusive() {
-      if (this.action.IsPilotAction && !this.action.IsMechAction) return ' (Pilot Only)'
+      if (this.action.IsPilotAction && !this.action.IsMechAction) return ' (Только пилот)'
       return ''
     },
   },

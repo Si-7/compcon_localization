@@ -128,7 +128,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-class"
-            name="Классы НИПов"
+            name="Классы НИП"
             @clicked="$router.push('compendium/npc_classes')"
           />
           <compendium-page-button
@@ -137,7 +137,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-feature"
-            name="Функции НИПов"
+            name="Системы НИП"
             @clicked="$router.push('compendium/npc_features')"
           />
           <compendium-page-button
@@ -146,7 +146,7 @@
             sm="12"
             color="primary"
             icon="cci-npc-template"
-            name="Шаблоны НИПов"
+            name="Шаблоны НИП"
             @clicked="$router.push('compendium/npc_templates')"
           />
           <compendium-page-button

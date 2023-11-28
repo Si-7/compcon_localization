@@ -1,12 +1,12 @@
 <template>
   <v-container fluid style="margin-top: 50px; min-height: calc(100vh - 50px)">
-    <div class="overline">//MISSION COMPLETE</div>
+    <div class="overline">//МИССИЯ ЗАВЕРШЕНА</div>
     <div class="heading mech mt-n6">{{ mission.Mission.Name }}</div>
     <p class="text-center flavor-text panel text--text" v-html="mission.Mission.Note" />
     <v-row dense justify="center">
       <v-col cols="auto">
         <div class="heading h3 accent--text mt-1">
-          Result:
+          Результат:
         </div>
       </v-col>
       <v-col cols="auto ml-1">
@@ -15,25 +15,25 @@
     </v-row>
     <v-divider class="my-3" />
     <cc-title>
-      After-Action Report
+      Отчет о действиях
     </cc-title>
     <p class="panel heading h3 py-3 text-center subtle--text">
       <v-icon large color="grey">mdi-lock</v-icon>
       <br />
-      // FEATURE IN DEVELOPMENT //
+      // ФУНКЦИОНАЛ В РАЗРАБОТКЕ //
     </p>
     <cc-title>
-      Campaign Progression
+      Прогресс кампании
     </cc-title>
     <p class="panel heading h3 py-3 text-center subtle--text">
       <v-icon large color="grey">mdi-lock</v-icon>
       <br />
-      // FEATURE IN DEVELOPMENT //
+      // ФУНКЦИОНАЛ В РАЗРАБОТКЕ //
     </p>
     <router-link to="/gm/mission/selector">
       <v-btn text color="primary">
         <v-icon left>mdi-chevron-triple-left</v-icon>
-        Return to Mission Menu
+        Вернуться к меню миссий
       </v-btn>
     </router-link>
   </v-container>
@@ -53,7 +53,7 @@ export default Vue.extend({
     },
   },
   data: () => ({
-    resolutions: ['Decisive Victory', 'Victory', 'Loss', 'Catastrophic Loss', 'Stalemate'],
+    resolutions: ['Решительная Победа', 'Победа', 'Поражение', 'Катастрафическое Поражение', 'Ничья'],
   }),
   computed: {
     mission() {

@@ -4,7 +4,7 @@
       slot="title"
       flip
       color="secondary"
-      title="NEW NPC // SELECT CLASS"
+      title="НОВЫЙ НИП // ВЫБЕРИТЕ КЛАСС"
     />
     <template slot="left">
       <v-row dense>
@@ -29,7 +29,7 @@
           group-by="Role"
           hide-default-footer
           hide-default-header
-          no-results-text="No NPC Classes Found"
+          no-results-text="Не найдено классов НИП"
           class="transparent"
           style="min-width: 100%"
           disable-pagination
@@ -40,7 +40,7 @@
                 v-if="h.group"
                 class="heading white--text ml-2 text-uppercase"
               >
-                <v-icon v-if="h.group.toLowerCase() === 'biological'" dark
+                <v-icon v-if="h.group.toLowerCase() === 'биологический'" dark
                   >mdi-heart-pulse</v-icon
                 >
                 <v-icon v-else dark>cci-role-{{ h.group }}</v-icon>
@@ -83,13 +83,13 @@
             @click="AddNpc()"
           >
             <v-icon left>mdi-plus</v-icon>
-            <span v-if="selectedClass">Add New {{ selectedClass.Name }}</span>
-            <span v-else>Select NPC Class</span>
+            <span v-if="selectedClass">Добавить Нового: {{ selectedClass.Name }}</span>
+            <span v-else>ВЫБРАТЬ КЛАСС НИП</span>
           </v-btn>
           <router-link to="/gm/npc-roster">
             <v-btn outlined block small class="mt-1">
               <v-icon left>mdi-chevron-left</v-icon>
-              Return to NPC Roster
+              Вернуться в список НИП
             </v-btn>
           </router-link>
         </v-col>
@@ -106,7 +106,7 @@
       >
         <v-col cols="auto">
           <span class="heading h1 subtle--text text--lighten-2"
-            >select npc class</span
+            >выбрать класс НИП</span
           >
         </v-col>
       </v-row>
@@ -129,7 +129,7 @@ export default Vue.extend({
     search: "",
     selectedClass: null,
     grouping: null,
-    headers: [{ text: "Name", value: "Name", align: "left" }],
+    headers: [{ text: "Название", value: "Name", align: "left" }],
     classes: [],
   }),
   watch: {

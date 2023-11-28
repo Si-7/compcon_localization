@@ -5,7 +5,7 @@
         :class="`${color} white--text caption pa-1`"
         style="font-weight: bold; max-height: 28px; font-size: 15px!important"
       >
-        SIZE
+        РАЗМЕР
         <v-menu
           v-model="menu"
           :value="editable || (selectable && stats.Sizes.length > 1)"

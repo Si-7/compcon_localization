@@ -3,20 +3,20 @@
     <v-btn-toggle v-model="tier" dense mandatory active-class="accent--text">
       <v-btn :value="1">
         <v-icon left>cci-rank-1</v-icon>
-        Tier 1
+        Градация 1
       </v-btn>
       <v-btn :value="2">
         <v-icon left>cci-rank-2</v-icon>
-        Tier 2
+        Градация 2
       </v-btn>
       <v-btn :value="3">
         <v-icon left>cci-rank-3</v-icon>
-        Tier 3
+        Градация 3
       </v-btn>
     </v-btn-toggle>
     <v-row class="mx-2 mt-n2 mb-2" no-gutters>
       <v-col cols="auto">
-        <h1 class="heading">NPC Classes</h1>
+        <h1 class="heading">Классы НИП</h1>
       </v-col>
       <v-col cols="3" class="ml-auto mr-5">
         <v-text-field
@@ -29,7 +29,7 @@
           placeholder="Поиск"
           clearable
           persistent-hint
-          :hint="`${fItems.length} Предметов`"
+          :hint="`${fItems.length} Объектов`"
         />
       </v-col>
       <!-- <cc-filter-panel v-if="!noFilter" :item-type="itemType" @set-filters="setFilters" /> -->
@@ -117,19 +117,19 @@ export default class NpcClasses extends Vue {
   private search = ''
   private tableHeight = 450
   public headers = [
-    { text: 'Class', align: 'left', value: 'Name' },
-    { text: 'Role', align: 'left', value: 'Role' },
-    { text: 'HP', align: 'left', value: 'HP' },
-    { text: 'Armor', align: 'left', value: 'Armor' },
-    { text: 'Struct.', align: 'left', value: 'Structure' },
-    { text: 'HeatCap.', align: 'left', value: 'Heatcap' },
-    { text: 'Stress', align: 'left', value: 'Stress' },
-    { text: 'Evade', align: 'left', value: 'Evasion' },
-    { text: 'E-Def', align: 'left', value: 'EDef' },
-    { text: 'Speed', align: 'left', value: 'Speed' },
-    { text: 'Sensor', align: 'left', value: 'Sensor' },
-    { text: 'Save', align: 'left', value: 'Save' },
-    { text: 'H/A/S/E', align: 'left', value: 'Hase', sortable: false },
+    { text: 'Класс', align: 'left', value: 'Name' },
+    { text: 'Роль', align: 'left', value: 'Role' },
+    { text: 'ПЗ', align: 'left', value: 'HP' },
+    { text: 'Броня', align: 'left', value: 'Armor' },
+    { text: 'Структ.', align: 'left', value: 'Structure' },
+    { text: 'Тепл.Макс.', align: 'left', value: 'Heatcap' },
+    { text: 'Нагрузка', align: 'left', value: 'Stress' },
+    { text: 'Уклонение', align: 'left', value: 'Evasion' },
+    { text: 'Э-Защ', align: 'left', value: 'EDef' },
+    { text: 'Скорость', align: 'left', value: 'Speed' },
+    { text: 'Сенсоры', align: 'left', value: 'Sensor' },
+    { text: 'Спасбросок', align: 'left', value: 'Save' },
+    { text: 'К/М/С/И', align: 'left', value: 'Hase', sortable: false },
   ]
   private compendium = getModule(CompendiumStore, this.$store)
   public get classes(): NpcClass[] {

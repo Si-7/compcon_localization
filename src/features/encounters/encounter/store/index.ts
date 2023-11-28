@@ -86,7 +86,7 @@ export class EncounterStore extends VuexModule {
     const encounterData = Encounter.Serialize(payload)
     const newEncounter = Encounter.Deserialize(encounterData)
     newEncounter.RenewID()
-    newEncounter.Name += ' (COPY)'
+    newEncounter.Name += ' (КОПИЯ)'
     this.Encounters.push(newEncounter)
     this.Dirty = true
   }

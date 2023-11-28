@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <compendium-browser :headers="headers" :items="features" no-filter lock-view>
-      NPC Features
+      Системы НИП
     </compendium-browser>
   </v-container>
 </template>
@@ -19,10 +19,10 @@ import { NpcFeature } from '@/class'
 })
 export default class Weapons extends Vue {
   public headers = [
-    { text: 'Feature', align: 'left', value: 'Name' },
-    { text: 'Type', align: 'left', value: 'FeatureType' },
-    { text: 'Class', align: 'left', value: 'OriginClass' },
-    { text: 'Set', align: 'left', value: 'OriginSet' },
+    { text: 'Система', align: 'left', value: 'Name' },
+    { text: 'Тип', align: 'left', value: 'FeatureType' },
+    { text: 'Класс', align: 'left', value: 'OriginClass' },
+    { text: 'Набор', align: 'left', value: 'OriginSet' },
   ]
 
   private compendium = getModule(CompendiumStore, this.$store)

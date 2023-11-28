@@ -426,7 +426,7 @@
     <v-divider class="my-2" />
     <v-row v-if="mech.Reactions.length && !rest" dense justify="center">
       <v-col cols="10">
-        <div class="overline">УСТАНОВЛЕННЫЕ РЕАКЦИИ</div>
+        <div class="overline">ПОДГОТОВЛЕННЫЕ РЕАКЦИИ</div>
         <v-chip
           v-for="(r, i) in mech.Reactions"
           :key="r + i"
@@ -468,13 +468,13 @@ export default Vue.extend({
   },
   data: () => ({
     resistances: [
-      { name: 'Kinetic', color: 'kinetic' },
-      { name: 'Energy', color: 'energy' },
-      { name: 'Explosive', color: 'explosive' },
-      { name: 'Heat', color: 'heat' },
-      { name: 'Burn', color: 'burn' },
-      { name: 'All', color: 'variable' },
-      { name: 'Next Attack', color: 'overcharge' },
+      { name: 'Кинетический', color: 'kinetic' },
+      { name: 'Энергетический', color: 'energy' },
+      { name: 'Взрывной', color: 'explosive' },
+      { name: 'Нагрев', color: 'heat' },
+      { name: 'Горение', color: 'burn' },
+      { name: 'Все', color: 'variable' },
+      { name: 'Следующая атака', color: 'overcharge' },
     ],
     structRolledOver: false,
     stressRolledOver: false,

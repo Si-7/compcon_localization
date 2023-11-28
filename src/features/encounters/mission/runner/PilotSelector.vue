@@ -6,7 +6,7 @@
           <v-col cols="auto" class="mr-3">
             <span class="heading h3 accent--text">{{ p.Callsign }}</span>
             <cc-slashes />
-            <span class="flavor-text">{{ p.Name }} // LL {{ p.Level }}</span>
+            <span class="flavor-text">{{ p.Name }} // УЛ {{ p.Level }}</span>
           </v-col>
           <v-divider vertical class="mx-2" />
           <v-col v-if="p.ActiveMech" cols="auto">
@@ -17,16 +17,16 @@
             </span>
           </v-col>
           <v-col v-else cols="auto">
-            <span class="heading h3 subtle--text">NO ACTIVE MECH</span>
+            <span class="heading h3 subtle--text">НЕТ АКТИВНОГО МЕХА</span>
           </v-col>
           <v-col cols="auto">
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
-                <v-btn outlined small class="fadeSelect" v-on="on">Change Active Mech</v-btn>
+                <v-btn outlined small class="fadeSelect" v-on="on">Изменить активного меха</v-btn>
               </template>
               <v-list two-line subheader>
                 <v-subheader class="heading h2 white--text primary py-0 px-2">
-                  Available Mechs
+                  Доступные мехи
                 </v-subheader>
                 <v-list-item
                   v-for="mech in p.Mechs"
@@ -58,7 +58,7 @@
           <v-col cols="auto" class="ml-2 mr-2">
             <v-btn color="primary" :disabled="!p.ActiveMech" @click="$emit('select', p)">
               <v-icon left>mdi-plus</v-icon>
-              Assign
+              Прикрепить
             </v-btn>
           </v-col>
         </v-row>

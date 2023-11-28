@@ -1,6 +1,6 @@
 <template>
   <panel-view ref="view">
-    <cc-gm-header slot="title" title="NPC ROSTER" />
+    <cc-gm-header slot="title" title="СПИСОК НИП" />
     <template slot="left">
       <v-row dense>
         <v-col>
@@ -25,8 +25,8 @@
           :headers="headers"
           :group-by="grouping"
           :search="search"
-          no-results-text="No NPCs Found"
-          no-data-text="No Saved NPCs"
+          no-results-text="Не найдено НИП"
+          no-data-text="Нет сохраненных НИП"
           hide-default-footer
           calculate-widths
           class="transparent"
@@ -40,7 +40,7 @@
                 <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
                 <span v-else v-html="h.group" />
               </span>
-              <span v-else>NONE</span>
+              <span v-else>НЕТ</span>
             </div>
           </template>
           <template v-slot:[`item.Name`]="{ item }">
@@ -57,7 +57,7 @@
                       <v-icon>mdi-content-copy</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Copy {{ item.Name }}</v-list-item-title>
+                      <v-list-item-title>Копировать {{ item.Name }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item @click="exportNpc(item)">
@@ -65,7 +65,7 @@
                       <v-icon>mdi-export-variant</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Export {{ item.Name }}</v-list-item-title>
+                      <v-list-item-title>Экспортировать {{ item.Name }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item disabled>
@@ -73,7 +73,7 @@
                       <v-icon>mdi-printer</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Print NPC Sheet</v-list-item-title>
+                      <v-list-item-title>Распечатать лист НИП</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item @click="setStatblock(item)">
@@ -81,7 +81,7 @@
                       <v-icon>mdi-file-document-outline</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Generate NPC Statblock</v-list-item-title>
+                      <v-list-item-title>Генерировать статблок НИП</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-divider />
@@ -91,7 +91,7 @@
                     </v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title class="error--text">
-                        Delete {{ item.Name }}
+                        Удалить {{ item.Name }}
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -114,7 +114,7 @@
             </cc-tooltip>
           </template>
           <template v-slot:[`item.Tier`]="{ item }">
-            <cc-tooltip simple :content="`TIER ${item.Tier} NPC`">
+            <cc-tooltip simple :content="`НИП ГРАДАЦИИ ${item.Tier}`">
               <v-icon v-if="item.Tier === 'custom'" large color="grey darken-2">
                 mdi-star-circle-outline
               </v-icon>
@@ -135,7 +135,7 @@
         <v-col cols="8">
           <v-btn block tile color="primary" large @click="$router.push({ name: 'new-npc' })">
             <v-icon left>mdi-plus</v-icon>
-            Add New NPC
+            Добавить нового НИП
           </v-btn>
         </v-col>
         <v-col cols="8">
@@ -143,32 +143,32 @@
             <template v-slot:activator="{ on }">
               <v-btn small outlined block tile color="accent" class="mt-1" v-on="on">
                 <v-icon left>mdi-application-import</v-icon>
-                Import NPC
+                Импортировать НИП
               </v-btn>
             </template>
             <v-card flat tile>
-              <v-card-title>Select File to Import</v-card-title>
+              <v-card-title>Выбрать файл для импорта</v-card-title>
               <v-card-text>
                 <v-file-input
                   v-model="npcImportFile"
                   counter
-                  label="NPC .JSON File"
+                  label=".JSON Файл НИП"
                   outlined
                   dense
                 />
               </v-card-text>
               <v-divider />
               <v-card-actions>
-                <v-btn text @click="importDialog = false">Dismiss</v-btn>
+                <v-btn text @click="importDialog = false">Закрыть</v-btn>
                 <v-spacer />
                 <v-btn tile color="secondary" :disabled="!importNpc" @click="confirmImport">
-                  Confirm
+                  Подтвердить
                 </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
           <v-dialog v-model="statblockDialog" width="50%">
-            <cc-titled-panel title="NPC Statblock">
+            <cc-titled-panel title="Статблок НИП">
               <v-textarea
                 v-if="statblockNpc"
                 :value="statblock()"
@@ -211,10 +211,10 @@ export default class NpcManager extends Vue {
   selectedNpc: Npc = null
   grouping = null
   headers = [
-    { text: 'Name', value: 'Name', align: 'left' },
-    { text: 'Class', value: 'Class.Name' },
-    { text: 'Role', value: 'Role' },
-    { text: 'Tier', value: 'Tier' },
+    { text: 'Название', value: 'Name', align: 'left' },
+    { text: 'Класс', value: 'Class.Name' },
+    { text: 'Роль', value: 'Role' },
+    { text: 'Градация', value: 'Tier' },
   ]
   importDialog = false
   statblockDialog = false

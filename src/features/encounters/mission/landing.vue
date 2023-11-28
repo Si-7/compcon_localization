@@ -3,17 +3,17 @@
     <v-row style="height: 100%" align="center">
       <v-col>
         <home-card
-          title="Mission Builder"
+          title="Создание миссий"
           icon="mdi-wrench-outline"
-          text="Compose and edit Missions"
+          text="Составляйте и редактируйте миссии"
           to="/gm/mission/builder"
         />
       </v-col>
       <v-col>
         <home-card
-          title="Mission Runner"
+          title="Запуск миссий"
           icon="mdi-play-speed"
-          text="Start a new Mission or continue an active one"
+          text="Начать новую миссию или продолжить активную"
           to="/gm/mission/selector"
         />
       </v-col>

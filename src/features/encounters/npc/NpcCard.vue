@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row v-if="!npc" align="center" justify="center" style="width: 100%; height: 100%">
       <v-col cols="auto">
-        <span class="heading h1 light-panel--text">no npc selected</span>
+        <span class="heading h1 light-panel--text">нет выбранных НИП</span>
       </v-col>
     </v-row>
     <div v-else>
@@ -18,7 +18,7 @@
           <div class="flavor-text mt-n6 ml-2">
             <cc-short-string-editor large :placeholder="npc.Subtitle" @set="npc.Subtitle = $event">
               <b v-if="npc.Subtitle" class="heading-block stark--text" v-html="npc.Subtitle" />
-              <i v-else class="heading-block subtle--text" v-html="'Add GM Summary'" />
+              <i v-else class="heading-block subtle--text" v-html="'Добавить краткое содержание'" />
             </cc-short-string-editor>
           </div>
         </v-col>
@@ -27,8 +27,8 @@
             mdi-star-circle-outline
           </v-icon>
           <v-icon v-else size="60" :color="npc.Class.Color">cci-rank-{{ npc.Tier }}</v-icon>
-          <div v-if="npc.Tier === 'custom'" class="overline mt-n1">CUSTOM</div>
-          <div v-else class="overline mt-n1">TIER {{ npc.Tier }}</div>
+          <div v-if="npc.Tier === 'custom'" class="overline mt-n1">ПОЛЬЗОВАТЕЛЬСКАЯ</div>
+          <div v-else class="overline mt-n1">ГРАДАЦИЯ {{ npc.Tier }}</div>
         </v-col>
         <v-col cols="auto" class="text-center mt-n4">
           <v-icon size="60" :color="npc.Class.Color">cci-role-{{ npc.Role }}</v-icon>
@@ -58,7 +58,7 @@
             dense
             multiple
             background-color="stark-panel"
-            label="User Labels"
+            label="Пользовательские ярлыки"
             :items="labels"
           />
         </v-col>
@@ -69,7 +69,7 @@
             background-color="stark-panel"
             outlined
             dense
-            label="NPC Tag"
+            label="Метки НИП"
             :items="tags"
           />
         </v-col>
@@ -80,16 +80,16 @@
             background-color="stark-panel"
             outlined
             dense
-            label="Campaign"
+            label="Кампания"
             :items="campaigns"
           />
         </v-col>
         <v-col cols="auto" class="ml-auto mt-n6">
           <v-btn x-small block outlined style="margin-bottom: 2px" @click="flavor_dialog = true">
-            {{ npc.Class.Name }} Flavor
+            {{ npc.Class.Name }} Нарративное описание
           </v-btn>
           <v-btn x-small block outlined @click="tactics_dialog = true">
-            {{ npc.Class.Name }} Tactics
+            {{ npc.Class.Name }} Тактика
           </v-btn>
         </v-col>
       </v-row>
@@ -98,45 +98,45 @@
           <v-btn-toggle v-model="npc.Tier" dense mandatory active-class="accent--text" class="mb-2">
             <v-btn :value="1">
               <v-icon left>cci-rank-1</v-icon>
-              Tier 1
+              Градация 1
             </v-btn>
             <v-btn :value="2">
               <v-icon left>cci-rank-2</v-icon>
-              Tier 2
+              Градация 2
             </v-btn>
             <v-btn :value="3">
               <v-icon left>cci-rank-3</v-icon>
-              Tier 3
+              Градация 3
             </v-btn>
             <v-btn value="custom">
               <v-icon left>mdi-star-circle-outline</v-icon>
-              Custom
+              Пользовательская
             </v-btn>
           </v-btn-toggle>
           <v-row dense no-gutters>
             <editable-attribute
-              attr="HULL"
+              attr="КРП"
               :val="npc.Stats.Hull"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Hull = $event"
             />
             <editable-attribute
-              attr="AGI"
+              attr="МНВР"
               :val="npc.Stats.Agility"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Agility = $event"
             />
             <editable-attribute
-              attr="SYS"
+              attr="СИС"
               :val="npc.Stats.Systems"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Systems = $event"
             />
             <editable-attribute
-              attr="ENG"
+              attr="ИНЖ"
               :val="npc.Stats.Engineering"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
@@ -146,28 +146,28 @@
           <v-divider class="my-2" />
           <v-row dense no-gutters>
             <editable-attribute
-              attr="STRUCT."
+              attr="СТРУКТ."
               :val="npc.Stats.Structure"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Structure = $event"
             />
             <editable-attribute
-              attr="ARMOR"
+              attr="БРОНЯ"
               :val="npc.Stats.Armor"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Armor = $event"
             />
             <editable-attribute
-              attr="HP"
+              attr="ПЗ"
               :val="npc.Stats.HP"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.HP = $event"
             />
             <editable-attribute
-              attr="REACTOR"
+              attr="НАГРУЗКА"
               :val="npc.Stats.Stress"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
@@ -175,7 +175,7 @@
             />
             <editable-attribute
               v-if="!npc.IsBiological"
-              attr="HEAT CAP."
+              attr="ТЕПЛ. МАКС."
               :val="npc.Stats.HeatCapacity"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
@@ -184,35 +184,35 @@
           </v-row>
           <v-row dense no-gutters>
             <editable-attribute
-              attr="SPEED"
+              attr="СКОРОСТЬ"
               :val="npc.Stats.Speed"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Speed = $event"
             />
             <editable-attribute
-              attr="SAVE"
+              attr="СПАСБРОСОК"
               :val="npc.Stats.Save"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Save = $event"
             />
             <editable-attribute
-              attr="EVADE"
+              attr="УКЛОНЕНИЕ"
               :val="npc.Stats.Evade"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.Evade = $event"
             />
             <editable-attribute
-              attr="E-DEF."
+              attr="Э-ЗАЩ."
               :val="npc.Stats.EDefense"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
               @set="npc.Stats.EDefense = $event"
             />
             <editable-attribute
-              attr="SENSOR"
+              attr="СЕНСОРЫ"
               :val="npc.Stats.Sensor"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
@@ -222,7 +222,7 @@
           <v-divider class="my-2" />
           <v-row dense no-gutters>
             <editable-attribute
-              attr="ACTIVATIONS"
+              attr="АКТИВАЦИИ"
               :val="npc.Stats.Activations"
               :color="npc.Class.Color"
               :editable="npc.IsCustomTier"
@@ -250,11 +250,11 @@
               <v-btn outlined small block color="secondary" @click="$refs.imageSelector.open()">
                 <span v-if="!npc.PortraitController.Image">
                   <v-icon left>mdi-plus</v-icon>
-                  Add NPC Image
+                  Добавить изображение НИП
                 </span>
                 <span v-else>
                   <v-icon left>mdi-circle-edit-outline</v-icon>
-                  Edit NPC Image
+                  Редактировать изображение НИП
                 </span>
               </v-btn>
               <cc-image-selector-web ref="imageSelector" :item="npc" type="npc" />
@@ -263,7 +263,7 @@
         </v-col>
       </v-row>
       <cc-title small :color="npc.Class.Color">
-        Template{{ npc.Templates.length > 1 ? 's' : '' }}
+        Шаблон{{ npc.Templates.length > 1 ? 'ы' : '' }}
       </cc-title>
       <v-row dense align="center" class="mb-2">
         <v-col v-for="t in npc.Templates" :key="t.Name" cols="auto">
@@ -277,7 +277,7 @@
               <p v-html-safe="t.Description" class="text--text" />
               <v-divider class="my-2" />
               <v-btn block outlined color="error" class="mb-2" @click="npc.RemoveTemplate(t)">
-                REMOVE TEMPLATE
+                УБРАТЬ ШАБЛОН
               </v-btn>
             </cc-titled-panel>
           </v-dialog>
@@ -285,13 +285,13 @@
         <v-col cols="auto">
           <v-btn small color="accent" tile outlined @click="$refs.templateDialog.show()">
             <v-icon left>mdi-plus</v-icon>
-            Add Template
+            Добавить Шаблон
           </v-btn>
         </v-col>
       </v-row>
       <v-row no-gutters>
         <v-col cols="auto">
-          <cc-title small :color="npc.Class.Color">Features</cc-title>
+          <cc-title small :color="npc.Class.Color">Системы</cc-title>
         </v-col>
         <v-col cols="auto" class="ml-auto">
           <v-btn-toggle :value="profile.GetView('npc')" mandatory>
@@ -328,23 +328,23 @@
         <v-col cols="auto">
           <v-btn color="accent" tile outlined @click="$refs.featureDialog.show()">
             <v-icon left>mdi-plus</v-icon>
-            Add Feature
+            Добавить систему
             <span v-if="npc.AvailableFeatures.length">
-              ({{ npc.AvailableFeatures.length }} Available)
+              ({{ npc.AvailableFeatures.length }} Доступно)
             </span>
           </v-btn>
         </v-col>
       </v-row>
       <v-divider class="my-2" />
       <cc-title small :color="npc.Class.Color">
-        NPC Notes
+        Заметки о НИП
         <cc-text-editor label="Edit NPC Notes" :original="npc.Note" @save="npc.Note = $event" />
       </cc-title>
       <p v-html="npc.Note" />
       <v-dialog v-model="flavor_dialog" width="60vw">
         <v-card tile>
           <v-card-title :class="`heading h1 white--text ${npc.Class.Color}`">
-            {{ npc.Class.Name }}//Flavor
+            {{ npc.Class.Name }}//Нарративное описание
           </v-card-title>
           <v-card-text>
             <p v-html-safe="npc.Class.Flavor" class="ma-0 pt-2 flavor-text text--text" />
@@ -354,17 +354,17 @@
       <v-dialog v-model="tactics_dialog" width="60vw">
         <v-card tile>
           <v-card-title :class="`heading h1 white--text ${npc.Class.Color}`">
-            {{ npc.Class.Name }}//Tactics
+            {{ npc.Class.Name }}//Тактика
           </v-card-title>
           <v-card-text>
             <p v-html-safe="npc.Class.Tactics" class="ma-0 pt-2 flavor-text text--text" />
           </v-card-text>
         </v-card>
       </v-dialog>
-      <cc-solo-dialog ref="featureDialog" no-confirm title="SELECT FEATURES" fullscreen no-pad>
+      <cc-solo-dialog ref="featureDialog" no-confirm title="ВЫБРАТЬ СИСТЕМЫ" fullscreen no-pad>
         <feature-selector :npc="npc" @equip="equip($event)" />
       </cc-solo-dialog>
-      <cc-solo-dialog ref="templateDialog" no-confirm title="SELECT TEMPLATE" fullscreen no-pad>
+      <cc-solo-dialog ref="templateDialog" no-confirm title="ВЫБРАТЬ ШАБЛОН" fullscreen no-pad>
         <template-selector :npc="npc" @select="assign($event)" />
       </cc-solo-dialog>
     </div>
@@ -401,7 +401,7 @@ export default Vue.extend({
   data: () => ({
     flavor_dialog: false,
     tactics_dialog: false,
-    tags: ['Mech', 'Vehicle', 'Ship', 'Biological', 'Squad'],
+    tags: ['Мех', 'Транспорт', 'Корабль', 'Биологический', 'Отряд'],
   }),
   computed: {
     labels() {

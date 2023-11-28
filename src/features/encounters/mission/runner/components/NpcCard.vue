@@ -7,7 +7,7 @@
           <span class="heading h2 light-text--text">
             <cc-slashes />
             {{ npc.Side }}
-            {{ typeof npc.Tier === 'number' ? `T${npc.Tier}` : `Custom` }} {{ npc.Class.Name }}
+            {{ typeof npc.Tier === 'number' ? `Г${npc.Tier}` : `Пользовательский` }} {{ npc.Class.Name }}
             {{ npc.Templates.map(t => t.Name).join(' ') }} {{ npc.Tag }}
           </span>
         </div>
@@ -15,13 +15,13 @@
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn v-if="npc.Activations === 0" large color="secondary" @click="npc.Activations += 1">
-          Reactivate
+          Активировать повторно
         </v-btn>
       </v-col>
     </v-row>
 
     <v-alert v-if="npc.Defeat" prominent color="error" dark border="left" icon="mdi-skull">
-      <span class="heading h2">NPC {{ npc.Defeat }}</span>
+      <span class="heading h2">НИП {{ npc.Defeat }}</span>
     </v-alert>
 
     <v-alert
@@ -32,7 +32,7 @@
       icon="mdi-check"
       color="panel"
     >
-      <span class="heading h2">Turn Complete</span>
+      <span class="heading h2">Ход Закончен</span>
     </v-alert>
 
     <v-row dense>
@@ -41,7 +41,7 @@
           <v-col cols="3">
             <cc-status-select
               :key="npc.Statuses.length"
-              label="Statuses"
+              label="Статусы"
               :items="statuses"
               :model="npc.Statuses"
               dark
@@ -52,7 +52,7 @@
           <v-col cols="3">
             <cc-status-select
               :key="npc.Conditions.length"
-              label="Conditions"
+              label="Состояния"
               :items="conditions"
               :model="npc.Conditions"
               dark
@@ -63,7 +63,7 @@
           <v-col cols="3">
             <cc-status-select
               :key="npc.Resistances.length"
-              label="Resistances"
+              label="Сопротивляемости"
               :items="resistances"
               :model="npc.Resistances"
               dark
@@ -81,7 +81,7 @@
               prepend-icon="mdi-minus-circle-outline"
               style="width: 115px"
               class="hide-input-spinners"
-              hint="BURN"
+              hint="ГОРЕНИЕ"
               persistent-hint
               dense
               @click:append-outer="npc.Burn += 1"
@@ -102,7 +102,7 @@
               :class="{ rolledOver: structRolledOver }"
               @update="npc.CurrentStructure = $event"
             >
-              <span class="heading h3">Structure</span>
+              <span class="heading h3">Структура</span>
             </cc-tick-bar>
           </v-col>
           <v-col v-if="npc.Stats.Armor" cols="auto" class="mx-1">
@@ -115,7 +115,7 @@
               full-icon="mdi-shield"
               readonly
             >
-              <span class="heading h3">Armor</span>
+              <span class="heading h3">Броня</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto" class="ml-1">
@@ -128,7 +128,7 @@
               rollover
               @update="npc.CurrentHP = $event"
             >
-              <span class="heading h3">HP</span>
+              <span class="heading h3">ПЗ</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto" class="ml-1">
@@ -160,7 +160,7 @@
               :class="{ rolledOver: stressRolledOver }"
               @update="npc.CurrentStress = $event"
             >
-              <span class="heading h3">Stress</span>
+              <span class="heading h3">Нагрузка</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto" class="mr-4">
@@ -176,7 +176,7 @@
               clearable
               @update="npc.CurrentHeat = $event"
             >
-              <span class="heading h3">HEAT</span>
+              <span class="heading h3">НАГРЕВ</span>
             </cc-tick-bar>
           </v-col>
           <v-col cols="auto" class="mr-4">
@@ -189,7 +189,7 @@
               full-icon="$vuetify.icons.move"
               @update="npc.CurrentMove = $event"
             >
-              <span class="heading h3">MOVES</span>
+              <span class="heading h3">ПЕРЕМЕЩЕНИЕ</span>
             </cc-tick-bar>
           </v-col>
           <v-col class="mr-4">
@@ -202,7 +202,7 @@
               full-icon="cci-activate"
               readonly
             >
-              <span class="heading h3">ACTIVATIONS</span>
+              <span class="heading h3">АКТИВАЦИИ</span>
             </cc-tick-bar>
           </v-col>
         </v-row>
@@ -212,25 +212,25 @@
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Hull"
+                header="Корпус"
                 :content="npc.Stats.Hull || '0'"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Agility"
+                header="Маневренность"
                 :content="npc.Stats.Agility || '0'"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Systems"
+                header="Системы"
                 :content="npc.Stats.Systems || '0'"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Engineering"
+                header="Инженерия"
                 :content="npc.Stats.Engineering || '0'"
               />
             </v-row>
@@ -238,25 +238,25 @@
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Save"
+                header="Спасбросок"
                 :content="npc.Stats.Save"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Evade"
+                header="Уклонение"
                 :content="npc.Stats.Evade"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="E-Def"
+                header="Э-Защ"
                 :content="npc.Stats.EDefense"
               />
               <cc-active-card
                 prominent
                 :color="npc.Class.Color"
-                header="Sensor"
+                header="Сенсоры"
                 :content="npc.Stats.Sensor"
               />
             </v-row>
@@ -282,12 +282,12 @@
       </v-col>
     </v-row>
 
-    <div class="overline">COUNTERS</div>
+    <div class="overline">СЧЕТЧИКИ</div>
     <cc-counter-set :actor="npc" />
 
     <v-row no-gutters>
       <v-col cols="auto">
-        <div class="overline">FEATURES</div>
+        <div class="overline">СИСТЕМЫ</div>
       </v-col>
       <v-col cols="auto" class="ml-auto">
         <v-btn-toggle :value="profile.GetView('npc')" mandatory>
@@ -328,14 +328,14 @@
     </v-row>
     <v-divider class="my-3" />
     <cc-title small :color="npc.Class.Color">
-      NPC Notes
-      <cc-text-editor label="Edit NPC Notes" :original="npc.Note" @save="npc.Note = $event" />
+      Заметки о НИП
+      <cc-text-editor label="Редактировать заметки о НИП" :original="npc.Note" @save="npc.Note = $event" />
     </cc-title>
     <p v-html="npc.Note" />
     <v-divider class="my-3" />
     <v-row v-if="reactions.length" dense justify="center">
       <v-col cols="10">
-        <div class="overline">STAGED REACTIONS</div>
+        <div class="overline">ПОДГОТОВЛЕННЫЕ РЕАКЦИИ</div>
         <v-chip-group :key="'cr_' + reactions.length">
           <v-chip
             v-for="(r, i) in reactions"
@@ -380,13 +380,13 @@ export default Vue.extend({
   },
   data: () => ({
     resistances: [
-      { name: 'Kinetic', color: 'kinetic' },
-      { name: 'Energy', color: 'energy' },
-      { name: 'Explosive', color: 'explosive' },
-      { name: 'Heat', color: 'heat' },
-      { name: 'Burn', color: 'burn' },
-      { name: 'All', color: 'variable' },
-      { name: 'Next Attack', color: 'overcharge' },
+      { name: 'Кинетический', color: 'kinetic' },
+      { name: 'Энергетический', color: 'energy' },
+      { name: 'Взрывной', color: 'explosive' },
+      { name: 'Нагрев', color: 'heat' },
+      { name: 'Горение', color: 'burn' },
+      { name: 'Все', color: 'variable' },
+      { name: 'Следующая атака', color: 'overcharge' },
     ],
     structRolledOver: false,
     stressRolledOver: false,

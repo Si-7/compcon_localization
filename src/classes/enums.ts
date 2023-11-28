@@ -155,9 +155,9 @@ enum OrgType {
 }
 
 enum EncounterSide {
-  Enemy = 'Enemy',
-  Ally = 'Ally',
-  Neutral = 'Neutral',
+  Enemy = 'Противник',
+  Ally = 'Союзник',
+  Neutral = 'Нейтральный',
 }
 
 enum ImageTag {

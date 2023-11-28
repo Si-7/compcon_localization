@@ -2,13 +2,13 @@
   <v-container fluid>
     <v-row v-if="!mission" align="center" justify="center" style="width: 100%; height: 100%">
       <v-col cols="auto">
-        <span class="heading h1 subtle--text text--lighten-2">no mission selected</span>
+        <span class="heading h1 subtle--text text--lighten-2">нет выбранных миссий</span>
       </v-col>
     </v-row>
     <div v-else>
       <v-row dense class="mt-n6">
         <v-col cols="auto" align-self="center" class="fadeSelect">
-          <cc-tooltip simple content="Generate Random Name">
+          <cc-tooltip simple content="Сгенерировать случайное название">
             <v-icon large color="secondary" @click="randomName()">mdi-dice-multiple</v-icon>
           </cc-tooltip>
         </v-col>
@@ -37,7 +37,7 @@
             outlined
             dense
             multiple
-            label="User Labels"
+            label="Пользовательские ярлыки"
             :items="labels"
           />
         </v-col>
@@ -46,21 +46,21 @@
             v-model="mission.Campaign"
             outlined
             dense
-            label="Campaign"
+            label="Кампания"
             :items="campaigns"
           />
         </v-col>
       </v-row>
       <cc-title small class="mb-3">
-        Notes
+        Заметки
         <cc-text-editor
-          label="Edit Mission Notes"
+          label="Редактировать заметки о миссии"
           :original="mission.Note"
           @save="mission.Note = $event"
         />
       </cc-title>
       <p v-html="mission.Note" />
-      <cc-title small class="mt-3">ENCOUNTER STRUCTURE</cc-title>
+      <cc-title small class="mt-3">СТРУКТУРА СЦЕН</cc-title>
       <v-row dense>
         <v-col>
           <v-fade-transition>
@@ -100,17 +100,17 @@
                       </div>
                       <v-row dense>
                         <v-col>
-                          <span class="overline accent--text">SITREP</span>
+                          <span class="overline accent--text">СИТРЕП</span>
                           <br />
                           <span class="flavor-text">{{ step.Sitrep.name }}</span>
                         </v-col>
                         <v-col>
-                          <span class="overline accent--text">ENVIRONMENT</span>
+                          <span class="overline accent--text">ОКРУЖЕНИЕ</span>
                           <br />
                           <span class="flavor-text">{{ step.Environment }}</span>
                         </v-col>
                         <v-col>
-                          <span v-if="step.Labels" class="overline accent--text">LABELS</span>
+                          <span v-if="step.Labels" class="overline accent--text">ЯРЛЫКИ</span>
                           <br />
                           <v-chip v-for="l in step.Labels" :key="l" small class="mx-1">
                             {{ l }}
@@ -130,7 +130,7 @@
                       @remove="mission.RemoveStep(idx)"
                     >
                       <div slot="title" class="secondary--text">
-                        {{ step.IsLong ? 'Full' : 'Short' }} Rest
+                        {{ step.IsLong ? 'Полный' : 'Короткий' }} отдых
                       </div>
                       <div slot="items">
                         <v-btn-toggle
@@ -142,8 +142,8 @@
                           borderless
                           class="mt-n1"
                         >
-                          <v-btn small text :value="false">Short</v-btn>
-                          <v-btn small text :value="true">Full</v-btn>
+                          <v-btn small text :value="false">Короткий</v-btn>
+                          <v-btn small text :value="true">Полный</v-btn>
                         </v-btn-toggle>
                       </div>
                     </mission-step-element>
@@ -158,18 +158,18 @@
         <v-col>
           <v-btn block color="accent" outlined @click="$refs.selectDialog.show()">
             <v-icon left>mdi-plus</v-icon>
-            Add Encounter
+            Добавить сцену
           </v-btn>
         </v-col>
         <v-col>
           <v-btn block color="secondary" outlined @click="mission.AddRest()">
             <v-icon left>mdi-plus</v-icon>
-            Add Rest
+            Добавить отдых
           </v-btn>
         </v-col>
       </v-row>
       <br />
-      <cc-solo-dialog ref="selectDialog" no-confirm title="ADD ENCOUNTER" fullscreen no-pad>
+      <cc-solo-dialog ref="selectDialog" no-confirm title="ДОБАВИТЬ СЦЕНУ" fullscreen no-pad>
         <encounter-selector @select="addEncounter($event)" />
       </cc-solo-dialog>
     </div>

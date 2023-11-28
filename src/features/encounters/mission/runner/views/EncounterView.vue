@@ -29,7 +29,7 @@
           >
             <div style="position: relative">
               <div class="overline font-weight-bold" style="position: absolute; top: -2px">
-                TURN PENDING
+                ХОД В ПРОЦЕССЕ
               </div>
             </div>
             <slide-item v-for="(a, i) in initiative" :key="`i_${a.ID}_${i}`" :actor="a" />
@@ -45,7 +45,7 @@
                 class="overline font-weight-bold"
                 style="position: absolute; top: -2px"
               >
-                TURN COMPLETE
+                ХОД ЗАКОНЧЕН
               </div>
             </div>
             <slide-item v-for="(a, i) in finished" :key="`f_${a.ID}_${i}`" :actor="a" complete />
@@ -61,7 +61,7 @@
                 class="overline font-weight-bold"
                 style="position: absolute; top: -2px"
               >
-                DEFEATED
+                ПОВЕРЖЕН
               </div>
             </div>
             <slide-item v-for="(a, i) in defeated" :key="`d_${a.ID}_${i}`" :actor="a" defeated />
@@ -70,28 +70,27 @@
       </v-col>
       <v-col cols="1" class="text-center">
         <div class="heading h3">
-          ROUND
+          РАУНД
           <b class="accent--text">{{ activeMission.Round }}</b>
         </div>
-        <v-btn block tile color="primary" @click="stageRoundEnd()">End Round</v-btn>
+        <v-btn block tile color="primary" @click="stageRoundEnd()">Закончить Раунд</v-btn>
         <v-divider class="my-2" />
         <v-menu offset-x left>
           <template v-slot:activator="{ on }">
             <v-btn block small color="accent" outlined v-on="on">
-              Complete
+              Закончить
               <br />
-              Encounter
+              Сцену
             </v-btn>
           </template>
           <v-card>
             <v-card-text class="text-center font-weight-bold">
-              This will conclude the encounter and progress the mission. This can not be undone. Are
-              you sure you want to continue?
+              Это закончит сцену и продвинет миссию. Это не может быть отменено. Вы уверены, что хотите продолжить?
               <v-divider class="my-2" />
               <v-row dense>
-                <v-btn small text>CANCEL</v-btn>
+                <v-btn small text>ОТМЕНА</v-btn>
                 <v-btn small color="primary" class="ml-auto" @click="$emit('finish')">
-                  CONFIRM
+                  ПОДТВЕРДИТЬ
                 </v-btn>
               </v-row>
             </v-card-text>
@@ -100,13 +99,13 @@
       </v-col>
     </v-row>
     <cc-solo-dialog ref="endConfirmDialog" title="Confirm End Round" @confirm="commitRoundEnd()">
-      <div class="flavor-text my-2">The following actors still have activations remaining:</div>
+      <div class="flavor-text my-2">Следующие актеры все еще имеют доступные действия:</div>
       <div v-for="a in initiative" :key="`diag_${a.ID}`" class="heading h3 text--text">
         <v-icon left>{{ a.Icon }}</v-icon>
         {{ a.EncounterName }}
       </div>
       <div class="flavor-text my-2">
-        Ending this round will cause these actors to lose their unspent activations. Continue?
+        Окончание этого раунда приведет к потере неиспользованных действий этих актеров. Продолжить?
       </div>
     </cc-solo-dialog>
   </div>

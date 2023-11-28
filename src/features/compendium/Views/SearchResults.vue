@@ -18,7 +18,7 @@
     <v-row class="mx-3">
       <v-col>
         <v-subheader>
-          {{ searchResults.length }} result{{ searchResults.length === 1 ? '' : 's' }}
+          {{ searchResults.length }} результат{{ searchResults.length === 1 ? '' : 'ов' }}
         </v-subheader>
         <v-slide-y-reverse-transition mode="out-in">
           <v-row :key="searchText" fill-height>

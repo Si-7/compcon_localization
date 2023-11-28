@@ -1,6 +1,6 @@
 <template>
   <panel-view ref="view">
-    <cc-gm-header slot="title" title="ENCOUNTERS" />
+    <cc-gm-header slot="title" title="СЦЕНЫ" />
     <template slot="left">
       <v-row dense>
         <v-col>
@@ -25,8 +25,8 @@
           :headers="headers"
           :group-by="grouping"
           :search="search"
-          no-results-text="No Encounters Found"
-          no-data-text="No Saved Encounters"
+          no-results-text="Сцен не найдено"
+          no-data-text="Нет сохраненных сцен"
           disable-pagination
           hide-default-footer
           calculate-widths
@@ -40,7 +40,7 @@
                 <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
                 <span v-else v-html="h.group" />
               </span>
-              <span v-else>NONE</span>
+              <span v-else>НЕТ</span>
             </div>
           </template>
           <template v-slot:item.Name="{ item }">
@@ -57,7 +57,7 @@
                       <v-icon>mdi-content-copy</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Copy {{ item.Name }}</v-list-item-title>
+                      <v-list-item-title>Копировать {{ item.Name }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item disabled>
@@ -65,7 +65,7 @@
                       <v-icon>mdi-printer</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Print Encounter Sheets</v-list-item-title>
+                      <v-list-item-title>Распечатать листы сцены</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-divider />
@@ -75,7 +75,7 @@
                     </v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title class="error--text">
-                        Delete {{ item.Name }}
+                        Удалить {{ item.Name }}
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -96,7 +96,7 @@
         <v-col cols="8">
           <v-btn block tile color="primary" large @click="addNew()">
             <v-icon left>mdi-plus</v-icon>
-            Add New Encounter
+            Добавить новую сцену
           </v-btn>
         </v-col>
       </v-row>

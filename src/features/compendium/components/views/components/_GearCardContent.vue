@@ -8,31 +8,31 @@
         class="mt-2"
       >
         <v-col v-if="item.Armor" cols="auto">
-          <cc-tooltip simple inline content="Armor Bonus">
+          <cc-tooltip simple inline content="Бонус Брони">
             <v-icon>mdi-shield-outline</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ item.Armor }}</span>
         </v-col>
         <v-col v-if="item.HPBonus" cols="auto">
-          <cc-tooltip simple inline content="HP Bonus">
+          <cc-tooltip simple inline content="Бонус ПЗ">
             <v-icon>mdi-heart</v-icon>
           </cc-tooltip>
           <span class="stat-text">+{{ item.HPBonus }}</span>
         </v-col>
         <v-col v-if="item.EDefense" cols="auto">
-          <cc-tooltip simple inline content="Electronic Defense">
+          <cc-tooltip simple inline content="Э-Защита">
             <v-icon>cci-edef</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ item.EDefense }}</span>
         </v-col>
         <v-col v-if="item.Evasion" cols="auto">
-          <cc-tooltip simple inline content="Evasion">
+          <cc-tooltip simple inline content="Уклонение">
             <v-icon>cci-evasion</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ item.Evasion }}</span>
         </v-col>
         <v-col v-if="item.Speed" cols="auto">
-          <cc-tooltip simple inline content="Speed">
+          <cc-tooltip simple inline content="Скорость">
             <v-icon>$vuetify.icons.move</v-icon>
           </cc-tooltip>
           <span class="stat-text">{{ item.Speed }}</span>

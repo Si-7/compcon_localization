@@ -3,9 +3,9 @@
     <v-row style="height: 100%" align="center">
       <v-col>
         <home-card
-          title="NPC Roster"
+          title="Список НИП"
           icon="mdi-account-edit"
-          text="Design, edit, and manage NPCs for use in encounters."
+          text="Создавайте, редактируйте и управляйте НИП для использования в сценах."
           to="/gm/npc-roster"
         />
       </v-col>
@@ -14,7 +14,7 @@
         <home-card
           title="Encounter Builder"
           icon="mdi-account-multiple-plus"
-          text="Compose encounters with NPCs, objectives, and battlefield conditions"
+          text="Составляйте столкновения с НИП, целями и условиями боя."
           to="/gm/encounter-builder"
         />
       </v-col>
@@ -23,7 +23,7 @@
         <home-card
           title="Mission Runner"
           icon="mdi-account-group"
-          text="Run sets of encounters digitally with NPC and Pilot status tracking."
+          text="Запускайте наборы встреч в цифровом формате с отслеживанием статуса NPC и пилотов."
           to="/gm/mission"
           :icon-offset="13"
         />

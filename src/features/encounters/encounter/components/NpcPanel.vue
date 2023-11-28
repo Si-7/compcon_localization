@@ -1,7 +1,7 @@
 <template>
   <cc-titled-panel
     :icon="npc.Class.RoleIcon"
-    :title="`${npc.Name}  —  ${typeof npc.Tier === 'number' ? `T${npc.Tier}` : `Custom`} ${
+    :title="`${npc.Name}  —  ${typeof npc.Tier === 'number' ? `T${npc.Tier}` : `Пользовательский`} ${
       npc.Class.Name
     } ${npc.Templates.map(t => t.Name).join(' ')} ${npc.Tag}`"
     :color="npc.Class.Color"
@@ -9,22 +9,22 @@
   >
     <v-row dense class="mt-n1">
       <v-col v-if="npc.Campaign" cols="auto">
-        <div class="overline">CAMPAIGN</div>
+        <div class="overline">КАМПАНИЯ</div>
         {{ npc.Campaign }}
       </v-col>
       <v-col v-if="npc.Labels.length">
-        <div class="overline">LABELS</div>
+        <div class="overline">ЯРЛЫКИ</div>
         <v-chip v-for="l in npc.Labels" :key="l" small class="mx-1">{{ l }}</v-chip>
       </v-col>
       <v-col>
         <v-select
           v-if="sideSelect"
           v-model="npc.Side"
-          label="Side"
+          label="Сторона"
           outlined
           dense
           hide-details
-          :items="['Enemy', 'Ally', 'Neutral']"
+          :items="['Противник', 'Союзник', 'Нейтральный']"
         />
       </v-col>
     </v-row>

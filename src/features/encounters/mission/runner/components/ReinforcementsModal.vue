@@ -3,23 +3,23 @@
     <v-row>
       <v-col cols="7">
         <fieldset>
-          <legend class="heading h3 accent--text mx-2">COMBATANTS</legend>
+          <legend class="heading h3 accent--text mx-2">КОМБАТАНТЫ</legend>
           <npc-chip
-            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Enemy')"
+            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Противник')"
             :key="`cmbt_e_${n.ID}_${i}`"
             :npc="n"
             readonly
             color="red darken-1"
           />
           <npc-chip
-            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Ally')"
+            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Союзник')"
             :key="`cmbt_a_${n.ID}_${i}`"
             :npc="n"
             readonly
             color="blue darken-1"
           />
           <npc-chip
-            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Neutral')"
+            v-for="(n, i) in mission.ActiveNpcs.filter(x => x.Side === 'Нейтральный')"
             :key="`cmbt_n_${n.ID}_${i}`"
             :npc="n"
             readonly
@@ -27,7 +27,7 @@
           />
         </fieldset>
         <fieldset>
-          <legend class="heading h3 accent--text mx-2">PILOTS</legend>
+          <legend class="heading h3 accent--text mx-2">ПИЛОТЫ</legend>
           <v-chip
             v-for="p in mission.Pilots"
             :key="`pilot_${p.ID}`"
@@ -43,15 +43,15 @@
       </v-col>
       <v-col cols="5">
         <fieldset>
-          <legend class="heading h3 accent--text mx-2">REINFORCEMENTS</legend>
+          <legend class="heading h3 accent--text mx-2">ПОДКРЕПЛЕНИЯ</legend>
           <div
             v-if="!mission.ActiveReinforcements.length"
             class="text-center subtle--text heading h3 mt-3 mb-4"
           >
-            // NO REINFORCEMENTS REMAINING //
+            // НЕТ ОСТАВШИХСЯ ПОДКРЕПЛЕНИЙ //
           </div>
           <npc-chip
-            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Enemy')"
+            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Противник')"
             :key="`rein_e_${n.ID}_${i}`"
             :npc="n"
             readonly
@@ -60,7 +60,7 @@
             @move="mission.MoveReinforcement(n)"
           />
           <npc-chip
-            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Ally')"
+            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Союзник')"
             :key="`rein_a_${n.ID}_${i}`"
             :npc="n"
             readonly
@@ -69,7 +69,7 @@
             @move="mission.MoveReinforcement(n)"
           />
           <npc-chip
-            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Neutral')"
+            v-for="(n, i) in mission.ActiveReinforcements.filter(x => x.Side === 'Нейтральный')"
             :key="`rein_n_${n.ID}_${i}`"
             :npc="n"
             readonly
@@ -83,19 +83,19 @@
     <v-row>
       <v-col cols="7">
         <v-btn block color="secondary" @click="$refs.pilotDialog.show()">
-          add pilot to mission
+          добавить пилота к миссии
         </v-btn>
       </v-col>
       <v-col cols="5">
         <v-btn block color="secondary" @click="$refs.npcDialog.show()">
-          add NPC to reinforcement pool
+          добавить НИП в подкрепления
         </v-btn>
       </v-col>
     </v-row>
-    <cc-solo-dialog ref="pilotDialog" no-confirm title="ADD PILOT" fullscreen no-pad>
+    <cc-solo-dialog ref="pilotDialog" no-confirm title="ДОБАВИТЬ ПИЛОТА" fullscreen no-pad>
       <pilot-selector :selected-pilots="mission.Pilots" @select="addPilot($event)" />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="npcDialog" no-confirm title="ADD NPC" fullscreen no-pad>
+    <cc-solo-dialog ref="npcDialog" no-confirm title="ДОБАВИТЬ НИП" fullscreen no-pad>
       <npc-selector @select="addNpc($event)" />
     </cc-solo-dialog>
   </div>

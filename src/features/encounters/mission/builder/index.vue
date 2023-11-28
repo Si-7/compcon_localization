@@ -1,6 +1,6 @@
 <template>
   <panel-view ref="view">
-    <cc-gm-header slot="title" title="MISSIONS" />
+    <cc-gm-header slot="title" title="МИССИИ" />
     <template slot="left">
       <v-row dense>
         <v-col>
@@ -22,8 +22,8 @@
           :headers="headers"
           group-by="Campaign"
           :search="search"
-          no-results-text="No Missions Found"
-          no-data-text="No Saved Missions"
+          no-results-text="Не найдено миссий"
+          no-data-text="Нет сохраненных миссий"
           disable-pagination
           hide-default-footer
           hide-default-header
@@ -37,7 +37,7 @@
                 <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
                 <span v-else v-html="h.group" />
               </span>
-              <span v-else>NONE</span>
+              <span v-else>НЕТ</span>
             </div>
           </template>
           <template v-slot:item.Name="{ item }">
@@ -54,7 +54,7 @@
                       <v-icon>mdi-content-copy</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Copy {{ item.Name }}</v-list-item-title>
+                      <v-list-item-title>Копировать {{ item.Name }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item disabled>
@@ -62,7 +62,7 @@
                       <v-icon>mdi-printer</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>Print Mission Sheets</v-list-item-title>
+                      <v-list-item-title>Распечатать листы миссии</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-divider />
@@ -72,7 +72,7 @@
                     </v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title class="error--text">
-                        Delete {{ item.Name }}
+                        Удалить {{ item.Name }}
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -93,7 +93,7 @@
         <v-col cols="8">
           <v-btn block tile color="primary" large @click="addNew()">
             <v-icon left>mdi-plus</v-icon>
-            Add New Mission
+            Добавить новую миссию
           </v-btn>
         </v-col>
       </v-row>

@@ -41,8 +41,8 @@
       >
         <v-select
           v-model="manFilter"
-          value="ALL"
-          :items="['ALL', ...sources]"
+          value="ВСЕ"
+          :items="['ВСЕ', ...sources]"
           outlined
           dense
           hide-details
@@ -98,7 +98,7 @@ export default class CoreBonuses extends Vue {
 
   get bonuses(): Dictionary<CoreBonus[]> {
     let bArr = this.compendium.CoreBonuses.filter(x => !x.IsHidden)
-    if (this.manFilter && this.manFilter.toLowerCase() !== 'all') {
+    if (this.manFilter && this.manFilter.toLowerCase() !== 'все') {
       bArr = bArr.filter(x => x.Source === this.manFilter)
     }
 

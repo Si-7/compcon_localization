@@ -7,7 +7,7 @@
     </template>
     <v-list>
       <v-subheader class="heading h2 white--text primary py-0 px-2 mt-n3">
-        Group Encounters By
+        Группировать сцены по
       </v-subheader>
       <v-list-item
         v-for="g in groups"
@@ -32,8 +32,8 @@ export default Vue.extend({
   name: 'encounter-group',
   data: () => ({
     groups: [
-      { name: 'None', val: null, icon: 'mdi-close' },
-      { name: 'Campaign', val: 'Campaign', icon: 'mdi-map' },
+      { name: 'Нет', val: null, icon: 'mdi-close' },
+      { name: 'Кампаниям', val: 'Campaign', icon: 'mdi-map' },
     ],
   }),
 })

@@ -133,7 +133,7 @@ class Npc
     this._note = this._cloud_image = this._local_image = ''
     this._campaign = ''
     this._class = npcClass
-    this._tag = this.Class.Role.toLowerCase() === 'biological' ? 'Biological' : 'Mech'
+    this._tag = this.Class.Role.toLowerCase() === 'биологический' ? 'Биологический' : 'Мех'
     this._stats = NpcStats.FromClass(npcClass, t)
     this._current_stats = NpcStats.FromMax(this._stats)
     this._items = []
@@ -244,11 +244,11 @@ class Npc
   }
 
   public get IsBiological(): boolean {
-    return this._tag.toLowerCase() === 'biological'
+    return this._tag.toLowerCase() === 'биологический'
   }
 
   public get Tag(): string {
-    if (this.IsBiological) return 'Biological'
+    if (this.IsBiological) return 'Биологический'
     return this._tag
   }
 

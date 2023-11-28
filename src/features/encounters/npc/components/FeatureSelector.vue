@@ -13,7 +13,7 @@
             slot="label"
             simple
             inline
-            :content="showAll ? 'Showing all features' : 'Showing available features'"
+            :content="showAll ? 'Показаны все системы' : 'Показаны доступные системы'"
           >
             <v-icon
               class="ml-n2"
@@ -27,7 +27,7 @@
             slot="label"
             simple
             inline
-            :content="showDupe ? 'Showing installed features' : 'Hiding installed features'"
+            :content="showDupe ? 'Показаны установленные системы' : 'Спрятаны установленные системы'"
           >
             <v-icon
               class="ml-n2"
@@ -57,10 +57,10 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Name', align: 'left', value: 'Name' },
-      { text: 'Type', align: 'left', value: 'FeatureType' },
-      { text: 'Class', align: 'left', value: 'OriginClass' },
-      { text: 'Set', align: 'left', value: 'OriginSet' },
+      { text: 'Название', align: 'left', value: 'Name' },
+      { text: 'Тип', align: 'left', value: 'FeatureType' },
+      { text: 'Класс', align: 'left', value: 'OriginClass' },
+      { text: 'Набор', align: 'left', value: 'OriginSet' },
       { text: '', align: 'center', value: 'Detail' },
     ],
     features: [],

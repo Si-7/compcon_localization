@@ -2,10 +2,10 @@
   <v-container style="margin-top: 50px; min-height: calc(100vh - 50px)">
     <v-row>
       <v-col>
-        <div class="overline">//MISSION</div>
+        <div class="overline">//МИССИЯ</div>
         <div class="heading mech mt-n6">{{ mission.Name }}</div>
         <p v-if="mission.Note" class="flavor-text panel text-center" v-html="mission.Note" />
-        <div v-else class="flavor-text subtle--text text-center">// NO BRIEFING DATA //</div>
+        <div v-else class="flavor-text subtle--text text-center">// НЕТ ДАННЫХ ИНСТРУКТАЖА //</div>
         <v-row justify="center">
           <v-col v-for="(s, i) in mission.Steps" :key="`step_${i}`" :cols="s.Name ? 3 : 1">
             <v-card outlined height="100%">
@@ -17,15 +17,15 @@
                   <span class="heading h3">{{ s.Name }}</span>
                   <v-divider />
                   <div>
-                    COMBATANTS:
-                    {{ s.Npcs('Enemy').length }}
+                    КОМБАТАНТЫ:
+                    {{ s.Npcs('Противник').length }}
                   </div>
-                  <div>ENV: {{ s.Environment }}</div>
-                  <div>SITREP: {{ s.Sitrep.name }}</div>
+                  <div>ОКРУЖ: {{ s.Environment }}</div>
+                  <div>СИТРЕП: {{ s.Sitrep.name }}</div>
                 </div>
                 <div v-else style="margin-top: 25%; margin-bottom: 25%" class="text-center">
                   <v-icon color="secondary" large>mdi-restore</v-icon>
-                  <span class="overline">{{ s.IsLong ? 'Full' : 'Short' }} Rest</span>
+                  <span class="overline">{{ s.IsLong ? 'Полный' : 'Короткий' }} отдых</span>
                 </div>
               </v-card-text>
             </v-card>
@@ -34,11 +34,11 @@
         <v-divider class="my-2" />
         <fieldset style="border-radius: 5px" class="px-3">
           <legend>
-            <span class="px-2 heading h3 accent--text">PILOTS</span>
+            <span class="px-2 heading h3 accent--text">ПИЛОТЫ</span>
           </legend>
           <v-card v-if="!pilots.length" color="panel" flat tile>
             <v-card-text class="text-center subtle--text text--darken-2">
-              <span class="heading h3">// WARNING: NO ASSIGNED PILOTS //</span>
+              <span class="heading h3">// ПРЕДУПРЕЖДЕНИЕ: НЕТ НАЗНАЧЕННЫХ ПИЛОТОВ //</span>
             </v-card-text>
           </v-card>
           <v-card v-for="p in pilots" :key="p.ID" cols="12" outlined class="my-1">
@@ -47,7 +47,7 @@
                 <v-col cols="auto" class="mr-3">
                   <span class="heading h3 accent--text">{{ p.Callsign }}</span>
                   <cc-slashes />
-                  <span class="flavor-text">{{ p.Name }} // LL {{ p.Level }}</span>
+                  <span class="flavor-text">{{ p.Name }} // УЛ {{ p.Level }}</span>
                 </v-col>
                 <v-divider vertical class="mx-2" />
                 <v-col>
@@ -69,18 +69,18 @@
           <div class="my-2 mx-4">
             <v-btn tile outlined color="accent" block @click="$refs.pilotDialog.show()">
               <v-icon left>mdi-plus</v-icon>
-              Add Pilot
+              Добавить Пилота
             </v-btn>
           </div>
         </fieldset>
         <v-row justify="center">
           <v-col cols="10">
-            <v-btn x-large block color="primary" @click="startMission()">start</v-btn>
+            <v-btn x-large block color="primary" @click="startMission()">начать</v-btn>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-    <cc-solo-dialog ref="pilotDialog" no-confirm title="ADD PILOT" fullscreen no-pad>
+    <cc-solo-dialog ref="pilotDialog" no-confirm title="ДОБАВИТЬ ПИЛОТА" fullscreen no-pad>
       <pilot-selector :selected-pilots="pilots" @select="addPilot($event)" />
     </cc-solo-dialog>
   </v-container>

@@ -20,8 +20,8 @@
         :headers="headers"
         group-by="Campaign"
         :search="search"
-        no-results-text="No Encounters Found"
-        no-data-text="No Saved Encounters"
+        no-results-text="Не найдено сцен"
+        no-data-text="Нет сохраненных сцен"
         disable-pagination
         hide-default-footer
         hide-default-header
@@ -36,7 +36,7 @@
               <span v-if="Array.isArray(h.group)" v-html="h.group.join(', ')" />
               <span v-else v-html="h.group" />
             </span>
-            <span v-else>NONE</span>
+            <span v-else>НЕТ</span>
           </div>
         </template>
         <template v-slot:item.Name="{ item }">
@@ -58,7 +58,7 @@
     </div>
     <br />
     <div v-if="!encounters.length" class="subtle--text heading h2 text-center">
-      // NO ENCOUNTERS AVAILABLE //
+      // НЕТ ДОСТУПНЫХ СЦЕН //
     </div>
     <v-row
       v-for="(encounter, i) in encounters"
@@ -83,7 +83,7 @@ export default Vue.extend({
   components: { EncounterPanel },
   data: () => ({
     encounters: [],
-    side: 'Enemy',
+    side: 'Противник',
     headers: [{ text: 'Name', value: 'Name', align: 'left' }],
     search: '',
   }),

@@ -19,11 +19,11 @@
     <npc-panel :npc="npc" :side-select="!readonly">
       <v-btn v-if="!readonly" block outlined color="error" class="mt-2" @click="$emit('remove')">
         <v-icon left>mdi-delete</v-icon>
-        remove npc
+        убрать нип
       </v-btn>
       <v-btn v-if="reinforce" block outlined color="primary" class="mt-2" @click="$emit('move')">
         <v-icon left>mdi-chevron-double-left</v-icon>
-        add npc to current encounter
+        добавить нип к текущей сцене
       </v-btn>
     </npc-panel>
   </v-dialog>

@@ -54,7 +54,7 @@ export class NpcClass {
   }
 
   public get RoleIcon(): string {
-    if (this._role.toLowerCase() === 'biological') return 'mdi-heart-pulse'
+    if (this._role.toLowerCase() === 'биологический') return 'mdi-heart-pulse'
     return `cci-role-${this._role}`
   }
 

@@ -24,7 +24,7 @@
         <slot />
         <v-textarea
           v-model="step.Note"
-          label="Notes"
+          label="Заметки"
           dense
           hide-details
           filled

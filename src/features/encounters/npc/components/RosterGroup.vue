@@ -7,7 +7,7 @@
     </template>
     <v-list>
       <v-subheader class="heading h2 white--text primary py-0 px-2 mt-n3">
-        Group NPCs By
+        Группировать НИП по
       </v-subheader>
       <v-list-item
         v-for="g in groups"
@@ -32,12 +32,12 @@ export default Vue.extend({
   name: 'roster-group',
   data: () => ({
     groups: [
-      { name: 'None', val: null, icon: 'mdi-close' },
-      { name: 'Role', val: 'Class.Role', icon: 'cci-role-striker' },
-      { name: 'Class', val: 'Class.Name', icon: 'mdi-rhombus-outline' },
-      { name: 'Labels', val: 'LabelString', icon: 'mdi-label-outline' },
-      { name: 'Campaign', val: 'Campaign', icon: 'mdi-map' },
-      { name: 'Tier', val: 'Tier', icon: 'cci-rank-3' },
+      { name: 'Нет', val: null, icon: 'mdi-close' },
+      { name: 'Роли', val: 'Class.Role', icon: 'cci-role-striker' },
+      { name: 'Классу', val: 'Class.Name', icon: 'mdi-rhombus-outline' },
+      { name: 'Ярлыкам', val: 'LabelString', icon: 'mdi-label-outline' },
+      { name: 'Кампании', val: 'Campaign', icon: 'mdi-map' },
+      { name: 'Градации', val: 'Tier', icon: 'cci-rank-3' },
     ],
   }),
   methods: {

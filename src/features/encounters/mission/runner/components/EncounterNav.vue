@@ -2,7 +2,7 @@
   <div class="nav-body elevation-10">
     <div id="cap" />
     <cc-nav-item v-if="actor.Activations > 0" @clicked="actor.Activations -= 1">
-      <cc-tooltip simple content="End Turn">
+      <cc-tooltip simple content="Закончить ход">
         <v-icon size="50" color="white" class="end-turn mt-n2 pl-n2">
           cci-activate
         </v-icon>
@@ -10,17 +10,17 @@
     </cc-nav-item>
     <div v-if="actor.Activations > 0" id="divider-2" />
     <cc-nav-item @clicked="noteSheet = true">
-      <cc-tooltip simple content="GM Notepad">
+      <cc-tooltip simple content="Блокнот ГМа">
         <v-icon>mdi-note</v-icon>
       </cc-tooltip>
     </cc-nav-item>
     <cc-nav-item @clicked="$refs.infoDialog.show()">
-      <cc-tooltip simple content="Encounter Information">
+      <cc-tooltip simple content="Информация о сцене">
         <v-icon>mdi-map</v-icon>
       </cc-tooltip>
     </cc-nav-item>
     <cc-nav-item @clicked="$refs.reinforcementDialog.show()">
-      <cc-tooltip simple content="Reinforcements">
+      <cc-tooltip simple content="Подкрепления">
         <v-icon>mdi-plus-circle-outline</v-icon>
       </cc-tooltip>
     </cc-nav-item>
@@ -38,7 +38,7 @@
               <v-icon>cci-reaction</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Stage Custom Reaction</v-list-item-title>
+              <v-list-item-title>Подготовить пользовательские реакции</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item v-if="!actor.Defeated" @click="removeDialog = true">
@@ -46,7 +46,7 @@
               <v-icon>mdi-close</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Remove from Battle</v-list-item-title>
+              <v-list-item-title>Убрать из боя</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item @click="repairDialog = true">
@@ -54,7 +54,7 @@
               <v-icon>cci-repair</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Full Repair</v-list-item-title>
+              <v-list-item-title>Полный ремонт</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-divider />
@@ -63,53 +63,53 @@
               <v-icon color="error">mdi-delete</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>Delete from Encounter</v-list-item-title>
+              <v-list-item-title>Удалить из сцены</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-menu>
       <v-dialog v-model="reactionDialog" width="50%">
-        <cc-titled-panel title="Stage Reaction">
-          <v-text-field v-model="reaction" label="Reaction" outlined hide-details />
+        <cc-titled-panel title="Подготовить реакцию">
+          <v-text-field v-model="reaction" label="Реакция" outlined hide-details />
           <v-btn block large tile color="secondary" :disabled="!reaction" @click="react()">
-            Stage Reaction: {{ reaction }}
+            Подготовить реакцию: {{ reaction }}
           </v-btn>
         </cc-titled-panel>
       </v-dialog>
       <v-dialog v-model="removeDialog" width="50%">
-        <cc-titled-panel title="Remove Actor from Battlefield">
-          <v-combobox v-model="reason" label="Reason" :items="remove" outlined hide-details />
+        <cc-titled-panel title="Удалить актера с поля боя">
+          <v-combobox v-model="reason" label="Причина" :items="remove" outlined hide-details />
           <v-btn block large tile color="secondary" :disabled="!reason" @click="removeActor()">
-            Remove from Battle ({{ reason ? reason : ' . . . ' }})
+            Убрать из боя ({{ reason ? reason : ' . . . ' }})
           </v-btn>
         </cc-titled-panel>
       </v-dialog>
       <v-dialog v-model="repairDialog" width="50%">
-        <cc-titled-panel title="WARNING: Full Repair">
-          This will restore the selected actor to a fully-repaired and refreshed state. Any current
-          stat or damage tracking will be lost. This will also return the actor to the battlefield,
-          if it had been removed. Are you sure you want to continue?
+        <cc-titled-panel title="ВНИМАНИЕ: Полный Ремонт">
+          Это вернет выбранного актера в полностью восстановленное и обновленное состояние. 
+          Любая текущая статистика или отслеживание повреждений будут потеряны. Это также 
+          вернет актера на поле битвы, если он был удален. Вы уверены что хотите продолжить?
           <v-btn block large tile color="success darken-1" @click="repair()">
-            Confirm Full Repair
+            Подтвердить Полный Ремонт
           </v-btn>
         </cc-titled-panel>
       </v-dialog>
       <v-dialog v-model="deleteDialog" width="50%">
-        <cc-titled-panel title="WARNING: Delete Actor">
-          Deleting this actor will remove it permanently from this mission. Any stat or record
-          tracking for this entity will be lost. Are you sure you want to continue?
+        <cc-titled-panel title="ВНИМАНИЕ: Удаление Актера">
+          Удаление этого актера навсегда удалит его из этой миссии. Любая статистика или 
+          отслеживание записей для этого объекта будут потеряны. Вы уверены что хотите продолжить?
           <v-btn block large tile color="error" class="mb-2" @click="deleteActor()">
-            Confirm Deletion
+            Подтвердить Удаление
           </v-btn>
         </cc-titled-panel>
       </v-dialog>
     </cc-nav-item>
-    <cc-solo-dialog ref="infoDialog" icon="mdi-map" no-confirm title="Mission Information" large>
+    <cc-solo-dialog ref="infoDialog" icon="mdi-map" no-confirm title="Информация о миссии" large>
       <info-modal :mission="mission.Mission" :encounter="encounter" :step="mission.Step" />
     </cc-solo-dialog>
     <v-bottom-sheet v-model="noteSheet">
       <v-sheet class="text-center" height="35vh">
-        <div class="primary white--text heading h3">GM NOTES</div>
+        <div class="primary white--text heading h3">ЗАМЕТКИ ГМа</div>
         <v-textarea
           v-model="mission.Note"
           filled
@@ -125,7 +125,7 @@
       ref="reinforcementDialog"
       icon="mdi-plus-circle-outline"
       no-confirm
-      title="Encounter Reinforcements"
+      title="Подкрепления сцены"
       large
     >
       <reinforcements-modal :mission="mission" :encounter="encounter" />
@@ -158,7 +158,7 @@ export default Vue.extend({
   data: () => ({
     reaction: '',
     reason: '',
-    remove: ['Destroyed', 'Routed', 'Escaped', 'Retreated'],
+    remove: ['Уничтожен', 'Прогнан', 'Сбежал', 'Отступил'],
     reactionDialog: false,
     removeDialog: false,
     repairDialog: false,

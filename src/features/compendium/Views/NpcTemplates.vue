@@ -16,7 +16,7 @@
       <v-list-item-title class="heading h2 ml-2">{{ e.Name }}</v-list-item-title>
     </v-list-item>
     <div v-if="!templates.length" class="subtle--text heading h2 text-center">
-      // NO TEMPLATES AVAILABLE //
+      // НЕТ ДОСТУПНЫХ ШАБЛОНОВ //
     </div>
     <v-row v-for="(e, i) in templates" :id="`e_${e.ID}`" :key="`${e.ID}_${i}`">
       <v-col class="pl-0">
@@ -25,8 +25,8 @@
           <p v-html-safe="e.Description" class="flavor-text mb-0" />
           <v-divider class="my-2" />
           <span class="heading">
-            <b class="accent--text">Base</b>
-            Features
+            <b class="accent--text">Основные</b>
+            Системы
           </span>
           <v-row dense class="mr-2 mt-n1">
             <v-col v-for="f in e.BaseFeatures" :key="f.ID" cols="auto">
@@ -34,8 +34,8 @@
             </v-col>
           </v-row>
           <span v-if="e.OptionalFeatures.length" class="heading">
-            <b class="accent--text">Optional</b>
-            Features
+            <b class="accent--text">Дополнительные</b>
+            Системы
           </span>
           <v-row dense class="mr-2 mt-n1 pb-2">
             <v-col v-for="f in e.OptionalFeatures" :key="f.ID" cols="auto">

@@ -30,13 +30,13 @@
             <cc-tooltip
               v-if="actor.MaxStructure > 1"
               inline
-              title="Structure"
+              title="Структура"
               :content="`${actor.CurrentStructure} / ${actor.MaxStructure}`"
             >
               <v-icon dark class="mr-n2">cci-structure</v-icon>
               {{ actor.CurrentStructure }}
             </cc-tooltip>
-            <cc-tooltip inline title="HP" :content="`${actor.CurrentHP} / ${actor.MaxHP}`">
+            <cc-tooltip inline title="ПЗ" :content="`${actor.CurrentHP} / ${actor.MaxHP}`">
               <v-icon dark class="mr-n2" size="16" style="margin-top: -2px">mdi-heart</v-icon>
               {{ actor.CurrentHP }}
             </cc-tooltip>
@@ -44,7 +44,7 @@
             <cc-tooltip
               v-if="actor.MaxStress > 1"
               inline
-              title="Reactor Stress"
+              title="Нагрузка"
               :content="`${actor.CurrentStress} / ${actor.MaxStress}`"
             >
               <v-icon dark class="mr-n2 ml-n2">cci-reactor</v-icon>
@@ -52,7 +52,7 @@
             </cc-tooltip>
             <cc-tooltip
               inline
-              title="Heat"
+              title="Нагрев"
               :content="`${actor.CurrentHeat} / ${actor.HeatCapacity}`"
             >
               <v-icon dark class="mr-n2 ml-n1" size="19" style="margin-top: -2px">
@@ -64,7 +64,7 @@
           <v-col cols="auto">
             <cc-tooltip
               inline
-              title="Movement"
+              title="Перемещение"
               :content="`${actor.CurrentMove} / ${actor.MaxMove}`"
             >
               <v-icon dark class="mr-n2">mdi-arrow-right-bold-hexagon-outline</v-icon>
@@ -73,20 +73,20 @@
             <br />
             <cc-tooltip
               inline
-              title="Activations"
-              :content="`${actor.Activations} Activation remaining this Round`"
+              title="Активации"
+              :content="`${actor.Activations} Активаций осталось в этом раунде`"
             >
               <v-icon dark class="mr-n2">mdi-hexagon-slice-3</v-icon>
               {{ actor.Activations }}
             </cc-tooltip>
           </v-col>
           <v-col cols="auto">
-            <cc-tooltip inline title="Evasion" :content="`${actor.Evasion}`">
+            <cc-tooltip inline title="Уклонение" :content="`${actor.Evasion}`">
               <v-icon dark class="mr-n2">cci-evasion</v-icon>
               {{ actor.Evasion }}
             </cc-tooltip>
             <br />
-            <cc-tooltip inline title="E-Defense" :content="`${actor.EDefense}`">
+            <cc-tooltip inline title="Э-Защита" :content="`${actor.EDefense}`">
               <v-icon dark class="mr-n2">cci-marker</v-icon>
               {{ actor.EDefense }}
             </cc-tooltip>
@@ -106,13 +106,13 @@
               </template>
               <v-card>
                 <v-card-text>
-                  <div class="heading h3 accent--text">Statuses/Conditions</div>
+                  <div class="heading h3 accent--text">Статусы/Состояния</div>
                   <v-divider />
                   <div
                     v-if="!actor.Statuses.length && !actor.Conditions.length"
                     class="flavor-text"
                   >
-                    None
+                    Нет
                   </div>
                   <div v-else class="flavor-text">
                     <div v-for="s in actor.Statuses" :key="s" v-html="s" />
@@ -131,10 +131,10 @@
               </template>
               <v-card>
                 <v-card-text>
-                  <div class="heading h3 accent--text">Resistances</div>
+                  <div class="heading h3 accent--text">Сопротивляемости</div>
                   <v-divider />
                   <div v-if="!actor.Resistances.length" class="flavor-text">
-                    None
+                    Нет
                   </div>
                   <div v-else class="flavor-text">
                     <div v-for="r in actor.Resistances" :key="r" v-html="r" />
@@ -152,10 +152,10 @@
               </template>
               <v-card>
                 <v-card-text>
-                  <div class="heading h3 accent--text">Prepared Reactions</div>
+                  <div class="heading h3 accent--text">Подготовленные Реакции</div>
                   <v-divider />
                   <div v-if="!actor.Reactions.length" class="flavor-text">
-                    None
+                    Нет
                   </div>
                   <div v-else class="flavor-text">
                     <div v-for="r in actor.Reactions" :key="r" v-html="r" />
