@@ -15,7 +15,7 @@
   </v-btn>
   <v-btn v-else dark outlined small :disabled="checking" @click="checkUpdates">
     <v-icon left small :class="{ 'spin-anim': checking }">
-      Сонхронизировать
+      sync
     </v-icon>
     {{ checking ? 'Проверяю обновления...' : 'Проверить обновления' }}
   </v-btn>
