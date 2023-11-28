@@ -52,7 +52,7 @@
             style="text-decoration: none"
           >
             <v-icon color="primary">mdi-web</v-icon>
-            <span>Website</span>
+            <span>Сайт</span>
           </a>
           <span v-if="artist.website && artist.twitter" class="ml-4 mr-2">|</span>
           <a

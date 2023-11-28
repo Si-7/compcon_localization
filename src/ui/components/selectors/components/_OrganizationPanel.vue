@@ -23,7 +23,7 @@
         </v-row>
         <v-textarea
           v-model="orgDetails"
-          label="Цель и детали организации"
+          label="Цель и подробности организации"
           color="accent"
           auto-grow
           rows="2"
@@ -101,7 +101,7 @@
           @click="add()"
         >
           <v-icon left>cci-accuracy</v-icon>
-          Добавить организация
+          Добавить организацию
         </v-btn>
       </cc-titled-panel>
     </v-col>

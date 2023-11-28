@@ -5,7 +5,7 @@
         <div class="side-legend">
           <v-btn small outlined :color="color" v-on="on">
             <v-icon :left="!hasEffect">cci-corebonus</v-icon>
-            <span v-if="!hasEffect">Core Bonus Available</span>
+            <span v-if="!hasEffect">Бонус Ядра доступен</span>
           </v-btn>
         </div>
       </div>
@@ -14,7 +14,7 @@
       <v-card-title :style="`background-color: ${color}; height: 32px`" class="white--text">
         <div class="mt-n4">
           <v-icon large left dark class="mt-n2">cci-corebonus</v-icon>
-          <span class="heading h2">Mount CORE Bonuses</span>
+          <span class="heading h2">Бонус Ядра слота</span>
         </div>
       </v-card-title>
       <v-card-text class="text-center">
@@ -29,7 +29,7 @@
             large
             @click="mount.AddCoreBonus(b)"
           >
-            Install {{ b.Name }}
+            Установить {{ b.Name }}
           </v-btn>
           <v-btn
             v-for="b in mount.Bonuses"
@@ -41,7 +41,7 @@
             large
             @click="mount.RemoveCoreBonus(b)"
           >
-            Uninstall {{ b.Name }}
+            Удалить {{ b.Name }}
           </v-btn>
         </v-row>
       </v-card-text>

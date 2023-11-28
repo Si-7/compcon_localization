@@ -26,7 +26,7 @@
                   <cc-tooltip
                     v-if="spDisable && i.SP > 0 && i.SP > sp && !spIgnore"
                     inline
-                    content="Equipment exceeds System Point capacity"
+                    content="Снаряжение превышает доступные СП"
                   >
                     <v-icon color="warning">mdi-alert</v-icon>
                   </cc-tooltip>
@@ -58,7 +58,7 @@
               v-if="spDisable && selectedItem.SP > 0 && selectedItem.SP > sp && !spIgnore"
               class="overline warning--text"
             >
-              // ALERT: EQUIPMENT EXCEEDS SYSTEM POINT CAPACITY //
+              // ВНИМАНИЕ: СНАРЯЖЕНИЕ ПРЕВЫШАЕТ ДОСТУПНЫЕ СИСТЕМНЫЙ ПУНКТЫ //
             </div>
             <v-btn
               color="secondary"

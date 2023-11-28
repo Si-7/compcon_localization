@@ -2,7 +2,7 @@
   <div>
     <v-select
       v-model="type"
-      label="Reserve Type"
+      label="Тип резерва"
       :items="reserveTypes"
       outlined
       dense
@@ -10,10 +10,10 @@
       @change="reserve = ''"
     />
     <v-select
-      v-if="type && type !== 'Custom'"
+      v-if="type && type !== 'Пользовательский'"
       v-model="reserve"
       class="ma-2"
-      label="Reserve"
+      label="Резерв"
       :items="reserves"
       item-text="name"
       item-value="id"
@@ -22,16 +22,16 @@
       hide-details
     />
     <v-slide-y-transition>
-      <v-card v-if="type === 'Custom' || reserve" color="light-panel" class="mx-3 mt-1">
+      <v-card v-if="type === 'Пользовательский' || reserve" color="light-panel" class="mx-3 mt-1">
         <v-card-text class="flavor-text pt-1 pb-0">
           <p
-            v-if="type !== 'Custom' && reserve"
+            v-if="type !== 'Пользовательский' && reserve"
             class="pa-1 ma-1"
             v-html="reserveByID(reserve).description"
           />
           <div
             v-if="
-              type !== 'Mech' &&
+              type !== 'Мех' &&
                 reserve !== 'reserve_extendedharness' &&
                 reserve !== 'reserve_bombardment'
             "
@@ -39,7 +39,7 @@
             <v-text-field
               v-model="custom_name"
               color="accent"
-              label="Resource Name"
+              label="Название ресурса"
               style="width: 500px"
             />
             <v-textarea
@@ -47,7 +47,7 @@
               color="accent"
               auto-grow
               rows="1"
-              label="Details"
+              label="Подробности"
               filled
             />
           </div>
@@ -68,12 +68,12 @@ export default Vue.extend({
     reserve: '',
     custom_name: '',
     details: '',
-    reserveTypes: ['Resource', 'Tactical', 'Mech', 'Custom'],
+    reserveTypes: ['Ресурс', 'Тактический', 'Мех', 'Пользовательский'],
   }),
   computed: {
     reserveComplete() {
       return (
-        (this.type && this.reserve) || (this.type === 'Custom' && this.custom_name && this.details)
+        (this.type && this.reserve) || (this.type === 'Пользовательский' && this.custom_name && this.details)
       )
     },
     reserves() {

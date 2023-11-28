@@ -30,9 +30,9 @@ export default Vue.extend({
     items: [],
     headers: [
       { text: '', align: 'left', value: 'Info' },
-      { text: 'Type', align: 'left', value: 'ItemType' },
-      { text: 'Source', align: 'left', value: 'Source' },
-      { text: 'Equipment', align: 'left', value: 'Name' },
+      { text: 'Тип', align: 'left', value: 'ItemType' },
+      { text: 'Источник', align: 'left', value: 'Source' },
+      { text: 'Снаряжение', align: 'left', value: 'Name' },
       { text: '', align: 'center', value: 'Add' },
     ],
   }),

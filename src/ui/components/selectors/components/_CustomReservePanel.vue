@@ -31,7 +31,7 @@
             v-model="details"
             auto-grow
             rows="2"
-            label="Детали"
+            label="Подробности"
             filled
             hide-details
             class="my-3"

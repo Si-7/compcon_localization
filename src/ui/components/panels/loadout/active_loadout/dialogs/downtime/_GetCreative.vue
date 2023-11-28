@@ -3,37 +3,37 @@
     <p
       class="text-center body-text pt-2"
       v-html="
-        'You tweak something or attempt to make something new, either a physical project, or a piece of software. It doesn’t have to be something on the a gear list, but it generally can’t be something as impactful as a piece of mech gear. Once finished, you can use it as <strong>reserves.</strong>'
+        'Вы что-то дорабатываете или пытаетесь создать что-то новое — либо физический предмет, либо часть программного обеспечения. После завершения работы вы можете использовать свое новое творение в качестве <strong>Резерва.</strong>'
       "
     />
     <v-divider class="mb-3" />
     <v-card>
       <v-tabs v-model="tabs" color="white" background-color="primary" slider-color="white" grow>
-        <v-tab>Start New Project</v-tab>
-        <v-tab :disabled="!projects.length">Continue Project</v-tab>
+        <v-tab>Начать новый проект</v-tab>
+        <v-tab :disabled="!projects.length">Продолжить проект</v-tab>
         <v-tab-item>
           <v-card flat tile class="ma-3">
             <v-toolbar dark flat tile dense color="action--downtime">
-              <v-toolbar-title class="heading h2">New Project</v-toolbar-title>
+              <v-toolbar-title class="heading h2">Новый проект</v-toolbar-title>
             </v-toolbar>
             <v-card-text class="pa-4">
               <v-row dense>
                 <v-col cols="7">
-                  <v-text-field v-model="project_name" outlined dense label="Project Name" />
+                  <v-text-field v-model="project_name" outlined dense label="Название проекта" />
                 </v-col>
                 <v-col cols="auto" class="ml-auto mt-n4 mr-3">
                   <cc-tooltip
                     simple
                     inline
-                    content="This project is complex, resource-intensive, or generally difficult to complete"
+                    content="Этот проект сложен, требует много ресурсов или в общем сложновыполним"
                   >
-                    <v-switch v-model="complicated" dense inset label="Complicated" />
+                    <v-switch v-model="complicated" dense inset label="Сложный" />
                   </cc-tooltip>
                 </v-col>
               </v-row>
               <v-row dense>
                 <v-col class="mx-6">
-                  <v-textarea v-model="details" auto-grow rows="1" label="Details" filled />
+                  <v-textarea v-model="details" auto-grow rows="1" label="Подробности" filled />
                 </v-col>
               </v-row>
               <v-row justify="center">
@@ -41,7 +41,7 @@
                   <v-text-field
                     v-model="initialRoll"
                     type="number"
-                    label="Initial Roll Result"
+                    label="Первоначальный результат броска"
                     outlined
                     dense
                     append-outer-icon="mdi-plus-circle-outline"
@@ -58,27 +58,27 @@
                     <p
                       v-if="initialRoll < 10"
                       class="font-weight-bold px-3"
-                      v-html="'You don’t make any progress on this project for now'"
+                      v-html="'Вы не продвинетесь в работе над проектом'"
                     />
 
                     <p v-else-if="initialRoll < 20" class="font-weight-bold px-3">
-                      You can make progress on your project, but can’t finish it. You can finish it
-                      next time you have downtime without a roll if you get some things before then:
+                      Вы продвинулись в работе над проектом, но не довели его до конца. Вы можете завершить его во время 
+                      следующего отдыха без броска, но выберите две вещи, которые вам понадобятся:
                       <v-combobox
                         v-model="cost"
                         class="mr-5 ml-5"
                         :items="costs"
                         chips
                         multiple
-                        label="Add at least two requirements:"
+                        label="Добавьте минимум два требования:"
                         :error="cost.length < 2"
                       />
                     </p>
                     <p v-else class="font-weight-bold px-3">
                       {{
                         complicated
-                          ? 'You can make progress on your project, but can’t finish it. You can finish it next time you have downtime without a roll if you get some things before then:'
-                          : 'Project Complete'
+                          ? 'Вы продвинулись в работе над проектом, но не довели его до конца. Вы можете завершить его во время следующего отдыха без броска, но выберите одну вещь, которая вам понадобится:'
+                          : 'Проект завершен'
                       }}
                       <v-combobox
                         v-if="complicated"
@@ -87,7 +87,7 @@
                         :items="costs"
                         chips
                         multiple
-                        label="Add at least one requirement:"
+                        label="Добавьте минимум одно требование:"
                         :error="!cost.length"
                       />
                     </p>
@@ -118,10 +118,10 @@
             <div v-if="improveSelection">
               <v-btn small text @click="improveSelection = null">
                 <v-icon left>mdi-chevron-left</v-icon>
-                Select another project
+                Выбрать другой проект
               </v-btn>
               <div class="text-center heading h2">
-                Working on {{ improveSelection.ResourceName }}
+                Работает над {{ improveSelection.ResourceName }}
               </div>
               <v-row dense justify="center">
                 <v-col cols="8">
@@ -133,11 +133,11 @@
                     border="left"
                     class="mt-2"
                   >
-                    <b class="heading h2">COMPLETE IMMEDIATELY</b>
+                    <b class="heading h2">ЗАВЕРШИТЬ НЕМЕДЛЕННО</b>
                     <br />
                     <p class="pt-2 pb-0 mb-0">{{ improveSelection.ResourceCost }}</p>
                     <div class="text-right">
-                      <v-btn tile color="success" @click="completeProject()">Complete</v-btn>
+                      <v-btn tile color="success" @click="completeProject()">Завершить</v-btn>
                     </div>
                   </v-alert>
                 </v-col>
@@ -150,7 +150,7 @@
                   <v-text-field
                     v-model="improveRoll"
                     type="number"
-                    label="Progress Roll Result"
+                    label="Результат броска прогресса"
                     outlined
                     dense
                     hide-details
@@ -167,27 +167,27 @@
                     <p
                       v-if="improveRoll < 10"
                       class="font-weight-bold px-3"
-                      v-html="'You don’t make any progress on this project for now'"
+                      v-html="'Вы не продвинетесь в работе над проектом'"
                     />
 
                     <p v-else-if="improveRoll < 20" class="font-weight-bold px-3">
-                      You can make progress on your project, but can’t finish it. You can finish it
-                      next time you have downtime without a roll if you get some things before then:
+                      Вы продвинулись в работе над проектом, но не довели его до конца. Вы можете завершить его во время 
+                      следующего отдыха без броска, но выберите две вещи, которые вам понадобятся:
                       <v-combobox
                         v-model="cost"
                         class="mr-5 ml-5"
                         :items="costs"
                         chips
                         multiple
-                        label="Add at least two requirements:"
+                        label="Добавьте минимум два требования:"
                         :error="cost.length < 2"
                       />
                     </p>
                     <p v-else class="font-weight-bold px-3">
                       {{
                         complicated
-                          ? 'You can make progress on your project, but can’t finish it. You can finish it next time you have downtime without a roll if you get some things before then:'
-                          : 'Project Complete'
+                          ? 'Вы продвинулись в работе над проектом, но не довели его до конца. Вы можете завершить его во время следующего отдыха без броска, но выберите одну вещь, которая вам понадобится:'
+                          : 'Проект завершен'
                       }}
                       <v-combobox
                         v-if="complicated"
@@ -196,7 +196,7 @@
                         :items="costs"
                         chips
                         multiple
-                        label="Add at least one requirement:"
+                        label="Добавьте минимум одно требование:"
                         :error="!cost.length"
                       />
                     </p>
@@ -210,7 +210,7 @@
     </v-card>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn
         v-if="tabs === 0"
@@ -220,7 +220,7 @@
         :disabled="!initialRoll || !project_name"
         @click="addProject()"
       >
-        Add Project
+        Добавить проект
       </v-btn>
       <v-btn
         v-else
@@ -236,8 +236,8 @@
       >
         {{
           !improveSelection.IsComplicated && improveRoll >= 20
-            ? 'Complete Project'
-            : 'Update Project'
+            ? 'Завершить проект'
+            : 'Обновить проект'
         }}
       </v-btn>
     </v-card-actions>
@@ -266,16 +266,16 @@ export default Vue.extend({
     cost: '',
     improveSelection: null,
     costs: [
-      ' Quality materials',
-      ' Specific knowledge or techniques',
-      ' Specialized tools',
-      ' A good workspace',
+      ' Качественные материалы',
+      ' Специальные знания или методы',
+      ' Специализированные инструменты',
+      ' Хорошее рабочее место',
     ],
   }),
   computed: {
     projects() {
       return this.pilot.ReservesController.Reserves.filter(
-        x => x.Type === 'Project' && !x.IsFinished
+        x => x.Type === 'Проект' && !x.IsFinished
       )
     },
   },
@@ -283,8 +283,8 @@ export default Vue.extend({
     addProject() {
       const p = new Project({
         id: 'reserve_project',
-        type: 'Project',
-        name: 'Project (In Progress)',
+        type: 'Проект',
+        name: 'Проект (В прогрессе)',
         label: this.project_name,
         description: this.details,
         complicated: this.complicated,
@@ -298,12 +298,12 @@ export default Vue.extend({
         progress: this.initialRoll < 10 || this.improveRoll < 10 ? 1 : 0,
         requirements: [],
       })
-      if (this.cost) p.ResourceCost = `Requires: ${this.cost.toString()}`
+      if (this.cost) p.ResourceCost = `Требует: ${this.cost.toString()}`
       this.pilot.ReservesController.AddReserve(p)
       this.close()
     },
     improveProject() {
-      if (this.cost) this.improveSelection.ResourceCost = `Requires: ${this.cost.toString()}`
+      if (this.cost) this.improveSelection.ResourceCost = `Требует: ${this.cost.toString()}`
       if (this.initialRoll < 10) this.improveSelection.Progress = 1
       this.close()
     },

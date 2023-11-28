@@ -16,7 +16,7 @@
                 включая данные, помеченные для удаления. Он создает файл .compcon, который можно загрузить 
                 из интерфейса «Загрузить резервную копию».
                 <v-divider class="my-3" />
-                <v-btn block color="accent" @click="dataExport()">Generate Backup</v-btn>
+                <v-btn block color="accent" @click="dataExport()">Генерировать бэкап</v-btn>
               </v-card-text>
             </v-card>
           </v-menu>
@@ -182,7 +182,7 @@ export default Vue.extend({
     async deleteAll(cloud) {
       clearAllData(cloud)
         .then(() => this.$notify('Данные удалены', 'confirmation'))
-        .catch(err => this.$notify(`ERROR: Невозможно импортировать: ${err}`, 'error'))
+        .catch(err => this.$notify(`ОШИБКА: Невозможно импортировать: ${err}`, 'error'))
         .finally(() => {
           this.deleteCloud = false
           this.deleteCloudConfirm = false

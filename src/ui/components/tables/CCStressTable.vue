@@ -228,11 +228,11 @@ export default class CCStressTable extends Vue {
   }
 
   applyES(): void {
-    this.mech.AddCondition('IMPAIRED')
+    this.mech.AddCondition('Ослабление')
     this.close()
   }
   applyPPD(): void {
-    this.mech.AddCondition('EXPOSED')
+    this.mech.AddCondition('Уязвимость')
     this.close()
   }
   applyMeltdown(): void {

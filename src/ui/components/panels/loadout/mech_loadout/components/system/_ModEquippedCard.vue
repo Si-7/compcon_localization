@@ -16,7 +16,7 @@
       <div slot="header-items" class="text-right">
         <div style="display: inline-block">
           <span class="heading h2">{{ mod.SP }}</span>
-          <span class="heading h3">SP</span>
+          <span class="heading h3">СП</span>
         </div>
         <div v-if="!readonly" class="d-inline pl-3 ml-3" style=" border-left: 1px solid #616161;">
           <v-btn v-if="mod" icon dark @click="$emit('remove')">

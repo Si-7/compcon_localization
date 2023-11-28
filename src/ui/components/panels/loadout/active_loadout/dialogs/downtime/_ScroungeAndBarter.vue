@@ -4,21 +4,21 @@
       <p
         class="text-center body-text"
         v-html="
-          'You try and get your hands on some gear or asset for your group by dredging the scrapyard, chasing down rumors, bartering in the local market, hunting around, or through good old fashioned force of will. You could try and get some better pilot gear that could help you, a vehicle, narcotics, goods, or other sundries. It’s got to be something physical that you can acquire, but doesn’t necessarily have to be on the gear list. If you get it, you can take it on the next mission as <strong>reserves.</strong>'
+          'Вы пытаетесь получить в свои руки какое-то снаряжение или актив, копаясь на свалке, разыскивая слухи, обмениваясь на местном рынке или охотясь по округе. Вам может понадобиться лучшее снаряжение пилота, транспортное средство, наркотики, товары или другие вещи. Это должно быть что-то материальное, но не обязательно должно быть в списке снаряжения. Если вы получите это, вы можете взять это на следующее задание в качестве <strong>Резерва.</strong>'
         "
       />
       <v-divider class="mb-2" />
       <div class="pt-2 heading h3 text-center">
-        Roll
-        <v-icon large color="primary">mdi-dice-d20</v-icon>
-        &nbsp;and add any relevant Skill Trigger bonuses, modifiers, or accuracy
+        Бросьте
+        <v-icon large color="accent">mdi-dice-d20</v-icon>
+        &nbsp;и добавьте все соответствующие бонусы Триггеров, модификаторы и Точность
       </div>
       <v-row justify="center">
         <v-col cols="3">
           <v-text-field
             v-model="skillRoll"
             type="number"
-            label="Roll Result"
+            label="Результат броска"
             outlined
             dense
             hide-details
@@ -33,31 +33,31 @@
         <v-row v-show="skillRoll" justify="center" class="text-center flavor-text">
           <v-col cols="10">
             <p v-if="skillRoll < 10" class="font-weight-bold px-3">
-              You can get what you’re looking for, but...
+              Вы получаете, что хотите, но...
               <v-radio-group v-model="choice" mandatory>
                 <v-radio v-for="(c, i) in choices" :key="c" :label="c" :value="i"></v-radio>
               </v-radio-group>
             </p>
             <p v-else-if="skillRoll < 20" class="font-weight-bold px-3">
-              You can get what you’re looking for, as long as you trade in a little...
+              Вы получаете то, что хотите, но выбираете цену, которую нужно заплатить:
               <v-radio-group v-model="trade" mandatory>
                 <v-radio v-for="(t, i) in trades" :key="t" :label="t" :value="i"></v-radio>
               </v-radio-group>
             </p>
             <p v-else class="font-weight-bold px-3">
-              You get what you’re looking for, no problems at all.
+              Вы без проблем получаете то, что ищете.
             </p>
           </v-col>
           <v-row dense>
             <v-col>
               <v-card color="panel" class="ml-5 mr-5 mt-2">
                 <v-toolbar dark dense color="action--downtime">
-                  <v-toolbar-title>New Asset</v-toolbar-title>
+                  <v-toolbar-title>Новый актив</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
                   <v-text-field
                     v-model="custom_name"
-                    label="Asset or Gear"
+                    label="Актив или снаряжение"
                     style="width: 500px"
                     dense
                     outlined
@@ -72,10 +72,10 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn large tile color="primary" :disabled="!skillRoll || !custom_name" @click="addReserve">
-        add reserve
+        Добавить резерв
       </v-btn>
     </v-card-actions>
   </div>
@@ -97,20 +97,20 @@ export default Vue.extend({
     custom_name: '',
     details: '',
     choices: [
-      'It was stolen, probably from someone who’s looking for it',
-      'It’s degraded, old, filthy, or malfunctioning',
-      'Someone else has it right now and won’t give it up without force or convincing',
+      'Он был украден, вероятно, у того, кто его ищет',
+      'Он вышел из строя, старый, грязный или неисправный',
+      'Кто-то еще владеет этим прямо сейчас и не отдаст без силы или убеждения',
     ],
     choice: 0,
-    trades: ['Time', 'Dignity', 'Reputation', 'Health, comfort and wellness'],
+    trades: ['Время', 'Достоинство', 'Репутация', 'Здоровье, комфорт и благополучие'],
     trade: 0,
   }),
   methods: {
     addReserve() {
       const nr = new Reserve({
         id: 'reserve_scroungebarter',
-        type: 'Resources',
-        name: 'Asset',
+        type: 'Ресурс',
+        name: 'Актив',
         label: '',
         description: '',
         resource_note: this.details,
@@ -121,7 +121,7 @@ export default Vue.extend({
       })
       if (this.skillRoll < 10) nr.ResourceCost = this.choices[this.choice]
       else if (this.skillRoll < 20)
-        nr.ResourceCost = `Acquiring this has cost you your ${this.trades[
+        nr.ResourceCost = `Цена за получение этого актива: ${this.trades[
           this.trade
         ].toLowerCase()}`
       this.pilot.ReservesController.AddReserve(nr)

@@ -32,7 +32,7 @@
                     <v-btn v-if="!selectedItems.length" x-small outlined @click="selectAll(k)">
                       Выбрать все
                     </v-btn>
-                    <v-btn v-else x-small outlined @click="deselectAll(k)">Deselect All</v-btn>
+                    <v-btn v-else x-small outlined @click="deselectAll(k)">Отменить выбор всего</v-btn>
                   </th>
                   <th>Название</th>
                   <th>Последнее локальное обновление</th>
@@ -152,7 +152,7 @@
                   </tr>
                 </tbody>
                 <tfoot class="light-panel">
-                  <th class="py-2">{{ selectedItems.length }} Selected</th>
+                  <th class="py-2">{{ selectedItems.length }} Выбрано</th>
                   <th class="py-2"></th>
                   <th class="py-2">
                     <cc-tooltip

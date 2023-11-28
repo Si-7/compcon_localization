@@ -26,7 +26,7 @@
           rows="3"
           auto-grow
           class="pl-4 mt-1"
-          label="Детали"
+          label="Подробности"
         />
       </div>
     </v-col>

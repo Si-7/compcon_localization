@@ -80,7 +80,7 @@
     <template v-slot:right-column>
       <div v-for="h in headers" :key="`h_${h.attr}`" class="mb-4">
         <v-divider v-if="$vuetify.breakpoint.smAndDown" class="my-2" />
-        <span v-if="h.attr !== 'Custom'" class="overline">Ваша способность</span>
+        <span v-if="h.attr !== 'Пользовательский'" class="overline">Ваша способность</span>
         <cc-title v-if="$vuetify.breakpoint.mdAndUp" small>{{ h.description }}</cc-title>
         <div v-else class="heading h3 accent--text mb-1">
           {{ h.description }}

@@ -75,7 +75,7 @@
           </span>
           <br />
           <span class="heading h1 accent--text" style="line-height: 20px">{{ item.Name }}</span>
-          <span class="flavor-text overline mt-n1" style="display: block">CURRENTLY EQUIPPED</span>
+          <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС ИСПОЛЬЗУЕТСЯ</span>
         </div>
         <div v-else>
           <span class="overline">
@@ -126,12 +126,12 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Item', align: 'left', value: 'Name' },
-      { text: 'Armor', align: 'center', value: 'Armor' },
-      { text: 'HP Bonus', align: 'center', value: 'HPBonus' },
-      { text: 'E-Defense', align: 'center', value: 'EDefense' },
-      { text: 'Evasion', align: 'center', value: 'Evasion' },
-      { text: 'Speed', align: 'center', value: 'Speed' },
+      { text: 'Предмет', align: 'left', value: 'Name' },
+      { text: 'Броня', align: 'center', value: 'Armor' },
+      { text: 'Бонус ПЗ', align: 'center', value: 'HPBonus' },
+      { text: 'Э-Защита', align: 'center', value: 'EDefense' },
+      { text: 'Уклонение', align: 'center', value: 'Evasion' },
+      { text: 'Скорость', align: 'center', value: 'Speed' },
       { text: '', align: 'center', value: 'Equip' },
     ],
   }),

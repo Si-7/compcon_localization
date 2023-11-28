@@ -65,7 +65,7 @@
             style="width: 95%"
             :value="!enoughSelections && newPilot"
           >
-            Must select a minimum of {{ selectedMin }} talents
+            Необходимо выбрать минимум {{ selectedMin }} талантов
           </v-alert>
           <div class="my-2">
             <v-btn

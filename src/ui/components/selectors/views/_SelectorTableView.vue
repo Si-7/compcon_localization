@@ -39,7 +39,7 @@
     <template v-slot:[`item.Name`]="{ item }">
       <span v-if="spDisable && item.SP > sp && !spIgnore" class="stat-text subtle--text">
         {{ item.Name }}
-        <cc-tooltip inline content="Equipment exceeds System Point capacity">
+        <cc-tooltip inline content="Снаряжение превышает доступные СП">
           <v-icon color="warning">mdi-alert</v-icon>
         </cc-tooltip>
       </span>
@@ -66,12 +66,12 @@
       <div v-if="$vuetify.breakpoint.smAndDown" class="text-left pl-0 ml-n6" style="display: grid">
         <v-btn color="accent" small tile @click="$emit('equip', item)">
           <v-icon small left>mdi-plus</v-icon>
-          Equip {{ item.Name }}
+          Добавить {{ item.Name }}
         </v-btn>
       </div>
       <v-btn v-else color="accent" small tile @click="$emit('equip', item)">
         <v-icon small left>mdi-plus</v-icon>
-        Equip
+        Добавить
       </v-btn>
     </template>
     <template v-slot:[`item.Add`]="{ item }">

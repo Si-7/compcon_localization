@@ -3,13 +3,13 @@
     <cc-synergy-display location="cascade" :mech="mech" />
     <v-card tile elevation="0" outlined>
       <v-toolbar dense elevation="0" color="error" class="text-center white--text heading h3">
-        CASCADE ALERT
+        ОПАСТНОСТЬ КАСКАДА
         <v-spacer />
         <cc-tooltip
-          title="CASCADE"
-          content="<p>Except for some limited systems &ndash; like comp/cons &ndash; any time a mech with the AI tag makes a structure damage or overheating check, roll 1d20. On a 1, the NHP&rsquo;s casket has suffered a traumatic impact or code incursion and the NHP enters cascade.&nbsp;</p>
-<p>When an NHP begins to cascade, they immediately take over the mech and become an NPC under the control of the GM. They plan their own agenda, and adopt one of several behavioral patterns &ndash; ignoring their pilot, overruling their pilot, trying to get their pilot out of the way, or simply acting outside the constraints of human logic and desire. In cascade, NHPs&rsquo; actions do not always conform to human logic &ndash; though they are not yet unshackled, their actions may seem odd, contrapositive, or threatening to humans.&nbsp;</p>
-<p>NHPs in cascade can be stabilized by a pilot choosing to <strong>SHUT DOWN</strong> their mech, returning them to their base state. This is the only action a pilot in a cascading mech can take. </p>"
+          title="КАСКАД"
+          content="<p>За исключением некоторых ограниченных систем &ndash; например, комп/конов &ndash; каждый раз, когда мех с меткой ИИ делает проверку структурного урона или нагрева, бросьте 1d20. Если выпадет 1, оболочка НЧЛ получила травмирующий удар или вторжение в код, и НЧЛ входит в каскад.&nbsp;</p>
+<p>Когда НЧЛ входит каскад, он немедленно берет на себя управление мехом и становится НИПом под контролем ГМ. Он сам начинает планировать свои действия и принимает одну из нескольких моделей поведения &ndash; игнорирует своего пилота, управляет своим пилотом, пытается убрать своего пилота с дороги или просто действуют вне ограничений человеческой логики и желаний. В каскаде действия НЧЛ не всегда соответствуют человеческой логике — хотя они еще не освобождены от оков, их действия могут казаться людям странными, противоположными или угрожающими.&nbsp;</p>
+<p>НЧЛ в каскаде может быть стабилизирован, если пилот решит Отключить своего меха, вернув его в базовое состояние. Это единственное действие, которое может предпринять пилот в каскадном мехе. </p>"
         >
           <v-icon>mdi-information-outline</v-icon>
         </cc-tooltip>
@@ -24,10 +24,10 @@
           {{ a.Name }}
         </v-col>
         <v-col>
-          STATUS:
+          СТАТУС:
           <span v-if="!checked.includes(i)" style="opacity: 0.4">PENDING</span>
           <span v-else :class="a.IsCascading ? 'red--text' : 'success--text'">
-            {{ a.IsCascading ? 'IN CASCADE' : 'NOMINAL' }}
+            {{ a.IsCascading ? 'В КАСКАДЕ' : 'НОРМАЛЬНЫЙ' }}
           </span>
         </v-col>
         <v-col cols="auto" class="mr-3">

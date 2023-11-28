@@ -39,7 +39,7 @@
         </v-row>
         <v-textarea
           v-model="org.Description"
-          label="Цель и детали организации"
+          label="Цель и подробности организации"
           auto-grow
           rows="2"
           filled

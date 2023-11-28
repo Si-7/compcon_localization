@@ -54,7 +54,7 @@
           </v-menu>
           <div class="mt-n1">
             {{ title }}
-            <cc-tooltip v-if="extended" simple inline content="Extended Harness">
+            <cc-tooltip v-if="extended" simple inline content="Расширенная подвеска">
               <v-icon dark right small class="mt-n1">mdi-alpha-e-box-outline</v-icon>
             </cc-tooltip>
           </div>
@@ -77,7 +77,7 @@
             <div v-if="item">
               <slot @click="$refs.detailDialog.show()" />
               <div v-if="item.Deployables.length">
-                <div class="overline ml-n2 subtle--text">EQUIPMENT DEPLOYABLES</div>
+                <div class="overline ml-n2 subtle--text">РАЗМЕЩАЕМЫЕ ОБЪЕКТЫ СНАРЯЖЕНИЯ</div>
                 <v-row no-gutters justify="center">
                   <v-col
                     v-for="(d, i) in item.Deployables"

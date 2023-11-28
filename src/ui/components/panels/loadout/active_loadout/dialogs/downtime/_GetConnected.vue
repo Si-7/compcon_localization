@@ -4,21 +4,21 @@
       <p
         class="text-center body-text"
         v-html="
-          'You try and make connections, call upon favors, ask for help, or drum up support for a particular course of action. You need access to communications or just good old fashioned face to face conversation to take this action. <br /> You can use your connection’s resources or aid as <strong>reserves</strong> for the next mission.'
+          'Когда вы Налаживаете Связи, вы устанавливаете контакты, оказываете услуги, просите о помощи или заручаетесь поддержкой для выполнения какого-либо действия. <br /> Вы можете использовать ресурсы или помощь своих знакомых как <strong>Резерв</strong> для следующей миссии. <br/> Чтобы выполнить это действие, вы должны находиться в зоне действия связи или в месте, где вы можете провести старый добрый разговор лицом к лицу.'
         "
       />
       <v-divider class="mb-2" />
       <div class="pt-2 heading h3 text-center">
-        Roll
+        Бросьте
         <v-icon large color="accent">mdi-dice-d20</v-icon>
-        &nbsp;and add any relevant Skill Trigger bonuses, modifiers, or accuracy
+        &nbsp;и добавьте все соответствующие бонусы Триггеров, модификаторы и Точность
       </div>
       <v-row justify="center">
         <v-col cols="3">
           <v-text-field
             v-model="skillRoll"
             type="number"
-            label="Roll Result"
+            label="Результат броска"
             outlined
             dense
             hide-details
@@ -36,7 +36,7 @@
               v-if="skillRoll < 10"
               class="font-weight-bold px-3"
               v-html="
-                'You’ve got to do a favor or make good on a promise for your connection <em>right now</em> . Otherwise, they won’t help you at all. <br /> If you take action right away, however, they’ll go along with what you want.'
+                'Ваш собеседник поможет вам, но вы должны сделать одолжение или выполнить обещание <em>прямо сейчас</em>. Если вы этого не сделаете, он вам не поможет.'
               "
             />
 
@@ -44,7 +44,7 @@
               v-else-if="skillRoll < 20"
               class="font-weight-bold px-3"
               v-html="
-                'Your connection will help you, but you’ve got to do a favor or make good on a promise <em>after</em> they help you. <br /> If you don’t, treat any result as a 9 or lower next time with the same organization.'
+                'Ваш контакт поможет вам, но вы должны сделать одолжение или выполнить обещание <em>после этого</em>. <br /> Если вы не выполните обещание, в следующий раз, когда вы получите этот результат для того же контакта, рассматривайте его как 9 или меньше.'
               "
             />
 
@@ -52,7 +52,7 @@
               v-else
               class="font-weight-bold px-3"
               v-html="
-                'Your connection will help you out, no strings attached. <br /> Treat this result as a 10-19 if you make it again with the same organization.'
+                'Ваш собеседник поможет вам без всяких условий. <br /> Отнеситесь к этому результату как к 10-19 в следующий раз, когда вы получите его для того же контакта.'
               "
             />
           </v-col>
@@ -60,12 +60,12 @@
             <v-col>
               <v-card color="panel" class="ml-5 mr-5 mt-2">
                 <v-toolbar dark dense color="action--downtime">
-                  <v-toolbar-title>Connection</v-toolbar-title>
+                  <v-toolbar-title>Контакт</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
                   <v-text-field
                     v-model="custom_name"
-                    label="Contact or Organization Name"
+                    label="Название контакта или организации"
                     outlined
                     dense
                     hide-details
@@ -80,10 +80,10 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn large tile color="primary" :disabled="!skillRoll || !custom_name" @click="addReserve">
-        add reserve
+        добавить резерв
       </v-btn>
     </v-card-actions>
   </div>
@@ -109,8 +109,8 @@ export default Vue.extend({
     addReserve() {
       const nr = new Reserve({
         id: 'reserve_boughttime',
-        type: 'Resource',
-        name: 'Connection',
+        type: 'Ресурс',
+        name: 'Контакт',
         label: '',
         description: '',
         resource_note: this.details,
@@ -121,9 +121,9 @@ export default Vue.extend({
       })
       if (this.skillRoll < 10)
         nr.ResourceCost =
-          'You’ve got to do a favor or make good on a promise for your connection right away'
+          'Вы должны сделать одолжение или выполнить обещание прямо сейчас'
       else if (this.skillRoll < 20)
-        nr.ResourceCost = 'You’ve got to do a favor or make good on a promise after they help you'
+        nr.ResourceCost = 'Вы должны сделать одолжение или выполнить обещание после этого'
       this.pilot.ReservesController.AddReserve(nr)
       this.close()
     },

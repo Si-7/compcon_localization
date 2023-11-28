@@ -45,12 +45,12 @@
         color="warning"
       >
         <div v-if="prereq(license).cumulative">
-          This License requires at least {{ prereq(license).min_rank }} cumulative Ranks of
-          {{ prereq(license).source }} licenses
+          Эта лицензия требует хотя бы {{ prereq(license).min_rank }} суммарных ранга в
+          {{ prereq(license).source }} лицензиях
         </div>
         <div v-else>
-          This License requires at least one other {{ prereq(license).source }} License at Rank
-          {{ prereq(license).min_rank }} or above
+          Эта лицензия требует хотя бы одну другую {{ prereq(license).source }} Лицензию ранга
+          {{ prereq(license).min_rank }} или выше
         </div>
       </v-alert>
       <cc-license-panel :license="license" ranked :rank="rank" />

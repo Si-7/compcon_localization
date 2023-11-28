@@ -42,7 +42,7 @@ class CustomSkill {
   }
 
   public get Family(): string {
-    return 'Custom'
+    return 'Пользовательский'
   }
 }
 

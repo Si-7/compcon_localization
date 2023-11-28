@@ -79,7 +79,7 @@
     </v-card-text>
     <v-row v-if="hideLocked" no-gutters>
       <v-col cols="auto" class="ml-auto">
-        <cc-tooltip :content="`${showAll ? 'Hide' : 'Show'} All`">
+        <cc-tooltip :content="`${showAll ? 'Спрятать' : 'Показать'} Все`">
           <v-btn small icon class="fadeSelect" @click="showAll = !showAll">
             <v-icon small>mdi-eye</v-icon>
           </v-btn>

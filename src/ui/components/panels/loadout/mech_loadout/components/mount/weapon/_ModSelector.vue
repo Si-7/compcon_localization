@@ -18,7 +18,7 @@
         <span class="heading h1 accent--text" style="line-height: 20px">
           {{ weapon.Mod.Name }}
         </span>
-        <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС УСТОАНОВЛЕНО</span>
+        <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС УСТАНОВЛЕНО</span>
       </div>
       <div v-else>
         <span class="overline">

@@ -9,7 +9,7 @@
           block
           @click="$emit('click')"
         >
-          Add Resource
+          Добавить ресурс
         </v-btn>
         <cc-tooltip v-else simple inline content="Добавить Резерв">
           <v-btn

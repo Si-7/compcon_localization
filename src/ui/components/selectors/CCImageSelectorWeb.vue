@@ -132,9 +132,9 @@ export default Vue.extend({
         const link = await imgur.uploadImage(this.imageData)
         try {
           this.item.PortraitController.SetCloudImage(link)
-          this.$emit('notify', 'Cloud Upload Successful')
+          this.$emit('notify', 'Загрузка в облако успешна')
         } catch (err) {
-          this.$emit('notify', `Error Uploading to Cloud:<br>${err.message}`)
+          this.$emit('notify', `Ошибка при загрузке в облако:<br>${err.message}`)
           this.loading = true
           this.selectedImage = null
         }

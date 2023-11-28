@@ -62,7 +62,7 @@
           </span>
           <br />
           <span class="heading h1 accent--text" style="line-height: 20px">{{ item.Name }}</span>
-          <span class="flavor-text overline mt-n1" style="display: block">CURRENTLY EQUIPPED</span>
+          <span class="flavor-text overline mt-n1" style="display: block">СЕЙЧАС ИСПОЛЬЗУЕТСЯ</span>
         </div>
         <div v-else>
           <span class="overline">АВТОРИЗАЦИЯ СНАРЯЖЕНИЯ ДМС: ПИЛОТСКОЕ/ДОПОЛНИТЕЛЬНОЕ СНАРЯЖЕНИЕ (ЛЮБОЕ)</span>
@@ -111,9 +111,9 @@ export default Vue.extend({
   },
   data: () => ({
     headers: [
-      { text: 'Item', align: 'left', value: 'Name' },
-      { text: 'Uses', align: 'center', value: 'MaxUses' },
-      { text: 'Detail', align: 'center', value: 'Detail' },
+      { text: 'Предмет', align: 'left', value: 'Name' },
+      { text: 'Использований', align: 'center', value: 'MaxUses' },
+      { text: 'Подробности', align: 'center', value: 'Detail' },
       { text: '', align: 'center', value: 'Equip' },
     ],
   }),

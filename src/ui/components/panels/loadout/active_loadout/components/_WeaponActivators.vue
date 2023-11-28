@@ -1,6 +1,6 @@
 <template>
   <div v-show="!item.NoAttack" class="mb-1 pb-1">
-    <v-row v-if="item.Size === 'Superheavy'" justify="center">
+    <v-row v-if="item.Size === 'Сверхтяжелый'" justify="center">
       <v-col v-if="item.CanSkirmish" cols="12" md="">
         <v-btn
           tile

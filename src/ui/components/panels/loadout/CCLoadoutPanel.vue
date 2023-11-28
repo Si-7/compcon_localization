@@ -52,7 +52,7 @@
           </template>
           <cc-confirmation
             :content="
-              `Lancer, please confirm deletion of:
+              `Улан, пожалуйста подтвердите удаление следующей выгрузки:
           <span class='accent--text'>
             ${activeLoadout.Name}
           </span> Loadout`

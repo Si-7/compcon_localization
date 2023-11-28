@@ -7,7 +7,7 @@
       <legend :style="`color: ${color}`" class="heading h3">
         <cc-tooltip title="Available Mount Fittings" :content="`${mount.AvailableFittings}`">
           {{ mount.Name }}
-          <span v-if="impArm">(IMPROVED ARMAMENT)</span>
+          <span v-if="impArm">(УЛУЧШЕННОЕ ВООРУЖЕНИЕ)</span>
         </cc-tooltip>
       </legend>
       <cb-mount-menu

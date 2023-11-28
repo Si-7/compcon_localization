@@ -20,7 +20,7 @@
           </v-col>
           <v-col cols="auto">
             <div v-if="!item.Destroyed" :class="`ml-n2 ${small ? 'white--text effect-text' : ''}`">
-              <cc-tooltip v-if="item.Mod" inline :content="`Weapon Modification Equipped`">
+              <cc-tooltip v-if="item.Mod" inline :content="`Имеется модификация оружия`">
                 <v-icon style="margin-top: -2px" dark>cci-weaponmod</v-icon>
               </cc-tooltip>
               {{ item.Name }}

@@ -4,21 +4,21 @@
       <p
         class="text-center body-text"
         v-html="
-          'You try and stave off some reckoning, extend your window of opportunity, or merely buy more time and breathing room for you and your group to act. You might be trying to dodge some heat, survive stranded in the wilderness, or cause a distraction so another plan can go off. <br /> You can use that distraction or bought time as <strong>reserves</strong> for the next mission.'
+          'Вы пытаетесь отсрочить расплату, расширить окно возможностей или просто выиграть немного времени и передышки для себя и своей группы. Возможно, вы пытаетесь укрыться от жары, выжить, застряв в дикой местности, или отвлечь внимание, чтобы другой план достиг своей кульминации. <br /> Вы можете использовать это отвлечение или выигранное время как <strong>Резерв</strong> для следующей миссии.'
         "
       />
       <v-divider class="mb-2" />
       <div class="pt-2 heading h3 text-center">
-        Roll
+        Бросьте
         <v-icon large color="accent">mdi-dice-d20</v-icon>
-        &nbsp;and add any relevant Skill Trigger bonuses, modifiers, or accuracy
+        &nbsp;и добавьте все соответствующие бонусы Триггеров, модификаторы и Точность
       </div>
       <v-row justify="center">
         <v-col cols="3">
           <v-text-field
             v-model="skillRoll"
             type="number"
-            label="Roll Result"
+            label="Результат броска"
             outlined
             dense
             hide-details
@@ -36,26 +36,26 @@
               v-if="skillRoll < 10"
               class="font-weight-bold px-3"
               v-html="
-                'You can buy only a little time, and only if drastic measures are taken <em>right now.</em> Otherwise, whatever you\'re trying to stave off catches up to you.'
+                'Вы можете выиграть только немного времени, и только в том случае, если решительные меры будут приняты <em>прямо сейчас.</em> В противном случае то, от чего вы пытаетесь уберечься, настигнет вас.'
               "
             />
             <p
               v-else-if="skillRoll < 20"
               class="font-weight-bold px-3"
               v-html="
-                'You can buy enough time, but the situation becomes precarious or desperate. Next time you get this result with the same situation, treat it as a 9 or lower.'
+                'Вы выигрываете достаточно времени, но ситуация становится опасной или безвыходной. В следующий раз, когда вы получите этот результат для той же ситуации, рассматривайте его как 9 или меньше.'
               "
             />
             <p
               v-else
               class="font-weight-bold px-3"
               v-html="
-                'You buy enough time as you need for now, until the next mission. If you\'ve already gotten this result, it becomes a 10-19 for the same situation next time.'
+                'Вы выигрываете столько времени, сколько вам нужно, до следующего сеанса отдыха. В следующий раз, когда вы получите этот результат для той же ситуации, рассматривайте его как 10-19.'
               "
             />
             <v-card color="panel" flat tile class="ml-5 mr-5">
               <v-toolbar dark dense color="action--downtime">
-                <v-toolbar-title class="heading h2">Bought Time</v-toolbar-title>
+                <v-toolbar-title class="heading h2">Купленное время</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
                 <v-textarea
@@ -63,7 +63,7 @@
                   color="accent"
                   auto-grow
                   rows="1"
-                  label="Details"
+                  label="Подробности"
                   filled
                 />
               </v-card-text>
@@ -74,7 +74,7 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn
         large
@@ -83,7 +83,7 @@
         :disabled="skillRoll === '' || details === ''"
         @click="addReserve()"
       >
-        add reserve
+        добавить резерв
       </v-btn>
     </v-card-actions>
   </div>
@@ -106,10 +106,10 @@ export default Vue.extend({
     addReserve() {
       const nr = new Reserve({
         id: 'reserve_boughttime',
-        type: 'Resource',
-        name: 'Bought Time',
+        type: 'Ресурс',
+        name: 'Купленное время',
         label: '',
-        description: 'More time and breathing room for you and your group to act',
+        description: 'Немного времени и передышки для себя и своей группы',
         resource_note: this.details,
         resource_cost: '',
         resource_name: '',
@@ -117,9 +117,9 @@ export default Vue.extend({
         consumable: true,
       })
       if (this.skillRoll < 10)
-        nr.ResourceCost = 'Only a little time, and only if drastic measures are taken right now'
+        nr.ResourceCost = 'Только немного времени, и только в том случае, если решительные меры будут приняты прямо сейчас.'
       else if (this.skillRoll < 20)
-        nr.ResourceCost = 'The situation becomes precarious or desperate'
+        nr.ResourceCost = 'Ситуация становится опасной или безвыходной'
       this.pilot.ReservesController.AddReserve(nr)
       this.close()
     },

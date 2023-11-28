@@ -4,21 +4,21 @@
       <p
         class="text-center body-text"
         v-html="
-          'You poke your nose around, perhaps where it doesn’t belong. You’re investigating something, doing research, following up on a mystery, tracking a target, or keeping an eye on something. You might be doing research in a library, or go undercover in an organization to learn what you can. Whatever you’re doing, you’re generally trying to gather information on a subject of your choosing.'
+          'Когда вы Собираете Информацию, вы суете нос туда, где ему не место, и что-то расследуете — проводите исследования, расследуете тайну, выслеживаете цель или следите за чем-то. Вы можете отправиться в библиотеку или работать под прикрытием, чтобы узнать все, что можно. Что бы это ни было, вы пытаетесь Собрать Информацию по выбранному вами вопросу. Вы можете использовать полученную информацию в качестве Резерва.'
         "
       />
       <v-divider class="mb-2" />
       <div class="pt-2 heading h3 text-center">
-        Roll
+        Бросьте
         <v-icon large color="accent">mdi-dice-d20</v-icon>
-        &nbsp;and add any relevant Skill Trigger bonuses, modifiers, or accuracy
+        &nbsp;и добавьте все соответствующие бонусы Триггеров, модификаторы и Точность
       </div>
       <v-row justify="center">
         <v-col cols="3">
           <v-text-field
             v-model="skillRoll"
             type="number"
-            label="Roll Result"
+            label="Результат броска"
             outlined
             dense
             hide-details
@@ -33,8 +33,7 @@
         <v-row v-show="skillRoll" dense justify="center" class="text-center flavor-text">
           <v-col cols="10">
             <p v-if="skillRoll < 10" class="font-weight-bold px-3">
-              You can choose to get out now, or get what you are looking for. If you choose the
-              latter, you get your information but it immediately gets you into trouble.
+              Вы можете выбрать выйти сейчас или получить то, что ищете. Если вы выбираете последнее, вы получаете то, что ищете, но это сразу приводит к неприятностям.
               <br />
               <v-slide-x-transition>
                 <v-btn
@@ -45,7 +44,7 @@
                   color="success darken-1"
                   @click="close"
                 >
-                  Get out now
+                  Выйти сейчас
                 </v-btn>
               </v-slide-x-transition>
               <v-slide-x-reverse-transition>
@@ -57,12 +56,12 @@
                   color="primary"
                   @click="commit = true"
                 >
-                  Get what you are looking for
+                  Получить то, что ищете
                 </v-btn>
               </v-slide-x-reverse-transition>
             </p>
             <p v-else-if="skillRoll < 20" class="font-weight-bold px-3">
-              you find the information you’ve looking for. However...
+              Вы найдете то, что ищете, но...
               <v-card class="pa-1 ma-0" color="panel">
                 <v-card-text class="pa-1 ma-0">
                   <v-radio-group v-model="choice" mandatory>
@@ -73,7 +72,7 @@
               </v-card>
             </p>
             <p v-else class="font-weight-bold px-3">
-              You get your information cleanly, no complications
+              Вы получаете то, что ищете, без каких-либо осложнений
             </p>
           </v-col>
           <v-row dense>
@@ -85,7 +84,7 @@
                   class="ml-5 mr-5 mt-2"
                 >
                   <v-toolbar dark dense color="action--downtime">
-                    <v-toolbar-title>Gathered Information</v-toolbar-title>
+                    <v-toolbar-title>Собранная информация</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text>
                     <v-textarea v-model="details" auto-grow rows="1" label="Details" />
@@ -99,10 +98,10 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn large tile color="primary" :disabled="!skillRoll || !details" @click="addReserve">
-        add reserve
+        добавить резерв
       </v-btn>
     </v-card-actions>
   </div>
@@ -124,8 +123,8 @@ export default Vue.extend({
     skillRoll: '',
     details: '',
     choices: [
-      'You leave clear evidence of your rummaging',
-      'You have to dispatch someone along the way, or implicate someone innocent',
+      'Вы оставляете явные свидетельства ваших попыток нарыть информацию',
+      'Чтобы избежать внимания, вам приходится подставить кого-то или вовлечь кого-то невиновного',
     ],
     choice: 0,
   }),
@@ -133,8 +132,8 @@ export default Vue.extend({
     addReserve() {
       const nr = new Reserve({
         id: 'reserve_gatherinfo',
-        type: 'Resource',
-        name: 'Information',
+        type: 'Ресурс',
+        name: 'Информация',
         label: '',
         description: '',
         resource_note: this.details,
@@ -144,7 +143,7 @@ export default Vue.extend({
         consumable: true,
       })
       if (this.skillRoll < 10)
-        nr.ResourceCost = 'Gathering this information has gotten you into immediate trouble'
+        nr.ResourceCost = 'Получение этой информации сразу привело к неприятностям'
       else if (this.skillRoll < 20) nr.ResourceCost = this.choices[this.choice]
       this.pilot.ReservesController.AddReserve(nr)
       this.close()

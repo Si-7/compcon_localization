@@ -493,7 +493,7 @@
                   >
                     <v-icon large color="dangerzone">mdi-fire</v-icon>
                     <div class="overline my-n2">
-                      +1 HEAT
+                      +1 НАГРЕВ
                       <v-icon small class="fadeSelect" @click="overkillHeat--">mdi-close</v-icon>
                     </div>
                   </v-col>
@@ -785,12 +785,12 @@ export default Vue.extend({
       if (this.ammoCost) this.state.SpendAmmoCost(this.ammoCost)
       this.mech.CurrentHeat += this.item.ProfileHeatCost
       this.mech.CurrentHeat += this.overkillHeat
-      this.mech.Pilot.State.LogAttackAction('ATTACK', this.item.Name, this.summedDamage, this.kill)
+      this.mech.Pilot.State.LogAttackAction('АТАКА', this.item.Name, this.summedDamage, this.kill)
       this.$emit('confirm', actionObj.activation === ActivationType.Free)
     },
     reset() {
       this.mech.Pilot.State.UndoLogAttackAction(
-        'ATTACK',
+        'АТАКА',
         this.item.Name,
         this.summedDamage,
         this.kill

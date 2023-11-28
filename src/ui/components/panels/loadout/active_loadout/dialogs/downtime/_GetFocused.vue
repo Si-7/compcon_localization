@@ -4,7 +4,7 @@
       <p
         class="text-center body-text"
         v-html="
-          'You focus on increasing your own skills, training, and self-improvement. You might practice, learn, meditate, or call on a teacher.'
+          'Вы концентрируетесь на повышении собственных навыков, обучении и самосовершенствовании. Вы можете практиковаться, учиться, медитировать или обратиться к учителю.'
         "
       />
       <v-divider class="ma-2" />
@@ -16,18 +16,17 @@
         outlined
         border="left"
       >
-        Completing this Downtime Action will add a "Get Focused" item to this pilot's Downtime
-        Reserves. Each "Get Focused" Reserve adds a bonus Skill Trigger selection, which can be made
-        in the
-        <b class="accent--text">Pilot Sheet's Skill Trigger selection screen.</b>
+        Выполнение этого действия во время отдыха добавит предмет «Сосредоточиться» к резервам отдыха этого пилота. Каждый 
+        резерв «Сосредоточиться» добавляет бонусный выбор триггера, который можно сделать на 
+        <b class="accent--text">экране выбора триггера в листе пилота.</b>
       </v-alert>
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn large tile color="primary" @click="addSkill()">
-        {{ tabs === 0 ? 'Add Skill' : 'Improve Skill' }}
+        {{ tabs === 0 ? 'Добавить триггер' : 'Улучшить триггер' }}
       </v-btn>
     </v-card-actions>
   </div>
@@ -50,16 +49,16 @@ export default Vue.extend({
       this.pilot.ReservesController.AddReserve(
         new Reserve({
           id: 'reserve_skillfocus',
-          type: 'Bonus',
-          name: 'Skill Focus',
-          description: 'Added via the "Get Focused" Downtime Action',
+          type: 'Бонус',
+          name: 'Сосредоточение на триггере',
+          description: 'Добавлено через действие режима отдыха "Сосредоточиться"',
           bonuses: [
             {
               id: 'skill_point',
               val: 1,
             },
           ],
-          resource_name: 'Skill Focus',
+          resource_name: 'Сосредоточение на триггере',
           resource_cost: '',
           resource_note: '',
           used: false,

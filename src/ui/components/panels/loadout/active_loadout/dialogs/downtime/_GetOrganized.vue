@@ -3,24 +3,24 @@
     <v-card-text>
       <p
         class="text-center body-text"
-        v-html="'Start, run, or improve an organization, business, or other venture.'"
+        v-html="'Вы создаете, запускаете или улучшаете организацию, бизнес или другое предприятие.'"
       />
       <v-divider class="mb-2" />
       <v-card>
         <v-tabs v-model="tabs" color="white" background-color="primary" slider-color="white" grow>
-          <v-tab>Establish Organization</v-tab>
-          <v-tab :disabled="!organizations.length">Improve Organization</v-tab>
+          <v-tab>Создать организацию</v-tab>
+          <v-tab :disabled="!organizations.length">Улучшить организацию</v-tab>
           <v-tab-item>
             <v-card flat tile class="ma-3">
               <v-toolbar dark flat tile dense color="action--downtime">
-                <v-toolbar-title class="heading h2">New Organization</v-toolbar-title>
+                <v-toolbar-title class="heading h2">Новая организация</v-toolbar-title>
               </v-toolbar>
               <v-card-text class="pa-4">
                 <v-row dense>
                   <v-col cols="4">
                     <v-select
                       v-model="type"
-                      label="Organization Type"
+                      label="Тип организации"
                       :items="orgTypes"
                       outlined
                       dense
@@ -33,7 +33,7 @@
                       outlined
                       dense
                       hide-details
-                      label="Organization Name"
+                      label="Название организации"
                     />
                   </v-col>
                 </v-row>
@@ -43,7 +43,7 @@
                       v-model="details"
                       auto-grow
                       rows="1"
-                      label="Purpose, goal, and organization details"
+                      label="Цель и подробности организации"
                     />
                   </v-col>
                 </v-row>
@@ -53,7 +53,7 @@
                     <cc-tooltip
                       simple
                       inline
-                      content="How directly effective your organization is at what it does (a military organization with high efficiency would be good at combat, for example). <br /> Efficiency can be used to perform activities related to your organization’s purpose (science, military, etc). You can use these advantages as <strong>reserves.</strong>"
+                      content="Эффективность определяет, насколько эффективно ваша организация ведет деятельность в рамках своей сферы (например, военная организация с высокой эффективностью будет хороша в бою). <br /> Эффективность используется при выполнении действий, связанных с Фокусом вашей организации. Преимущества, полученные с помощью вашей организации, могут быть использованы как <strong>Резервы</strong>."
                     >
                       <v-btn
                         v-if="!start"
@@ -63,12 +63,12 @@
                         color="primary"
                         @click="start = 'efficiency'"
                       >
-                        Efficiency
+                        Эффективность
                       </v-btn>
                       <div v-else class="text-center flavor-text">
                         <span class="heading h2">+ {{ start === 'efficiency' ? '2' : '0' }}</span>
                         <br />
-                        <span>Organization Efficiency</span>
+                        <span>Эффективность организации</span>
                       </div>
                     </cc-tooltip>
                   </v-col>
@@ -77,7 +77,7 @@
                     <cc-tooltip
                       simple
                       inline
-                      content="Influence is your organization’s size, reach, wealth, and reputation.<br>Influence be used to acquire assets, create opportunities, or sway public opinion."
+                      content="Влияние — это размер, охват, богатство и репутация организации. Влияние используется при приобретении активов, создании возможностей или влиянии на общественное мнение. <br> Влияние используется при приобретении активов, создании возможностей или влиянии на общественное мнение. Преимущества, полученные с помощью вашей организации, могут быть использованы как <strong>Резервы</strong>."
                     >
                       <v-btn
                         v-if="!start"
@@ -87,12 +87,12 @@
                         color="primary"
                         @click="start = 'influence'"
                       >
-                        Influence
+                        Влияние
                       </v-btn>
                       <div v-else class="text-center flavor-text">
                         <span class="heading h2">+ {{ start === 'influence' ? '2' : '0' }}</span>
                         <br />
-                        <span>Organization Influence</span>
+                        <span>Влияние организации</span>
                       </div>
                     </cc-tooltip>
                   </v-col>
@@ -120,7 +120,7 @@
                 <div v-if="selected">
                   <v-btn small text @click="selected = null">
                     <v-icon left>mdi-chevron-left</v-icon>
-                    Select another organization
+                    Выбрать другую организацию
                   </v-btn>
 
                   <v-card tile flat>
@@ -134,14 +134,14 @@
                         v-model="selected.Description"
                         auto-grow
                         rows="1"
-                        label="Purpose, goal, and organization details"
+                        label="Цель и подробности организации"
                       />
                       <v-row justify="center">
                         <v-col cols="5">
                           <v-text-field
                             v-model="improveRoll"
                             type="number"
-                            label="Organization Management Roll Result"
+                            label="Результат броска управления организацией"
                             outlined
                             dense
                             hide-details
@@ -157,7 +157,7 @@
                         <v-row v-if="improveRoll" dense class="text-center flavor-text">
                           <v-col v-if="improveRoll < 10">
                             <v-row dense justify="center">
-                              <v-col cols="auto" class="pr-2">This organization</v-col>
+                              <v-col cols="auto" class="pr-2">Эта организация</v-col>
                               <v-col cols="auto" class="mt-n5">
                                 <v-radio-group
                                   v-model="badChoice"
@@ -165,15 +165,15 @@
                                   dense
                                   style="display: inline-block"
                                 >
-                                  <v-radio label="Folds Immediately" value="fold" color="error" />
+                                  <v-radio label="Немедленно распадется" value="fold" color="error" />
                                   <v-radio
-                                    :label="`Loses 2 Efficiency (${selected.Efficiency} available) and 2 Influence (${selected.Influence} available)`"
+                                    :label="`Теряет 2 Эффективности (${selected.Efficiency} доступно) и 2 Влияния (${selected.Influence} доступно), до минимума 0`"
                                     :disabled="selected.Influence === 0 && selected.Efficiency === 0"
                                     value="efficiencyInfluence"
                                     color="warning"
                                   />
                                   <v-radio
-                                    :label="`Needs to Take Action`"
+                                    :label="`Должна действовать`"
                                     value="takeAction"
                                     color="warning"
                                   />     
@@ -184,16 +184,16 @@
                               <div v-show="badChoice === 'takeAction'">
                                 <br />
                                 <span>
-                                  The organization takes one of the following actions:
+                                  Организация предпринимает одно из следующих действий:
                                 </span>
                                 <v-btn-toggle v-model="action" mandatory>
-                                  <v-btn text large value="Pay Debts">Pay Debts</v-btn>
+                                  <v-btn text large value="Pay Debts">Выплатить долги</v-btn>
                                   <v-btn text large value="Prove Worthiness">
-                                    Prove Worthiness
+                                    Доказать свою ценность
                                   </v-btn>
-                                  <v-btn text large value="Get Bailed Out">Get Bailed Out</v-btn>
+                                  <v-btn text large value="Get Bailed Out">Получить финансовую помощь</v-btn>
                                   <v-btn text large value="Make an Aggressive Move">
-                                    Make an Aggressive Move
+                                    Предпринять агрессивные действия
                                   </v-btn>
                                 </v-btn-toggle>
                               </div>
@@ -210,13 +210,13 @@
                             >
                               <v-col class="text-center">
                                 <span class="heading h3 subtle--text">
-                                  Organization is operating at maximum capacity
+                                  Организация работает на максимальной мощности
                                 </span>
                               </v-col>
                             </v-row>
                             <v-row v-else>
                               <v-col cols="12" class="text-center">
-                                <span class="heading h3">Improve:</span>
+                                <span class="heading h3">Улучшить:</span>
                               </v-col>
                               <v-col cols="5">
                                 <v-tooltip top>
@@ -230,7 +230,7 @@
                                       "
                                       @click="improvement = 'efficiency'"
                                     >
-                                      Efficiency
+                                      Эффективность
                                     </v-btn>
                                     <div>
                                       <span class="heading h3">
@@ -239,21 +239,20 @@
                                           selected.Efficiency +
                                           (improvement === 'efficiency' ? 2 : 0)
                                         }}
-                                        Efficiency
+                                        Эффективность
                                       </span>
                                       <br />
-                                      <span>Organization Efficiency</span>
+                                      <span>Эффективность организации</span>
                                     </div>
                                   </div>
                                   <span>
-                                    How directly effective your organization is at what it does (a
-                                    military organization with high efficiency would be good at
-                                    combat, for example).
-                                    <br />
-                                    Efficiency can be used to perform activities related to your
-                                    organization’s purpose (science, military, etc). You can use
-                                    these advantages as
-                                    <strong>reserves.</strong>
+                                    Эффективность определяет, насколько эффективно ваша организация ведет 
+                                    деятельность в рамках своей сферы (например, военная организация с 
+                                    высокой эффективностью будет хороша в бою). 
+                                    <br /> 
+                                    Эффективность используется при выполнении действий, связанных с 
+                                    Фокусом вашей организации. Преимущества, полученные с помощью вашей 
+                                    организации, могут быть использованы как <strong>Резервы</strong>.
                                   </span>
                                 </v-tooltip>
                               </v-col>
@@ -270,7 +269,7 @@
                                       "
                                       @click="improvement = 'influence'"
                                     >
-                                      Influence
+                                      Влияние
                                     </v-btn>
                                     <div>
                                       <span class="heading h3">
@@ -278,16 +277,16 @@
                                         {{
                                           selected.Influence + (improvement === 'influence' ? 2 : 0)
                                         }}
-                                        Influence
+                                        Влияние
                                       </span>
                                       <br />
-                                      <span>Organization Influence</span>
+                                      <span>Влияние организации</span>
                                     </div>
                                   </div>
                                   <span>
-                                    Influence is your organization’s size, reach, wealth, and
-                                    reputation. Influence be used to acquire assets, create
-                                    opportunities, or sway public opinion.
+                                    Влияние — это размер, охват, богатство и репутация организации. Влияние 
+                                    используется при приобретении активов, создании возможностей или влиянии 
+                                    на общественное мнение.
                                   </span>
                                 </v-tooltip>
                               </v-col>
@@ -301,22 +300,22 @@
                               "
                               class="heading h3 accent--text"
                             >
-                              Organization Influence and Efficiency increased by +2
+                              Ваша организация получает +2 Эффективности и +2 Влияния
                             </span>
                             <span
                               v-else-if="parseInt(selected.Influence) < 6"
                               class="heading h3 accent--text"
                             >
-                              Organization Influence increased by +2
+                              Ваша организация получает +2 Влияния
                             </span>
                             <span
                               v-else-if="parseInt(selected.Efficiency) < 6"
                               class="heading h3 accent--text"
                             >
-                              Organization Efficiency increased by +2
+                              Ваша организация получает +2 Эффективности
                             </span>
                             <span v-else class="heading h3 subtle--text">
-                              Organization is operating at maximum capacity
+                              Организация работает на максимальной мощности
                             </span>
                           </v-col>
                         </v-row>
@@ -397,10 +396,10 @@ export default Vue.extend({
   },
   methods: {
     confirmName() {
-      if (this.tabs === 0) return 'Establish Organization'
+      if (this.tabs === 0) return 'Создать организацию'
       if (this.tabs === 1) {
-        if (this.badChoice === 'fold') return 'Shutter Organization'
-        else return 'Update Organization'
+        if (this.badChoice === 'fold') return 'Закрыть организацию'
+        else return 'Обновить организацию'
       }
     },
     addOrg() {

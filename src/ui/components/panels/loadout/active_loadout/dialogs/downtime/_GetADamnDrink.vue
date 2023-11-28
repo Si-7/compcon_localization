@@ -4,21 +4,21 @@
       <p
         class="text-center body-text"
         v-html="
-          'You can only make this action where there’s a drink to actually get (in town, a station, a city, or some other populated area). It doesn’t have to be an actual drink, but you blow off some steam, carouse, and generally get into trouble. You could be doing this to make connections, collect gossip, forge a reputation, or maybe just to forget what happened on the last mission. There’s usually trouble.'
+          'Когда вы Получаете Чертову Выпивку, вы выпускаете пар, резвитесь и, как правило, попадаете в неприятности. Возможно, вы пытаетесь обзавестись связями, собрать сплетни, создать себе репутацию или даже просто забыть о том, что произошло на последнем задании. Обычно это приводит к проблемам. <br/> Вы можете совершить это действие только там, где действительно есть, что выпить (например, на станции, в городе или другом населенном пункте), или в каком-либо другом виде развлечения.'
         "
       />
       <v-divider class="mb-2" />
       <div class="pt-2 heading h3 text-center">
-        Roll
+        Бросьте
         <v-icon large color="accent">mdi-dice-d20</v-icon>
-        &nbsp;and add any relevant Skill Trigger bonuses, modifiers, or accuracy
+        &nbsp;и добавьте все соответствующие бонусы Триггеров, модификаторы и Точность
       </div>
       <v-row justify="center">
         <v-col cols="3">
           <v-text-field
             v-model="skillRoll"
             type="number"
-            label="Roll Result"
+            label="Результат броска"
             outlined
             dense
             hide-details
@@ -33,20 +33,19 @@
         <v-row v-show="skillRoll" justify="center" class="text-center flavor-text">
           <v-col cols="10">
             <p v-if="skillRoll < 10" class="font-weight-bold px-3">
-              You can decide whether you had good time or not. However, you wake up in a gutter
-              somewhere with only one of the following:
+              Решите, хорошо вы провели время или нет; в любом случае, вы просыпаетесь где-нибудь в канаве, где при вас остается только одно:
               <v-select
                 v-model="kept"
                 class="ml-5 mr-5"
                 outlined
                 :items="losses"
-                label="You retain..."
+                label="При вас остается..."
               />
             </p>
             <p v-else-if="skillRoll < 20" class="font-weight-bold px-3">
               <span
                 v-html="
-                  'You gain one of the following choices as <strong>reserves</strong> , and lose one:'
+                  'Получите что-то одно в качестве <strong>Резерва</strong> и потеряйте что-то одно:'
                 "
               />
               <v-row>
@@ -57,14 +56,14 @@
                     dense
                     outlined
                     :items="choices"
-                    label="You gain..."
+                    label="Вы получаете..."
                   />
                   <v-textarea
                     v-if="reserve1"
                     v-model="details1"
                     auto-grow
                     rows="1"
-                    label="Details"
+                    label="Подробности"
                     filled
                   />
                 </v-col>
@@ -75,13 +74,13 @@
                     dense
                     hide-details
                     :items="choices"
-                    label="But lose..."
+                    label="Вы теряете..."
                   />
                 </v-col>
               </v-row>
             </p>
             <p v-else class="font-weight-bold px-3">
-              Gain two reserves:
+              Получите два <strong>Резерва</strong>:
               <v-row>
                 <v-col cols="6">
                   <div class="ma-2">
@@ -91,14 +90,14 @@
                       outlined
                       dense
                       :items="choices"
-                      label="You gain..."
+                      label="Вы получаете..."
                     />
                     <v-textarea
                       v-if="reserve1"
                       v-model="details1"
                       auto-grow
                       rows="1"
-                      label="Details"
+                      label="Подробности"
                       filled
                     />
                   </div>
@@ -111,14 +110,14 @@
                       outlined
                       dense
                       :items="choices"
-                      label="...as well as..."
+                      label="...и еще..."
                     />
                     <v-textarea
                       v-if="reserve2"
                       v-model="details2"
                       auto-grow
                       rows="1"
-                      label="Details"
+                      label="Подробности"
                       filled
                     />
                   </div>
@@ -131,10 +130,10 @@
     </v-card-text>
     <v-divider />
     <v-card-actions>
-      <v-btn text @click="close()">cancel</v-btn>
+      <v-btn text @click="close()">отменить</v-btn>
       <v-spacer />
       <v-btn large tile color="primary" :disabled="addDisabled" @click="addReserve">
-        add reserve
+        добавить резерв
       </v-btn>
     </v-card-actions>
   </div>
@@ -154,7 +153,7 @@ export default Vue.extend({
   data: () => ({
     skillRoll: '',
     details: '',
-    losses: ['Your dignity', 'All of your possessions', 'Your memory'],
+    losses: ['Ваше достоинство', 'Все ваше имущество', 'Ваша память'],
     kept: '',
     reserve1: '',
     details1: '',
@@ -162,10 +161,10 @@ export default Vue.extend({
     details2: '',
     loss: '',
     choices: [
-      'A good reputation',
-      'A friend or connection',
-      'A useful item or piece of information',
-      'A convenient opportunity',
+      'Хорошая репутация',
+      'Друг или связи',
+      'Полезный предмет или информация',
+      'Удобная возможность',
     ],
   }),
   computed: {
@@ -183,8 +182,8 @@ export default Vue.extend({
       if (this.skillRoll < 10) {
         const nr = new Reserve({
           id: 'reserve_damndrink',
-          type: 'Resource',
-          name: 'A Damn Drink',
+          type: 'Ресурс',
+          name: 'Чертова выпивка',
           label: '',
           description: '',
           resource_note: '',
@@ -198,12 +197,12 @@ export default Vue.extend({
           lossArr.findIndex(x => x === this.kept),
           1
         )
-        nr.ResourceCost = `You've lost ${lossArr[0].toLowerCase()}, as well as ${lossArr[1].toLowerCase()}`
+        nr.ResourceCost = `Вы потеряли ${lossArr[0].toLowerCase()}, а также ${lossArr[1].toLowerCase()}`
         this.pilot.ReservesController.AddReserve(nr)
       } else if (this.skillRoll < 20) {
         const nr = new Reserve({
           id: 'reserve_damndrink',
-          type: 'Resource',
+          type: 'Ресурс',
           name: this.reserve1,
           label: '',
           description: '',
@@ -214,12 +213,12 @@ export default Vue.extend({
           used: false,
         })
         nr.Note = this.details1
-        nr.ResourceCost = `You've lost ${this.loss.toLowerCase()}`
+        nr.ResourceCost = `Вы потеряли ${this.loss.toLowerCase()}`
         this.pilot.ReservesController.AddReserve(nr)
       } else {
         const nr = new Reserve({
           id: 'reserve_damndrink',
-          type: 'Resource',
+          type: 'Ресурс',
           name: this.reserve1,
           label: '',
           description: '',
@@ -234,7 +233,7 @@ export default Vue.extend({
 
         const nr2 = new Reserve({
           id: 'reserve_damndrink',
-          type: 'Resource',
+          type: 'Ресурс',
           name: this.reserve2,
           label: '',
           description: '',
