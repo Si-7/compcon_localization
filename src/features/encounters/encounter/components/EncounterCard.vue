@@ -386,7 +386,7 @@ export default Vue.extend({
       return getModule(CompendiumStore, this.$store).Environments
     },
     environments() {
-      return ['Nominal'].concat(this.environmentData.map(x => x.name))
+      return ['Нормальное'].concat(this.environmentData.map(x => x.name))
     },
     sitreps() {
       return getModule(CompendiumStore, this.$store).Sitreps

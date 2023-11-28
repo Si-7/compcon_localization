@@ -67,13 +67,13 @@ class Encounter implements IMissionStep, ICloudSyncable {
     this._id = uuid()
     this.SaveController = new SaveController(this)
     this.CloudController = new CloudController(this)
-    this._name = 'New Encounter'
+    this._name = 'Новая сцена'
     this._location = ''
     this._labels = []
     this._campaign = ''
     this._gm_notes = ''
     this._narrative_notes = ''
-    this._environment = 'Nominal'
+    this._environment = 'Нормальное'
     this._environment_details = ''
     this._cloud_map = ''
     this._local_map = ''

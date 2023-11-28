@@ -110,7 +110,7 @@ export default class CoreBonuses extends Vue {
   }
 
   private mounted(): void {
-    this.manFilter = 'ALL'
+    this.manFilter = 'ВСЕ'
   }
 
   public manufacturer(id: string): Manufacturer {

@@ -12,7 +12,7 @@
 
       <v-col>
         <home-card
-          title="Encounter Builder"
+          title="Создать сцены"
           icon="mdi-account-multiple-plus"
           text="Составляйте столкновения с НИП, целями и условиями боя."
           to="/gm/encounter-builder"
@@ -21,7 +21,7 @@
 
       <v-col>
         <home-card
-          title="Mission Runner"
+          title="Запустить миссии"
           icon="mdi-account-group"
           text="Запускайте наборы встреч в цифровом формате с отслеживанием статуса NPC и пилотов."
           to="/gm/mission"
