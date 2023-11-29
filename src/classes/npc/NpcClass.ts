@@ -55,10 +55,37 @@ export class NpcClass {
 
   public get RoleIcon(): string {
     if (this._role.toLowerCase() === 'биологический') return 'mdi-heart-pulse'
+    console.log(this._role)
+    switch (this._role) {
+      case 'нападающий':
+        return 'cci-role-striker'
+      case 'поддерживающий':
+        return 'cci-role-support'
+      case 'оператор':
+        return 'cci-role-controller'
+      case 'защитник':
+        return 'cci-role-defender'
+      case 'артиллерист':
+        return 'cci-role-artillery'
+    }
     return `cci-role-${this._role}`
   }
 
   public get Color(): string {
+    switch (this._role) {
+      case 'нападающий':
+        return 'role--striker'
+      case 'поддерживающий':
+        return 'role--support'
+      case 'оператор':
+        return 'role--controller'
+      case 'защитник':
+        return 'role--defender'
+      case 'артиллерист':
+        return 'role--artillery'
+      case 'биологический':
+        return 'role--biological'
+    }
     return `role--${this._role}`
   }
 

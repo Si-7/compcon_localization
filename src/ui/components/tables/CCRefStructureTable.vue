@@ -99,7 +99,7 @@
       </v-row>
       <v-divider />
       <v-card-actions>
-        <v-btn text @click="dialog = false">Dismiss</v-btn>
+        <v-btn text @click="dialog = false">Закрыть</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

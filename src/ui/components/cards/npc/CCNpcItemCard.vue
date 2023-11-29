@@ -32,7 +32,20 @@ export default {
       if (!this.item) {
         return null
       }
-      return () => import(`./cards/_${this.item.Feature.FeatureType}Card.vue`)
+      switch (this.item.Feature.FeatureType) {
+      case 'Оружие':
+        return () => import(`./cards/_WeaponCard.vue`)
+      case 'Реакция':
+        return () => import(`./cards/_ReactionCard.vue`)
+      case 'Система':
+        return () => import(`./cards/_SystemCard.vue`)
+      case 'Черта':
+        return () => import(`./cards/_TraitCard.vue`)
+      case 'Технология':
+        return () => import(`./cards/_TechCard.vue`)
+      default:
+        return () => import(`./cards/_${this.item.Feature.FeatureType}Card.vue`)
+    }
     },
   },
   mounted() {

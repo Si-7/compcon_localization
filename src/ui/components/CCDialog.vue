@@ -23,10 +23,10 @@
 
         <v-card-actions v-if="fullscreen || $vuetify.breakpoint.mdAndDown || (noConfirm && !noDismiss)">
           <v-spacer />
-          <v-btn text @click="dialog = false">dismiss</v-btn>
+          <v-btn text @click="dialog = false">закрыть</v-btn>
         </v-card-actions>
         <v-card-actions v-else-if="!noDismiss">
-          <v-btn text @click="dialog = false">cancel</v-btn>
+          <v-btn text @click="dialog = false">отмена</v-btn>
           <v-spacer />
           <cc-btn @click="confirm">подтвердить</cc-btn>
         </v-card-actions>

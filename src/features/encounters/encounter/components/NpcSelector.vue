@@ -54,7 +54,7 @@
               })
             "
           >
-            <v-icon v-html-safe="item.Class.RoleIcon" />
+            <v-icon v-html="item.Class.RoleIcon" />
             <v-icon left v-html="`cci-rank-${item.Tier}`" />
             {{ item.Name }}
           </span>
@@ -77,7 +77,7 @@
                   x-large
                   tile
                   outlined
-                  :color="side.toLowerCase()"
+                  :color="colorForSide(side).toLowerCase()"
                   dark
                   @click="$emit('select', { npc, side })"
                 >
@@ -116,7 +116,7 @@ export default Vue.extend({
     npcs: [],
     side: 'Противник',
     grouping: null,
-    headers: [{ text: 'Name', value: 'Name', align: 'left' }],
+    headers: [{ text: 'Название', value: 'Name', align: 'left' }],
     search: '',
   }),
   created() {
@@ -126,6 +126,16 @@ export default Vue.extend({
   methods: {
     generateNpcElementId: function(npc) {
       return `e_${this._uid}_${npc.ID}`
+    },
+    colorForSide(side: string) {
+      switch (side) {
+        case 'Противник':
+          return 'enemy'
+        case 'Союзник':
+          return 'ally'
+        case 'Нейтральный':
+          return 'neutral'
+      }
     },
   },
 })

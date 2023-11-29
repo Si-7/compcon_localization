@@ -7,7 +7,7 @@
     <div slot="statblock">
       <span class="overline ml-n2">ТРИГГЕР</span>
       <p
-        v-html-safe="`<b>Trigger:&nbsp;</b>${item.Trigger}`"
+        v-html-safe="`${item.Trigger}`"
         class="text--text"
         style="font-size: 20px"
       />

@@ -43,7 +43,7 @@
                 <v-icon v-if="h.group.toLowerCase() === 'биологический'" dark
                   >mdi-heart-pulse</v-icon
                 >
-                <v-icon v-else dark>cci-role-{{ h.group }}</v-icon>
+                <v-icon v-else dark>cci-role-{{ IconStringForGroup(h.group) }}</v-icon>
                 <span
                   v-if="Array.isArray(h.group)"
                   v-html="h.group.join(', ')"
@@ -146,6 +146,20 @@ export default Vue.extend({
       const store = getModule(NpcStore, this.$store);
       store.addNpc(new Npc(this.selectedClass, this.$refs.card.tierPreview));
       this.$router.push("./npc-roster");
+    },
+    IconStringForGroup(group: string) {
+      switch (group) {
+        case 'нападающий':
+          return 'striker'
+        case 'поддерживающий':
+          return 'support'
+        case 'оператор':
+          return 'controller'
+        case 'защитник':
+          return 'defender'
+        case 'артиллерист':
+          return 'artillery'
+      }
     },
   },
 });

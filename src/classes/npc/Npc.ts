@@ -124,7 +124,7 @@ class Npc
 
     this.FeatureController.Register()
 
-    this._name = `New ${npcClass.Name[0].toUpperCase()}${npcClass.Name.slice(1)}`
+    this._name = `Новый ${npcClass.Name[0].toUpperCase()}${npcClass.Name.slice(1)}`
     this._subtitle = ''
     this._tier = t
     this._templates = []
@@ -423,8 +423,8 @@ class Npc
 
   public set CurrentStress(val: number) {
     this.CurrentStats.Stress = val
-    if (this.Active && this.CurrentStats.Stress === 0 && !this.Statuses.includes('EXPOSED')) {
-      this.Statuses.push('EXPOSED')
+    if (this.Active && this.CurrentStats.Stress === 0 && !this.Statuses.includes('Уязвимость')) {
+      this.Statuses.push('Уязвимость')
     }
   }
 
@@ -507,7 +507,7 @@ class Npc
 
   public set Destroyed(val: boolean) {
     this._destroyed = val
-    this._defeat = val ? 'Destroyed' : ''
+    this._defeat = val ? 'Уничтожен' : ''
     this.SaveController.save()
   }
 
@@ -582,7 +582,7 @@ class Npc
     this.CurrentStats.Activations = this.Stats.Activations
     this._turn_actions = 2
     this.CurrentStats.Speed = 0
-    this.CurrentStats.AddReaction('Overwatch')
+    this.CurrentStats.AddReaction('Наблюдение')
     this.SaveController.save()
   }
 

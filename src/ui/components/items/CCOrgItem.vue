@@ -112,7 +112,7 @@
         <v-divider />
         <v-card-actions>
           <v-spacer />
-          <v-btn text @click="dialog = false">Dismiss</v-btn>
+          <v-btn text @click="dialog = false">Закрыть</v-btn>
         </v-card-actions>
       </cc-titled-panel>
     </v-dialog>

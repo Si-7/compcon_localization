@@ -311,7 +311,7 @@
           </v-col>
           <v-col>
             <v-row>
-              <cc-active-card prominent color="pilot" header="Speed" :content="mech.Speed" />
+              <cc-active-card prominent color="pilot" header="Скорость" :content="mech.Speed" />
               <cc-active-card
                 prominent
                 color="pilot"
@@ -332,8 +332,8 @@
                 header="Уклонение"
                 :content="mech.IsStunned ? 5 : mech.Evasion"
               />
-              <cc-active-card prominent color="pilot" header="E-Def" :content="mech.EDefense" />
-              <cc-active-card prominent color="pilot" header="Save" :content="mech.SaveTarget" />
+              <cc-active-card prominent color="pilot" header="Э-Защ" :content="mech.EDefense" />
+              <cc-active-card prominent color="pilot" header="Спасбросок" :content="mech.SaveTarget" />
               <cc-active-card
                 prominent
                 color="pilot"

@@ -60,7 +60,7 @@ class Mission implements ICloudSyncable {
     this._id = uuid()
     this.SaveController = new SaveController(this)
     this.CloudController = new CloudController(this)
-    this._name = 'New Mission'
+    this._name = 'Новая Миссия'
     this._note = ''
     this._campaign = ''
     this._labels = []

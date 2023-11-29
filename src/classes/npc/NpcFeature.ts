@@ -1,11 +1,11 @@
 import { Tag } from '@/class'
 
 export enum NpcFeatureType {
-  Trait = 'Trait',
-  System = 'System',
-  Reaction = 'Reaction',
-  Weapon = 'Weapon',
-  Tech = 'Tech',
+  Trait = 'Черта',
+  System = 'Система',
+  Reaction = 'Реакция',
+  Weapon = 'Оружие',
+  Tech = 'Технология',
 }
 
 export interface IOriginData {
@@ -57,6 +57,7 @@ export abstract class NpcFeature {
     this._hide_active = data.hide_active || false
     this.LcpName = packName || 'Lancer CORE NPCs'
     this.InLcp = this.LcpName != 'Lancer CORE NPCs' ? true : false
+    this.type = data.type
   }
 
   public get ID(): string {
@@ -69,7 +70,7 @@ export abstract class NpcFeature {
 
   public get Origin(): string {
     return `${this._origin.name} ${this._origin.type} - ${
-      this._origin.base ? 'Base' : 'Optional'
+      this._origin.base ? 'Основная' : 'Дополнительная'
     } ${this.FeatureType}`
   }
 
@@ -78,7 +79,7 @@ export abstract class NpcFeature {
   }
 
   public get OriginSet(): string {
-    return this._origin.base ? 'Base' : 'Optional'
+    return this._origin.base ? 'Основной' : 'Дополнительный'
   }
 
   public get IsBase(): boolean {
@@ -138,7 +139,20 @@ export abstract class NpcFeature {
 
   // Used for cc-item-card subcomponent selection
   public get ItemType(): string {
-    return `Npc${this.type}`
+    switch (this.type) {
+      case 'Оружие':
+        return `NpcWeapon`
+      case 'Реакция':
+        return `NpcReaction`
+      case 'Система':
+        return `NpcSystem`
+      case 'Черта':
+        return `NpcTrait`
+      case 'Технология':
+        return `NpcTech`
+      default:
+        return `Npc${this.type}`
+    }
   }
 
   public get Source(): string {

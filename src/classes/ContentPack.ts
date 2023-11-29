@@ -285,12 +285,12 @@ export class ContentPack {
 
     self._NpcFeatures =
       self._data.npcFeatures?.map(function (x) {
-        if (x.type.toLowerCase() === 'weapon')
+        if (x.type.toLowerCase() === 'оружие')
           return new NpcWeapon(x as INpcWeaponData, self._manifest.name)
-        else if (x.type.toLowerCase() === 'reaction')
+        else if (x.type.toLowerCase() === 'реакция')
           return new NpcReaction(x as INpcReactionData, self._manifest.name)
-        else if (x.type.toLowerCase() === 'trait') return new NpcTrait(x, self._manifest.name)
-        else if (x.type.toLowerCase() === 'system')
+        else if (x.type.toLowerCase() === 'черта') return new NpcTrait(x, self._manifest.name)
+        else if (x.type.toLowerCase() === 'система')
           return new NpcSystem(x as INpcSystemData, self._manifest.name)
         return new NpcTech(x as INpcTechData, self._manifest.name)
       }) || []

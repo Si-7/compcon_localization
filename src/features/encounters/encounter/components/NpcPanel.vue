@@ -42,39 +42,39 @@
     <v-row dense class="text-center" align="center">
       <v-col cols="7">
         <v-row dense no-gutters>
-          <simple-attribute attr="HULL" :val="npc.Stats.Hull" />
-          <simple-attribute attr="AGI" :val="npc.Stats.Agility" />
-          <simple-attribute attr="SYS" :val="npc.Stats.Systems" />
-          <simple-attribute attr="ENG" :val="npc.Stats.Engineering" />
+          <simple-attribute attr="КРП" :val="npc.Stats.Hull" />
+          <simple-attribute attr="МНВР" :val="npc.Stats.Agility" />
+          <simple-attribute attr="СИС" :val="npc.Stats.Systems" />
+          <simple-attribute attr="ИНЖ" :val="npc.Stats.Engineering" />
         </v-row>
         <v-divider class="my-2" />
         <v-row dense no-gutters>
-          <simple-attribute attr="STRUCT" :val="npc.Stats.Structure" />
-          <simple-attribute attr="ARMOR" :val="npc.Stats.Armor" />
-          <simple-attribute attr="HP" :val="npc.Stats.HP" />
-          <simple-attribute attr="REACTOR" :val="npc.Stats.Stress" />
+          <simple-attribute attr="СТРУКТУРА" :val="npc.Stats.Structure" />
+          <simple-attribute attr="БРОНЯ" :val="npc.Stats.Armor" />
+          <simple-attribute attr="ПЗ" :val="npc.Stats.HP" />
+          <simple-attribute attr="НАГРУЗКА" :val="npc.Stats.Stress" />
           <simple-attribute
-            attr="HEAT CAP."
+            attr="ТЕПЛ. МАКС."
             :val="npc.Stats.HeatCapacity"
             :color="npc.Class.Color"
           />
         </v-row>
         <v-divider class="my-2" />
         <v-row dense no-gutters>
-          <simple-attribute attr="SPEED" :val="npc.Stats.Speed" />
-          <simple-attribute attr="SAVE" :val="npc.Stats.Save" />
-          <simple-attribute attr="EVADE" :val="npc.Stats.Evade" />
-          <simple-attribute attr="E-DEF" :val="npc.Stats.EDefense" />
-          <simple-attribute attr="SENSOR" :val="npc.Stats.Sensor" />
+          <simple-attribute attr="СКОРОСТЬ" :val="npc.Stats.Speed" />
+          <simple-attribute attr="СПАСБРОСОК" :val="npc.Stats.Save" />
+          <simple-attribute attr="УКЛОНЕНИЕ" :val="npc.Stats.Evade" />
+          <simple-attribute attr="Э-ЗАЩ" :val="npc.Stats.EDefense" />
+          <simple-attribute attr="СЕНСОРЫ" :val="npc.Stats.Sensor" />
         </v-row>
         <v-divider class="my-2" />
         <v-row dense no-gutters>
           <simple-attribute
-            attr="ACTIVATIONS"
+            attr="АКТИВАЦИИ"
             :val="npc.Stats.Activations"
             :color="npc.Class.Color"
           />
-          <simple-attribute attr="SIZE" :val="npc.Stats.Size" />
+          <simple-attribute attr="РАЗМЕР" :val="npc.Stats.Size" />
         </v-row>
       </v-col>
       <v-divider vertical />
@@ -84,8 +84,8 @@
             mdi-star-circle-outline
           </v-icon>
           <v-icon v-else size="40" :color="npc.Class.Color">cci-rank-{{ npc.Tier }}</v-icon>
-          <div v-if="npc.Tier === 'custom'" class="overline mt-n1">CUSTOM</div>
-          <div v-else class="overline mt-n1">TIER {{ npc.Tier }}</div>
+          <div v-if="npc.Tier === 'custom'" class="overline mt-n1">ПОЛЬЗОВАТЕЛЬСКАЯ</div>
+          <div v-else class="overline mt-n1">ГРАДАЦИЯ {{ npc.Tier }}</div>
         </div>
         <v-divider class="my-1" />
         <div>
@@ -106,7 +106,7 @@
     </v-row>
     <v-row dense no-gutters class="my-2">
       <v-col cols="2"><v-divider class="mt-3" /></v-col>
-      <span class="heading h3 accent--text px-2">FEATURES</span>
+      <span class="heading h3 accent--text px-2">СИСТЕМЫ</span>
       <v-col><v-divider class="mt-3" /></v-col>
     </v-row>
     <v-row dense class="mr-2 mt-n1 ml-2">
