@@ -148,20 +148,6 @@
                 Помощь
               </v-btn>
             </v-col>
-
-            <v-col cols="auto">
-              <v-btn
-                target="_blank"
-                color="warning"
-                small
-                dark
-                text
-                href="https://www.patreon.com/compcon"
-                tabindex="0"
-              >
-                Поддержать этот проект
-              </v-btn>
-            </v-col>
           </v-row>
         </v-col>
       </v-row>

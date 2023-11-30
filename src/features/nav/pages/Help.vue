@@ -4,7 +4,7 @@
       <v-col cols="4">
         <v-btn
           target="_blank"
-          href="https://github.com/massif-press/wiki/Frequently-Asked-Questions"
+          href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
           x-large
           block
           color="secondary"
@@ -12,19 +12,6 @@
           tabindex="0"
         >
           Часто Задаваемые Вопросы
-        </v-btn>
-      </v-col>
-      <v-col cols="4">
-        <v-btn
-          target="_blank"
-          href="https://github.com/massif-press/wiki/Troubleshooting-Issues"
-          x-large
-          block
-          color="secondary"
-          class="white--text"
-          tabindex="0"
-        >
-        Поиск неисправностей
         </v-btn>
       </v-col>
     </v-row>
@@ -45,25 +32,13 @@
       <v-col>
         <v-btn
           target="_blank"
-          href="https://github.com/massif-press/compcon/discussions"
+          href="https://rustablerpg.ru"
           x-large
           block
           color="error"
           class="white--text"
         >
-          Форум обсуждения
-        </v-btn>
-      </v-col>
-      <v-col>
-        <v-btn
-          target="_blank"
-          href="https://github.com/massif-press/compcon/wiki"
-          x-large
-          block
-          color="error"
-          class="white--text"
-        >
-          Вики проекта
+          Сайт Настольных Ролёвок по-русски
         </v-btn>
       </v-col>
     </v-row>

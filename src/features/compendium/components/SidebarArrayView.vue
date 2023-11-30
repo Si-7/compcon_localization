@@ -6,7 +6,7 @@
       :key="`${i}_sidebar'`"
       link
       @click="
-        $vuetify.goTo(`#e_${e[nameKey].replace(/\W/g, '')}`, {
+        $vuetify.goTo(`#e_${e[nameKey].replaceAll(' ', '')}`, {
           duration: 150,
           easing: 'easeInOutQuad',
           offset: 25,
@@ -18,8 +18,8 @@
     <h1 class="heading mb-3 mt-2">{{ title }}</h1>
     <cc-titled-panel
       v-for="(e, i) in array"
-      :id="`e_${e[nameKey].replace(/\W/g, '')}`"
-      :key="`${e[nameKey].replace(/\W/g, '')}_${i}`"
+      :id="`e_${e[nameKey].replaceAll(' ', '')}`"
+      :key="`${e[nameKey].replaceAll(' ', '')}_${i}`"
       :icon="icon || ''"
       :title="e[nameKey]"
       class="my-6"

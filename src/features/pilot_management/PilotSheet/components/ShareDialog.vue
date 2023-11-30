@@ -109,8 +109,8 @@ export default Vue.extend({
       this.loading = true
       await generateCode(this.pilot)
         .then(res => this.pilot.CloudController.SetShareCode(res))
-        .then(() => this.$notify('Share Code generated', 'success'))
-        .catch(() => this.$notify('An error occurred while attempting to generate a share code', 'error'))
+        .then(() => this.$notify('Код пилота сгенерирован', 'success'))
+        .catch(() => this.$notify('Возникла ошибка при попытке создания кода пилота', 'error'))
       this.loading = false
     },
     async refresh() {
@@ -118,8 +118,8 @@ export default Vue.extend({
       const c = this.pilot.CloudController.ShareCode
       await refreshItem(c)
         .then(() => this.pilot.CloudController.SetShareCode(c))
-        .then(() => this.$notify('Share Code refreshed', 'success'))
-        .catch(() => this.$notify('An error occurred while attempting to refresh the share code', 'error'))
+        .then(() => this.$notify('Код пилота обновлен', 'success'))
+        .catch(() => this.$notify('Возникла ошибка при попытке обновления кода пилота', 'error'))
       this.loading = false
     },
     copy() {

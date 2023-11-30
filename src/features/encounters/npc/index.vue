@@ -1,5 +1,6 @@
 <template>
   <panel-view ref="view">
+    <br>
     <cc-gm-header slot="title" title="СПИСОК НИП" />
     <template slot="left">
       <v-row dense>

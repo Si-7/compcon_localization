@@ -95,10 +95,6 @@
         <v-list-item @click="$refs.aboutModal.show()">О сайте</v-list-item>
         <v-list-item @click="$refs.creditsModal.show()">Авторы</v-list-item>
         <v-list-item @click="$refs.helpModal.show()">Помощь</v-list-item>
-        <v-divider />
-        <v-list-item target="_blank" href="https://www.patreon.com/compcon">
-          Поддержать COMP/CON
-        </v-list-item>
       </v-list>
     </v-menu>
 

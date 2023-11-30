@@ -107,7 +107,7 @@
     <roll20-dialog ref="roll20Dialog" :pilot="pilot" />
     <delete-dialog ref="deleteDialog" :pilot="pilot" @delete="delete_pilot()" />
     <clone-dialog ref="cloneDialog" :pilot="pilot" />
-    <cc-solo-dialog title="Share Code Management" ref="shareDialog" no-confirm>
+    <cc-solo-dialog title="Управление кодом пилота" ref="shareDialog" no-confirm>
       <share-dialog :pilot="pilot" />
     </cc-solo-dialog>
   </div>
