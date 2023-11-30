@@ -68,7 +68,7 @@ import { getModule } from 'vuex-module-decorators'
 import { CompendiumStore } from '@/store'
 import TemplateItem from './components/TemplateItem.vue'
 import Templates from '../pregens.json'
-import { MechSkills, Mech } from '@/class'
+import { MechSkills, Mech, MountType } from '@/class'
 import { mechname } from '@/io/Generators'
 
 export default Vue.extend({
@@ -127,17 +127,20 @@ export default Vue.extend({
         this.item('MechSystems', x)
       )
 
+      console.log(mech.MechLoadoutController.ActiveLoadout.AllMounts()
+        .find(m => m.Type === MountType.Heavy)
+        .Slots)
       mech.MechLoadoutController.ActiveLoadout.AllMounts()
-        .find(m => m.Type === 'Основной')
+        .find(m => m.Type === MountType.Main)
         .Slots[0].EquipWeapon(this.item('MechWeapons', m.mounts[0].slots[0]))
       mech.MechLoadoutController.ActiveLoadout.AllMounts()
-        .find(m => m.Type === 'Гибкий')
+        .find(m => m.Type === MountType.Flex)
         .Slots[0].EquipWeapon(this.item('MechWeapons', m.mounts[1].slots[0]))
       mech.MechLoadoutController.ActiveLoadout.AllMounts()
-        .find(m => m.Type === 'Гибкий')
+        .find(m => m.Type === MountType.Flex)
         .Slots[1].EquipWeapon(this.item('MechWeapons', m.mounts[1].slots[1]))
       mech.MechLoadoutController.ActiveLoadout.AllMounts()
-        .find(m => m.Type === 'Тяжелый')
+        .find(m => m.Type === MountType.Heavy)
         .Slots[0].EquipWeapon(this.item('MechWeapons', m.mounts[2].slots[0]))
 
       mech.PortraitController.SetLocalImage(this.selected.image)
