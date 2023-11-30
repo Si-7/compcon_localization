@@ -41,17 +41,6 @@
         >
           COMP/CON_ru
         </div>
-        <!-- Shout out Netlify on web for their free open source plan -->
-        <v-btn
-          target="_blank"
-          href="https://www.netlify.com"
-          class="fadeSelect mt-n2"
-          x-small
-          outlined
-          block
-        >
-          deploys by netlify
-        </v-btn>
       </div>
       <v-row dense align="center" class="my-1 px-2 primary py-2">
         <v-col cols="auto">
@@ -66,19 +55,19 @@
       <v-row dense justify="space-around">
         <mobile-btn
           icon="mdi-book"
-          title="Compendium"
+          title="Компендиум"
           text="База данных снаряжения"
           :to="'/compendium'"
         />
         <mobile-btn
           icon="cci-pilot"
-          title="Roster"
+          title="Пилоты"
           text="Управление пилотами"
           :to="'/pilot_management'"
         />
         <mobile-btn
           icon="mdi-flask-empty-plus-outline"
-          title="Content"
+          title="Материалы"
           text="Импорт пакетов материалов"
           @clicked="$refs.contentModal.show()"
         />
