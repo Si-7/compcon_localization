@@ -89,7 +89,7 @@
             :val="npcc.Stats.Speed(tierPreview)"
             :color="npcc.Color"
           />
-          <editable-attribute attr="SAVE" :val="npcc.Stats.Save(tierPreview)" :color="npcc.Color" />
+          <editable-attribute attr="СПАСБРОСОК" :val="npcc.Stats.Save(tierPreview)" :color="npcc.Color" />
           <editable-attribute
             attr="УКЛОНЕНИЕ"
             :val="npcc.Stats.Evade(tierPreview)"

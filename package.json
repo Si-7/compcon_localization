@@ -1,7 +1,7 @@
 {
-  "name": "compcon",
+  "name": "compcon_ru",
   "version": "2.3.11",
-  "description": "A digital toolkit for the LANCER TTRPG",
+  "description": "Цифровые инструменты для НРИ LANCER",
   "author": "Massif Press",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -18,7 +18,7 @@
     "core-js": "^3.6.5",
     "external-svg-loader": "^1.4.0",
     "jszip": "^3.7.1",
-    "lancer-data-rus": "^1.2.1",
+    "lancer-data-rus": "^1.2.2",
     "lodash": "^4.17.21",
     "material-icons": "^0.3.1",
     "promisify-file-reader": "^4.1.0",
