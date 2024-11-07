@@ -32,6 +32,7 @@ import { awsmobile } from './aws-exports'
 import { getThemePreload } from './classes/utility/ThemeManager'
 
 import VueI18n from 'vue-i18n'
+import i18n from './i18n'
 
 Amplify.configure(awsmobile)
 
@@ -53,7 +54,6 @@ Vue.use(TiptapVuetifyPlugin, {
   vuetify,
   iconsGroup: 'md',
 })
-Vue.use(VueI18n)
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 
@@ -69,26 +69,6 @@ window.onerror = error => {
   console.error(error)
   Vue.prototype.$notifyError(error)
 }
-
-// Ready translated locale messages
-const messages = {
-  en: {
-    message: {
-      hello: 'hello world'
-    }
-  },
-  ja: {
-    message: {
-      hello: 'こんにちは、世界'
-    }
-  }
-}
-
-// Create VueI18n instance with options
-const i18n = new VueI18n({
-  locale: 'en', // set locale
-  messages, // set locale messages
-})
 
 const v: any = new Vue({
   components: { App },

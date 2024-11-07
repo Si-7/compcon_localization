@@ -7,39 +7,39 @@
         <main-btn
           icon="cci-compendium"
           :to="'/compendium'"
-          help="Equipment Database"
+          :help="$t('main_menu.desktop.compendium.help')"
           @hover="ccLog('compendium')"
         >
-          Compendium
+          {{ $t('main_menu.desktop.compendium.name') }}
         </main-btn>
         <main-btn
           icon="cci-pilot"
           :to="'/pilot_management'"
-          help="Manage Pilots"
+          :help="$t('main_menu.desktop.pilot_roster.help')"
           @hover="ccLog('pilot')"
         >
-          Pilot Roster
+        {{ $t('main_menu.desktop.pilot_roster.name') }}
         </main-btn>
         <main-btn
           icon="cci-encounter"
           :to="'/gm'"
-          help="Manage NPCs/Encounters/Missions"
+          :help="$t('main_menu.desktop.encounter_toolkit.help')"
           @hover="ccLog('gm')"
         >
-          Encounter Toolkit
+        {{ $t('main_menu.desktop.encounter_toolkit.name') }}
         </main-btn>
         <main-btn
           icon="cci-content-manager"
-          help="Import Content Packs"
+          :help="$t('main_menu.desktop.content_manager.help')"
           @hover="ccLog('content')"
           @clicked="$refs.contentModal.show()"
         >
-          Content Manager
+        {{ $t('main_menu.desktop.content_manager.name') }}
           <cc-tooltip
             v-if="missingContent"
             inline
-            title="Unloadble Content Detected"
-            content="COMP/CON has detected one or more items that are missing Lancer Content Pack data. These items cannot be loaded without installing and activated LCPs. These issues may be able to be resolved in the Content Manager."
+            :title="$t('main_menu.desktop.missing_content_tip.name')"
+            :content="$t('main_menu.desktop.missing_content_tip.help')"
           >
             <v-avatar color="white"><v-icon color="error" large>mdi-folder-off</v-icon></v-avatar>
           </cc-tooltip>
