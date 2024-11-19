@@ -7,39 +7,39 @@
         <main-btn
           icon="cci-compendium"
           :to="'/compendium'"
-          :help="$t('main_menu.desktop.compendium.help')"
+          :help="$t('main_menu.compendium.help')"
           @hover="ccLog('compendium')"
         >
-          {{ $t('main_menu.desktop.compendium.name') }}
+          {{ $t('main_menu.compendium.name') }}
         </main-btn>
         <main-btn
           icon="cci-pilot"
           :to="'/pilot_management'"
-          :help="$t('main_menu.desktop.pilot_roster.help')"
+          :help="$t('main_menu.pilot_roster.help')"
           @hover="ccLog('pilot')"
         >
-        {{ $t('main_menu.desktop.pilot_roster.name') }}
+        {{ $t('main_menu.pilot_roster.name') }}
         </main-btn>
         <main-btn
           icon="cci-encounter"
           :to="'/gm'"
-          :help="$t('main_menu.desktop.encounter_toolkit.help')"
+          :help="$t('main_menu.encounter_toolkit.help')"
           @hover="ccLog('gm')"
         >
-        {{ $t('main_menu.desktop.encounter_toolkit.name') }}
+        {{ $t('main_menu.encounter_toolkit.name') }}
         </main-btn>
         <main-btn
           icon="cci-content-manager"
-          :help="$t('main_menu.desktop.content_manager.help')"
+          :help="$t('main_menu.content_manager.help')"
           @hover="ccLog('content')"
           @clicked="$refs.contentModal.show()"
         >
-        {{ $t('main_menu.desktop.content_manager.name') }}
+        {{ $t('main_menu.content_manager.name') }}
           <cc-tooltip
             v-if="missingContent"
             inline
-            :title="$t('main_menu.desktop.missing_content_tip.name')"
-            :content="$t('main_menu.desktop.missing_content_tip.help')"
+            :title="$t('main_menu.missing_content_tip.name')"
+            :content="$t('main_menu.missing_content_tip.help')"
           >
             <v-avatar color="white"><v-icon color="error" large>mdi-folder-off</v-icon></v-avatar>
           </cc-tooltip>
@@ -54,17 +54,17 @@
             <v-icon left>
               {{ userstore.IsLoggedIn ? 'cci-pilot' : 'mdi-account-off-outline' }}
             </v-icon>
-            <span>{{ userstore.IsLoggedIn ? 'Connected' : 'Log In' }}</span>
+            <span>{{ userstore.IsLoggedIn ? $t('main_menu.log_in_button.logged_in') : $t('main_menu.log_in_button.not_logged_in') }}</span>
           </v-btn>
         </v-col>
         <v-col cols="auto" class="ml-1 mr-3"><v-divider vertical class="d-inline" /></v-col>
         <v-col cols="auto" class="text-center mr-3">
           <v-btn small dark outlined @click="bulkExport">
             <v-icon left>mdi-database</v-icon>
-            Create Data Backup
+            {{ $t('main_menu.create_backup_button.name') }}
             <cc-tooltip
               inline
-              content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+              :content="$t('main_menu.create_backup_button.help')"
             >
               <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
             </cc-tooltip>
@@ -75,10 +75,10 @@
             <template v-slot:activator="{ on }">
               <v-btn small dark outlined v-on="on">
                 <v-icon left>mdi-database-refresh</v-icon>
-                Load Data Backup
+                {{ $t('main_menu.load_backup_button.name') }}
                 <cc-tooltip
                   inline
-                  content="COMP/CON relies on your browser to save and load its data. Settings, utilities, and other applications can erase your browser's localStorage cache, resulting in the loss of your COMP/CON data. IT is <b>strongly</b> recommended to back up your data often."
+                  :content="$t('main_menu.load_backup_button.help')"
                 >
                   <v-icon right class="fadeSelect">mdi-help-circle-outline</v-icon>
                 </cc-tooltip>
@@ -86,14 +86,7 @@
             </template>
             <v-card>
               <v-card-text class="pa-6">
-                <p class="text-center heading h3 text--text">
-                  This will OVERWRITE
-                  <b class="accent--text">ALL</b>
-                  local COMP/CON data.
-                  <br />
-                  This
-                  <b class="accent--text">cannot</b>
-                  be undone.
+                <p class="text-center heading h3 text--text" v-html="$t('main_menu.load_backup_button.dialog.text')">
                 </p>
                 <v-file-input
                   v-model="fileValue"
@@ -102,7 +95,7 @@
                   dense
                   hide-details
                   autofocus
-                  placeholder="Select COMP/CON Bulk Export File"
+                  :placeholder="$t('main_menu.load_backup_button.dialog.placeholder')"
                   prepend-icon="mdi-paperclip"
                   @change="bulkImport"
                 />
@@ -121,13 +114,13 @@
                 @mouseenter="ccLog('options')"
                 @click="$refs.optionsModal.show()"
               >
-                Options
+                {{ $t('main_menu.options.name') }}
               </v-btn>
             </v-col>
 
             <v-col cols="auto">
               <v-btn small dark text @mouseenter="ccLog('about')" @click="$refs.aboutModal.show()">
-                About
+                {{ $t('main_menu.about.name') }}
               </v-btn>
             </v-col>
 
@@ -139,13 +132,13 @@
                 @mouseenter="ccLog('about')"
                 @click="$refs.creditsModal.show()"
               >
-                Credits
+                {{ $t('main_menu.credits.name') }}
               </v-btn>
             </v-col>
 
             <v-col cols="auto">
               <v-btn small dark text @mouseenter="ccLog('help')" @click="$refs.helpModal.show()">
-                Help
+                {{ $t('main_menu.help.name') }}
               </v-btn>
             </v-col>
 
@@ -159,14 +152,14 @@
                 href="https://www.patreon.com/compcon"
                 tabindex="0"
               >
-                Support This Project
+              {{ $t('main_menu.support.name') }}
               </v-btn>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-footer>
-    <cc-solo-dialog ref="loginModal" large no-confirm title="CLOUD ACCOUNT">
+    <cc-solo-dialog ref="loginModal" large no-confirm :title="$t('sign_in_dialog.title')">
       <sign-in />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -175,13 +168,13 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      :title="$t('options_dialog.title')"
     >
       <options-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="aboutModal" large no-confirm title="About"><about-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="helpModal" large no-confirm title="Help"><help-page /></cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm title="Credits">
+    <cc-solo-dialog ref="aboutModal" large no-confirm :title="$t('about_dialog.title')"><about-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="helpModal" large no-confirm :title="$t('help_dialog.title')"><help-page /></cc-solo-dialog>
+    <cc-solo-dialog ref="creditsModal" fullscreen no-confirm :title="$t('credits_dialog.title')">
       <credits-page />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -190,7 +183,7 @@
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      :title="$t('lcp_management_dialog.title')"
     >
       <content-page />
     </cc-solo-dialog>
