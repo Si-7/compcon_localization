@@ -2,11 +2,19 @@
   "main_menu": {
     "compendium": {
       "name": "Compendium",
-      "help": "Equipment Database"
+      "help": "Equipment Database",
+      "mobile": {
+        "name": "Compendium",
+        "help": "Equipment Database"
+      }
     },
     "pilot_roster": {
       "name": "Pilot Roster",
-      "help": "Manage Pilots"
+      "help": "Manage Pilots",
+      "mobile": {
+        "name": "Roster",
+        "help": "Manage Pilots"
+      }
     },
     "encounter_toolkit": {
       "name": "Encounter Toolkit",
@@ -14,13 +22,18 @@
     },
     "content_manager": {
       "name": "Content Manager",
-      "help": "Import Content Packs"
+      "help": "Import Content Packs",
+      "mobile": {
+        "name": "Content",
+        "help": "Manage LCP Data"
+      }
     },
     "missing_content_tip": {
       "name": "Unloadble Content Detected",
       "help": "COMP/CON has detected one or more items that are missing Lancer Content Pack data. These items cannot be loaded without installing and activated LCPs. These issues may be able to be resolved in the Content Manager."
     },
     "log_in_button": {
+      "help": "COMP/CON Account",
       "logged_in": "Connected",
       "not_logged_in": "Log In"
     },
@@ -49,7 +62,10 @@
       "name": "Help"
     },
     "support": {
-      "name": "Support This Project"
+      "name": "Support This Project",
+      "mobile": {
+        "name": "Support"
+      }
     }
   },
   "sign_in_dialog": {

@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <cc-solo-dialog ref="loginModal" large no-confirm title="CLOUD ACCOUNT">
+    <cc-solo-dialog ref="loginModal" large no-confirm :title="$t('sign_in_dialog.title')">
       <sign-in />
     </cc-solo-dialog>
     <cc-solo-dialog
@@ -9,26 +9,26 @@
       no-confirm
       no-pad
       no-title-clip
-      title="Options & User Profile"
+      :title="$t('options_dialog.title')"
     >
       <options-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="aboutModal" large no-confirm title="About">
+    <cc-solo-dialog ref="aboutModal" large no-confirm :title="$t('about_dialog.title')">
       <about-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="creditsModal" large no-confirm title="Credits">
+    <cc-solo-dialog ref="creditsModal" large no-confirm :title="$t('credits_dialog.title')">
       <credits-page />
     </cc-solo-dialog>
-    <cc-solo-dialog ref="helpModal" large no-confirm title="Help"
-      ><help-page
-    /></cc-solo-dialog>
+    <cc-solo-dialog ref="helpModal" large no-confirm :title="$t('help_dialog.title')">
+      <help-page/>
+    </cc-solo-dialog>
     <cc-solo-dialog
       ref="contentModal"
       no-title-clip
       no-pad
       large
       no-confirm
-      title="Manage Content Packs"
+      :title="$t('lcp_management_dialog.title')"
     >
       <content-page />
     </cc-solo-dialog>
@@ -66,20 +66,20 @@
       <v-row dense justify="space-around">
         <mobile-btn
           icon="mdi-book"
-          title="Compendium"
-          text="Equipment Database"
+          :title="$t('main_menu.compendium.mobile.name')"
+          :text="$t('main_menu.compendium.mobile.help')"
           :to="'/compendium'"
         />
         <mobile-btn
           icon="cci-pilot"
-          title="Roster"
-          text="Manage Pilots"
+          :title="$t('main_menu.pilot_roster.mobile.name')"
+          :text="$t('main_menu.pilot_roster.mobile.help')"
           :to="'/pilot_management'"
         />
         <mobile-btn
           icon="mdi-flask-empty-plus-outline"
-          title="Content"
-          text="Manage LCP Data"
+          :title="$t('main_menu.content_manager.mobile.name')"
+          :text="$t('main_menu.content_manager.mobile.help')"
           @clicked="$refs.contentModal.show()"
         />
         <mobile-btn
@@ -88,8 +88,8 @@
               ? 'mdi-account-check'
               : 'mdi-account-off-outline'
           "
-          :title="userstore.IsLoggedIn ? 'Connected' : 'Log In'"
-          text="COMP/CON Account"
+          :title="userstore.IsLoggedIn ? $t('main_menu.log_in_button.logged_in') : $t('main_menu.log_in_button.not_logged_in')"
+          :text="$t('main_menu.log_in_button.help')"
           @clicked="$refs.loginModal.show()"
         />
       </v-row>
@@ -97,19 +97,19 @@
 
       <v-footer color="primary" fixed style="padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px))">
         <v-btn x-small dark outlined @click="$refs.optionsModal.show()"
-          >Options</v-btn
+          >{{ $t('main_menu.options.name') }}</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.aboutModal.show()"
-          >About</v-btn
+          >{{ $t('main_menu.about.name') }}</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.creditsModal.show()"
-          >Credits</v-btn
+          >{{ $t('main_menu.credits.name') }}</v-btn
         >
         <v-spacer />
         <v-btn x-small dark outlined @click="$refs.helpModal.show()"
-          >Help</v-btn
+          >{{ $t('main_menu.help.name') }}</v-btn
         >
         <v-spacer />
         <v-btn
@@ -120,7 +120,7 @@
           dark
           outlined
         >
-          Support
+          {{ $t('main_menu.support.mobile.name') }}
         </v-btn>
       </v-footer>
     </v-container>
